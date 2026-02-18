@@ -124,4 +124,5 @@ When a user asks a question:
 ---
 
 ## 📜 License
+Copyright (c) 2026 MSG-KG Contributors. All Rights Reserved.
 Privileged & Confidential — Enterprise Internal Use Only.
