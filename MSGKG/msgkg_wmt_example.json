@@ -1,0 +1,66 @@
+{
+  "Company": {
+    "ticker": "WMT",
+    "cik": "104169"
+  },
+  "Mission": {
+    "text": "help people save money and live better"
+  },
+  "StrategicObjective": [
+    {
+      "text": "expand omni-channel retail",
+      "objective_type": "growth"
+    },
+    {
+      "text": "maintain price leadership",
+      "objective_type": "cost_leadership"
+    }
+  ],
+  "Capability": [
+    {
+      "name": "omni-channel logistics"
+    },
+    {
+      "name": "digital marketplace platform"
+    }
+  ],
+  "Initiative": [
+    {
+      "name": "Walmart+ membership",
+      "status": "expanding"
+    }
+  ],
+  "RiskTheme": [
+    {
+      "name": "inflation",
+      "risk_category": "macro"
+    }
+  ],
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "expand omni-channel retail"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "expand omni-channel retail"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "omni-channel logistics"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "inflation"
+    ]
+  ]
+}

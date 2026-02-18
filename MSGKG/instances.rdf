@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY msg  "http://msgkg.io/ontology#" >
+    <!ENTITY inst "http://msgkg.io/instances#" >
+]>
+<!--
+    MSGKG v1 — Instance Data
+    Populated from nodes.csv + edges.csv (WMT seed graph)
+    Schema: http://msgkg.io/ontology
+-->
+<rdf:RDF
+    xmlns:owl  = "http://www.w3.org/2002/07/owl#"
+    xmlns:xsd  = "http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rdf  = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:msg  = "http://msgkg.io/ontology#"
+    xmlns:inst = "http://msgkg.io/instances#"
+    xml:base   = "http://msgkg.io/instances">
+
+    <!-- Import the schema so Protégé resolves class/property IRIs -->
+    <owl:Ontology rdf:about="http://msgkg.io/instances">
+        <rdfs:label>MSGKG Instances — WMT seed graph</rdfs:label>
+        <owl:imports rdf:resource="http://msgkg.io/ontology"/>
+    </owl:Ontology>
+
+
+    <!-- ===================================================
+         Nodes
+         =================================================== -->
+
+    <!-- Company: Walmart -->
+    <msg:Company rdf:about="&inst;Company_WMT">
+        <rdfs:label>Walmart Inc.</rdfs:label>
+        <msg:ticker>WMT</msg:ticker>
+        <msg:cik>104169</msg:cik>
+        <msg:companyName>WMT</msg:companyName>
+    </msg:Company>
+
+    <!-- Mission -->
+    <msg:Mission rdf:about="&inst;Mission_WMT_mission">
+        <rdfs:label>WMT Mission</rdfs:label>
+        <msg:text>help people save money and live better</msg:text>
+    </msg:Mission>
+
+    <!-- Strategic Objectives -->
+    <msg:StrategicObjective rdf:about="&inst;StrategicObjective_WMT_expand-omni-channel-retail">
+        <rdfs:label>Expand Omni-Channel Retail</rdfs:label>
+        <msg:text>expand omni-channel retail</msg:text>
+        <msg:objectiveType>growth</msg:objectiveType>
+    </msg:StrategicObjective>
+
+    <msg:StrategicObjective rdf:about="&inst;StrategicObjective_WMT_maintain-price-leadership">
+        <rdfs:label>Maintain Price Leadership</rdfs:label>
+        <msg:text>maintain price leadership</msg:text>
+        <msg:objectiveType>cost_leadership</msg:objectiveType>
+    </msg:StrategicObjective>
+
+    <!-- Capabilities -->
+    <msg:Capability rdf:about="&inst;Capability_WMT_omni-channel-logistics">
+        <rdfs:label>Omni-Channel Logistics</rdfs:label>
+        <msg:capabilityName>omni-channel logistics</msg:capabilityName>
+    </msg:Capability>
+
+    <msg:Capability rdf:about="&inst;Capability_WMT_digital-marketplace-platform">
+        <rdfs:label>Digital Marketplace Platform</rdfs:label>
+        <msg:capabilityName>digital marketplace platform</msg:capabilityName>
+    </msg:Capability>
+
+    <!-- Initiative -->
+    <msg:Initiative rdf:about="&inst;Initiative_WMT_walmart-membership">
+        <rdfs:label>Walmart+ Membership</rdfs:label>
+        <msg:initiativeName>Walmart+ membership</msg:initiativeName>
+        <msg:status>expanding</msg:status>
+    </msg:Initiative>
+
+    <!-- Risk Theme -->
+    <msg:RiskTheme rdf:about="&inst;RiskTheme_WMT_inflation">
+        <rdfs:label>Inflation Risk</rdfs:label>
+        <msg:riskName>inflation</msg:riskName>
+        <msg:riskCategory>macro</msg:riskCategory>
+    </msg:RiskTheme>
+
+
+    <!-- ===================================================
+         Edges  (object-property assertions)
+         =================================================== -->
+
+    <!-- Company:WMT  -[hasMission]->  Mission:WMT:mission -->
+    <rdf:Description rdf:about="&inst;Company_WMT">
+        <msg:hasMission rdf:resource="&inst;Mission_WMT_mission"/>
+    </rdf:Description>
+
+    <!-- Company:WMT  -[statesObjective]->  StrategicObjective:WMT:expand-omni-channel-retail -->
+    <rdf:Description rdf:about="&inst;Company_WMT">
+        <msg:statesObjective rdf:resource="&inst;StrategicObjective_WMT_expand-omni-channel-retail"/>
+    </rdf:Description>
+
+    <!-- Capability:WMT:digital-marketplace-platform  -[supportsObjective]->  StrategicObjective:WMT:expand-omni-channel-retail -->
+    <rdf:Description rdf:about="&inst;Capability_WMT_digital-marketplace-platform">
+        <msg:supportsObjective rdf:resource="&inst;StrategicObjective_WMT_expand-omni-channel-retail"/>
+    </rdf:Description>
+
+    <!-- Initiative:WMT:walmart-membership  -[initiativeEnables]->  Capability:WMT:omni-channel-logistics -->
+    <rdf:Description rdf:about="&inst;Initiative_WMT_walmart-membership">
+        <msg:initiativeEnables rdf:resource="&inst;Capability_WMT_omni-channel-logistics"/>
+    </rdf:Description>
+
+    <!-- Company:WMT  -[exposedTo]->  RiskTheme:WMT:inflation -->
+    <rdf:Description rdf:about="&inst;Company_WMT">
+        <msg:exposedTo rdf:resource="&inst;RiskTheme_WMT_inflation"/>
+    </rdf:Description>
+
+</rdf:RDF>

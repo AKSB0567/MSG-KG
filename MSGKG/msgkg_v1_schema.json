@@ -1,0 +1,109 @@
+{
+  "nodes": {
+    "Company": [
+      "cik",
+      "ticker",
+      "name",
+      "fiscal_year"
+    ],
+    "Mission": [
+      "text",
+      "normalized_theme",
+      "confidence"
+    ],
+    "Vision": [
+      "text",
+      "time_horizon"
+    ],
+    "StrategicObjective": [
+      "text",
+      "objective_type",
+      "priority"
+    ],
+    "Capability": [
+      "name",
+      "capability_domain"
+    ],
+    "Initiative": [
+      "name",
+      "status",
+      "start_year"
+    ],
+    "RiskTheme": [
+      "name",
+      "risk_category"
+    ],
+    "Portfolio": [
+      "portfolio_id",
+      "owner_type"
+    ],
+    "Security": [
+      "ticker",
+      "security_type"
+    ],
+    "Holding": [
+      "shares",
+      "weight"
+    ],
+    "Document": [
+      "doc_type",
+      "url",
+      "filing_year"
+    ],
+    "Span": [
+      "start",
+      "end",
+      "confidence"
+    ]
+  },
+  "edges": {
+    "hasMission": [
+      "Company",
+      "Mission"
+    ],
+    "statesObjective": [
+      "Company",
+      "StrategicObjective"
+    ],
+    "buildsCapability": [
+      "Company",
+      "Capability"
+    ],
+    "pursues": [
+      "Company",
+      "Initiative"
+    ],
+    "initiativeEnables": [
+      "Initiative",
+      "Capability"
+    ],
+    "supportsObjective": [
+      "Capability",
+      "StrategicObjective"
+    ],
+    "exposedTo": [
+      "Company",
+      "RiskTheme"
+    ],
+    "holds": [
+      "Portfolio",
+      "Holding"
+    ],
+    "holdingOf": [
+      "Holding",
+      "Security"
+    ],
+    "issuedBy": [
+      "Security",
+      "Company"
+    ],
+    "assertedIn": [
+      "Mission",
+      "Span"
+    ],
+    "inDocument": [
+      "Span",
+      "Document"
+    ]
+  }
+}

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl  "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd  "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf  "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY msg  "http://msgkg.io/ontology#" >
+]>
+<rdf:RDF
+    xmlns:owl  = "http://www.w3.org/2002/07/owl#"
+    xmlns:xsd  = "http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs = "http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:rdf  = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:msg  = "http://msgkg.io/ontology#"
+    xml:base   = "http://msgkg.io/ontology">
+
+    <!-- ===================================================
+         Ontology Declaration
+         =================================================== -->
+    <owl:Ontology rdf:about="http://msgkg.io/ontology">
+        <rdfs:label>MSGKG Ontology v1</rdfs:label>
+        <rdfs:comment>Mission, Strategy, and Goals Knowledge Graph ontology. Covers company strategy, capabilities, initiatives, risk themes, and portfolio holdings.</rdfs:comment>
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+
+
+    <!-- ===================================================
+         Classes
+         =================================================== -->
+
+    <owl:Class rdf:about="&msg;Company">
+        <rdfs:label>Company</rdfs:label>
+        <rdfs:comment>A publicly listed or private company, identified by CIK and/or ticker.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Mission">
+        <rdfs:label>Mission</rdfs:label>
+        <rdfs:comment>A company's stated mission — the core purpose it exists to fulfill.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Vision">
+        <rdfs:label>Vision</rdfs:label>
+        <rdfs:comment>A forward-looking aspiration describing what the company wants to become.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;StrategicObjective">
+        <rdfs:label>Strategic Objective</rdfs:label>
+        <rdfs:comment>A specific, prioritised goal that the company is pursuing to advance its strategy.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Capability">
+        <rdfs:label>Capability</rdfs:label>
+        <rdfs:comment>An organisational or technical capability that the company builds or maintains.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Initiative">
+        <rdfs:label>Initiative</rdfs:label>
+        <rdfs:comment>A concrete programme or project the company is actively pursuing.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;RiskTheme">
+        <rdfs:label>Risk Theme</rdfs:label>
+        <rdfs:comment>A thematic risk category to which the company is exposed.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Portfolio">
+        <rdfs:label>Portfolio</rdfs:label>
+        <rdfs:comment>An investment portfolio, identified by an owner and portfolio ID.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Security">
+        <rdfs:label>Security</rdfs:label>
+        <rdfs:comment>A tradeable financial security such as a stock or bond.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Holding">
+        <rdfs:label>Holding</rdfs:label>
+        <rdfs:comment>A position in a security held by a portfolio, recording shares and weight.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Document">
+        <rdfs:label>Document</rdfs:label>
+        <rdfs:comment>A source document (e.g. 10-K, proxy filing) from which knowledge is extracted.</rdfs:comment>
+    </owl:Class>
+
+    <owl:Class rdf:about="&msg;Span">
+        <rdfs:label>Span</rdfs:label>
+        <rdfs:comment>A character-level span within a document that provides provenance for an assertion.</rdfs:comment>
+    </owl:Class>
+
+
+    <!-- ===================================================
+         Object Properties
+         =================================================== -->
+
+    <owl:ObjectProperty rdf:about="&msg;hasMission">
+        <rdfs:label>has mission</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&msg;Mission"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;hasVision">
+        <rdfs:label>has vision</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&msg;Vision"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;statesObjective">
+        <rdfs:label>states objective</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&msg;StrategicObjective"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;buildsCapability">
+        <rdfs:label>builds capability</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&msg;Capability"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;pursues">
+        <rdfs:label>pursues</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&msg;Initiative"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;initiativeEnables">
+        <rdfs:label>initiative enables</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Initiative"/>
+        <rdfs:range  rdf:resource="&msg;Capability"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;supportsObjective">
+        <rdfs:label>supports objective</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Capability"/>
+        <rdfs:range  rdf:resource="&msg;StrategicObjective"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;exposedTo">
+        <rdfs:label>exposed to</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&msg;RiskTheme"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;holds">
+        <rdfs:label>holds</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Portfolio"/>
+        <rdfs:range  rdf:resource="&msg;Holding"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;holdingOf">
+        <rdfs:label>holding of</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Holding"/>
+        <rdfs:range  rdf:resource="&msg;Security"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;issuedBy">
+        <rdfs:label>issued by</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Security"/>
+        <rdfs:range  rdf:resource="&msg;Company"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;assertedIn">
+        <rdfs:label>asserted in</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Mission"/>
+        <rdfs:range  rdf:resource="&msg;Span"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&msg;inDocument">
+        <rdfs:label>in document</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Span"/>
+        <rdfs:range  rdf:resource="&msg;Document"/>
+    </owl:ObjectProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Company
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;cik">
+        <rdfs:label>CIK</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;ticker">
+        <rdfs:label>ticker</rdfs:label>
+        <!-- shared by Company and Security -->
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;companyName">
+        <rdfs:label>company name</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;fiscalYear">
+        <rdfs:label>fiscal year</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Company"/>
+        <rdfs:range  rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Mission
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;text">
+        <rdfs:label>text</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;normalizedTheme">
+        <rdfs:label>normalized theme</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Mission"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;confidence">
+        <rdfs:label>confidence</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Vision
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;timeHorizon">
+        <rdfs:label>time horizon</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Vision"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — StrategicObjective
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;objectiveType">
+        <rdfs:label>objective type</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;StrategicObjective"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;priority">
+        <rdfs:label>priority</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;StrategicObjective"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Capability
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;capabilityName">
+        <rdfs:label>capability name</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Capability"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;capabilityDomain">
+        <rdfs:label>capability domain</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Capability"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Initiative
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;initiativeName">
+        <rdfs:label>initiative name</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Initiative"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;status">
+        <rdfs:label>status</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Initiative"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;startYear">
+        <rdfs:label>start year</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Initiative"/>
+        <rdfs:range  rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — RiskTheme
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;riskName">
+        <rdfs:label>risk name</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;RiskTheme"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;riskCategory">
+        <rdfs:label>risk category</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;RiskTheme"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Portfolio
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;portfolioId">
+        <rdfs:label>portfolio ID</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Portfolio"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;ownerType">
+        <rdfs:label>owner type</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Portfolio"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Security
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;securityType">
+        <rdfs:label>security type</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Security"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Holding
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;shares">
+        <rdfs:label>shares</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Holding"/>
+        <rdfs:range  rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;weight">
+        <rdfs:label>weight</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Holding"/>
+        <rdfs:range  rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Document
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;docType">
+        <rdfs:label>document type</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Document"/>
+        <rdfs:range  rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;url">
+        <rdfs:label>URL</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Document"/>
+        <rdfs:range  rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;filingYear">
+        <rdfs:label>filing year</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Document"/>
+        <rdfs:range  rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+
+
+    <!-- ===================================================
+         Datatype Properties — Span
+         =================================================== -->
+
+    <owl:DatatypeProperty rdf:about="&msg;spanStart">
+        <rdfs:label>span start</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Span"/>
+        <rdfs:range  rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+
+    <owl:DatatypeProperty rdf:about="&msg;spanEnd">
+        <rdfs:label>span end</rdfs:label>
+        <rdfs:domain rdf:resource="&msg;Span"/>
+        <rdfs:range  rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+
+</rdf:RDF>

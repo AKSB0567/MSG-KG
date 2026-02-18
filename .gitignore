@@ -1,0 +1,24 @@
+# Professional Python GitIgnore
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+build/
+dist/
+.DS_Store
+.idea/
+.vscode/
+.streamlit/config.toml
+data/item1/
+data/chunks/
+data/kg_json/
+MSGKG/nodes.csv
+MSGKG/edges.csv
+*.log
+*.webp
+*.png
+*.jpg

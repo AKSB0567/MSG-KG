@@ -1,0 +1,169 @@
+/* 
+   Professional Corporate UI Theme (Financial/Wells Fargo Style) 
+   Palette: Deep Red (#CD1515), Warm Gray (#F4F3F2), Dark Slate (#333333), Gold (#AA8F00)
+*/
+
+/* 1. Global Reset & Typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    color: #333333;
+}
+
+/* Background */
+.stApp {
+    background-color: #F8F9FA; /* Light corporate gray background */
+}
+
+/* 2. Main Fixed Header (Sticky) */
+/* We simulate this by styling the top container or using a custom div */
+header[data-testid="stHeader"] {
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #CD1515; /* Corporate Red Accent */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 3. Sidebar Panel (Professional Drawer) */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E0E0E0;
+}
+
+div[data-testid="stSidebarNav"] {
+    background-color: #F4F3F2;
+    padding-top: 1rem;
+}
+
+/* 4. Primary Navigation (Tabs) */
+div[data-baseweb="tab-list"] {
+    background-color: #FFFFFF;
+    padding: 10px 20px 0 20px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #E0E0E0;
+    gap: 8px;
+}
+
+div[data-baseweb="tab"] {
+    font-weight: 500;
+    color: #555555;
+    border: none;
+    background-color: transparent;
+    padding: 10px 20px;
+}
+
+div[data-baseweb="tab"][aria-selected="true"] {
+    background-color: #CD1515; /* Active Tab Red */
+    color: #FFFFFF !important;
+    border-radius: 4px 4px 0 0;
+}
+
+/* 5. Metrics & Cards (Panel Look) */
+div[data-testid="metric-container"] {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-left: 4px solid #CD1515; /* Accent left border */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+div[data-testid="metric-container"]:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+/* Label styling inside metrics */
+div[data-testid="metric-container"] label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #666666;
+    letter-spacing: 0.5px;
+}
+
+/* 6. Buttons (Primary Action) */
+div.stButton > button {
+    background-color: #CD1515; /* Corporate Red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+div.stButton > button:hover {
+    background-color: #A50F0F; /* Darker Red */
+    color: white;
+    border: none;
+}
+
+div.stButton > button:focus {
+    box-shadow: 0 0 0 2px rgba(205, 21, 21, 0.4);
+}
+
+/* 7. Sub-Section Headers (Hero/Title) */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #CD1515;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333333;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #444444;
+}
+
+/* 8. Panel Headers (Custom Class from app.py) */
+.panel-header {
+    background-color: #F4F3F2;
+    color: #333333;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    border-left: 4px solid #AA8F00; /* Gold Accent */
+    margin-bottom: 15px;
+}
+
+/* 9. Footer (Fixed Bottom) */
+footer {
+    visibility: hidden;
+}
+
+.footer-custom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333333;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8rem;
+    z-index: 999;
+}
+
+/* 10. Utility: Alerts/Info */
+div[data-baseweb="notification"] {
+    border-radius: 4px;
+    border-left: 4px solid #0078D4; /* Info Blue */
+}
+
+/* 11. Plotly Chart Container */
+.js-plotly-plot .plotly .modebar {
+    left: 50% !important;
+    transform: translateX(-50%);
+}
