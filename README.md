@@ -66,7 +66,7 @@ streamlit run app.py
 Access the app at `http://localhost:8501`.
 
 ### 2. Navigating the Interface
-The application uses an **Amazon-style 2-column layout**:
+The application uses an **style 2-column layout**:
 
 #### 🏗️ Left Filter Panel
 This dedicated column contains all context controls:
