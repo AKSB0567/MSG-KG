@@ -13,7 +13,7 @@ dist/
 .idea/
 .vscode/
 .streamlit/config.toml
-data/item1/
+# data/item1/
 # Allow chunks and KG for cloud deployment
 # data/chunks/
 # MSGKG/nodes.csv
