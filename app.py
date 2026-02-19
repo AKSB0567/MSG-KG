@@ -1,29 +1,4 @@
-"""
-MSG-KG v1.0 — KG-RAG Portfolio Intelligence Interface
-Streamlit application with 5 tabs: Overview, Ask KG-RAG, Comparison,
-Evidence Explorer, KG View.
-"""
-
 import streamlit as st
-"""
-MSG-KG: Portfolio Intelligence Dashboard
-========================================
-Main Streamlit application that provides a professional interface for 
-exploring the Mission-Strategy-Goals Knowledge Graph.
-
-Features:
-- Full-width corporate header & footer
-- Amazon-style left-sidebar filter panel
-- Hybrid RAG (Vector + Graph) exploration
-- Comparative strategy scorecards & heatmaps
-"""
-
-import os, re, json, pathlib, sys
-import pandas as pd
-import networkx as nx
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # ── Page Config ──────────────────────────────────────────────────────────
 st.set_page_config(
@@ -32,6 +7,29 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+
+# MSG-KG v1.0 — KG-RAG Portfolio Intelligence Interface
+# Streamlit application with 5 tabs: Overview, Ask KG-RAG, Comparison,
+# Evidence Explorer, KG View.
+
+# import streamlit as st  (Moved to top)
+# MSG-KG: Portfolio Intelligence Dashboard
+# ========================================
+# Main Streamlit application that provides a professional interface for 
+# exploring the Mission-Strategy-Goals Knowledge Graph.
+#
+# Features:
+# - Full-width corporate header & footer
+# - Amazon-style left-sidebar filter panel
+# - Hybrid RAG (Vector + Graph) exploration
+# - Comparative strategy scorecards & heatmaps
+
+import os, re, json, pathlib, sys
+import pandas as pd
+import networkx as nx
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # ── Paths ────────────────────────────────────────────────────────────────
 BASE_DIR   = pathlib.Path(__file__).parent
