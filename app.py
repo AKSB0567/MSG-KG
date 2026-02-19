@@ -653,15 +653,6 @@ with tab1:
                 st.markdown(f"- {cleaned}")
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # Filing metadata
-    st.markdown("---")
-    st.markdown("#### 📄 Filing Metadata")
-    item1_path = ITEM1_DIR / f"{company}_item1.txt"
-    if item1_path.exists():
-        text = item1_path.read_text(encoding="utf-8")
-        st.success(f"Item 1 text loaded: **{len(text):,}** characters")
-    else:
-        st.warning("Item 1 text not found. Run `python sec_extractor.py` first.")
 
 
 # ═══════════════════════════════════════════════════════════════════════
