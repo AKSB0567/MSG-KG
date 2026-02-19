@@ -1,5 +1,7 @@
 # MSG-KG: Portfolio Intelligence System 🧠📊
 
+**[🚀 MSG-KG Live Demo](https://msg-kg.streamlit.app/)**
+
 **Mission-Strategy-Goals Knowledge Graph (MSG-KG)** is a financial intelligence platform that combines **Retrieval-Augmented Generation (RAG)** with structured **Knowledge Graphs (KG)** to analyze corporate strategy alignment.
 
 Built for **Finance Research**, this system ingests SEC 10-K filings, constructs a graph of company missions, strategies, and risks, and provides an interactive dashboard for comparative analysis.
