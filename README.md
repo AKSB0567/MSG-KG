@@ -123,6 +123,18 @@ When a user asks a question:
 
 ---
 
+## 🌐 Live Deployment (Streamlit Cloud)
+
+To deploy this dashboard to a public URL:
+1.  **Authorize**: Connect your GitHub account to [Streamlit Community Cloud](https://share.streamlit.io/).
+2.  **Deploy**: Select this repository and `app.py` as the main entry point.
+3.  **Secrets**: In the Streamlit Cloud dashboard, go to **Settings > Secrets** and paste your token:
+    ```toml
+    HUGGINGFACE_TOKEN = "your_token_here"
+    ```
+
+---
+
 ## 📜 License
 Copyright (c) 2026 MSG-KG Contributors. All Rights Reserved.
 Privileged & Confidential — Enterprise Internal Use Only.

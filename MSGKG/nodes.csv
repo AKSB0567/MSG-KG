@@ -1,0 +1,109 @@
+:ID,:LABEL,ticker,cik,name,text,objective_type,status,risk_category
+Company:AAPL,Company,AAPL,320193,Apple Inc.,,,,
+Mission:AAPL:mission,Mission,,,,(the “sec”).,,,
+StrategicObjective:AAPL:the-company-is-focused-on-expanding-its-market-opportunities,StrategicObjective,,,,"The Company is focused on expanding its market opportunities related to smartphones, personal computers, tablets, wearables and accessories, and services.",growth,,
+StrategicObjective:AAPL:2024-form-10-k-2-the-company-s-ability-to-compete-successful,StrategicObjective,,,,"| 2024 Form 10-K | 2
+The Company’s ability to compete successfully depends heavily on ensuring the continuing and timely introduction of innovative new products, services and technologies to the marketplace.",innovation,,
+StrategicObjective:AAPL:many-of-the-company-s-competitors-seek-to-compete-primarily-,StrategicObjective,,,,"Many of the Company’s competitors seek to compete primarily through aggressive pricing and very low cost structures, and by imitating the Company’s products and infringing on its intellectual property.",cost_leadership,,
+StrategicObjective:AAPL:this-includes-press-releases-and-other-information-about-fin,StrategicObjective,,,,"This includes press releases and other information about financial performance, information on environmental, social and governance matters, and details related to the Company’s annual meeting of shareholders.",sustainability,,
+Capability:AAPL:cloud,Capability,,,cloud,,,,
+Capability:AAPL:manufacturing,Capability,,,manufacturing,,,,
+Capability:AAPL:research-and-development,Capability,,,research and development,,,,
+Initiative:AAPL:apple-authorized-service-network-for-repair-and-replacement-,Initiative,,,Apple authorized service network for repair and replacement service,,,active,
+Initiative:AAPL:digital-content-the-company-operates-various-platform,Initiative,,,"Digital Content
+The Company operates various platform",,,active,
+Initiative:AAPL:payment-services-the-company-offers-payment-service,Initiative,,,"Payment Services
+The Company offers payment service",,,active,
+RiskTheme:AAPL:economic,RiskTheme,,,economic,,,,macro
+RiskTheme:AAPL:government,RiskTheme,,,government,,,,regulatory
+RiskTheme:AAPL:competi,RiskTheme,,,competi,,,,competitive
+RiskTheme:AAPL:inventory,RiskTheme,,,inventory,,,,supply_chain
+RiskTheme:AAPL:cybersecurity,RiskTheme,,,cybersecurity,,,,technology
+Company:AMD,Company,AMD,2488,Advanced Micro Devices,,,,
+Mission:AMD:mission,Mission,,,,(sec) reports and filings.,,,
+StrategicObjective:AMD:the-second-is-expanding-the-deep-and-collaborative-partnersh,StrategicObjective,,,,The second is expanding the deep and collaborative partnerships we have established across the ecosystem to accelerate deployments of AMD based AI solutions at scale.,growth,,
+StrategicObjective:AMD:we-drive-innovation-through-high-performance-and-adaptive-co,StrategicObjective,,,,"We drive innovation through high-performance and adaptive computing technology, software and product leadership.",innovation,,
+StrategicObjective:AMD:government-regulations-our-global-operations-are-subject-to-,StrategicObjective,,,,"Government Regulations
+Our global operations are subject to various United States and foreign laws and regulations, including, but not limited to, those relating to export control, customs, intellectual property, data privacy and security, climate, environmental, health and safety requirements, cybersecurity, tax, employment, competition and anti-trust, anti-corruption, anti-bribery, conflict minerals, corporate governance, financial and other disclosures, and AI.",sustainability,,
+Capability:AMD:cloud,Capability,,,cloud,,,,
+Capability:AMD:artificial-intelligence,Capability,,,artificial intelligence,,,,
+Capability:AMD:manufacturing,Capability,,,manufacturing,,,,
+Capability:AMD:research-and-development,Capability,,,research and development,,,,
+Initiative:AMD:ryzen-9000-series-processors-featuring-zen-5-cores,Initiative,,,Ryzen 9000 series processors featuring “Zen 5” cores,,,active,
+Initiative:AMD:amd-ryzen-ai-pro-300-series,Initiative,,,AMD Ryzen AI PRO 300 series,,,active,
+Initiative:AMD:soc-products-and-development-service,Initiative,,,SoC products and development service,,,active,
+RiskTheme:AMD:regulat,RiskTheme,,,regulat,,,,regulatory
+RiskTheme:AMD:competi,RiskTheme,,,competi,,,,competitive
+RiskTheme:AMD:inventory,RiskTheme,,,inventory,,,,supply_chain
+RiskTheme:AMD:cybersecurity,RiskTheme,,,cybersecurity,,,,technology
+RiskTheme:AMD:workforce,RiskTheme,,,workforce,,,,operational
+Company:TGT,Company,TGT,27419,Target Corporation,,,,
+Mission:TGT:mission,Mission,,,,(sec).,,,
+StrategicObjective:TGT:our-strategy-aims-to-expand-target-s-relevancy-in-consumers-,StrategicObjective,,,,"Our strategy aims to expand Target’s relevancy in consumers’ lives and drive traffic, sales
+,
+and market share growth.",growth,,
+StrategicObjective:TGT:technology-a-connected-ecosystem-of-data-insights-and-techno,StrategicObjective,,,,"•
+Technology – A connected ecosystem of data, insights, and technology, including artificial intelligence
+.",innovation,,
+StrategicObjective:TGT:sustainability-resiliency-in-our-business-model,StrategicObjective,,,,"•
+Sustainability – Resiliency in our business model.",sustainability,,
+Capability:TGT:supply-chain,Capability,,,supply chain,,,,
+Capability:TGT:cloud,Capability,,,cloud,,,,
+Capability:TGT:artificial-intelligence,Capability,,,artificial intelligence,,,,
+Initiative:TGT:target-circle-card-program,Initiative,,,Target Circle Card program,,,active,
+RiskTheme:TGT:compliance,RiskTheme,,,compliance,,,,regulatory
+RiskTheme:TGT:competi,RiskTheme,,,competi,,,,competitive
+RiskTheme:TGT:supply-chain,RiskTheme,,,supply chain,,,,supply_chain
+RiskTheme:TGT:cybersecurity,RiskTheme,,,cybersecurity,,,,technology
+RiskTheme:TGT:workforce,RiskTheme,,,workforce,,,,operational
+Company:WMT,Company,WMT,104169,Walmart Inc.,,,,
+Mission:WMT:mission,Mission,,,,"(""sec"") or may file with or furnish to the sec in the future, and prior or future public announcements and presentations that we or our management have made or may make, include or may include, or incorporate or may incorporate by reference, statements that may be deemed to be ""forward-looking statements"" within the meaning of section 21e of the securities exchange act of 1934, as amended (the ""exchange act""), that are intended to enjoy the protection of the safe harbor for forward-looking state",,,
+StrategicObjective:WMT:in-2018-we-expanded-our-ecommerce-and-digital-presence-throu,StrategicObjective,,,,"In 2018, we expanded our eCommerce and digital presence through acquisitions with our majority stakes in Flipkart and PhonePe in India.",growth,,
+StrategicObjective:WMT:through-innovation-we-strive-to-continuously-improve-a-custo,StrategicObjective,,,,"Through innovation, we strive to continuously improve a customer-centric experience that seamlessly integrates our eCommerce and retail stores in an omni-channel offering that saves time for our customers.",innovation,,
+StrategicObjective:WMT:everyday-low-cost-edlc-is-our-commitment-to-control-expenses,StrategicObjective,,,,"Everyday low cost (""EDLC"") is our commitment to control expenses so our cost savings can be passed along to our customers.",cost_leadership,,
+StrategicObjective:WMT:these-forward-looking-statements-may-relate-to-macroeconomic,StrategicObjective,,,,"These forward-looking statements may relate to:
+•
+macroeconomic, geopolitical, and business conditions, trends and events around the world and in the markets in which we operate, including inflation or deflation, generally, and in certain product categories, the impact of supply chain challenges, tariffs and recessionary pressures;
+•
+the growth of our business or change in our competitive position in the future, or in or over particular periods, both generally, and with respect to particular mar",sustainability,,
+Capability:WMT:supply-chain,Capability,,,supply chain,,,,
+Capability:WMT:logistics,Capability,,,logistics,,,,
+Capability:WMT:digital-platform,Capability,,,digital platform,,,,
+Capability:WMT:artificial-intelligence,Capability,,,artificial intelligence,,,,
+Capability:WMT:data-analytics,Capability,,,data analytics,,,,
+Initiative:WMT:commerce-initiative,Initiative,,,Commerce initiative,,,active,
+Initiative:WMT:store-service,Initiative,,,Store service,,,active,
+Initiative:WMT:commerce-websites-and-service,Initiative,,,Commerce websites and service,,,active,
+RiskTheme:WMT:inflation,RiskTheme,,,inflation,,,,macro
+RiskTheme:WMT:regulat,RiskTheme,,,regulat,,,,regulatory
+RiskTheme:WMT:competi,RiskTheme,,,competi,,,,competitive
+RiskTheme:WMT:supply-chain,RiskTheme,,,supply chain,,,,supply_chain
+RiskTheme:WMT:cybersecurity,RiskTheme,,,cybersecurity,,,,technology
+Company:TSN,Company,TSN,100493,Tyson Foods Inc.,,,,
+Mission:TSN:mission,Mission,,,,"compliance, these requirements are continually evolving.",,,
+StrategicObjective:TSN:tyson-it-has-grown-under-four-generations-of-family-leadersh,StrategicObjective,,,,"Tyson, it has grown under four generations of family leadership.",growth,,
+StrategicObjective:TSN:some-of-the-key-factors-influencing-our-business-are-custome,StrategicObjective,,,,"Some of the key factors influencing our business are customer demand for our products; the ability to maintain and grow relationships with customers and introduce new and innovative products to the marketplace; accessibility of international markets; market prices for our products; the cost and availability of live cattle and hogs, raw materials and feed ingredients; availability of team members to operate our production facilities; and operating efficiencies of our facilities.",innovation,,
+StrategicObjective:TSN:we-take-a-comprehensive-and-holistic-approach-to-managing-na,StrategicObjective,,,,"We take a comprehensive and holistic approach to managing natural resources and continuously work to increase operational efficiencies, reduce greenhouse gas emissions across the supply chain, and partner with stakeholders to create a more resilient food system.",cost_leadership,,
+StrategicObjective:TSN:environmental-regulation-and-food-safety-environmental-regul,StrategicObjective,,,,"ENVIRONMENTAL REGULATION AND FOOD SAFETY
+Environmental Regulation
+Our facilities for processing beef, pork, chicken, turkey and prepared foods, milling feed and housing live chickens and swine are subject to many international, federal, state and local environmental laws and regulations, including provisions relating to all environmental media - air, land and water, and generally provide for environmental protection.",sustainability,,
+Capability:TSN:supply-chain,Capability,,,supply chain,,,,
+Capability:TSN:logistics,Capability,,,logistics,,,,
+Capability:TSN:manufacturing,Capability,,,manufacturing,,,,
+Capability:TSN:research-and-development,Capability,,,research and development,,,,
+Initiative:TSN:newly-hired-team-members-participate-in-orientation-program,Initiative,,,Newly hired team members participate in orientation program,,,active,
+Initiative:TSN:this-program,Initiative,,,This program,,,active,
+Initiative:TSN:we-utilize-our-national-distribution-system-and-customer-sup,Initiative,,,We utilize our national distribution system and customer support service,,,active,
+RiskTheme:TSN:economic,RiskTheme,,,economic,,,,macro
+RiskTheme:TSN:regulat,RiskTheme,,,regulat,,,,regulatory
+RiskTheme:TSN:competi,RiskTheme,,,competi,,,,competitive
+RiskTheme:TSN:supply-chain,RiskTheme,,,supply chain,,,,supply_chain
+RiskTheme:TSN:cybersecurity,RiskTheme,,,cybersecurity,,,,technology
+Company:MSFT,Company,MSFT,789019,Microsoft Corporation,,,,
+Mission:MSFT:mission,Mission,,,,"Business
+3
+Information about our Executive Officers
+14
+Item 1A",,,
+RiskTheme:MSFT:legal,RiskTheme,,,legal,,,,regulatory
+RiskTheme:MSFT:cybersecurity,RiskTheme,,,cybersecurity,,,,technology

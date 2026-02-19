@@ -14,10 +14,10 @@ dist/
 .vscode/
 .streamlit/config.toml
 data/item1/
-data/chunks/
-data/kg_json/
-MSGKG/nodes.csv
-MSGKG/edges.csv
+# Allow chunks and KG for cloud deployment
+# data/chunks/
+# MSGKG/nodes.csv
+# MSGKG/edges.csv
 *.log
 *.webp
 *.png
