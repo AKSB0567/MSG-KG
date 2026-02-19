@@ -26,9 +26,9 @@ Built for **Finance Research**, this system ingests SEC 10-K filings, constructs
 - **Portfolio Heatmap**: Plotly-based interactive visualization of alignment scores across the portfolio.
 - **Head-to-Head**: Direct side-by-side comparison of company strategies.
 
-### 4. 🎨 Professional Corporate UI
-- **Amazon-Style Layout**: Persistent left filter panel for context-aware navigation.
-- **Enterprise Theming**: Deep Red/Gold branding (`#CD1515`) inspired by top-tier financial portals.
+### 4. 🎨 Professional UI
+- ** Layout**: Persistent left filter panel for context-aware navigation.
+- **Enterprise Theming**: Deep Red/Gold branding (`#CD1515`) inspired by top-tier portals.
 - **Contextual Controls**: Filters appear alongside strictly relevant content.
 
 ---
