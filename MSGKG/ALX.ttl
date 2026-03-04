@@ -1,0 +1,857 @@
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:Company_ALX a msg:Company ;
+    msg:buildsCapability inst:Capability_ALX_property-management-via-vornado ;
+    msg:cik "0000003499" ;
+    msg:companyName "ALEXANDERS INC" ;
+    msg:exposedTo inst:RiskTheme_ALX_ada-compliance-costs,
+        inst:RiskTheme_ALX_ai-impact-on-space-utilization,
+        inst:RiskTheme_ALX_anchor-tenant-default-risk,
+        inst:RiskTheme_ALX_anti-takeover-provision-risk,
+        inst:RiskTheme_ALX_bloomberg-tenant-dependency,
+        inst:RiskTheme_ALX_building-safety-regulation-risk,
+        inst:RiskTheme_ALX_capital-markets-tightening-risk,
+        inst:RiskTheme_ALX_climate-change-physical-risk,
+        inst:RiskTheme_ALX_climate-change-risk,
+        inst:RiskTheme_ALX_climate-policy-regulatory-risk,
+        inst:RiskTheme_ALX_common-stock-price-volatility,
+        inst:RiskTheme_ALX_cybersecurity-breach-risk,
+        inst:RiskTheme_ALX_debt-covenant-restriction-risk,
+        inst:RiskTheme_ALX_debt-refinancing-risk,
+        inst:RiskTheme_ALX_development-and-redevelopment-risk,
+        inst:RiskTheme_ALX_environmental-contamination-liability,
+        inst:RiskTheme_ALX_environmental-law-compliance-costs,
+        inst:RiskTheme_ALX_equity-dilution-risk,
+        inst:RiskTheme_ALX_federal-tax-audit-exposure,
+        inst:RiskTheme_ALX_federal-tax-law-changes,
+        inst:RiskTheme_ALX_geographic-concentration-risk,
+        inst:RiskTheme_ALX_geopolitical-macro-economic-risk,
+        inst:RiskTheme_ALX_hazardous-substance-remediation-risk,
+        inst:RiskTheme_ALX_hedging-instrument-counterparty-risk,
+        inst:RiskTheme_ALX_indoor-air-quality-contaminant-risk,
+        inst:RiskTheme_ALX_inflation-and-rising-costs,
+        inst:RiskTheme_ALX_insufficient-insurance-coverage,
+        inst:RiskTheme_ALX_interest-rate-fluctuation-risk,
+        inst:RiskTheme_ALX_interest-rate-volatility-risk,
+        inst:RiskTheme_ALX_it-systems-disruption-risk,
+        inst:RiskTheme_ALX_key-personnel-dependency-risk,
+        inst:RiskTheme_ALX_lease-renewal-and-vacancy-risk,
+        inst:RiskTheme_ALX_office-work-from-home-trends,
+        inst:RiskTheme_ALX_property-leasing-impairment-risk,
+        inst:RiskTheme_ALX_real-estate-competition,
+        inst:RiskTheme_ALX_real-estate-illiquidity-risk,
+        inst:RiskTheme_ALX_real-estate-market-competition,
+        inst:RiskTheme_ALX_real-estate-market-volatility,
+        inst:RiskTheme_ALX_reduced-stockholder-distribution-risk,
+        inst:RiskTheme_ALX_refinancing-risk,
+        inst:RiskTheme_ALX_reit-qualification-failure-risk,
+        inst:RiskTheme_ALX_reit-qualification-risk,
+        inst:RiskTheme_ALX_related-party-conflict-of-interest-risk,
+        inst:RiskTheme_ALX_retail-environment-deterioration,
+        inst:RiskTheme_ALX_single-asset-revenue-concentration,
+        inst:RiskTheme_ALX_state-and-local-tax-audits,
+        inst:RiskTheme_ALX_state-and-local-tax-changes,
+        inst:RiskTheme_ALX_subsidiary-dividend-dependency-risk,
+        inst:RiskTheme_ALX_tax-law-changes,
+        inst:RiskTheme_ALX_tenant-bankruptcy-and-insolvency,
+        inst:RiskTheme_ALX_tenant-concentration-risk,
+        inst:RiskTheme_ALX_tenant-credit-and-bankruptcy-risk,
+        inst:RiskTheme_ALX_terrorism-and-criminal-acts,
+        inst:RiskTheme_ALX_vornado-concentration-influence-risk ;
+    msg:fiscalYear 2025 ;
+    msg:hasMission inst:Mission_ALX_leasing-managing-developing-and-redeveloping-real-estate-properties ;
+    msg:hasOfficer inst:ExecutiveOfficer_ALX_david-mandelbaum,
+        inst:ExecutiveOfficer_ALX_russell-b-wight-jr,
+        inst:ExecutiveOfficer_ALX_steven-roth ;
+    msg:hasSegment inst:BusinessSegment_ALX_731-lexington-avenue,
+        inst:BusinessSegment_ALX_flushing-property,
+        inst:BusinessSegment_ALX_rego-park-i,
+        inst:BusinessSegment_ALX_rego-park-ii,
+        inst:BusinessSegment_ALX_the-alexander-apartment-tower ;
+    msg:hasSubsidiary inst:Subsidiary_ALX_alexanders-consolidated-subsidiaries ;
+    msg:offersProduct inst:Product_ALX_office-space-leasing,
+        inst:Product_ALX_residential-apartment-leasing,
+        inst:Product_ALX_retail-space-leasing ;
+    msg:operatesIn inst:GeographicRegion_ALX_manhattan,
+        inst:GeographicRegion_ALX_new-york-city,
+        inst:GeographicRegion_ALX_queens ;
+    msg:pursues inst:Initiative_ALX_environmental-sustainability-initiative,
+        inst:Initiative_ALX_rego-park-i-sale-and-development-exploration ;
+    msg:regulatedBy inst:Regulation_ALX_nyse-corporate-governance-standards,
+        inst:Regulation_ALX_reit-regulations,
+        inst:Regulation_ALX_securities-exchange-act-of-1934 ;
+    msg:reportsMetric inst:FinancialMetric_ALX_alx-cashequivalents-2023,
+        inst:FinancialMetric_ALX_alx-cashequivalents-2024,
+        inst:FinancialMetric_ALX_alx-depreciationamortization-2024,
+        inst:FinancialMetric_ALX_alx-eps-basicdiluted-2022,
+        inst:FinancialMetric_ALX_alx-eps-basicdiluted-2023,
+        inst:FinancialMetric_ALX_alx-eps-basicdiluted-2024,
+        inst:FinancialMetric_ALX_alx-epsbasicdiluted-2022,
+        inst:FinancialMetric_ALX_alx-epsbasicdiluted-2023,
+        inst:FinancialMetric_ALX_alx-epsbasicdiluted-2024,
+        inst:FinancialMetric_ALX_alx-interestdebtexpense-2024,
+        inst:FinancialMetric_ALX_alx-interestotherincome-2024,
+        inst:FinancialMetric_ALX_alx-leaserevenues-2022,
+        inst:FinancialMetric_ALX_alx-leaserevenues-2023,
+        inst:FinancialMetric_ALX_alx-leaserevenues-2024,
+        inst:FinancialMetric_ALX_alx-mortgagespayablenet-2023,
+        inst:FinancialMetric_ALX_alx-mortgagespayablenet-2024,
+        inst:FinancialMetric_ALX_alx-netincome-2022,
+        inst:FinancialMetric_ALX_alx-netincome-2023,
+        inst:FinancialMetric_ALX_alx-netincome-2024,
+        inst:FinancialMetric_ALX_alx-noi-2022,
+        inst:FinancialMetric_ALX_alx-noi-2023,
+        inst:FinancialMetric_ALX_alx-noi-2024,
+        inst:FinancialMetric_ALX_alx-operatingcashflow-2022,
+        inst:FinancialMetric_ALX_alx-operatingcashflow-2023,
+        inst:FinancialMetric_ALX_alx-operatingcashflow-2024,
+        inst:FinancialMetric_ALX_alx-realestatesalegain-2023,
+        inst:FinancialMetric_ALX_alx-rentalrevenue-2022,
+        inst:FinancialMetric_ALX_alx-rentalrevenue-2023,
+        inst:FinancialMetric_ALX_alx-rentalrevenue-2024,
+        inst:FinancialMetric_ALX_alx-rentalrevenues-2022,
+        inst:FinancialMetric_ALX_alx-rentalrevenues-2023,
+        inst:FinancialMetric_ALX_alx-rentalrevenues-2024,
+        inst:FinancialMetric_ALX_alx-rentexpense-2022,
+        inst:FinancialMetric_ALX_alx-rentexpense-2023,
+        inst:FinancialMetric_ALX_alx-rentexpense-2024,
+        inst:FinancialMetric_ALX_alx-taxableincome-2022,
+        inst:FinancialMetric_ALX_alx-taxableincome-2023,
+        inst:FinancialMetric_ALX_alx-taxableincome-2024,
+        inst:FinancialMetric_ALX_alx-totalassets-2023,
+        inst:FinancialMetric_ALX_alx-totalassets-2024,
+        inst:FinancialMetric_ALX_alx-totalequity-2022,
+        inst:FinancialMetric_ALX_alx-totalequity-2023,
+        inst:FinancialMetric_ALX_alx-totalequity-2024,
+        inst:FinancialMetric_ALX_alx-totalliabilities-2023,
+        inst:FinancialMetric_ALX_alx-totalliabilities-2024,
+        inst:FinancialMetric_ALX_alx-totalmortgagespayable-2023,
+        inst:FinancialMetric_ALX_alx-totalmortgagespayable-2024,
+        inst:FinancialMetric_ALX_alx-totalrevenue-2022,
+        inst:FinancialMetric_ALX_alx-totalrevenue-2023,
+        inst:FinancialMetric_ALX_alx-totalrevenue-2024,
+        inst:FinancialMetric_ALX_alx-weightedavgshares-2022,
+        inst:FinancialMetric_ALX_alx-weightedavgshares-2023,
+        inst:FinancialMetric_ALX_alx-weightedavgshares-2024,
+        inst:FinancialMetric_ALX_bloomberg-revenue-2022,
+        inst:FinancialMetric_ALX_bloomberg-revenue-2023,
+        inst:FinancialMetric_ALX_bloomberg-revenue-2024 ;
+    msg:statesObjective inst:StrategicObjective_ALX_maximize-value-of-nyc-property-portfolio ;
+    msg:ticker "ALX" .
+
+inst:Initiative_ALX_cybersecurity-preventative-measures a msg:Initiative ;
+    msg:initiativeName "Cybersecurity Preventative Measures" ;
+    msg:mitigatesRisk inst:RiskTheme_ALX_cybersecurity-breach-risk .
+
+inst:Initiative_ALX_interest-rate-swap-arrangements a msg:Initiative ;
+    msg:initiativeName "Interest Rate Swap Arrangements" ;
+    msg:mitigatesRisk inst:RiskTheme_ALX_interest-rate-volatility-risk .
+
+inst:BusinessSegment_ALX_731-lexington-avenue a msg:BusinessSegment ;
+    msg:segmentName "731 Lexington Avenue" ;
+    msg:text "1,080,000 square foot multi-use building comprising office and retail space in Manhattan" .
+
+inst:BusinessSegment_ALX_flushing-property a msg:BusinessSegment ;
+    msg:segmentName "Flushing",
+        "Flushing Property" ;
+    msg:text "167,000 square foot building located on Roosevelt Avenue and Main Street in Queens, subleased to New World Mall LLC" .
+
+inst:BusinessSegment_ALX_rego-park-i a msg:BusinessSegment ;
+    msg:segmentName "Rego Park I" ;
+    msg:text "338,000 square foot shopping center located on Queens Boulevard and 63rd Road in Queens" .
+
+inst:BusinessSegment_ALX_rego-park-ii a msg:BusinessSegment ;
+    msg:segmentName "Rego Park II" ;
+    msg:text "615,000 square foot shopping center located adjacent to Rego Park I in Queens" .
+
+inst:BusinessSegment_ALX_the-alexander-apartment-tower a msg:BusinessSegment ;
+    msg:segmentName "The Alexander Apartment Tower" ;
+    msg:text "312 units aggregating 255,000 square feet, located above Rego Park II shopping center" .
+
+inst:Capability_ALX_property-management-via-vornado a msg:Capability ;
+    msg:capabilityDomain "Real Estate Management" ;
+    msg:capabilityName "Property Management via Vornado" ;
+    msg:text "Managed by Vornado, a fully-integrated REIT with significant experience in managing, leasing, developing, and operating office and retail properties" .
+
+inst:ExecutiveOfficer_ALX_david-mandelbaum a msg:ExecutiveOfficer ;
+    msg:officerName "David Mandelbaum" ;
+    msg:officerTitle "Director" .
+
+inst:ExecutiveOfficer_ALX_russell-b-wight-jr a msg:ExecutiveOfficer ;
+    msg:officerName "Russell B. Wight, Jr." ;
+    msg:officerTitle "Director" .
+
+inst:ExecutiveOfficer_ALX_steven-roth a msg:ExecutiveOfficer ;
+    msg:officerName "Steven Roth" ;
+    msg:officerTitle "Chairman of the Board of Directors and Chief Executive Officer" .
+
+inst:FinancialMetric_ALX_alx-cashequivalents-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_CashEquivalents_2023",
+        "Cash Equivalents" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "363535" .
+
+inst:FinancialMetric_ALX_alx-cashequivalents-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_CashEquivalents_2024",
+        "Cash Equivalents" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "61889" .
+
+inst:FinancialMetric_ALX_alx-depreciationamortization-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_DepreciationAmortization_2024",
+        "Depreciation and Amortization" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "-34782" .
+
+inst:FinancialMetric_ALX_alx-eps-basicdiluted-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_EPS_BasicDiluted_2022",
+        "Earnings Per Share - Basic and Diluted" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "11.24" .
+
+inst:FinancialMetric_ALX_alx-eps-basicdiluted-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_EPS_BasicDiluted_2023",
+        "Earnings Per Share - Basic and Diluted" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "19.97" .
+
+inst:FinancialMetric_ALX_alx-eps-basicdiluted-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_EPS_BasicDiluted_2024",
+        "Earnings Per Share - Basic and Diluted" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "8.46" .
+
+inst:FinancialMetric_ALX_alx-epsbasicdiluted-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_EPSBasicDiluted_2022",
+        "Earnings Per Share - Basic and Diluted" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "11.24" .
+
+inst:FinancialMetric_ALX_alx-epsbasicdiluted-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_EPSBasicDiluted_2023",
+        "Earnings Per Share - Basic and Diluted" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "19.97" .
+
+inst:FinancialMetric_ALX_alx-epsbasicdiluted-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_EPSBasicDiluted_2024",
+        "Earnings Per Share - Basic and Diluted" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "8.46" .
+
+inst:FinancialMetric_ALX_alx-interestdebtexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_InterestDebtExpense_2024",
+        "Interest and Debt Expense" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "-62818" .
+
+inst:FinancialMetric_ALX_alx-interestotherincome-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_InterestOtherIncome_2024",
+        "Interest and Other Income" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "24429" .
+
+inst:FinancialMetric_ALX_alx-leaserevenues-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_LeaseRevenues_2022",
+        "Lease Revenues" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "197230" .
+
+inst:FinancialMetric_ALX_alx-leaserevenues-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_LeaseRevenues_2023",
+        "Lease Revenues" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "216468" .
+
+inst:FinancialMetric_ALX_alx-leaserevenues-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_LeaseRevenues_2024",
+        "Lease Revenues" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "217656" .
+
+inst:FinancialMetric_ALX_alx-mortgagespayablenet-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_MortgagesPayableNet_2023",
+        "Mortgages Payable (net of deferred issuance costs)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "1092551" .
+
+inst:FinancialMetric_ALX_alx-mortgagespayablenet-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_MortgagesPayableNet_2024",
+        "Mortgages Payable (net of deferred issuance costs)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "988019" .
+
+inst:FinancialMetric_ALX_alx-netincome-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_NetIncome_2022",
+        "Net Income" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "57632" .
+
+inst:FinancialMetric_ALX_alx-netincome-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_NetIncome_2023",
+        "Net Income" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "102413" .
+
+inst:FinancialMetric_ALX_alx-netincome-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_NetIncome_2024",
+        "Net Income" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "43444" .
+
+inst:FinancialMetric_ALX_alx-noi-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_NOI_2022",
+        "Net Operating Income (NOI)" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "115368" .
+
+inst:FinancialMetric_ALX_alx-noi-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_NOI_2023",
+        "Net Operating Income (NOI)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "123752" .
+
+inst:FinancialMetric_ALX_alx-noi-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_NOI_2024",
+        "Net Operating Income (NOI)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "123134" .
+
+inst:FinancialMetric_ALX_alx-operatingcashflow-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_OperatingCashFlow_2022",
+        "Net Cash Provided by Operating Activities" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "102549" .
+
+inst:FinancialMetric_ALX_alx-operatingcashflow-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_OperatingCashFlow_2023",
+        "Net Cash Provided by Operating Activities" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "109111" .
+
+inst:FinancialMetric_ALX_alx-operatingcashflow-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_OperatingCashFlow_2024",
+        "Net Cash Provided by Operating Activities" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "54106" .
+
+inst:FinancialMetric_ALX_alx-realestatesalegain-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_RealEstateSaleGain_2023",
+        "Gain on Sale of Real Estate (Rego Park III)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "53952" .
+
+inst:FinancialMetric_ALX_alx-rentalrevenue-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentalRevenue_2022",
+        "Rental Revenues" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "205814" .
+
+inst:FinancialMetric_ALX_alx-rentalrevenue-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentalRevenue_2023",
+        "Rental Revenues" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "224962" .
+
+inst:FinancialMetric_ALX_alx-rentalrevenue-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentalRevenue_2024",
+        "Rental Revenues" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "226374" .
+
+inst:FinancialMetric_ALX_alx-rentalrevenues-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentalRevenues_2022",
+        "Rental Revenues" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "205814" .
+
+inst:FinancialMetric_ALX_alx-rentalrevenues-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentalRevenues_2023",
+        "Rental Revenues" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "224962" .
+
+inst:FinancialMetric_ALX_alx-rentalrevenues-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentalRevenues_2024",
+        "Rental Revenues" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "226374" .
+
+inst:FinancialMetric_ALX_alx-rentexpense-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentExpense_2022",
+        "Rent Expense (ground lease)" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "2161" .
+
+inst:FinancialMetric_ALX_alx-rentexpense-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentExpense_2023",
+        "Rent Expense (ground lease)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "2161" .
+
+inst:FinancialMetric_ALX_alx-rentexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_RentExpense_2024",
+        "Rent Expense (ground lease)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "2161" .
+
+inst:FinancialMetric_ALX_alx-taxableincome-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_TaxableIncome_2022",
+        "Estimated Taxable Income" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "64960" .
+
+inst:FinancialMetric_ALX_alx-taxableincome-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_TaxableIncome_2023",
+        "Estimated Taxable Income" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "98555" .
+
+inst:FinancialMetric_ALX_alx-taxableincome-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_TaxableIncome_2024",
+        "Estimated Taxable Income" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "65493" .
+
+inst:FinancialMetric_ALX_alx-totalassets-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalAssets_2023",
+        "Total Assets" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "1403680" .
+
+inst:FinancialMetric_ALX_alx-totalassets-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalAssets_2024",
+        "Total Assets" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "1341295" .
+
+inst:FinancialMetric_ALX_alx-totalequity-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalEquity_2022",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "236499" .
+
+inst:FinancialMetric_ALX_alx-totalequity-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalEquity_2023",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "237657" .
+
+inst:FinancialMetric_ALX_alx-totalequity-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalEquity_2024",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "176859" .
+
+inst:FinancialMetric_ALX_alx-totalliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalLiabilities_2023",
+        "Total Liabilities" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "1166023" .
+
+inst:FinancialMetric_ALX_alx-totalliabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalLiabilities_2024",
+        "Total Liabilities" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "1164436" .
+
+inst:FinancialMetric_ALX_alx-totalmortgagespayable-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalMortgagesPayable_2023",
+        "Total Mortgages Payable (gross)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "1096544" .
+
+inst:FinancialMetric_ALX_alx-totalmortgagespayable-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalMortgagesPayable_2024",
+        "Total Mortgages Payable (gross)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "996544" .
+
+inst:FinancialMetric_ALX_alx-totalrevenue-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalRevenue_2022",
+        "Total Revenue (Rental Revenues)" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "205814" .
+
+inst:FinancialMetric_ALX_alx-totalrevenue-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalRevenue_2023",
+        "Total Revenue (Rental Revenues)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "224962" .
+
+inst:FinancialMetric_ALX_alx-totalrevenue-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_TotalRevenue_2024",
+        "Total Revenue (Rental Revenues)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "thousands USD" ;
+    msg:metricValue "226374" .
+
+inst:FinancialMetric_ALX_alx-weightedavgshares-2022 a msg:FinancialMetric ;
+    msg:metricName "ALX_WeightedAvgShares_2022",
+        "Weighted Average Shares Outstanding - Basic and Diluted" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "shares" ;
+    msg:metricValue "5126100" .
+
+inst:FinancialMetric_ALX_alx-weightedavgshares-2023 a msg:FinancialMetric ;
+    msg:metricName "ALX_WeightedAvgShares_2023",
+        "Weighted Average Shares Outstanding - Basic and Diluted" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "shares" ;
+    msg:metricValue "5129330" .
+
+inst:FinancialMetric_ALX_alx-weightedavgshares-2024 a msg:FinancialMetric ;
+    msg:metricName "ALX_WeightedAvgShares_2024",
+        "Weighted Average Shares Outstanding - Basic and Diluted" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "shares" ;
+    msg:metricValue "5132418" .
+
+inst:FinancialMetric_ALX_bloomberg-revenue-2022 a msg:FinancialMetric ;
+    msg:metricName "Bloomberg Revenue",
+        "Bloomberg Revenue 2022" ;
+    msg:metricPeriod "2022" ;
+    msg:metricUnit "USD" ;
+    msg:metricValue "115129000" .
+
+inst:FinancialMetric_ALX_bloomberg-revenue-2023 a msg:FinancialMetric ;
+    msg:metricName "Bloomberg Revenue",
+        "Bloomberg Revenue 2023" ;
+    msg:metricPeriod "2023" ;
+    msg:metricUnit "USD" ;
+    msg:metricValue "120351000" .
+
+inst:FinancialMetric_ALX_bloomberg-revenue-2024 a msg:FinancialMetric ;
+    msg:metricName "Bloomberg Revenue",
+        "Bloomberg Revenue 2024" ;
+    msg:metricPeriod "2024" ;
+    msg:metricUnit "USD" ;
+    msg:metricValue "125349000" .
+
+inst:GeographicRegion_ALX_manhattan a msg:GeographicRegion ;
+    msg:regionName "Manhattan" .
+
+inst:GeographicRegion_ALX_new-york-city a msg:GeographicRegion ;
+    msg:regionName "New York City" .
+
+inst:GeographicRegion_ALX_queens a msg:GeographicRegion ;
+    msg:regionName "Queens" .
+
+inst:Initiative_ALX_environmental-sustainability-initiative a msg:Initiative ;
+    msg:initiativeName "Environmental Sustainability Initiative" ;
+    msg:status "Active" ;
+    msg:text "Environmental sustainability initiatives carried out by a dedicated team working with Vornado's business units" .
+
+inst:Initiative_ALX_rego-park-i-sale-and-development-exploration a msg:Initiative ;
+    msg:initiativeName "Rego Park I Sale and Development Exploration" ;
+    msg:startYear "2025" ;
+    msg:status "Active" ;
+    msg:text "Currently exploring sale and development opportunities for Rego Park I property after Burlington and Marshalls relocate" .
+
+inst:Mission_ALX_leasing-managing-developing-and-redeveloping-real-estate-properties a msg:Mission ;
+    msg:normalizedTheme "Real estate investment and property management" ;
+    msg:text "Alexander's, Inc. is a real estate investment trust (REIT), incorporated in Delaware, engaged in leasing, managing, developing and redeveloping its properties.",
+        "Leasing, managing, developing and redeveloping real estate properties" .
+
+inst:Product_ALX_office-space-leasing a msg:Product ;
+    msg:productCategory "Commercial Real Estate" ;
+    msg:productName "Office Space Leasing" .
+
+inst:Product_ALX_residential-apartment-leasing a msg:Product ;
+    msg:productCategory "Residential Real Estate" ;
+    msg:productName "Residential Apartment Leasing" .
+
+inst:Product_ALX_retail-space-leasing a msg:Product ;
+    msg:productCategory "Commercial Real Estate" ;
+    msg:productName "Retail Space Leasing" .
+
+inst:Regulation_ALX_nyse-corporate-governance-standards a msg:Regulation ;
+    msg:regulationName "NYSE Corporate Governance Standards" .
+
+inst:Regulation_ALX_reit-regulations a msg:Regulation ;
+    msg:regulationName "REIT Regulations",
+        "Real Estate Investment Trust (REIT) Regulations" .
+
+inst:Regulation_ALX_securities-exchange-act-of-1934 a msg:Regulation ;
+    msg:regulationName "Securities Exchange Act of 1934" .
+
+inst:RiskTheme_ALX_ada-compliance-costs a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "ADA Compliance Costs" .
+
+inst:RiskTheme_ALX_ai-impact-on-space-utilization a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "AI Impact on Space Utilization" .
+
+inst:RiskTheme_ALX_anchor-tenant-default-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Anchor Tenant Default Risk" .
+
+inst:RiskTheme_ALX_anti-takeover-provision-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Anti-Takeover Provision Risk" .
+
+inst:RiskTheme_ALX_bloomberg-tenant-dependency a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Bloomberg Tenant Dependency" .
+
+inst:RiskTheme_ALX_building-safety-regulation-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Building Safety Regulation Risk" .
+
+inst:RiskTheme_ALX_capital-markets-tightening-risk a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Capital Markets Tightening Risk" .
+
+inst:RiskTheme_ALX_climate-change-physical-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Climate Change Physical Risk" .
+
+inst:RiskTheme_ALX_climate-change-risk a msg:RiskTheme ;
+    msg:riskCategory "Environmental Risk" ;
+    msg:riskName "Climate Change Risk" ;
+    msg:text "Vornado's Corporate Governance and Nominating Committee is assigned oversight of sustainability matters at Alexander's, which includes climate change risk" .
+
+inst:RiskTheme_ALX_climate-policy-regulatory-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Climate Policy Regulatory Risk" .
+
+inst:RiskTheme_ALX_common-stock-price-volatility a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Common Stock Price Volatility" .
+
+inst:RiskTheme_ALX_debt-covenant-restriction-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Debt Covenant Restriction Risk" .
+
+inst:RiskTheme_ALX_debt-refinancing-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Debt Refinancing Risk" .
+
+inst:RiskTheme_ALX_development-and-redevelopment-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Development and Redevelopment Risk" .
+
+inst:RiskTheme_ALX_environmental-contamination-liability a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Environmental Contamination Liability" .
+
+inst:RiskTheme_ALX_environmental-law-compliance-costs a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Environmental Law Compliance Costs" .
+
+inst:RiskTheme_ALX_equity-dilution-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Equity Dilution Risk" .
+
+inst:RiskTheme_ALX_federal-tax-audit-exposure a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Federal Tax Audit Exposure" .
+
+inst:RiskTheme_ALX_federal-tax-law-changes a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Federal Tax Law Changes" .
+
+inst:RiskTheme_ALX_geographic-concentration-risk a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Geographic Concentration Risk" .
+
+inst:RiskTheme_ALX_geopolitical-macro-economic-risk a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "Geopolitical Macro-Economic Risk" .
+
+inst:RiskTheme_ALX_hazardous-substance-remediation-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Hazardous Substance Remediation Risk" .
+
+inst:RiskTheme_ALX_hedging-instrument-counterparty-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Hedging Instrument Counterparty Risk" .
+
+inst:RiskTheme_ALX_indoor-air-quality-contaminant-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Indoor Air Quality Contaminant Risk" .
+
+inst:RiskTheme_ALX_inflation-and-rising-costs a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Inflation and Rising Costs" .
+
+inst:RiskTheme_ALX_insufficient-insurance-coverage a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Insufficient Insurance Coverage" .
+
+inst:RiskTheme_ALX_interest-rate-fluctuation-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Interest Rate Fluctuation Risk" .
+
+inst:RiskTheme_ALX_it-systems-disruption-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "IT Systems Disruption Risk" .
+
+inst:RiskTheme_ALX_key-personnel-dependency-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Key Personnel Dependency Risk" .
+
+inst:RiskTheme_ALX_lease-renewal-and-vacancy-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Lease Renewal and Vacancy Risk" .
+
+inst:RiskTheme_ALX_office-work-from-home-trends a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Office Work-From-Home Trends" .
+
+inst:RiskTheme_ALX_property-leasing-impairment-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Property Leasing Impairment Risk" .
+
+inst:RiskTheme_ALX_real-estate-competition a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Real Estate Competition" .
+
+inst:RiskTheme_ALX_real-estate-illiquidity-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Real Estate Illiquidity Risk" .
+
+inst:RiskTheme_ALX_real-estate-market-competition a msg:RiskTheme ;
+    msg:riskCategory "Competitive Risk" ;
+    msg:riskName "Real Estate Market Competition" ;
+    msg:text "We operate in a highly competitive environment located in New York City; compete with a large number of real estate investors, property owners and developers" .
+
+inst:RiskTheme_ALX_real-estate-market-volatility a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Real Estate Market Volatility" .
+
+inst:RiskTheme_ALX_reduced-stockholder-distribution-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Reduced Stockholder Distribution Risk" .
+
+inst:RiskTheme_ALX_refinancing-risk a msg:RiskTheme ;
+    msg:riskCategory "Financial Risk" ;
+    msg:riskName "Refinancing Risk" ;
+    msg:text "Success is subject to ability to refinance existing debt on acceptable terms as it comes due" .
+
+inst:RiskTheme_ALX_reit-qualification-failure-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "REIT Qualification Failure Risk" .
+
+inst:RiskTheme_ALX_reit-qualification-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "REIT Qualification Risk" .
+
+inst:RiskTheme_ALX_related-party-conflict-of-interest-risk a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Related Party Conflict of Interest Risk" .
+
+inst:RiskTheme_ALX_retail-environment-deterioration a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Retail Environment Deterioration" .
+
+inst:RiskTheme_ALX_single-asset-revenue-concentration a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Single Asset Revenue Concentration" .
+
+inst:RiskTheme_ALX_state-and-local-tax-audits a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "State and Local Tax Audits" .
+
+inst:RiskTheme_ALX_state-and-local-tax-changes a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "State and Local Tax Changes" .
+
+inst:RiskTheme_ALX_subsidiary-dividend-dependency-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Subsidiary Dividend Dependency Risk" .
+
+inst:RiskTheme_ALX_tax-law-changes a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Tax Law Changes" .
+
+inst:RiskTheme_ALX_tenant-bankruptcy-and-insolvency a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Tenant Bankruptcy and Insolvency" .
+
+inst:RiskTheme_ALX_tenant-concentration-risk a msg:RiskTheme ;
+    msg:riskCategory "Credit Risk" ;
+    msg:riskName "Tenant Concentration Risk" ;
+    msg:text "Bloomberg accounted for approximately 55% of rental revenues in 2024; loss of Bloomberg would adversely affect results" .
+
+inst:RiskTheme_ALX_tenant-credit-and-bankruptcy-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Tenant Credit and Bankruptcy Risk" .
+
+inst:RiskTheme_ALX_terrorism-and-criminal-acts a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "Terrorism and Criminal Acts" .
+
+inst:RiskTheme_ALX_vornado-concentration-influence-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Vornado Concentration Influence Risk" .
+
+inst:StrategicObjective_ALX_maximize-value-of-nyc-property-portfolio a msg:StrategicObjective ;
+    msg:objectiveType "Portfolio Management" ;
+    msg:text "Engaged in leasing, managing, developing and redeveloping its properties in New York City",
+        "Maximize Value of NYC Property Portfolio" .
+
+inst:Subsidiary_ALX_alexanders-consolidated-subsidiaries a msg:Subsidiary ;
+    msg:subsidiaryName "Alexander's Consolidated Subsidiaries" ;
+    msg:text "All references to Alexander's refer to Alexander's, Inc. and its consolidated subsidiaries" .
+
+inst:RiskTheme_ALX_cybersecurity-breach-risk a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "Cybersecurity Breach Risk" .
+
+inst:RiskTheme_ALX_interest-rate-volatility-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Interest Rate Volatility Risk" .
+

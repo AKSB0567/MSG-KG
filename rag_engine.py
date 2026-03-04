@@ -1,21 +1,21 @@
 """
-RAG Engine: Hybrid Vector + Graph Retrieval
-===========================================
-Core retrieval logic for the MSG-KG system. This module implements a hybrid 
-approach, combining semantic vector search with structured graph traversal.
+RAG Engine: Hybrid Vector + Graph Retrieval (v2)
+=================================================
+Core retrieval logic for the MSG-KG system. Implements hybrid Graph-RAG
+combining semantic vector search with structured KG traversal.
 
-Architectural Flow:
-1. Vector Retrieval: FAISS + FinBERT semantic search on SEC chunks.
-2. Graph Retrieval: NetworkX exploration to find strategic relations.
-3. Reranking: Cross-encoder re-scoring of combined evidence.
-4. LLM synthesis: Generates expert-level financial insights.
+Pipeline:
+1. Vector Retrieval: FAISS + all-MiniLM-L6-v2 on 10-K chunks
+2. Graph Retrieval: TTL-parsed KG with entity linking + subgraph extraction
+3. Reranking: Cross-encoder re-scoring of combined evidence
+4. Context Fusion: Merge vector + graph context for LLM prompt
+5. LLM Synthesis: Mixtral-8x7B via HuggingFace Inference API
 """
 
 import os, json, pathlib, re
 from dataclasses import dataclass, field
 from typing import Optional
 import numpy as np
-import pandas as pd
 import networkx as nx
 from dotenv import load_dotenv
 
@@ -27,6 +27,7 @@ KG_DIR     = BASE_DIR / "MSGKG"
 
 # ── Lazy-loaded globals ──────────────────────────────────────────────────
 _embedder = None
+_reranker = None
 _faiss_index = None
 _all_chunks = None
 _kg_graph = None
@@ -37,7 +38,7 @@ _kg_graph = None
 @dataclass
 class EvidenceSpan:
     doc_type: str = "10-K"
-    section: str = "Item 1A"
+    section: str = "Item 1"
     page: int = 0
     confidence: float = 0.0
     text: str = ""
@@ -59,22 +60,74 @@ class RAGAnswer:
     pipeline_steps: list = field(default_factory=list)
 
 
-# ── Embedding Model (FinBERT) ───────────────────────────────────────────
+# ── Company Metadata (updated for new companies) ────────────────────────
+COMPANY_META = {
+    "AMD": {
+        "name": "Advanced Micro Devices, Inc.",
+        "mission": "Build great products that accelerate next-generation computing experiences.",
+        "sector": "Semiconductors",
+        "fiscal_year": "FY2024",
+    },
+    "ALX": {
+        "name": "Alexander's, Inc.",
+        "mission": "Real estate leasing operations primarily in the New York metropolitan area.",
+        "sector": "Real Estate (REIT)",
+        "fiscal_year": "FY2024",
+    },
+    "LNG": {
+        "name": "Cheniere Energy, Inc.",
+        "mission": "To be the world's leading full-service LNG provider.",
+        "sector": "Energy (LNG)",
+        "fiscal_year": "FY2024",
+    },
+    "UNM": {
+        "name": "Unum Group",
+        "mission": "Helping the working world thrive throughout life's moments.",
+        "sector": "Insurance",
+        "fiscal_year": "FY2024",
+    },
+    "AAL": {
+        "name": "American Airlines Group Inc.",
+        "mission": "To care for people on life's journey.",
+        "sector": "Airlines",
+        "fiscal_year": "FY2024",
+    },
+    "WRB": {
+        "name": "W. R. Berkley Corporation",
+        "mission": "Customer-focused insurance execution with decentralized underwriting.",
+        "sector": "Insurance",
+        "fiscal_year": "FY2024",
+    },
+}
+
+
+# ── Embedding Model ─────────────────────────────────────────────────────
 
 def get_embedder():
-    """Lazy-load FinBERT sentence transformer."""
+    """Lazy-load retrieval-optimized embedding model (all-MiniLM-L6-v2)."""
     global _embedder
     if _embedder is None:
         try:
             from sentence_transformers import SentenceTransformer
-            print("Loading FinBERT embedding model...")
-            _embedder = SentenceTransformer("ProsusAI/finbert")
-            print("✓ FinBERT loaded")
-        except Exception as e:
-            print(f"⚠ FinBERT failed ({e}), falling back to all-MiniLM-L6-v2")
-            from sentence_transformers import SentenceTransformer
+            print("Loading embedding model (all-MiniLM-L6-v2)...")
             _embedder = SentenceTransformer("all-MiniLM-L6-v2")
+            print("[OK] Embedding model loaded")
+        except Exception as e:
+            print(f"[ERR] Could not load embedding model: {e}")
+            raise
     return _embedder
+
+
+def get_reranker():
+    """Lazy-load cross-encoder reranker."""
+    global _reranker
+    if _reranker is None:
+        try:
+            from sentence_transformers import CrossEncoder
+            _reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+        except Exception:
+            _reranker = False  # sentinel: tried and failed
+    return _reranker if _reranker is not False else None
 
 
 # ── Vector Store (FAISS) ────────────────────────────────────────────────
@@ -89,8 +142,12 @@ def load_all_chunks() -> list[dict]:
     if CHUNKS_DIR.exists():
         for fp in sorted(CHUNKS_DIR.glob("*_chunks.json")):
             with open(fp, encoding="utf-8") as f:
-                chunks.extend(json.load(f))
+                data = json.load(f)
+                # Only load chunks for companies we care about
+                if data and isinstance(data, list):
+                    chunks.extend(data)
     _all_chunks = chunks
+    print(f"[OK] Loaded {len(chunks)} chunks from {CHUNKS_DIR}")
     return chunks
 
 
@@ -103,7 +160,7 @@ def build_faiss_index(chunks: list[dict] = None):
         chunks = load_all_chunks()
 
     if not chunks:
-        print("⚠ No chunks to index")
+        print("[WARN] No chunks to index")
         return None
 
     embedder = get_embedder()
@@ -117,17 +174,17 @@ def build_faiss_index(chunks: list[dict] = None):
     faiss.normalize_L2(embeddings)
 
     dim = embeddings.shape[1]
-    index = faiss.IndexFlatIP(dim)  # Inner product = cosine after normalization
+    index = faiss.IndexFlatIP(dim)
     index.add(embeddings)
 
     _faiss_index = index
     _all_chunks = chunks
-    print(f"✓ FAISS index built: {index.ntotal} vectors, dim={dim}")
+    print(f"[OK] FAISS index: {index.ntotal} vectors, dim={dim}")
     return index
 
 
 def vector_search(query: str, company: str = None, top_k: int = 10) -> list[dict]:
-    """Search FAISS index for most relevant chunks."""
+    """Semantic search using FAISS index."""
     global _faiss_index, _all_chunks
 
     if _faiss_index is None:
@@ -141,7 +198,6 @@ def vector_search(query: str, company: str = None, top_k: int = 10) -> list[dict
     import faiss
     faiss.normalize_L2(q_emb)
 
-    # Search more to allow company filtering
     search_k = min(top_k * 5, _faiss_index.ntotal)
     scores, indices = _faiss_index.search(q_emb, search_k)
 
@@ -151,8 +207,8 @@ def vector_search(query: str, company: str = None, top_k: int = 10) -> list[dict
             continue
         chunk = _all_chunks[idx].copy()
         chunk["score"] = float(score)
+        chunk["source"] = "vector"
 
-        # Filter by company if specified
         if company and chunk.get("ticker") != company:
             continue
 
@@ -163,95 +219,271 @@ def vector_search(query: str, company: str = None, top_k: int = 10) -> list[dict
     return results
 
 
-# ── Knowledge Graph ─────────────────────────────────────────────────────
+# ── TTL Parser for Knowledge Graph (rdflib-based) ───────────────────────
+
+def _local_name(uri) -> str:
+    """Extract the local name from an RDF URI. e.g. http://msgkg.io/instances#Company_AMD -> Company_AMD"""
+    s = str(uri)
+    for sep in ('#', '/'):
+        if sep in s:
+            return s.rsplit(sep, 1)[-1]
+    return s
+
+
+def _build_kg_from_ttl(G: nx.DiGraph, filepath: pathlib.Path, source: str = ""):
+    """
+    Parse a Turtle (.ttl) file using rdflib and add triples to the NetworkX graph.
+    
+    - rdf:type triples set the :LABEL attribute on the subject node
+    - Literal-valued triples become node attributes
+    - URI-valued triples become directed edges
+    """
+    from rdflib import Graph as RDFGraph, RDF, Literal
+
+    rdf_graph = RDFGraph()
+    rdf_graph.parse(str(filepath), format="turtle")
+
+    for subj, pred, obj in rdf_graph:
+        subj_name = _local_name(subj)
+        pred_name = _local_name(pred)
+
+        # Ensure subject node exists
+        if subj_name not in G:
+            G.add_node(subj_name, source=source)
+
+        if pred == RDF.type:
+            # rdf:type -> set the node's class label
+            obj_name = _local_name(obj)
+            G.nodes[subj_name][":LABEL"] = obj_name
+        elif isinstance(obj, Literal):
+            # Data property: store as node attribute
+            val = str(obj)
+            G.nodes[subj_name][pred_name] = val
+            # Use descriptive predicates as display text
+            if pred_name in ("companyName", "description", "label", "comment",
+                            "riskDescription", "initiativeDescription",
+                            "objectiveDescription", "metricDescription",
+                            "metricName", "riskName", "initiativeName"):
+                G.nodes[subj_name]["text"] = val
+                G.nodes[subj_name]["name"] = val
+        else:
+            # Object property: add directed edge
+            obj_name = _local_name(obj)
+            if obj_name not in G:
+                G.add_node(obj_name, source=source)
+            G.add_edge(subj_name, obj_name, relation=pred_name, source=source)
+
+
+# ── Knowledge Graph Loading ─────────────────────────────────────────────
 
 def load_kg() -> nx.DiGraph:
-    """Load KG from nodes.csv and edges.csv into NetworkX DiGraph."""
+    """
+    Load KG from TTL files into NetworkX DiGraph.
+    Loads: kg1.ttl (ontology instances), AMD.ttl, ALX.ttl, LNG.ttl (company data).
+    Falls back to legacy nodes.csv/edges.csv if TTL files are missing.
+    """
     global _kg_graph
     if _kg_graph is not None:
         return _kg_graph
 
     G = nx.DiGraph()
-    nodes_path = KG_DIR / "nodes.csv"
-    edges_path = KG_DIR / "edges.csv"
+    loaded_ttl = False
 
-    if nodes_path.exists():
-        df_nodes = pd.read_csv(nodes_path, encoding="utf-8")
-        for _, row in df_nodes.iterrows():
-            node_id = row[":ID"]
-            attrs = {k: v for k, v in row.items()
-                     if k != ":ID" and pd.notna(v) and str(v).strip()}
-            G.add_node(node_id, **attrs)
+    # Primary: Load from TTL files
+    ttl_files = [
+        ("kg1.ttl", "kg1"),
+        ("AMD.ttl", "AMD"),
+        ("ALX.ttl", "ALX"),
+        ("LNG.ttl", "LNG"),
+    ]
 
-    if edges_path.exists():
-        df_edges = pd.read_csv(edges_path, encoding="utf-8")
-        for _, row in df_edges.iterrows():
-            G.add_edge(row[":START_ID"], row[":END_ID"],
-                       relation=row[":TYPE"])
+    for fname, source in ttl_files:
+        fpath = KG_DIR / fname
+        if fpath.exists():
+            try:
+                _build_kg_from_ttl(G, fpath, source=source)
+                loaded_ttl = True
+            except Exception as e:
+                print(f"[WARN] Failed to parse {fname}: {e}")
+
+    # Fallback: Load from CSV if no TTL files worked
+    if not loaded_ttl:
+        import pandas as pd
+        nodes_path = KG_DIR / "nodes.csv"
+        edges_path = KG_DIR / "edges.csv"
+
+        if nodes_path.exists():
+            df_nodes = pd.read_csv(nodes_path, encoding="utf-8")
+            for _, row in df_nodes.iterrows():
+                node_id = row[":ID"]
+                attrs = {k: v for k, v in row.items()
+                         if k != ":ID" and not (isinstance(v, float) and np.isnan(v)) and str(v).strip()}
+                G.add_node(node_id, **attrs)
+
+        if edges_path.exists():
+            df_edges = pd.read_csv(edges_path, encoding="utf-8")
+            for _, row in df_edges.iterrows():
+                G.add_edge(row[":START_ID"], row[":END_ID"],
+                           relation=row[":TYPE"])
 
     _kg_graph = G
-    print(f"✓ KG loaded: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
+    print(f"[OK] KG loaded: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
     return G
+
+
+# ── Graph RAG: Entity Linking + Subgraph Extraction ────────────────────
+
+def _extract_query_entities(query: str) -> list[str]:
+    """Extract potential KG entity mentions from a user query."""
+    # Normalize
+    q = query.lower().strip()
+
+    # Known concept keywords that map to KG node types
+    concept_keywords = {
+        "mission": ["Mission", "mission", "hasMission"],
+        "strategy": ["StrategicObjective", "Strategy", "hasStrategicObjective"],
+        "risk": ["Risk", "RiskTheme", "hasRiskTheme", "hasRisk"],
+        "initiative": ["Initiative", "hasInitiative"],
+        "capability": ["Capability", "hasCapability"],
+        "human capital": ["HumanCapitalMetric", "HumanCapitalStrategy",
+                         "hasHumanCapitalStrategy", "hasHumanCapitalMetric"],
+        "hcm": ["HumanCapitalMetric", "HumanCapitalStrategy"],
+        "employee": ["HumanCapitalMetric", "hasHumanCapitalMetric"],
+        "compensation": ["CompensationPhilosophy", "hasCompensationPhilosophy"],
+        "culture": ["promotesCulture", "Culture"],
+        "financial": ["FinancialMetric", "hasFinancialMetric"],
+        "revenue": ["FinancialMetric", "Revenue"],
+        "diversity": ["supportsGroup", "DiversityGroup"],
+        "engagement": ["usesEngagementTool", "EngagementTool"],
+        "product": ["Product", "hasProduct"],
+        "competition": ["Competition", "Competitor"],
+        "ai": ["AI", "ArtificialIntelligence"],
+        "data center": ["DataCenter"],
+        "lng": ["LNG", "LiquefiedNaturalGas"],
+        "semiconductor": ["Semiconductor"],
+        "real estate": ["RealEstate"],
+    }
+
+    entities = []
+    for keyword, kg_types in concept_keywords.items():
+        if keyword in q:
+            entities.extend(kg_types)
+
+    return list(set(entities))
+
+
+def _find_company_nodes(G: nx.DiGraph, company: str) -> list[str]:
+    """Find all KG nodes representing a company, sorted by connectivity (most edges first)."""
+    candidates = [
+        f"Company_{company}",          # TTL: inst:Company_AMD -> Company_AMD
+        f"Company:{company}",           # Legacy CSV format
+        company.upper(),                # Direct ticker
+        company,                        # As-is
+    ]
+    
+    found = []
+    for node in G.nodes():
+        node_str = str(node)
+        if node_str in candidates:
+            found.append(node_str)
+        elif node_str.endswith(f"_{company}") and G.nodes[node].get(":LABEL") == "Company":
+            found.append(node_str)
+    
+    # Sort by out_degree descending so richest node (from company TTL) comes first
+    found.sort(key=lambda n: G.out_degree(n), reverse=True)
+    return found
 
 
 def graph_search(company: str, topic: str = None, top_k: int = 10) -> list[dict]:
     """
-    Retrieve KG subgraph centered on a company.
-    Returns nodes and paths relevant to the query topic.
+    Enhanced Graph RAG: Entity linking + subgraph extraction.
+    1. Link query entities to KG nodes
+    2. Extract relevant subgraph around company + matched entities
+    3. Score paths by relevance
     """
     G = load_kg()
-    company_node = f"Company:{company}"
 
-    if company_node not in G:
+    # Find company root node(s)
+    company_nodes = _find_company_nodes(G, company)
+
+    if not company_nodes:
         return []
+
+    # Extract query entities
+    query_entities = _extract_query_entities(topic or "")
 
     results = []
 
-    # Get all neighbors (1-hop)
-    for neighbor in G.neighbors(company_node):
-        edge_data = G[company_node][neighbor]
-        node_data = G.nodes[neighbor]
-        label = node_data.get(":LABEL", "Unknown")
-        text = node_data.get("text", "") or node_data.get("name", "")
+    for company_node in company_nodes:
+        # 1-hop neighbors
+        for neighbor in G.neighbors(company_node):
+            edge_data = G[company_node][neighbor]
+            node_data = G.nodes[neighbor]
+            label = node_data.get(":LABEL", "Unknown")
+            text = (node_data.get("text", "") or node_data.get("name", "") or
+                    node_data.get("label", "") or str(neighbor))
+            relation = edge_data.get("relation", "")
 
-        # Basic topic relevance scoring
-        score = 0.5
-        if topic:
-            topic_lower = topic.lower()
-            text_lower = (text or "").lower()
-            label_lower = label.lower()
-            if topic_lower in text_lower:
-                score = 0.9
-            elif any(w in text_lower for w in topic_lower.split()):
-                score = 0.7
+            # Score based on entity matching
+            score = 0.5
+            if query_entities:
+                for qe in query_entities:
+                    qe_lower = qe.lower()
+                    if (qe_lower in label.lower() or
+                        qe_lower in relation.lower() or
+                        qe_lower in text.lower()):
+                        score = 0.9
+                        break
+                    elif topic and any(w in text.lower() for w in topic.lower().split()[:3]):
+                        score = max(score, 0.7)
 
-        results.append({
-            "node_id": neighbor,
-            "label": label,
-            "text": text,
-            "relation": edge_data.get("relation", ""),
-            "score": score,
-        })
+            results.append({
+                "node_id": neighbor,
+                "label": label,
+                "text": text[:300],
+                "relation": relation,
+                "score": score,
+                "hop": 1,
+                "source": "kg",
+            })
 
-    # Get 2-hop paths
-    for n1 in G.neighbors(company_node):
-        for n2 in G.neighbors(n1):
-            if n2 != company_node:
-                n1_data = G.nodes[n1]
+            # 2-hop neighbors
+            for n2 in G.neighbors(neighbor):
+                if n2 == company_node:
+                    continue
                 n2_data = G.nodes[n2]
-                e1 = G[company_node][n1].get("relation", "?")
-                e2 = G[n1][n2].get("relation", "?")
+                e2 = G[neighbor][n2].get("relation", "?")
+                n2_label = n2_data.get(":LABEL", "Unknown")
+                n2_text = (n2_data.get("text", "") or n2_data.get("name", "") or
+                          n2_data.get("label", "") or str(n2))
+
+                hop2_score = 0.3
+                if query_entities:
+                    for qe in query_entities:
+                        if qe.lower() in n2_label.lower() or qe.lower() in n2_text.lower():
+                            hop2_score = 0.7
+                            break
 
                 results.append({
                     "node_id": n2,
-                    "label": n2_data.get(":LABEL", "Unknown"),
-                    "text": n2_data.get("text", "") or n2_data.get("name", ""),
-                    "relation": f"{e1} → {e2}",
-                    "score": 0.4,
-                    "path": f"Company:{company} →[{e1}]→ {n1_data.get(':LABEL','')} →[{e2}]→ {n2_data.get(':LABEL','')}",
+                    "label": n2_label,
+                    "text": n2_text[:300],
+                    "relation": f"{relation} -> {e2}",
+                    "score": hop2_score,
+                    "hop": 2,
+                    "path": f"{company_node} -[{relation}]-> {label} -[{e2}]-> {n2_label}",
+                    "source": "kg",
                 })
 
-    # Sort by score and limit
+    # Deduplicate by node_id, keeping highest score
+    seen = {}
+    for r in results:
+        nid = r["node_id"]
+        if nid not in seen or r["score"] > seen[nid]["score"]:
+            seen[nid] = r
+    results = list(seen.values())
+
+    # Sort by score
     results.sort(key=lambda x: x["score"], reverse=True)
     return results[:top_k]
 
@@ -259,40 +491,34 @@ def graph_search(company: str, topic: str = None, top_k: int = 10) -> list[dict]
 def get_kg_paths(company: str) -> list[KGPath]:
     """Extract meaningful KG paths for explain mode."""
     G = load_kg()
-    company_node = f"Company:{company}"
+
+    # Find company root
+    company_nodes = _find_company_nodes(G, company)
+    if not company_nodes:
+        return []
+    company_node = company_nodes[0]
+
     paths = []
-
-    if company_node not in G:
-        return paths
-
-    # Find all paths of length 2-4 from company
     for n1 in G.neighbors(company_node):
         n1_label = G.nodes[n1].get(":LABEL", "")
         e1 = G[company_node][n1].get("relation", "")
+        n1_text = G.nodes[n1].get("text", "") or G.nodes[n1].get("name", "") or str(n1)
 
-        path_str = f"Company:{company} → {n1_label}"
         paths.append(KGPath(
-            path=f"Company:{company} →[{e1}]→ {n1_label}",
-            description=G.nodes[n1].get("text", "") or G.nodes[n1].get("name", ""),
+            path=f"{company} -[{e1}]-> {n1_label}",
+            description=n1_text[:200],
         ))
 
         for n2 in G.neighbors(n1):
             if n2 != company_node:
                 n2_label = G.nodes[n2].get(":LABEL", "")
                 e2 = G[n1][n2].get("relation", "")
-                paths.append(KGPath(
-                    path=f"Company:{company} → {n1_label} → {n2_label}",
-                    description=f"{e1} → {e2}",
-                ))
+                n2_text = G.nodes[n2].get("text", "") or G.nodes[n2].get("name", "") or str(n2)
 
-                for n3 in G.neighbors(n2):
-                    if n3 != company_node and n3 != n1:
-                        n3_label = G.nodes[n3].get(":LABEL", "")
-                        e3 = G[n2][n3].get("relation", "")
-                        paths.append(KGPath(
-                            path=f"Company:{company} → {n1_label} → {n2_label} → {n3_label}",
-                            description=f"{e1} → {e2} → {e3}",
-                        ))
+                paths.append(KGPath(
+                    path=f"{company} -> {n1_label} -[{e2}]-> {n2_label}",
+                    description=f"{n1_text[:80]}... -> {n2_text[:80]}",
+                ))
 
     return paths
 
@@ -300,90 +526,66 @@ def get_kg_paths(company: str) -> list[KGPath]:
 # ── Reranker ────────────────────────────────────────────────────────────
 
 def rerank(query: str, results: list[dict], top_k: int = 10) -> list[dict]:
-    """
-    Cross-encoder reranking of combined results.
-    Falls back to score-based ranking if cross-encoder unavailable.
-    """
-    try:
-        from sentence_transformers import CrossEncoder
-        model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
-        pairs = [(query, r.get("text", "")) for r in results]
-        scores = model.predict(pairs)
-        for r, s in zip(results, scores):
-            r["rerank_score"] = float(s)
-        results.sort(key=lambda x: x.get("rerank_score", 0), reverse=True)
-    except Exception:
-        # Fallback: just sort by original score
+    """Cross-encoder reranking. Falls back to score-based ranking."""
+    reranker = get_reranker()
+    if reranker:
+        try:
+            pairs = [(query, r.get("text", "")) for r in results]
+            scores = reranker.predict(pairs)
+            for r, s in zip(results, scores):
+                r["rerank_score"] = float(s)
+            results.sort(key=lambda x: x.get("rerank_score", 0), reverse=True)
+        except Exception:
+            results.sort(key=lambda x: x.get("score", 0), reverse=True)
+    else:
         results.sort(key=lambda x: x.get("score", 0), reverse=True)
 
     return results[:top_k]
 
 
-# ── Curated company metadata for RAG prompt enrichment ──────────────────
-COMPANY_META = {
-    "AAPL": {
-        "name": "Apple Inc.",
-        "mission": "To bring the best user experience to customers through innovative hardware, software, and services.",
-        "alignment_label": "Worst-Alignment",
-    },
-    "AMD": {
-        "name": "Advanced Micro Devices",
-        "mission": "To build great products that accelerate next-generation computing experiences through high-performance and adaptive computing technology.",
-        "alignment_label": "Worst-Alignment",
-    },
-    "TGT": {
-        "name": "Target Corporation",
-        "mission": "To help all families discover the joy of everyday life by delivering an experience that is uniquely Target.",
-        "alignment_label": "Worst-Alignment",
-    },
-    "WMT": {
-        "name": "Walmart Inc.",
-        "mission": "To help people save money and live better — through everyday low prices, powered by everyday low cost.",
-        "alignment_label": "Best-Alignment",
-    },
-    "TSN": {
-        "name": "Tyson Foods Inc.",
-        "mission": "To raise the world's expectations for how much good food can do — feeding people sustainably, responsibly, and well.",
-        "alignment_label": "Best-Alignment",
-    },
-    "MSFT": {
-        "name": "Microsoft Corporation",
-        "mission": "To empower every person and every organization on the planet to achieve more.",
-        "alignment_label": "Best-Alignment",
-    },
-}
+# ── Context Fusion ──────────────────────────────────────────────────────
 
-
-def generate_answer(question: str, company: str, context_chunks: list[dict],
-                    kg_context: list[dict]) -> str:
-    """Generate answer using HuggingFace LLM with MSG-KG alignment context."""
-    hf_token = os.getenv("HUGGINGFACE_TOKEN")
-
-    # Get curated company metadata
-    meta = COMPANY_META.get(company, {})
-    company_name = meta.get("name", company)
-    mission = meta.get("mission", "N/A")
-    alignment = meta.get("alignment_label", "N/A")
-
-    # Build evidence context (more context, better formatted)
+def _fuse_context(vec_results: list[dict], kg_results: list[dict],
+                  max_tokens: int = 3000) -> tuple[str, str]:
+    """
+    Fuse vector search results with KG subgraph into coherent context.
+    Returns (text_context, kg_context) formatted for the prompt.
+    """
+    # Text context from vector search
     context_parts = []
-    for i, chunk in enumerate(context_chunks[:8]):
-        score = chunk.get('score', 0) or chunk.get('rerank_score', 0)
-        context_parts.append(
-            f"[Evidence {i+1}] (10-K {chunk.get('section', 'Item 1')}, "
-            f"Page ~{chunk.get('page_estimate', '?')}, Score: {score:.2f})\n"
-            f"{chunk['text'][:600]}"
-        )
+    word_budget = max_tokens
+    for i, chunk in enumerate(vec_results[:8]):
+        score = chunk.get("rerank_score", chunk.get("score", 0))
+        section = chunk.get("section", "Item 1")
+        page = chunk.get("page_estimate", "?")
+        text = chunk["text"][:600]
+        words_used = len(text.split())
 
-    # Build KG context (structured by type)
+        if word_budget - words_used < 0:
+            break
+
+        context_parts.append(
+            f"[Evidence {i+1}] (10-K {section}, Page ~{page}, Score: {score:.2f})\n{text}"
+        )
+        word_budget -= words_used
+
+    # KG context — structured by relationship type
     kg_by_type = {}
-    for item in kg_context[:10]:
-        label = item.get('label', 'Other')
-        text = item.get('text', '')[:200]
-        relation = item.get('relation', '')
+    for item in kg_results[:15]:
+        label = item.get("label", "Other")
+        text = item.get("text", "")
+        relation = item.get("relation", "")
+        hop = item.get("hop", 1)
+        if not text or text == label:
+            continue
         if label not in kg_by_type:
             kg_by_type[label] = []
-        kg_by_type[label].append(f"{text} (via {relation})")
+        entry = f"{text[:200]}"
+        if relation:
+            entry += f" (via {relation})"
+        if hop > 1:
+            entry += f" [{hop}-hop]"
+        kg_by_type[label].append(entry)
 
     kg_parts = []
     for label, items in kg_by_type.items():
@@ -391,18 +593,36 @@ def generate_answer(question: str, company: str, context_chunks: list[dict],
         for it in items[:3]:
             kg_parts.append(f"    - {it}")
 
-    context_text = "\n\n".join(context_parts) if context_parts else "No 10-K evidence retrieved."
-    kg_text = "\n".join(kg_parts) if kg_parts else "No KG context available."
+    text_context = "\n\n".join(context_parts) if context_parts else "No 10-K evidence retrieved."
+    kg_context = "\n".join(kg_parts) if kg_parts else "No KG context available."
 
-    prompt = f"""<s>[INST] You are a financial analyst specializing in the MSG-KG (Mission-Strategy-Goals Knowledge Graph) framework. Your job is to analyze SEC 10-K filings and answer questions using both document evidence and knowledge graph data.
+    return text_context, kg_context
+
+
+# ── LLM Generation ──────────────────────────────────────────────────────
+
+def generate_answer(question: str, company: str, context_chunks: list[dict],
+                    kg_context: list[dict]) -> str:
+    """Generate answer using HuggingFace Inference API (Mixtral-8x7B)."""
+    hf_token = os.getenv("HUGGINGFACE_TOKEN")
+
+    meta = COMPANY_META.get(company, {})
+    company_name = meta.get("name", company)
+    mission = meta.get("mission", "N/A")
+    sector = meta.get("sector", "N/A")
+
+    # Fuse vector + KG context
+    text_context, kg_text = _fuse_context(context_chunks, kg_context)
+
+    prompt = f"""<s>[INST] You are a financial analyst specializing in the MSG-KG (Mission-Strategy-Goals Knowledge Graph) framework. Analyze SEC 10-K filings using both document evidence and knowledge graph data.
 
 COMPANY PROFILE:
 - Name: {company_name} ({company})
 - Mission: {mission}
-- Alignment Classification: {alignment}
+- Sector: {sector}
 
 10-K FILING EVIDENCE:
-{context_text}
+{text_context}
 
 KNOWLEDGE GRAPH DATA:
 {kg_text}
@@ -410,11 +630,12 @@ KNOWLEDGE GRAPH DATA:
 QUESTION: {question}
 
 Instructions:
-1. Ground your answer in the retrieved evidence — cite specific passages
-2. Reference the knowledge graph where it strengthens your answer
-3. Connect the answer back to the company's mission and strategic alignment when relevant
-4. If evidence is insufficient, clearly say what is missing
-5. Be concise but thorough — aim for 3-5 key insights
+1. Ground your answer in the retrieved 10-K evidence -- cite specific passages
+2. Reference knowledge graph relationships where they strengthen your analysis
+3. Connect findings to the company's mission and strategy
+4. Evaluate Human Capital Management disclosures if relevant
+5. If evidence is insufficient, clearly state what is missing
+6. Be concise but thorough -- aim for 3-5 key insights
 
 ANSWER: [/INST]"""
 
@@ -430,18 +651,18 @@ ANSWER: [/INST]"""
                 return_full_text=False,
             )
             answer = response.strip()
-            # Clean up any trailing incomplete sentences
-            if answer and not answer[-1] in '.!?"':
+            # Clean up trailing incomplete sentences
+            if answer and answer[-1] not in '.!?"':
                 last_period = answer.rfind('.')
                 if last_period > len(answer) * 0.5:
                     answer = answer[:last_period + 1]
             return answer
         except Exception as e:
-            print(f"⚠ LLM generation failed: {e}")
+            print(f"[WARN] LLM generation failed: {e}")
 
-    # Fallback: structured extractive summary from top chunks + KG
+    # Fallback: structured extractive summary
     parts = []
-    parts.append(f"**{company_name}** ({alignment})")
+    parts.append(f"**{company_name}** ({sector})")
     parts.append(f"**Mission:** {mission}\n")
 
     if context_chunks:
@@ -455,7 +676,7 @@ ANSWER: [/INST]"""
         for item in kg_context[:4]:
             parts.append(f"- **{item.get('label','')}**: {item.get('text','')[:150]}")
 
-    return "\n\n".join(parts) if parts else f"No relevant information found for {company} regarding this question."
+    return "\n\n".join(parts) if parts else f"No relevant information found for {company}."
 
 
 # ── Main RAG Pipeline ───────────────────────────────────────────────────
@@ -464,36 +685,38 @@ def ask(question: str, company: str,
         config: Optional[dict] = None) -> RAGAnswer:
     """
     Main RAG entry point.
-    config keys: top_k_vector, top_k_graph, rerank (bool), explain (bool)
+    Config keys: top_k_vector, top_k_graph, rerank (bool), explain (bool)
     """
     if config is None:
         config = {}
 
     top_k_vec   = config.get("top_k_vector", 10)
-    top_k_graph = config.get("top_k_graph", 10)
+    top_k_graph = config.get("top_k_graph", 15)
     do_rerank   = config.get("rerank", True)
     explain     = config.get("explain", True)
 
     pipeline_steps = []
 
     # Step 1: Vector retrieval
-    pipeline_steps.append("Vector Retrieval")
+    pipeline_steps.append("Vector Retrieval (MiniLM-L6)")
     vec_results = vector_search(question, company, top_k=top_k_vec)
 
-    # Step 2: Graph retrieval
-    pipeline_steps.append("Graph Retrieval")
-    # Extract topic keywords from question
-    topic = question.lower().replace("what is the", "").replace("what are the", "").strip()
+    # Step 2: Graph RAG — entity-linked subgraph extraction
+    pipeline_steps.append("Graph RAG (Entity Linking + Subgraph)")
+    topic = question.lower()
+    # Remove common question prefixes
+    for prefix in ["what is the", "what are the", "how does", "tell me about", "describe"]:
+        topic = topic.replace(prefix, "")
+    topic = topic.strip()
     graph_results = graph_search(company, topic=topic, top_k=top_k_graph)
 
-    # Step 3: Combine & Rerank
+    # Step 3: Rerank vector results
     if do_rerank and vec_results:
-        pipeline_steps.append("Reranker")
-        combined = vec_results  # Graph results don't have text suitable for reranking
-        vec_results = rerank(question, combined, top_k=top_k_vec)
-    pipeline_steps.append("KG-RAG Reasoner")
+        pipeline_steps.append("Cross-Encoder Reranking")
+        vec_results = rerank(question, vec_results, top_k=top_k_vec)
 
-    # Step 4: Generate answer
+    # Step 4: Context Fusion + LLM Generation
+    pipeline_steps.append("Context Fusion + LLM")
     answer_text = generate_answer(question, company, vec_results, graph_results)
 
     # Build evidence spans
@@ -503,7 +726,7 @@ def ask(question: str, company: str,
             doc_type="10-K",
             section=chunk.get("section", "Item 1"),
             page=chunk.get("page_estimate", 0),
-            confidence=round(chunk.get("score", 0), 2),
+            confidence=round(chunk.get("rerank_score", chunk.get("score", 0)), 2),
             text=chunk.get("text", "")[:300],
             chunk_id=chunk.get("chunk_id", ""),
         ))
@@ -523,59 +746,78 @@ def ask(question: str, company: str,
     )
 
 
+# ── Company Overview (for app.py) ───────────────────────────────────────
+
 def get_company_overview(company: str) -> dict:
-    """Get overview data for a company from KG."""
+    """Get overview data for a company from KG by merging ALL company nodes."""
     G = load_kg()
-    company_node = f"Company:{company}"
 
     overview = {
         "ticker": company,
-        "name": "",
-        "mission": "",
+        "name": COMPANY_META.get(company, {}).get("name", company),
+        "mission": COMPANY_META.get(company, {}).get("mission", ""),
         "objectives": [],
         "capabilities": [],
         "initiatives": [],
         "risks": [],
+        "hcm_metrics": [],
+        "financial_metrics": [],
         "kg_stats": {"nodes": 0, "edges": 0},
     }
 
-    if company_node not in G:
+    # Find ALL company root nodes (may be multiple: AMD from kg1.ttl, Company_AMD from AMD.ttl)
+    root_nodes = _find_company_nodes(G, company)
+    if not root_nodes:
         return overview
 
-    node_data = G.nodes[company_node]
-    overview["name"] = node_data.get("name", company)
+    # Use the most-connected node for the name
+    primary_node = root_nodes[0]  # already sorted by out_degree
+    node_data = G.nodes[primary_node]
+    if node_data.get("text"):
+        overview["name"] = node_data["text"]
 
-    # Count company-specific nodes
-    company_nodes = [company_node]
-    company_edges = 0
+    seen_nodes = set(root_nodes)
+    total_edges = 0
+    seen_texts = set()  # deduplicate
 
-    for neighbor in G.neighbors(company_node):
-        label = G.nodes[neighbor].get(":LABEL", "")
-        text = G.nodes[neighbor].get("text", "") or G.nodes[neighbor].get("name", "")
-        relation = G[company_node][neighbor].get("relation", "")
-        company_nodes.append(neighbor)
-        company_edges += 1
+    # Traverse neighbors of ALL company nodes to merge data
+    for company_node in root_nodes:
+        for neighbor in G.neighbors(company_node):
+            label = G.nodes[neighbor].get(":LABEL", "")
+            text = (G.nodes[neighbor].get("text", "") or
+                    G.nodes[neighbor].get("name", "") or str(neighbor))
+            seen_nodes.add(neighbor)
+            total_edges += 1
 
-        if label == "Mission":
-            overview["mission"] = text
-        elif label == "StrategicObjective":
-            overview["objectives"].append(text)
-        elif label == "Capability":
-            overview["capabilities"].append(text)
-        elif label == "Initiative":
-            overview["initiatives"].append(text)
-        elif label == "RiskTheme":
-            overview["risks"].append(text)
+            # Deduplicate by text
+            if text in seen_texts:
+                continue
+            seen_texts.add(text)
 
-        # 2nd hop
-        for n2 in G.neighbors(neighbor):
-            if n2 != company_node:
-                company_nodes.append(n2)
-                company_edges += 1
+            if "Mission" in label:
+                overview["mission"] = text
+            elif "StrategicObjective" in label or "Strategy" in label:
+                overview["objectives"].append(text)
+            elif "Capability" in label:
+                overview["capabilities"].append(text)
+            elif "Initiative" in label:
+                overview["initiatives"].append(text)
+            elif "Risk" in label:
+                overview["risks"].append(text)
+            elif "HumanCapital" in label:
+                overview["hcm_metrics"].append(text)
+            elif "Financial" in label:
+                overview["financial_metrics"].append(text)
+
+            # 2nd hop
+            for n2 in G.neighbors(neighbor):
+                if n2 not in root_nodes:
+                    seen_nodes.add(n2)
+                    total_edges += 1
 
     overview["kg_stats"] = {
-        "nodes": len(set(company_nodes)),
-        "edges": company_edges,
+        "nodes": len(seen_nodes),
+        "edges": total_edges,
     }
 
     return overview
@@ -590,5 +832,5 @@ def compare_companies(company1: str, company2: str) -> dict:
         "company1": o1,
         "company2": o2,
         "dimensions": ["Mission", "Strategic Objectives", "Capabilities",
-                       "Initiatives", "Risk Themes"],
+                       "Initiatives", "Risk Themes", "HCM Metrics"],
     }

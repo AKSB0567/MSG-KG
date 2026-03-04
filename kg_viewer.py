@@ -16,18 +16,29 @@ def render_kg_viewer(company, load_kg_graph_fn, clean_display_text_fn,
                "Use navigation buttons (bottom-left) · Press fullscreen ⛶ to expand")
 
     G = load_kg_graph_fn()
-    company_node = f"Company:{company}"
 
-    if company_node not in G:
+    # Find company node using multiple naming patterns (TTL + CSV)
+    company_node = None
+    candidates = [f"Company_{company}", f"Company:{company}", company.upper(), company]
+    for c in candidates:
+        if c in G:
+            if company_node is None or G.out_degree(c) > G.out_degree(company_node):
+                company_node = c
+
+    if company_node is None:
         st.warning(f"No KG data found for {company}. Run `python kg_builder.py` first.")
         return
 
-    # Build company-specific subgraph (2-hop)
-    sub_nodes = {company_node}
-    for n1 in G.neighbors(company_node):
-        sub_nodes.add(n1)
-        for n2 in G.neighbors(n1):
-            sub_nodes.add(n2)
+    # Also find secondary company nodes to merge subgraphs
+    all_company_nodes = [c for c in candidates if c in G]
+
+    # Build company-specific subgraph (2-hop from ALL company nodes)
+    sub_nodes = set(all_company_nodes)
+    for cn in all_company_nodes:
+        for n1 in G.neighbors(cn):
+            sub_nodes.add(n1)
+            for n2 in G.neighbors(n1):
+                sub_nodes.add(n2)
 
     subgraph = G.subgraph(sub_nodes)
 
@@ -39,6 +50,8 @@ def render_kg_viewer(company, load_kg_graph_fn, clean_display_text_fn,
         "Capability":         "#f39c12",
         "Initiative":         "#8e44ad",
         "RiskTheme":          "#e67e22",
+        "FinancialMetric":    "#3498db",
+        "HumanCapitalMetric": "#1abc9c",
     }
 
     node_sizes = {
