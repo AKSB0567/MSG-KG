@@ -1,0 +1,1134 @@
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:Company_AMD a msg:Company ;
+    msg:cik "0000002488" ;
+    msg:companyName "ADVANCED MICRO DEVICES INC" ;
+    msg:exposedTo inst:RiskTheme_AMD_acquisition-and-integration-risk,
+        inst:RiskTheme_AMD_acquisition-integration-risk,
+        inst:RiskTheme_AMD_advanced-process-technology-transition-risk,
+        inst:RiskTheme_AMD_ai-enhanced-cyber-threat-risk,
+        inst:RiskTheme_AMD_ai-market-adoption-uncertainty,
+        inst:RiskTheme_AMD_ai-regulation-and-compliance-risk,
+        inst:RiskTheme_AMD_ai-responsible-use-and-reputational-harm,
+        inst:RiskTheme_AMD_ai-responsible-use-liability,
+        inst:RiskTheme_AMD_ai-semiconductor-export-restriction-risk,
+        inst:RiskTheme_AMD_atmp-joint-venture-dependency-risk,
+        inst:RiskTheme_AMD_atmp-joint-venture-supply-risk,
+        inst:RiskTheme_AMD_china-taiwan-geopolitical-risk,
+        inst:RiskTheme_AMD_china-trade-relations-and-sanctions-risk,
+        inst:RiskTheme_AMD_climate-change-physical-operations-risk,
+        inst:RiskTheme_AMD_climate-disclosure-regulatory-risk,
+        inst:RiskTheme_AMD_climate-related-regulatory-compliance-risk,
+        inst:RiskTheme_AMD_conflict-minerals-compliance-risk,
+        inst:RiskTheme_AMD_corporate-responsibility-stakeholder-expectations,
+        inst:RiskTheme_AMD_counterparty-and-banking-failure-risk,
+        inst:RiskTheme_AMD_cross-default-and-debt-acceleration-risk,
+        inst:RiskTheme_AMD_currency-exchange-rate-fluctuations,
+        inst:RiskTheme_AMD_customer-concentration-risk,
+        inst:RiskTheme_AMD_cybersecurity-and-data-breach-risk,
+        inst:RiskTheme_AMD_data-privacy-regulation-non-compliance,
+        inst:RiskTheme_AMD_data-privacy-regulatory-compliance-risk,
+        inst:RiskTheme_AMD_debt-covenant-restriction-risk,
+        inst:RiskTheme_AMD_deferred-tax-asset-realization-risk,
+        inst:RiskTheme_AMD_demand-forecasting-and-inventory-risk,
+        inst:RiskTheme_AMD_distributor-and-aib-partner-concentration-risk,
+        inst:RiskTheme_AMD_divestiture-execution-risk,
+        inst:RiskTheme_AMD_end-market-demand-fluctuations,
+        inst:RiskTheme_AMD_environmental-and-esg-compliance-risk,
+        inst:RiskTheme_AMD_environmental-compliance-and-remediation,
+        inst:RiskTheme_AMD_equity-dilution-from-acquisitions,
+        inst:RiskTheme_AMD_esg-goal-achievement-risk,
+        inst:RiskTheme_AMD_excess-inventory-and-obsolescence-risk,
+        inst:RiskTheme_AMD_export-control-and-sanctions-risk,
+        inst:RiskTheme_AMD_export-controls-and-government-restrictions,
+        inst:RiskTheme_AMD_export-controls-and-trade-restrictions,
+        inst:RiskTheme_AMD_forced-labor-supply-chain-risk,
+        inst:RiskTheme_AMD_foreign-currency-exchange-rate-risk,
+        inst:RiskTheme_AMD_geopolitical-and-global-operations-risk,
+        inst:RiskTheme_AMD_geopolitical-and-trade-restriction-risk,
+        inst:RiskTheme_AMD_global-health-and-pandemic-risk,
+        inst:RiskTheme_AMD_global-minimum-tax-pillar-two-impact,
+        inst:RiskTheme_AMD_goodwill-and-intangible-asset-impairment,
+        inst:RiskTheme_AMD_gray-market-sales-risk,
+        inst:RiskTheme_AMD_greenhouse-gas-and-energy-cost-risk,
+        inst:RiskTheme_AMD_intel-competitive-dominance,
+        inst:RiskTheme_AMD_intellectual-property-litigation-risk,
+        inst:RiskTheme_AMD_intellectual-property-protection-risk,
+        inst:RiskTheme_AMD_intense-market-competition,
+        inst:RiskTheme_AMD_international-operations-political-risk,
+        inst:RiskTheme_AMD_inventory-excess-and-obsolescence-risk,
+        inst:RiskTheme_AMD_it-systems-disruption-and-cybersecurity-risk,
+        inst:RiskTheme_AMD_itar-and-ear-compliance-risk,
+        inst:RiskTheme_AMD_litigation-and-legal-claims,
+        inst:RiskTheme_AMD_ma-regulatory-approval-risk,
+        inst:RiskTheme_AMD_macroeconomic-and-market-uncertainty,
+        inst:RiskTheme_AMD_macroeconomic-conditions-risk,
+        inst:RiskTheme_AMD_macroeconomic-downturn-risk,
+        inst:RiskTheme_AMD_manufacturing-yield-risk,
+        inst:RiskTheme_AMD_microsoft-software-support-dependency,
+        inst:RiskTheme_AMD_natural-disaster-and-climate-risk,
+        inst:RiskTheme_AMD_new-product-introduction-execution-risk,
+        inst:RiskTheme_AMD_nvidia-gpu-market-dominance,
+        inst:RiskTheme_AMD_price-protection-and-margin-risk,
+        inst:RiskTheme_AMD_product-compatibility-failure-risk,
+        inst:RiskTheme_AMD_product-defect-and-liability-risk,
+        inst:RiskTheme_AMD_product-liability-and-consumer-claims,
+        inst:RiskTheme_AMD_product-security-vulnerabilities,
+        inst:RiskTheme_AMD_product-security-vulnerability-risk,
+        inst:RiskTheme_AMD_quarterly-seasonal-revenue-variability,
+        inst:RiskTheme_AMD_semi-custom-soc-revenue-dependency,
+        inst:RiskTheme_AMD_semiconductor-industry-cyclicality,
+        inst:RiskTheme_AMD_stock-price-volatility-risk,
+        inst:RiskTheme_AMD_strategic-investment-portfolio-risk,
+        inst:RiskTheme_AMD_supplier-environmental-non-compliance,
+        inst:RiskTheme_AMD_supply-chain-component-dependency-risk,
+        inst:RiskTheme_AMD_supply-chain-disruption-risk,
+        inst:RiskTheme_AMD_supply-chain-efficiency-risk,
+        inst:RiskTheme_AMD_supply-chain-materials-shortage,
+        inst:RiskTheme_AMD_talent-retention-and-recruitment-risk,
+        inst:RiskTheme_AMD_tax-audit-and-litigation-exposure,
+        inst:RiskTheme_AMD_tax-law-changes-and-liabilities,
+        inst:RiskTheme_AMD_tax-liability-and-regulation-risk,
+        inst:RiskTheme_AMD_technology-license-impairment-risk,
+        inst:RiskTheme_AMD_thatic-jv-entity-list-compliance-risk,
+        inst:RiskTheme_AMD_third-party-intellectual-property-dependency,
+        inst:RiskTheme_AMD_third-party-logistics-provider-risk,
+        inst:RiskTheme_AMD_third-party-manufacturing-dependence,
+        inst:RiskTheme_AMD_third-party-manufacturing-dependency-risk,
+        inst:RiskTheme_AMD_third-party-supply-chain-risk,
+        inst:RiskTheme_AMD_tsmc-concentration-risk ;
+    msg:fiscalYear 2025 ;
+    msg:pursues inst:Initiative_AMD_new-product-ramp-in-advanced-process-nodes,
+        inst:Initiative_AMD_share-repurchase-program,
+        inst:Initiative_AMD_zt-systems-acquisition ;
+    msg:reportsMetric inst:FinancialMetric_AMD_aggregate-principal-debt-2024,
+        inst:FinancialMetric_AMD_amd-acquisitionrelatedintangiblesnet-2023,
+        inst:FinancialMetric_AMD_amd-acquisitionrelatedintangiblesnet-2024,
+        inst:FinancialMetric_AMD_amd-basicweightedavgshares-2024,
+        inst:FinancialMetric_AMD_amd-depreciationexpense-2023,
+        inst:FinancialMetric_AMD_amd-depreciationexpense-2024,
+        inst:FinancialMetric_AMD_amd-dilutedweightedavgshares-2024,
+        inst:FinancialMetric_AMD_amd-epsbasic-2022,
+        inst:FinancialMetric_AMD_amd-epsbasic-2023,
+        inst:FinancialMetric_AMD_amd-epsbasic-2024,
+        inst:FinancialMetric_AMD_amd-epsdiluted-2022,
+        inst:FinancialMetric_AMD_amd-epsdiluted-2023,
+        inst:FinancialMetric_AMD_amd-epsdiluted-2024,
+        inst:FinancialMetric_AMD_amd-incometaxbenefit-2022,
+        inst:FinancialMetric_AMD_amd-incometaxbenefit-2023,
+        inst:FinancialMetric_AMD_amd-incometaxprovision-2024,
+        inst:FinancialMetric_AMD_amd-marketingadvertisingexpense-2023,
+        inst:FinancialMetric_AMD_amd-marketingadvertisingexpense-2024,
+        inst:FinancialMetric_AMD_amd-netdeferredtaxassets-2024,
+        inst:FinancialMetric_AMD_amd-netdeferredtaxliabilities-2023,
+        inst:FinancialMetric_AMD_amd-netincome-2022,
+        inst:FinancialMetric_AMD_amd-netincome-2023,
+        inst:FinancialMetric_AMD_amd-netincome-2024,
+        inst:FinancialMetric_AMD_amd-netinventory-2024,
+        inst:FinancialMetric_AMD_amd-netrevenue-2022,
+        inst:FinancialMetric_AMD_amd-netrevenue-2023,
+        inst:FinancialMetric_AMD_amd-netrevenue-2024,
+        inst:FinancialMetric_AMD_amd-operatingcashflow-2022,
+        inst:FinancialMetric_AMD_amd-operatingcashflow-2023,
+        inst:FinancialMetric_AMD_amd-operatingcashflow-2024,
+        inst:FinancialMetric_AMD_amd-operatingleaseexpense-2024,
+        inst:FinancialMetric_AMD_amd-pretaxincome-2022,
+        inst:FinancialMetric_AMD_amd-pretaxincome-2023,
+        inst:FinancialMetric_AMD_amd-pretaxincome-2024,
+        inst:FinancialMetric_AMD_amd-restructuringcharges-2024,
+        inst:FinancialMetric_AMD_amd-stockbasedcompensation-2023,
+        inst:FinancialMetric_AMD_amd-stockbasedcompensation-2024,
+        inst:FinancialMetric_AMD_amd-totalaccruedliabilities-2023,
+        inst:FinancialMetric_AMD_amd-totalaccruedliabilities-2024,
+        inst:FinancialMetric_AMD_amd-totalassets-2023,
+        inst:FinancialMetric_AMD_amd-totalassets-2024,
+        inst:FinancialMetric_AMD_amd-totaldebt-2023,
+        inst:FinancialMetric_AMD_amd-totaldebt-2024,
+        inst:FinancialMetric_AMD_amd-totaldeferredtaxassets-2024,
+        inst:FinancialMetric_AMD_amd-totalgoodwill-2023,
+        inst:FinancialMetric_AMD_amd-totalgoodwill-2024,
+        inst:FinancialMetric_AMD_amd-totalinventories-2023,
+        inst:FinancialMetric_AMD_amd-totalinventories-2024,
+        inst:FinancialMetric_AMD_amd-totalliabilities-2023,
+        inst:FinancialMetric_AMD_amd-totalliabilities-2024,
+        inst:FinancialMetric_AMD_amd-totalnetrevenue-2022,
+        inst:FinancialMetric_AMD_amd-totalnetrevenue-2023,
+        inst:FinancialMetric_AMD_amd-totalnetrevenue-2024,
+        inst:FinancialMetric_AMD_amd-totaloperatingincome-2022,
+        inst:FinancialMetric_AMD_amd-totaloperatingincome-2023,
+        inst:FinancialMetric_AMD_amd-totaloperatingincome-2024,
+        inst:FinancialMetric_AMD_amd-totalpropertyequipmentnet-2023,
+        inst:FinancialMetric_AMD_amd-totalpropertyequipmentnet-2024,
+        inst:FinancialMetric_AMD_amd-totalstockholdersequity-2022,
+        inst:FinancialMetric_AMD_amd-totalstockholdersequity-2023,
+        inst:FinancialMetric_AMD_amd-totalstockholdersequity-2024,
+        inst:FinancialMetric_AMD_amd-unrecognizedtaxbenefits-2023,
+        inst:FinancialMetric_AMD_amd-unrecognizedtaxbenefits-2024,
+        inst:FinancialMetric_AMD_cash-cash-equivalents-and-short-term-investments-2024,
+        inst:FinancialMetric_AMD_common-stock-repurchases-2024,
+        inst:FinancialMetric_AMD_international-sales-percentage-2024,
+        inst:FinancialMetric_AMD_net-cash-from-financing-activities-2024,
+        inst:FinancialMetric_AMD_net-cash-from-investing-activities-2024,
+        inst:FinancialMetric_AMD_net-cash-from-operating-activities-2024,
+        inst:FinancialMetric_AMD_net-income-2024,
+        inst:FinancialMetric_AMD_revolving-credit-facility-capacity,
+        inst:FinancialMetric_AMD_unconditional-purchase-commitments-2024 ;
+    msg:statesObjective inst:StrategicObjective_AMD_continue-international-sales-growth,
+        inst:StrategicObjective_AMD_maintain-sufficient-liquidity-for-operations-and-acquisitions ;
+    msg:ticker "AMD" .
+
+inst:Initiative_AMD_amd-pervasive-ai-strategy a msg:Initiative ;
+    msg:initiativeName "AMD Pervasive AI Strategy" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_ai-market-adoption-uncertainty,
+        inst:RiskTheme_AMD_intense-market-competition .
+
+inst:Initiative_AMD_foreign-currency-hedging-program a msg:Initiative ;
+    msg:initiativeName "Foreign Currency Hedging Program" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_foreign-currency-exchange-rate-risk .
+
+inst:Initiative_AMD_gf-wafer-supply-agreement a msg:Initiative ;
+    msg:initiativeName "GF Wafer Supply Agreement" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_third-party-manufacturing-dependency-risk .
+
+inst:Initiative_AMD_human-rights-policy-initiative a msg:Initiative ;
+    msg:initiativeName "Human Rights Policy Initiative" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_forced-labor-supply-chain-risk .
+
+inst:Initiative_AMD_information-security-controls-enhancement a msg:Initiative ;
+    msg:initiativeName "Information Security Controls Enhancement" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_cybersecurity-and-data-breach-risk .
+
+inst:Initiative_AMD_supplier-compliance-management-systems a msg:Initiative ;
+    msg:initiativeName "Supplier Compliance Management Systems" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_supplier-environmental-non-compliance .
+
+inst:Initiative_AMD_voluntary-corporate-responsibility-disclosures a msg:Initiative ;
+    msg:initiativeName "Voluntary Corporate Responsibility Disclosures" ;
+    msg:mitigatesRisk inst:RiskTheme_AMD_corporate-responsibility-stakeholder-expectations .
+
+inst:FinancialMetric_AMD_aggregate-principal-debt-2024 a msg:FinancialMetric ;
+    msg:metricName "Aggregate Principal Debt 2024",
+        "Aggregate Principal Debt Obligations" ;
+    msg:metricPeriod "2024-12-28" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "1.8" .
+
+inst:FinancialMetric_AMD_amd-acquisitionrelatedintangiblesnet-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_AcquisitionRelatedIntangiblesNet_2023",
+        "Total Acquisition-Related Intangible Assets, Net" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "21363" .
+
+inst:FinancialMetric_AMD_amd-acquisitionrelatedintangiblesnet-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_AcquisitionRelatedIntangiblesNet_2024",
+        "Total Acquisition-Related Intangible Assets, Net" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "18930" .
+
+inst:FinancialMetric_AMD_amd-basicweightedavgshares-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_BasicWeightedAvgShares_2024",
+        "Basic Weighted-Average Shares Outstanding" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions shares" ;
+    msg:metricValue "1620" .
+
+inst:FinancialMetric_AMD_amd-depreciationexpense-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_DepreciationExpense_2023",
+        "Depreciation Expense" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "441" .
+
+inst:FinancialMetric_AMD_amd-depreciationexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_DepreciationExpense_2024",
+        "Depreciation Expense" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "454" .
+
+inst:FinancialMetric_AMD_amd-dilutedweightedavgshares-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_DilutedWeightedAvgShares_2024",
+        "Diluted Weighted-Average Shares Outstanding" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions shares" ;
+    msg:metricValue "1637" .
+
+inst:FinancialMetric_AMD_amd-epsbasic-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_EPSBasic_2022",
+        "Earnings Per Share - Basic" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "0.85" .
+
+inst:FinancialMetric_AMD_amd-epsbasic-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_EPSBasic_2023",
+        "Earnings Per Share - Basic" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "0.53" .
+
+inst:FinancialMetric_AMD_amd-epsbasic-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_EPSBasic_2024",
+        "Earnings Per Share - Basic" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "1.01" .
+
+inst:FinancialMetric_AMD_amd-epsdiluted-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_EPSDiluted_2022",
+        "Earnings Per Share - Diluted" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "0.84" .
+
+inst:FinancialMetric_AMD_amd-epsdiluted-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_EPSDiluted_2023",
+        "Earnings Per Share - Diluted" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "0.53" .
+
+inst:FinancialMetric_AMD_amd-epsdiluted-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_EPSDiluted_2024",
+        "Earnings Per Share - Diluted" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "1.00" .
+
+inst:FinancialMetric_AMD_amd-incometaxbenefit-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_IncomeTaxBenefit_2022",
+        "Income Tax Provision (Benefit)" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-122" .
+
+inst:FinancialMetric_AMD_amd-incometaxbenefit-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_IncomeTaxBenefit_2023",
+        "Income Tax Provision (Benefit)" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-346" .
+
+inst:FinancialMetric_AMD_amd-incometaxprovision-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_IncomeTaxProvision_2024",
+        "Income Tax Provision (Benefit)" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "381" .
+
+inst:FinancialMetric_AMD_amd-marketingadvertisingexpense-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_MarketingAdvertisingExpense_2023",
+        "Total Marketing and Advertising Expenses" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "695" .
+
+inst:FinancialMetric_AMD_amd-marketingadvertisingexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_MarketingAdvertisingExpense_2024",
+        "Total Marketing and Advertising Expenses" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1200" .
+
+inst:FinancialMetric_AMD_amd-netdeferredtaxassets-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetDeferredTaxAssets_2024",
+        "Net Deferred Tax Assets (Liabilities)" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "339" .
+
+inst:FinancialMetric_AMD_amd-netdeferredtaxliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetDeferredTaxLiabilities_2023",
+        "Net Deferred Tax Assets (Liabilities)" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-836" .
+
+inst:FinancialMetric_AMD_amd-netincome-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetIncome_2022",
+        "Net Income" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1320" .
+
+inst:FinancialMetric_AMD_amd-netincome-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetIncome_2023",
+        "Net Income" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "854" .
+
+inst:FinancialMetric_AMD_amd-netincome-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetIncome_2024",
+        "Net Income" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1641" .
+
+inst:FinancialMetric_AMD_amd-netinventory-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetInventory_2024",
+        "Net Inventory" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "5734" .
+
+inst:FinancialMetric_AMD_amd-netrevenue-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetRevenue_2022",
+        "Net Revenue" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "23601" .
+
+inst:FinancialMetric_AMD_amd-netrevenue-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetRevenue_2023",
+        "Net Revenue" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "22680" .
+
+inst:FinancialMetric_AMD_amd-netrevenue-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_NetRevenue_2024",
+        "Net Revenue" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "25785" .
+
+inst:FinancialMetric_AMD_amd-operatingcashflow-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_OperatingCashFlow_2022",
+        "Net Cash Provided by Operating Activities" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3565" .
+
+inst:FinancialMetric_AMD_amd-operatingcashflow-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_OperatingCashFlow_2023",
+        "Net Cash Provided by Operating Activities" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1667" .
+
+inst:FinancialMetric_AMD_amd-operatingcashflow-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_OperatingCashFlow_2024",
+        "Net Cash Provided by Operating Activities" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3041" .
+
+inst:FinancialMetric_AMD_amd-operatingleaseexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_OperatingLeaseExpense_2024",
+        "Operating Lease Expense" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "147" .
+
+inst:FinancialMetric_AMD_amd-pretaxincome-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_PreTaxIncome_2022",
+        "Total Pre-Tax Income" ;
+    msg:metricPeriod "FY2022 (ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1198" .
+
+inst:FinancialMetric_AMD_amd-pretaxincome-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_PreTaxIncome_2023",
+        "Total Pre-Tax Income" ;
+    msg:metricPeriod "FY2023 (ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "508" .
+
+inst:FinancialMetric_AMD_amd-pretaxincome-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_PreTaxIncome_2024",
+        "Total Pre-Tax Income" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "2022" .
+
+inst:FinancialMetric_AMD_amd-restructuringcharges-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_RestructuringCharges_2024",
+        "Restructuring Charges" ;
+    msg:metricPeriod "FY2024 (ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "186" .
+
+inst:FinancialMetric_AMD_amd-stockbasedcompensation-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_StockBasedCompensation_2023",
+        "Total Stock-Based Compensation Expense (before income taxes)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1384" .
+
+inst:FinancialMetric_AMD_amd-stockbasedcompensation-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_StockBasedCompensation_2024",
+        "Total Stock-Based Compensation Expense (before income taxes)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1407" .
+
+inst:FinancialMetric_AMD_amd-totalaccruedliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalAccruedLiabilities_2023",
+        "Total Accrued Liabilities" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3082" .
+
+inst:FinancialMetric_AMD_amd-totalaccruedliabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalAccruedLiabilities_2024",
+        "Total Accrued Liabilities" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "4260" .
+
+inst:FinancialMetric_AMD_amd-totalassets-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalAssets_2023",
+        "Total Assets" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "67885" .
+
+inst:FinancialMetric_AMD_amd-totalassets-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalAssets_2024",
+        "Total Assets" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "69226" .
+
+inst:FinancialMetric_AMD_amd-totaldebt-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalDebt_2023",
+        "Total Long-Term Debt (net)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1717" .
+
+inst:FinancialMetric_AMD_amd-totaldebt-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalDebt_2024",
+        "Total Long-Term Debt (net)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1721" .
+
+inst:FinancialMetric_AMD_amd-totaldeferredtaxassets-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalDeferredTaxAssets_2024",
+        "Total Deferred Tax Assets (Net of Valuation Allowance)" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "4509" .
+
+inst:FinancialMetric_AMD_amd-totalgoodwill-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalGoodwill_2023",
+        "Total Goodwill" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "24262" .
+
+inst:FinancialMetric_AMD_amd-totalgoodwill-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalGoodwill_2024",
+        "Total Goodwill" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "24839" .
+
+inst:FinancialMetric_AMD_amd-totalinventories-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalInventories_2023",
+        "Total Inventories" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "4351" .
+
+inst:FinancialMetric_AMD_amd-totalinventories-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalInventories_2024",
+        "Total Inventories" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "5734" .
+
+inst:FinancialMetric_AMD_amd-totalliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalLiabilities_2023",
+        "Total Liabilities" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "11993" .
+
+inst:FinancialMetric_AMD_amd-totalliabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalLiabilities_2024",
+        "Total Liabilities" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "11658" .
+
+inst:FinancialMetric_AMD_amd-totalnetrevenue-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalNetRevenue_2022",
+        "Total Net Revenue" ;
+    msg:metricPeriod "FY2022 (Year Ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "23601" .
+
+inst:FinancialMetric_AMD_amd-totalnetrevenue-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalNetRevenue_2023",
+        "Total Net Revenue" ;
+    msg:metricPeriod "FY2023 (Year Ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "22680" .
+
+inst:FinancialMetric_AMD_amd-totalnetrevenue-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalNetRevenue_2024",
+        "Total Net Revenue" ;
+    msg:metricPeriod "FY2024 (Year Ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "25785" .
+
+inst:FinancialMetric_AMD_amd-totaloperatingincome-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalOperatingIncome_2022",
+        "Total Operating Income" ;
+    msg:metricPeriod "FY2022 (Year Ended December 31, 2022)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1264" .
+
+inst:FinancialMetric_AMD_amd-totaloperatingincome-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalOperatingIncome_2023",
+        "Total Operating Income" ;
+    msg:metricPeriod "FY2023 (Year Ended December 30, 2023)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "401" .
+
+inst:FinancialMetric_AMD_amd-totaloperatingincome-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalOperatingIncome_2024",
+        "Total Operating Income" ;
+    msg:metricPeriod "FY2024 (Year Ended December 28, 2024)" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1900" .
+
+inst:FinancialMetric_AMD_amd-totalpropertyequipmentnet-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalPropertyEquipmentNet_2023",
+        "Total Property and Equipment, Net" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1589" .
+
+inst:FinancialMetric_AMD_amd-totalpropertyequipmentnet-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalPropertyEquipmentNet_2024",
+        "Total Property and Equipment, Net" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1802" .
+
+inst:FinancialMetric_AMD_amd-totalstockholdersequity-2022 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalStockholdersEquity_2022",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "As of December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "54750" .
+
+inst:FinancialMetric_AMD_amd-totalstockholdersequity-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalStockholdersEquity_2023",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "55892" .
+
+inst:FinancialMetric_AMD_amd-totalstockholdersequity-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_TotalStockholdersEquity_2024",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "57568" .
+
+inst:FinancialMetric_AMD_amd-unrecognizedtaxbenefits-2023 a msg:FinancialMetric ;
+    msg:metricName "AMD_UnrecognizedTaxBenefits_2023",
+        "Gross Unrecognized Tax Benefits" ;
+    msg:metricPeriod "As of December 30, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1463" .
+
+inst:FinancialMetric_AMD_amd-unrecognizedtaxbenefits-2024 a msg:FinancialMetric ;
+    msg:metricName "AMD_UnrecognizedTaxBenefits_2024",
+        "Gross Unrecognized Tax Benefits" ;
+    msg:metricPeriod "As of December 28, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1498" .
+
+inst:FinancialMetric_AMD_cash-cash-equivalents-and-short-term-investments-2024 a msg:FinancialMetric ;
+    msg:metricName "Cash, Cash Equivalents and Short-Term Investments",
+        "Cash, Cash Equivalents and Short-Term Investments 2024" ;
+    msg:metricPeriod "2024-12-28" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "5.1" ;
+    msg:priorPeriodDate "2023-12-30" ;
+    msg:priorPeriodValue "5.8" .
+
+inst:FinancialMetric_AMD_common-stock-repurchases-2024 a msg:FinancialMetric ;
+    msg:metricName "Common Stock Repurchases 2024",
+        "Common Stock Repurchases under Repurchase Program" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "862" ;
+    msg:priorPeriodLabel "FY2023" ;
+    msg:priorPeriodValue "985" .
+
+inst:FinancialMetric_AMD_international-sales-percentage-2024 a msg:FinancialMetric ;
+    msg:metricName "International Sales Percentage 2024",
+        "International Sales as Percentage of Net Revenue" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "percent" ;
+    msg:metricValue "66" ;
+    msg:priorPeriodLabel "FY2023" ;
+    msg:priorPeriodValue "65" .
+
+inst:FinancialMetric_AMD_net-cash-from-financing-activities-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Cash Used in Financing Activities",
+        "Net Cash from Financing Activities 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "-2062" ;
+    msg:priorPeriodLabel "FY2023" ;
+    msg:priorPeriodValue "-1146" .
+
+inst:FinancialMetric_AMD_net-cash-from-investing-activities-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Cash Used in Investing Activities",
+        "Net Cash from Investing Activities 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "-1101" ;
+    msg:priorPeriodLabel "FY2023" ;
+    msg:priorPeriodValue "-1423" .
+
+inst:FinancialMetric_AMD_net-cash-from-operating-activities-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Cash Provided by Operating Activities",
+        "Net Cash from Operating Activities 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "3041" ;
+    msg:priorPeriodLabel "FY2023" ;
+    msg:priorPeriodValue "1667" .
+
+inst:FinancialMetric_AMD_net-income-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Income",
+        "Net Income 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "1600" ;
+    msg:priorPeriodLabel "FY2023" ;
+    msg:priorPeriodValue "854" .
+
+inst:FinancialMetric_AMD_revolving-credit-facility-capacity a msg:FinancialMetric ;
+    msg:metricName "Revolving Credit Facility Capacity",
+        "Unsecured Revolving Credit Facility Available" ;
+    msg:metricPeriod "2024-12-28" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "3.0" .
+
+inst:FinancialMetric_AMD_unconditional-purchase-commitments-2024 a msg:FinancialMetric ;
+    msg:metricName "Unconditional Purchase Commitments",
+        "Unconditional Purchase Commitments 2024" ;
+    msg:metricPeriod "2024-12-28" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "5.0" ;
+    msg:nearTermPeriod "FY2025" ;
+    msg:nearTermValue "4.5" .
+
+inst:Initiative_AMD_new-product-ramp-in-advanced-process-nodes a msg:Initiative ;
+    msg:initiativeName "New Product Ramp in Advanced Process Nodes" ;
+    msg:status "active" .
+
+inst:Initiative_AMD_share-repurchase-program a msg:Initiative ;
+    msg:initiativeName "Common Stock Repurchase Program",
+        "Share Repurchase Program" ;
+    msg:status "active" .
+
+inst:Initiative_AMD_zt-systems-acquisition a msg:Initiative ;
+    msg:additionalCashContingent "300 million USD" ;
+    msg:cashConsideration "3.4 billion USD" ;
+    msg:expectedClose "First half of fiscal year 2025" ;
+    msg:initiativeName "ZT Systems Acquisition" ;
+    msg:startYear "2024" ;
+    msg:status "pending" ;
+    msg:stockConsideration "8335852 shares" .
+
+inst:RiskTheme_AMD_acquisition-and-integration-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Acquisition and Integration Risk" .
+
+inst:RiskTheme_AMD_acquisition-integration-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Acquisition Integration Risk" .
+
+inst:RiskTheme_AMD_advanced-process-technology-transition-risk a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "Advanced Process Technology Transition Risk" .
+
+inst:RiskTheme_AMD_ai-enhanced-cyber-threat-risk a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "AI-Enhanced Cyber Threat Risk" .
+
+inst:RiskTheme_AMD_ai-regulation-and-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "AI Regulation and Compliance Risk" .
+
+inst:RiskTheme_AMD_ai-responsible-use-and-reputational-harm a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "AI Responsible Use and Reputational Harm" .
+
+inst:RiskTheme_AMD_ai-responsible-use-liability a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "AI Responsible Use Liability" .
+
+inst:RiskTheme_AMD_ai-semiconductor-export-restriction-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "AI Semiconductor Export Restriction Risk" .
+
+inst:RiskTheme_AMD_atmp-joint-venture-dependency-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "ATMP Joint Venture Dependency Risk" .
+
+inst:RiskTheme_AMD_atmp-joint-venture-supply-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "ATMP Joint Venture Supply Risk" .
+
+inst:RiskTheme_AMD_china-taiwan-geopolitical-risk a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "China-Taiwan Geopolitical Risk" .
+
+inst:RiskTheme_AMD_china-trade-relations-and-sanctions-risk a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "China Trade Relations and Sanctions Risk" .
+
+inst:RiskTheme_AMD_climate-change-physical-operations-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Climate Change Physical Operations Risk" .
+
+inst:RiskTheme_AMD_climate-disclosure-regulatory-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Climate Disclosure Regulatory Risk" .
+
+inst:RiskTheme_AMD_climate-related-regulatory-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Climate-Related Regulatory Compliance Risk" .
+
+inst:RiskTheme_AMD_conflict-minerals-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Conflict Minerals Compliance Risk" .
+
+inst:RiskTheme_AMD_counterparty-and-banking-failure-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Counterparty and Banking Failure Risk" .
+
+inst:RiskTheme_AMD_cross-default-and-debt-acceleration-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Cross-Default and Debt Acceleration Risk" .
+
+inst:RiskTheme_AMD_currency-exchange-rate-fluctuations a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Currency Exchange Rate Fluctuations" .
+
+inst:RiskTheme_AMD_customer-concentration-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Customer Concentration Risk" .
+
+inst:RiskTheme_AMD_data-privacy-regulation-non-compliance a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Data Privacy Regulation Non-Compliance" .
+
+inst:RiskTheme_AMD_data-privacy-regulatory-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Data Privacy Regulatory Compliance Risk" .
+
+inst:RiskTheme_AMD_debt-covenant-restriction-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Debt Covenant Restriction Risk" .
+
+inst:RiskTheme_AMD_deferred-tax-asset-realization-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Deferred Tax Asset Realization Risk" .
+
+inst:RiskTheme_AMD_demand-forecasting-and-inventory-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Demand Forecasting and Inventory Risk" .
+
+inst:RiskTheme_AMD_distributor-and-aib-partner-concentration-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Distributor and AIB Partner Concentration Risk" .
+
+inst:RiskTheme_AMD_divestiture-execution-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Divestiture Execution Risk" .
+
+inst:RiskTheme_AMD_end-market-demand-fluctuations a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "End Market Demand Fluctuations" .
+
+inst:RiskTheme_AMD_environmental-and-esg-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Environmental and ESG Compliance Risk" .
+
+inst:RiskTheme_AMD_environmental-compliance-and-remediation a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Environmental Compliance and Remediation" .
+
+inst:RiskTheme_AMD_equity-dilution-from-acquisitions a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Equity Dilution from Acquisitions" .
+
+inst:RiskTheme_AMD_esg-goal-achievement-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "ESG Goal Achievement Risk" .
+
+inst:RiskTheme_AMD_excess-inventory-and-obsolescence-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Excess Inventory and Obsolescence Risk" .
+
+inst:RiskTheme_AMD_export-control-and-sanctions-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Export Control and Sanctions Risk" .
+
+inst:RiskTheme_AMD_export-controls-and-government-restrictions a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Export Controls and Government Restrictions" .
+
+inst:RiskTheme_AMD_export-controls-and-trade-restrictions a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "Export Controls and Trade Restrictions" .
+
+inst:RiskTheme_AMD_geopolitical-and-global-operations-risk a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "Geopolitical and Global Operations Risk" .
+
+inst:RiskTheme_AMD_geopolitical-and-trade-restriction-risk a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "Geopolitical and Trade Restriction Risk" .
+
+inst:RiskTheme_AMD_global-health-and-pandemic-risk a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Global Health and Pandemic Risk" .
+
+inst:RiskTheme_AMD_global-minimum-tax-pillar-two-impact a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Global Minimum Tax Pillar Two Impact" .
+
+inst:RiskTheme_AMD_goodwill-and-intangible-asset-impairment a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Goodwill and Intangible Asset Impairment" .
+
+inst:RiskTheme_AMD_gray-market-sales-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Gray Market Sales Risk" .
+
+inst:RiskTheme_AMD_greenhouse-gas-and-energy-cost-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Greenhouse Gas and Energy Cost Risk" .
+
+inst:RiskTheme_AMD_intel-competitive-dominance a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Intel Competitive Dominance" .
+
+inst:RiskTheme_AMD_intellectual-property-litigation-risk a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Intellectual Property Litigation Risk" .
+
+inst:RiskTheme_AMD_intellectual-property-protection-risk a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Intellectual Property Protection Risk" .
+
+inst:RiskTheme_AMD_international-operations-political-risk a msg:RiskTheme ;
+    msg:riskCategory "geopolitical" ;
+    msg:riskName "International Operations Political Risk" .
+
+inst:RiskTheme_AMD_inventory-excess-and-obsolescence-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Inventory Excess and Obsolescence Risk" .
+
+inst:RiskTheme_AMD_it-systems-disruption-and-cybersecurity-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "IT Systems Disruption and Cybersecurity Risk" .
+
+inst:RiskTheme_AMD_itar-and-ear-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "ITAR and EAR Compliance Risk" .
+
+inst:RiskTheme_AMD_litigation-and-legal-claims a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Litigation and Legal Claims" .
+
+inst:RiskTheme_AMD_ma-regulatory-approval-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "M&A Regulatory Approval Risk" .
+
+inst:RiskTheme_AMD_macroeconomic-and-market-uncertainty a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Macroeconomic and Market Uncertainty" .
+
+inst:RiskTheme_AMD_macroeconomic-conditions-risk a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Macroeconomic Conditions Risk" .
+
+inst:RiskTheme_AMD_macroeconomic-downturn-risk a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Macroeconomic Downturn Risk" .
+
+inst:RiskTheme_AMD_manufacturing-yield-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Manufacturing Yield Risk" .
+
+inst:RiskTheme_AMD_microsoft-software-support-dependency a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Microsoft Software Support Dependency" .
+
+inst:RiskTheme_AMD_natural-disaster-and-climate-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Natural Disaster and Climate Risk" .
+
+inst:RiskTheme_AMD_new-product-introduction-execution-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "New Product Introduction Execution Risk" .
+
+inst:RiskTheme_AMD_nvidia-gpu-market-dominance a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Nvidia GPU Market Dominance" .
+
+inst:RiskTheme_AMD_price-protection-and-margin-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Price Protection and Margin Risk" .
+
+inst:RiskTheme_AMD_product-compatibility-failure-risk a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "Product Compatibility Failure Risk" .
+
+inst:RiskTheme_AMD_product-defect-and-liability-risk a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Product Defect and Liability Risk" .
+
+inst:RiskTheme_AMD_product-liability-and-consumer-claims a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Product Liability and Consumer Claims" .
+
+inst:RiskTheme_AMD_product-security-vulnerabilities a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "Product Security Vulnerabilities" .
+
+inst:RiskTheme_AMD_product-security-vulnerability-risk a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "Product Security Vulnerability Risk" .
+
+inst:RiskTheme_AMD_quarterly-seasonal-revenue-variability a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Quarterly Seasonal Revenue Variability" .
+
+inst:RiskTheme_AMD_semi-custom-soc-revenue-dependency a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Semi-Custom SoC Revenue Dependency" .
+
+inst:RiskTheme_AMD_semiconductor-industry-cyclicality a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Semiconductor Industry Cyclicality" .
+
+inst:RiskTheme_AMD_stock-price-volatility-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Stock Price Volatility Risk" .
+
+inst:RiskTheme_AMD_strategic-investment-portfolio-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Strategic Investment Portfolio Risk" .
+
+inst:RiskTheme_AMD_supply-chain-component-dependency-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Supply Chain Component Dependency Risk" .
+
+inst:RiskTheme_AMD_supply-chain-disruption-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Supply Chain Disruption Risk" .
+
+inst:RiskTheme_AMD_supply-chain-efficiency-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Supply Chain Efficiency Risk" .
+
+inst:RiskTheme_AMD_supply-chain-materials-shortage a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Supply Chain Materials Shortage" .
+
+inst:RiskTheme_AMD_talent-retention-and-recruitment-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Talent Retention and Recruitment Risk" .
+
+inst:RiskTheme_AMD_tax-audit-and-litigation-exposure a msg:RiskTheme ;
+    msg:riskCategory "legal" ;
+    msg:riskName "Tax Audit and Litigation Exposure" .
+
+inst:RiskTheme_AMD_tax-law-changes-and-liabilities a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Tax Law Changes and Liabilities" .
+
+inst:RiskTheme_AMD_tax-liability-and-regulation-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Tax Liability and Regulation Risk" .
+
+inst:RiskTheme_AMD_technology-license-impairment-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Technology License Impairment Risk" .
+
+inst:RiskTheme_AMD_thatic-jv-entity-list-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "THATIC JV Entity List Compliance Risk" .
+
+inst:RiskTheme_AMD_third-party-intellectual-property-dependency a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Third-Party Intellectual Property Dependency" .
+
+inst:RiskTheme_AMD_third-party-logistics-provider-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Third-Party Logistics Provider Risk" .
+
+inst:RiskTheme_AMD_third-party-manufacturing-dependence a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Third-Party Manufacturing Dependence" .
+
+inst:RiskTheme_AMD_third-party-supply-chain-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Third-Party Supply Chain Risk" .
+
+inst:RiskTheme_AMD_tsmc-concentration-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "TSMC Concentration Risk" .
+
+inst:StrategicObjective_AMD_continue-international-sales-growth a msg:StrategicObjective ;
+    msg:objectiveType "Revenue Growth" ;
+    msg:priority "high" ;
+    msg:text "Continue International Sales Growth" .
+
+inst:StrategicObjective_AMD_maintain-sufficient-liquidity-for-operations-and-acquisitions a msg:StrategicObjective ;
+    msg:objectiveType "Liquidity Management" ;
+    msg:priority "high" ;
+    msg:text "Maintain Sufficient Liquidity for Operations and Acquisitions" .
+
+inst:RiskTheme_AMD_ai-market-adoption-uncertainty a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "AI Market Adoption Uncertainty" .
+
+inst:RiskTheme_AMD_corporate-responsibility-stakeholder-expectations a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Corporate Responsibility Stakeholder Expectations" .
+
+inst:RiskTheme_AMD_cybersecurity-and-data-breach-risk a msg:RiskTheme ;
+    msg:riskCategory "technological" ;
+    msg:riskName "Cybersecurity and Data Breach Risk" .
+
+inst:RiskTheme_AMD_forced-labor-supply-chain-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Forced Labor Supply Chain Risk" .
+
+inst:RiskTheme_AMD_foreign-currency-exchange-rate-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Foreign Currency Exchange Rate Risk" .
+
+inst:RiskTheme_AMD_intense-market-competition a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "Intense Market Competition" .
+
+inst:RiskTheme_AMD_supplier-environmental-non-compliance a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Supplier Environmental Non-Compliance" .
+
+inst:RiskTheme_AMD_third-party-manufacturing-dependency-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Third-Party Manufacturing Dependency Risk" .
+

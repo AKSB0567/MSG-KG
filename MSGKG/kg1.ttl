@@ -1,0 +1,171 @@
+@prefix msgkg: <http://example.org/msgkg/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################
+# === CLASSES
+#################################################
+
+msgkg:Company rdf:type rdfs:Class .
+msgkg:Mission rdf:type rdfs:Class .
+msgkg:Vision rdf:type rdfs:Class .
+msgkg:StrategicObjective rdf:type rdfs:Class .
+msgkg:Capability rdf:type rdfs:Class .
+msgkg:Initiative rdf:type rdfs:Class .
+msgkg:HumanCapitalMetric rdf:type rdfs:Class .
+
+#################################################
+# === OBJECT PROPERTIES
+#################################################
+
+msgkg:hasMission rdf:type rdf:Property .
+msgkg:pursuesObjective rdf:type rdf:Property .
+msgkg:buildsCapability rdf:type rdf:Property .
+msgkg:pursuesInitiative rdf:type rdf:Property .
+msgkg:hasVision rdf:type rdf:Property .
+msgkg:hasStrategy rdf:type rdf:Property .
+msgkg:hasClimateStrategy rdf:type rdf:Property .
+msgkg:hasHumanCapitalStrategy rdf:type rdf:Property .
+msgkg:hasHumanCapitalMetric rdf:type rdf:Property .
+msgkg:hasHumanCapitalModel rdf:type rdf:Property .
+msgkg:hasHumanCapitalPhilosophy rdf:type rdf:Property .
+msgkg:hasCompensationPhilosophy rdf:type rdf:Property .
+msgkg:governsHumanCapital rdf:type rdf:Property .
+msgkg:providesProgram rdf:type rdf:Property .
+msgkg:usesProgram rdf:type rdf:Property .
+msgkg:usesEngagementTool rdf:type rdf:Property .
+msgkg:promotesCulture rdf:type rdf:Property .
+msgkg:supportsGroup rdf:type rdf:Property .
+msgkg:adaptsTalentPolicy rdf:type rdf:Property .
+msgkg:hasOperatingModel rdf:type rdf:Property .
+
+#################################################
+# === DATA PROPERTIES
+#################################################
+
+msgkg:metricValue rdf:type rdf:Property .
+msgkg:metricDate rdf:type rdf:Property .
+
+#################################################
+# === COMPANY INSTANCES
+#################################################
+
+msgkg:AMD rdf:type msgkg:Company .
+msgkg:ALX rdf:type msgkg:Company .
+msgkg:LNG rdf:type msgkg:Company .
+msgkg:UNM rdf:type msgkg:Company .
+msgkg:AAL rdf:type msgkg:Company .
+msgkg:WRB rdf:type msgkg:Company .
+
+#################################################
+# === AMD
+#################################################
+
+msgkg:AMD msgkg:hasMission msgkg:AMD_AdaptiveComputingLeadership .
+msgkg:AMD msgkg:pursuesObjective msgkg:AMD_EndToEndAILeadership .
+msgkg:AMD msgkg:buildsCapability msgkg:AMD_HighPerformanceComputePortfolio .
+msgkg:AMD msgkg:pursuesInitiative msgkg:AMD_AIHardwareSoftwareEcosystem .
+msgkg:AMD msgkg:hasHumanCapitalMetric msgkg:AMD_Workforce_2024 .
+msgkg:AMD msgkg:promotesCulture msgkg:AMD_DiversityBelongingInclusion .
+msgkg:AMD msgkg:usesEngagementTool msgkg:AMD_AnnualWorkforceSurvey .
+msgkg:AMD msgkg:supportsGroup msgkg:AMD_EmployeeResourceGroups .
+
+msgkg:AMD_AdaptiveComputingLeadership rdf:type msgkg:Mission .
+msgkg:AMD_EndToEndAILeadership rdf:type msgkg:StrategicObjective .
+msgkg:AMD_HighPerformanceComputePortfolio rdf:type msgkg:Capability .
+msgkg:AMD_AIHardwareSoftwareEcosystem rdf:type msgkg:Initiative .
+msgkg:AMD_DiversityBelongingInclusion rdf:type msgkg:Initiative .
+msgkg:AMD_AnnualWorkforceSurvey rdf:type msgkg:Initiative .
+msgkg:AMD_EmployeeResourceGroups rdf:type msgkg:Initiative .
+
+msgkg:AMD_Workforce_2024 rdf:type msgkg:HumanCapitalMetric ;
+    msgkg:metricValue "28000"^^xsd:integer ;
+    msgkg:metricDate "2024-12-28"^^xsd:date .
+
+#################################################
+# === ALX
+#################################################
+
+msgkg:ALX msgkg:hasOperatingModel msgkg:ALX_ExternallyManagedByVNO .
+msgkg:ALX msgkg:hasMission msgkg:ALX_RealEstateLeasingOperations .
+msgkg:ALX msgkg:pursuesInitiative msgkg:ALX_SustainabilityAlignment .
+msgkg:ALX msgkg:hasHumanCapitalModel msgkg:ALX_SharedWorkforceWithVNO .
+msgkg:ALX msgkg:usesProgram msgkg:ALX_VNOTrainingBenefitsPrograms .
+
+msgkg:ALX_ExternallyManagedByVNO rdf:type msgkg:Capability .
+msgkg:ALX_RealEstateLeasingOperations rdf:type msgkg:Mission .
+msgkg:ALX_SustainabilityAlignment rdf:type msgkg:Initiative .
+msgkg:ALX_SharedWorkforceWithVNO rdf:type msgkg:Capability .
+msgkg:ALX_VNOTrainingBenefitsPrograms rdf:type msgkg:Initiative .
+
+#################################################
+# === LNG
+#################################################
+
+msgkg:LNG msgkg:hasVision msgkg:LNG_CleanSecureAffordableEnergySupply .
+msgkg:LNG msgkg:hasMission msgkg:LNG_FullServiceLNGProvider .
+msgkg:LNG msgkg:hasClimateStrategy msgkg:LNG_EmissionsMeasurementAndMitigation .
+msgkg:LNG msgkg:pursuesObjective msgkg:LNG_LowerCarbonTransitionSupport .
+msgkg:LNG msgkg:hasHumanCapitalStrategy msgkg:LNG_AttractEngageRetainDevelopTalent .
+msgkg:LNG msgkg:usesProgram msgkg:LNG_InternshipApprenticeshipVocationalPipeline .
+msgkg:LNG msgkg:providesProgram msgkg:LNG_CompetitiveCompensationBenefits .
+msgkg:LNG msgkg:promotesCulture msgkg:LNG_BelongingAndInclusionCulture .
+msgkg:LNG msgkg:usesEngagementTool msgkg:LNG_OrganizationalHealthMeasurement .
+
+msgkg:LNG_CleanSecureAffordableEnergySupply rdf:type msgkg:Vision .
+msgkg:LNG_FullServiceLNGProvider rdf:type msgkg:Mission .
+msgkg:LNG_EmissionsMeasurementAndMitigation rdf:type msgkg:StrategicObjective .
+msgkg:LNG_LowerCarbonTransitionSupport rdf:type msgkg:StrategicObjective .
+msgkg:LNG_AttractEngageRetainDevelopTalent rdf:type msgkg:StrategicObjective .
+
+#################################################
+# === UNM
+#################################################
+
+msgkg:UNM msgkg:hasMission msgkg:UNM_WorkingWorldThrivePurpose .
+msgkg:UNM msgkg:pursuesObjective msgkg:UNM_UnderwritingAndClaimsDiscipline .
+msgkg:UNM msgkg:pursuesObjective msgkg:UNM_CustomerServicePerformance .
+msgkg:UNM msgkg:providesProgram msgkg:UNM_EmployeeHealthWealthLifeBenefits .
+msgkg:UNM msgkg:providesProgram msgkg:UNM_LearningAndDevelopmentPrograms .
+msgkg:UNM msgkg:usesEngagementTool msgkg:UNM_ConfidentialEmployeeSurvey .
+msgkg:UNM msgkg:adaptsTalentPolicy msgkg:UNM_HybridRemoteAndCompensationUpdate .
+msgkg:UNM msgkg:promotesCulture msgkg:UNM_InclusiveBelongingCulture .
+
+#################################################
+# === AAL
+#################################################
+
+msgkg:AAL msgkg:hasClimateStrategy msgkg:AAL_NetZero2050Pathway .
+msgkg:AAL msgkg:pursuesObjective msgkg:AAL_DigitalCustomerExperienceEnhancement .
+msgkg:AAL msgkg:pursuesObjective msgkg:AAL_CultureAsCompetitiveAdvantage .
+msgkg:AAL msgkg:hasHumanCapitalMetric msgkg:AAL_Workforce_2024 .
+msgkg:AAL msgkg:hasHumanCapitalMetric msgkg:AAL_UnionRepresentedRate_2024 .
+msgkg:AAL msgkg:providesProgram msgkg:AAL_TalentDevelopmentResources .
+msgkg:AAL msgkg:promotesCulture msgkg:AAL_InclusiveTalentCulture .
+
+msgkg:AAL_Workforce_2024 rdf:type msgkg:HumanCapitalMetric ;
+    msgkg:metricValue "133300"^^xsd:integer ;
+    msgkg:metricDate "2024-12-31"^^xsd:date .
+
+msgkg:AAL_UnionRepresentedRate_2024 rdf:type msgkg:HumanCapitalMetric ;
+    msgkg:metricValue "0.87"^^xsd:decimal ;
+    msgkg:metricDate "2024-12-31"^^xsd:date .
+
+#################################################
+# === WRB
+#################################################
+
+msgkg:WRB msgkg:hasMission msgkg:WRB_CustomerFocusedInsuranceExecution .
+msgkg:WRB msgkg:hasStrategy msgkg:WRB_DecentralizedOperationsCentralizedCapital .
+msgkg:WRB msgkg:promotesCulture msgkg:WRB_IntegrityEntrepreneurshipLongTermDecisioning .
+msgkg:WRB msgkg:governsHumanCapital msgkg:WRB_BoardHCMOversight .
+msgkg:WRB msgkg:hasHumanCapitalPhilosophy msgkg:WRB_PeopleAsGreatestAsset .
+msgkg:WRB msgkg:providesProgram msgkg:WRB_EmployeeDevelopmentPrograms .
+msgkg:WRB msgkg:providesProgram msgkg:WRB_LeadershipPipelinePrograms .
+msgkg:WRB msgkg:hasCompensationPhilosophy msgkg:WRB_PayForPerformance .
+
+msgkg:WRB_CustomerFocusedInsuranceExecution rdf:type msgkg:Mission .
+msgkg:WRB_DecentralizedOperationsCentralizedCapital rdf:type msgkg:StrategicObjective .
+msgkg:WRB_PeopleAsGreatestAsset rdf:type msgkg:StrategicObjective .
+msgkg:WRB_PayForPerformance rdf:type msgkg:StrategicObjective .

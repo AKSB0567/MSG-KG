@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#riskCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>risk category</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#RiskTheme"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#confidence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>confidence</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Product">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Product</rdfs:label>
+    <rdfs:comment>A product or service offered by the company.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#spanEnd">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>span end</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Span"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Document">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Document</rdfs:label>
+    <rdfs:comment>A source document (e.g. 10-K, proxy filing) from which knowledge is extracted.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#hasMission">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has mission</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Mission"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#officerTitle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>officer title</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#ExecutiveOfficer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Mission">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Mission</rdfs:label>
+    <rdfs:comment>A company's stated mission — the core purpose it exists to fulfill.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#companyName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>company name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#filingYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>filing year</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#statesObjective">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>states objective</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#StrategicObjective"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Portfolio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Portfolio</rdfs:label>
+    <rdfs:comment>An investment portfolio, identified by an owner and portfolio ID.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/SEC/Portfolio"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:label>MSGKG Ontology v2</rdfs:label>
+    <rdfs:comment>Mission, Strategy, and Goals Knowledge Graph ontology with FIBO alignment. Covers company strategy, capabilities, initiatives, risk themes, business segments, financial metrics, products, and portfolio holdings.</rdfs:comment>
+    <owl:versionInfo>2.0</owl:versionInfo>
+    <owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/"/>
+    <owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/"/>
+    <owl:imports rdf:resource="https://spec.edmcouncil.org/fibo/ontology/SEC/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#ownerType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>owner type</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Portfolio"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Initiative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Initiative</rdfs:label>
+    <rdfs:comment>A concrete programme or project the company is actively pursuing.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#weight">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>weight</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Holding"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#hasSubsidiary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has subsidiary</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Subsidiary"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#priority">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>priority</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#StrategicObjective"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#reportsMetric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>reports metric</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#FinancialMetric"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#capabilityName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>capability name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Capability"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Company">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Company</rdfs:label>
+    <rdfs:comment>A publicly listed or private company, identified by CIK and/or ticker.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#objectiveType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>objective type</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#StrategicObjective"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Security">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Security</rdfs:label>
+    <rdfs:comment>A tradeable financial security such as a stock or bond.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/SEC/Security"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#riskName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>risk name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#RiskTheme"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#regulatedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>regulated by</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Regulation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#BusinessSegment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Business Segment</rdfs:label>
+    <rdfs:comment>A company operating segment (e.g., AMD Data Center, Client, Gaming).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#hasVision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has vision</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Vision"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#productName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>product name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Product"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#FinancialMetric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Financial Metric</rdfs:label>
+    <rdfs:comment>A quantitative financial measure such as revenue, net income, total assets.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#hasOfficer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has officer</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#ExecutiveOfficer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#assertedIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>asserted in</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Mission"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Span"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#metricUnit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>metric unit</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#FinancialMetric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#holds">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>holds</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Portfolio"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Holding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Regulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Regulation</rdfs:label>
+    <rdfs:comment>A regulatory framework or regulation affecting the company.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#supportsObjective">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>supports objective</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Capability"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#StrategicObjective"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#mitigatesRisk">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>mitigates risk</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Initiative"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#RiskTheme"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Capability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Capability</rdfs:label>
+    <rdfs:comment>An organisational or technical capability that the company builds or maintains.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#offersProduct">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>offers product</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Product"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#securityType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>security type</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Security"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#hasSegment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>has segment</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#BusinessSegment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#initiativeName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>initiative name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Initiative"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#exposedTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>exposed to</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#RiskTheme"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#url">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>URL</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#segmentHasMetric">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>segment has metric</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#BusinessSegment"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#FinancialMetric"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#metricPeriod">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>metric period</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#FinancialMetric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#RiskTheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Risk Theme</rdfs:label>
+    <rdfs:comment>A thematic risk category to which the company is exposed.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/FND/Risk"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#operatesIn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>operates in</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#GeographicRegion"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#portfolioId">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>portfolio ID</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Portfolio"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#timeHorizon">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>time horizon</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Vision"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#buildsCapability">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>builds capability</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Capability"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Span">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Span</rdfs:label>
+    <rdfs:comment>A character-level span within a document that provides provenance for an assertion.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#initiativeEnables">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>initiative enables</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Initiative"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Capability"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Holding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Holding</rdfs:label>
+    <rdfs:comment>A position in a security held by a portfolio, recording shares and weight.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/SEC/PortfolioHolding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#shares">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>shares</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Holding"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#capabilityDomain">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>capability domain</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Capability"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#startYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>start year</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Initiative"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#fiscalYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>fiscal year</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#spanStart">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>span start</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Span"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#productCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>product category</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Product"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#StrategicObjective">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Strategic Objective</rdfs:label>
+    <rdfs:comment>A specific, prioritised goal that the company is pursuing to advance its strategy.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#holdingOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>holding of</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Holding"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Security"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Vision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Vision</rdfs:label>
+    <rdfs:comment>A forward-looking aspiration describing what the company wants to become.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#regionName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>region name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#GeographicRegion"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#text">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>text</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#regulationName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>regulation name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Regulation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#issuedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>issued by</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Security"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Company"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#metricValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>metric value</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#FinancialMetric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#cik">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>CIK</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#Subsidiary">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Subsidiary</rdfs:label>
+    <rdfs:comment>A subsidiary company owned or controlled by the parent company.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="https://spec.edmcouncil.org/fibo/ontology/BE/LegalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#pursues">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>pursues</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Company"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Initiative"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#inDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label>in document</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Span"/>
+    <rdfs:range rdf:resource="http://msgkg.io/ontology#Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#ticker">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>ticker</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#subsidiaryName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>subsidiary name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Subsidiary"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#normalizedTheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>normalized theme</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Mission"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#officerName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>officer name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#ExecutiveOfficer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#docType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>document type</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Document"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#GeographicRegion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Geographic Region</rdfs:label>
+    <rdfs:comment>A geographic area where the company has operations or exposure.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#status">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>status</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#Initiative"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#segmentName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>segment name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#BusinessSegment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#metricName">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label>metric name</rdfs:label>
+    <rdfs:domain rdf:resource="http://msgkg.io/ontology#FinancialMetric"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://msgkg.io/ontology#ExecutiveOfficer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label>Executive Officer</rdfs:label>
+    <rdfs:comment>A key management personnel or executive officer of the company.</rdfs:comment>
+  </rdf:Description>
+</rdf:RDF>

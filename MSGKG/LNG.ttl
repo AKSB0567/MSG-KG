@@ -1,0 +1,989 @@
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:Company_LNG a msg:Company ;
+    msg:buildsCapability inst:Capability_LNG_lng-liquefaction-capacity,
+        inst:Capability_LNG_lng-vessel-charter-management ;
+    msg:cik "0000003570" ;
+    msg:companyName "Cheniere Energy, Inc." ;
+    msg:exposedTo inst:RiskTheme_LNG_air-emissions-regulatory-risk,
+        inst:RiskTheme_LNG_capital-markets-access-risk,
+        inst:RiskTheme_LNG_climate-change-physical-risk,
+        inst:RiskTheme_LNG_coastal-zone-compliance-risk,
+        inst:RiskTheme_LNG_commodity-price-risk,
+        inst:RiskTheme_LNG_construction-cost-and-delay-risk,
+        inst:RiskTheme_LNG_energy-transition-substitution-risk,
+        inst:RiskTheme_LNG_epc-contractor-performance-risk,
+        inst:RiskTheme_LNG_eu-methane-import-regulation-risk,
+        inst:RiskTheme_LNG_expansion-funding-risk,
+        inst:RiskTheme_LNG_ghg-emissions-regulation-risk,
+        inst:RiskTheme_LNG_global-natural-gas-supply-risk,
+        inst:RiskTheme_LNG_hazardous-waste-disposal-risk,
+        inst:RiskTheme_LNG_lng-market-demand-volatility,
+        inst:RiskTheme_LNG_lng-market-price-cyclicality-risk,
+        inst:RiskTheme_LNG_lng-price-competition-risk,
+        inst:RiskTheme_LNG_lng-vessel-availability-risk,
+        inst:RiskTheme_LNG_methane-emissions-charge-risk,
+        inst:RiskTheme_LNG_natural-gas-supply-disruption-risk,
+        inst:RiskTheme_LNG_protected-species-habitat-risk,
+        inst:RiskTheme_LNG_regulatory-policy-uncertainty-risk,
+        inst:RiskTheme_LNG_spa-replacement-competition-risk,
+        inst:RiskTheme_LNG_water-discharge-regulatory-risk,
+        inst:RiskTheme_LNG_weather-and-catastrophic-event-risk ;
+    msg:fiscalYear 2025 ;
+    msg:operatesIn inst:GeographicRegion_LNG_corpus-christi-texas,
+        inst:GeographicRegion_LNG_sabine-pass-louisiana ;
+    msg:pursues inst:Initiative_LNG_ccl-midscale-trains-8-9-project,
+        inst:Initiative_LNG_corpus-christi-stage-3-project,
+        inst:Initiative_LNG_share-repurchase-program,
+        inst:Initiative_LNG_spl-expansion-project ;
+    msg:regulatedBy inst:Regulation_LNG_49-cfr-part-193-lng-facilities-federal-safety-standards ;
+    msg:reportsMetric inst:FinancialMetric_LNG_collateral-posted-with-counterparties-2023,
+        inst:FinancialMetric_LNG_collateral-posted-with-counterparties-2024,
+        inst:FinancialMetric_LNG_eps-basic-2022,
+        inst:FinancialMetric_LNG_eps-basic-2023,
+        inst:FinancialMetric_LNG_eps-basic-2024,
+        inst:FinancialMetric_LNG_eps-diluted-2022,
+        inst:FinancialMetric_LNG_eps-diluted-2023,
+        inst:FinancialMetric_LNG_eps-diluted-2024,
+        inst:FinancialMetric_LNG_lng-cashpaidinterest-2022,
+        inst:FinancialMetric_LNG_lng-cashpaidinterest-2023,
+        inst:FinancialMetric_LNG_lng-cashpaidinterest-2024,
+        inst:FinancialMetric_LNG_lng-depreciationexpense-2022,
+        inst:FinancialMetric_LNG_lng-depreciationexpense-2023,
+        inst:FinancialMetric_LNG_lng-depreciationexpense-2024,
+        inst:FinancialMetric_LNG_lng-derivativeassetnet-2023,
+        inst:FinancialMetric_LNG_lng-derivativeassetnet-2024,
+        inst:FinancialMetric_LNG_lng-epsbasic-2022,
+        inst:FinancialMetric_LNG_lng-epsbasic-2023,
+        inst:FinancialMetric_LNG_lng-epsbasic-2024,
+        inst:FinancialMetric_LNG_lng-epsdiluted-2022,
+        inst:FinancialMetric_LNG_lng-epsdiluted-2023,
+        inst:FinancialMetric_LNG_lng-epsdiluted-2024,
+        inst:FinancialMetric_LNG_lng-fxtransactiongainloss-2022,
+        inst:FinancialMetric_LNG_lng-fxtransactiongainloss-2023,
+        inst:FinancialMetric_LNG_lng-fxtransactiongainloss-2024,
+        inst:FinancialMetric_LNG_lng-incomebeforetax-2022,
+        inst:FinancialMetric_LNG_lng-incomebeforetax-2023,
+        inst:FinancialMetric_LNG_lng-incomebeforetax-2024,
+        inst:FinancialMetric_LNG_lng-incometaxprovision-2022,
+        inst:FinancialMetric_LNG_lng-incometaxprovision-2023,
+        inst:FinancialMetric_LNG_lng-incometaxprovision-2024,
+        inst:FinancialMetric_LNG_lng-lngrevenue-2022,
+        inst:FinancialMetric_LNG_lng-lngrevenue-2023,
+        inst:FinancialMetric_LNG_lng-lngrevenue-2024,
+        inst:FinancialMetric_LNG_lng-longtermdebtnet-2023,
+        inst:FinancialMetric_LNG_lng-longtermdebtnet-2024,
+        inst:FinancialMetric_LNG_lng-netdeferredtaxliability-2023,
+        inst:FinancialMetric_LNG_lng-netdeferredtaxliability-2024,
+        inst:FinancialMetric_LNG_lng-netincome-2022,
+        inst:FinancialMetric_LNG_lng-netincome-2023,
+        inst:FinancialMetric_LNG_lng-netincome-2024,
+        inst:FinancialMetric_LNG_lng-operatingcashflowoperatingleases-2023,
+        inst:FinancialMetric_LNG_lng-operatingcashflowoperatingleases-2024,
+        inst:FinancialMetric_LNG_lng-ppe-net-2023,
+        inst:FinancialMetric_LNG_lng-ppe-net-2024,
+        inst:FinancialMetric_LNG_lng-subleaseincome-2023,
+        inst:FinancialMetric_LNG_lng-subleaseincome-2024,
+        inst:FinancialMetric_LNG_lng-totalaccruedliabilities-2023,
+        inst:FinancialMetric_LNG_lng-totalaccruedliabilities-2024,
+        inst:FinancialMetric_LNG_lng-totaldebt-2023,
+        inst:FinancialMetric_LNG_lng-totaldebt-2024,
+        inst:FinancialMetric_LNG_lng-totalinterestexpense-2022,
+        inst:FinancialMetric_LNG_lng-totalinterestexpense-2023,
+        inst:FinancialMetric_LNG_lng-totalinterestexpense-2024,
+        inst:FinancialMetric_LNG_lng-totalinventory-2023,
+        inst:FinancialMetric_LNG_lng-totalinventory-2024,
+        inst:FinancialMetric_LNG_lng-totalleasecost-2023,
+        inst:FinancialMetric_LNG_lng-totalleasecost-2024,
+        inst:FinancialMetric_LNG_lng-totalleaseliabilities-2023,
+        inst:FinancialMetric_LNG_lng-totalleaseliabilities-2024,
+        inst:FinancialMetric_LNG_lng-totalothernoncurrentassets-2023,
+        inst:FinancialMetric_LNG_lng-totalothernoncurrentassets-2024,
+        inst:FinancialMetric_LNG_lng-totalrevenue-2022,
+        inst:FinancialMetric_LNG_lng-totalrevenue-2023,
+        inst:FinancialMetric_LNG_lng-totalrevenue-2024,
+        inst:FinancialMetric_LNG_lng-tradereceivables-2023,
+        inst:FinancialMetric_LNG_lng-tradereceivables-2024,
+        inst:FinancialMetric_LNG_lng-unsatisfiedtransactionprice-2023,
+        inst:FinancialMetric_LNG_lng-unsatisfiedtransactionprice-2024,
+        inst:FinancialMetric_LNG_lng-vie-totalassets-2023,
+        inst:FinancialMetric_LNG_lng-vie-totalassets-2024,
+        inst:FinancialMetric_LNG_lng-vie-totalliabilities-2023,
+        inst:FinancialMetric_LNG_lng-vie-totalliabilities-2024,
+        inst:FinancialMetric_LNG_net-income-2022,
+        inst:FinancialMetric_LNG_net-income-2023,
+        inst:FinancialMetric_LNG_net-income-2024,
+        inst:FinancialMetric_LNG_net-income-attributable-to-cheniere-2022,
+        inst:FinancialMetric_LNG_net-income-attributable-to-cheniere-2023,
+        inst:FinancialMetric_LNG_net-income-attributable-to-cheniere-2024,
+        inst:FinancialMetric_LNG_net-income-derivative-gains-2023,
+        inst:FinancialMetric_LNG_net-income-derivative-gains-2024,
+        inst:FinancialMetric_LNG_operating-cash-flow-2022,
+        inst:FinancialMetric_LNG_operating-cash-flow-2023,
+        inst:FinancialMetric_LNG_operating-cash-flow-2024,
+        inst:FinancialMetric_LNG_share-repurchase-authority-remaining-2024,
+        inst:FinancialMetric_LNG_share-repurchase-program-increase-june-2024,
+        inst:FinancialMetric_LNG_total-assets-2023,
+        inst:FinancialMetric_LNG_total-assets-2024,
+        inst:FinancialMetric_LNG_total-cheniere-stockholders-equity-2023,
+        inst:FinancialMetric_LNG_total-cheniere-stockholders-equity-2024,
+        inst:FinancialMetric_LNG_total-liabilities-2023,
+        inst:FinancialMetric_LNG_total-liabilities-2024,
+        inst:FinancialMetric_LNG_total-revenues-2022,
+        inst:FinancialMetric_LNG_total-revenues-2023,
+        inst:FinancialMetric_LNG_total-revenues-2024,
+        inst:FinancialMetric_LNG_total-stockholders-equity-2023,
+        inst:FinancialMetric_LNG_total-stockholders-equity-2024 ;
+    msg:statesObjective inst:StrategicObjective_LNG_lng-liquefaction-expansion,
+        inst:StrategicObjective_LNG_quarterly-dividend-payment ;
+    msg:ticker "LNG" .
+
+inst:Initiative_LNG_ce-tags-and-ogmp-20-participation a msg:Initiative ;
+    msg:initiativeName "CE Tags and OGMP 2.0 Participation" ;
+    msg:mitigatesRisk inst:RiskTheme_LNG_eu-methane-import-regulation-risk .
+
+inst:Initiative_LNG_lca-and-qmrv-climate-research-initiative a msg:Initiative ;
+    msg:initiativeName "LCA and QMRV Climate Research Initiative" ;
+    msg:mitigatesRisk inst:RiskTheme_LNG_climate-change-physical-risk .
+
+inst:Initiative_LNG_long-term-spa-and-ipm-agreements a msg:Initiative ;
+    msg:initiativeName "Long-Term SPA and IPM Agreements" ;
+    msg:mitigatesRisk inst:RiskTheme_LNG_lng-market-demand-volatility .
+
+inst:Initiative_LNG_methane-emissions-monitoring-initiative a msg:Initiative ;
+    msg:initiativeName "Methane Emissions Monitoring Initiative" ;
+    msg:mitigatesRisk inst:RiskTheme_LNG_ghg-emissions-regulation-risk .
+
+inst:Capability_LNG_lng-liquefaction-capacity a msg:Capability ;
+    msg:capabilityDomain "LNG Production" ;
+    msg:capabilityName "LNG Liquefaction Capacity" .
+
+inst:Capability_LNG_lng-vessel-charter-management a msg:Capability ;
+    msg:capabilityDomain "Logistics and Transportation" ;
+    msg:capabilityName "LNG Vessel Charter Management" .
+
+inst:FinancialMetric_LNG_collateral-posted-with-counterparties-2023 a msg:FinancialMetric ;
+    msg:metricName "Collateral Posted with Counterparties (Margin Deposits)",
+        "Collateral Posted with Counterparties 2023" ;
+    msg:metricPeriod "As of December 31, 2023" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "18" .
+
+inst:FinancialMetric_LNG_collateral-posted-with-counterparties-2024 a msg:FinancialMetric ;
+    msg:metricName "Collateral Posted with Counterparties (Margin Deposits)",
+        "Collateral Posted with Counterparties 2024" ;
+    msg:metricPeriod "As of December 31, 2024" ;
+    msg:metricUnit "million USD" ;
+    msg:metricValue "128" .
+
+inst:FinancialMetric_LNG_eps-basic-2022 a msg:FinancialMetric ;
+    msg:metricName "EPS Basic 2022",
+        "Earnings Per Share - Basic" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "5.69" .
+
+inst:FinancialMetric_LNG_eps-basic-2023 a msg:FinancialMetric ;
+    msg:metricName "EPS Basic 2023",
+        "Earnings Per Share - Basic" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "40.99" .
+
+inst:FinancialMetric_LNG_eps-basic-2024 a msg:FinancialMetric ;
+    msg:metricName "EPS Basic 2024",
+        "Earnings Per Share - Basic" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "14.24" .
+
+inst:FinancialMetric_LNG_eps-diluted-2022 a msg:FinancialMetric ;
+    msg:metricName "EPS Diluted 2022",
+        "Earnings Per Share - Diluted" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "5.64" .
+
+inst:FinancialMetric_LNG_eps-diluted-2023 a msg:FinancialMetric ;
+    msg:metricName "EPS Diluted 2023",
+        "Earnings Per Share - Diluted" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "40.72" .
+
+inst:FinancialMetric_LNG_eps-diluted-2024 a msg:FinancialMetric ;
+    msg:metricName "EPS Diluted 2024",
+        "Earnings Per Share - Diluted" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "14.20" .
+
+inst:FinancialMetric_LNG_lng-cashpaidinterest-2022 a msg:FinancialMetric ;
+    msg:metricName "Cash Paid for Interest on Debt, Net of Amounts Capitalized",
+        "LNG_CashPaidInterest_2022" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "891" .
+
+inst:FinancialMetric_LNG_lng-cashpaidinterest-2023 a msg:FinancialMetric ;
+    msg:metricName "Cash Paid for Interest on Debt, Net of Amounts Capitalized",
+        "LNG_CashPaidInterest_2023" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1032" .
+
+inst:FinancialMetric_LNG_lng-cashpaidinterest-2024 a msg:FinancialMetric ;
+    msg:metricName "Cash Paid for Interest on Debt, Net of Amounts Capitalized",
+        "LNG_CashPaidInterest_2024" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1075" .
+
+inst:FinancialMetric_LNG_lng-depreciationexpense-2022 a msg:FinancialMetric ;
+    msg:metricName "Depreciation Expense",
+        "LNG_DepreciationExpense_2022" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1113" .
+
+inst:FinancialMetric_LNG_lng-depreciationexpense-2023 a msg:FinancialMetric ;
+    msg:metricName "Depreciation Expense",
+        "LNG_DepreciationExpense_2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1190" .
+
+inst:FinancialMetric_LNG_lng-depreciationexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "Depreciation Expense",
+        "LNG_DepreciationExpense_2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1213" .
+
+inst:FinancialMetric_LNG_lng-derivativeassetnet-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_DerivativeAssetNet_2023",
+        "Net Derivative Asset (Liability)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-2124" .
+
+inst:FinancialMetric_LNG_lng-derivativeassetnet-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_DerivativeAssetNet_2024",
+        "Net Derivative Asset (Liability)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-709" .
+
+inst:FinancialMetric_LNG_lng-epsbasic-2022 a msg:FinancialMetric ;
+    msg:metricName "Earnings Per Share - Basic",
+        "LNG_EPSBasic_2022" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "5.69" .
+
+inst:FinancialMetric_LNG_lng-epsbasic-2023 a msg:FinancialMetric ;
+    msg:metricName "Earnings Per Share - Basic",
+        "LNG_EPSBasic_2023" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "40.99" .
+
+inst:FinancialMetric_LNG_lng-epsbasic-2024 a msg:FinancialMetric ;
+    msg:metricName "Earnings Per Share - Basic",
+        "LNG_EPSBasic_2024" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "14.24" .
+
+inst:FinancialMetric_LNG_lng-epsdiluted-2022 a msg:FinancialMetric ;
+    msg:metricName "Earnings Per Share - Diluted",
+        "LNG_EPSDiluted_2022" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "5.64" .
+
+inst:FinancialMetric_LNG_lng-epsdiluted-2023 a msg:FinancialMetric ;
+    msg:metricName "Earnings Per Share - Diluted",
+        "LNG_EPSDiluted_2023" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "40.72" .
+
+inst:FinancialMetric_LNG_lng-epsdiluted-2024 a msg:FinancialMetric ;
+    msg:metricName "Earnings Per Share - Diluted",
+        "LNG_EPSDiluted_2024" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "USD per share" ;
+    msg:metricValue "14.20" .
+
+inst:FinancialMetric_LNG_lng-fxtransactiongainloss-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG_FXTransactionGainLoss_2022",
+        "Net Foreign Currency Transaction Gains (Losses)" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "60" .
+
+inst:FinancialMetric_LNG_lng-fxtransactiongainloss-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_FXTransactionGainLoss_2023",
+        "Net Foreign Currency Transaction Gains (Losses)" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-20" .
+
+inst:FinancialMetric_LNG_lng-fxtransactiongainloss-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_FXTransactionGainLoss_2024",
+        "Net Foreign Currency Transaction Gains (Losses)" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "45" .
+
+inst:FinancialMetric_LNG_lng-incomebeforetax-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG_IncomeBeforeTax_2022",
+        "Total Income Before Income Taxes and Non-Controlling Interests" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3094" .
+
+inst:FinancialMetric_LNG_lng-incomebeforetax-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_IncomeBeforeTax_2023",
+        "Total Income Before Income Taxes and Non-Controlling Interests" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "14578" .
+
+inst:FinancialMetric_LNG_lng-incomebeforetax-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_IncomeBeforeTax_2024",
+        "Total Income Before Income Taxes and Non-Controlling Interests" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "5303" .
+
+inst:FinancialMetric_LNG_lng-incometaxprovision-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG_IncomeTaxProvision_2022",
+        "Total Income Tax Provision" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "459" .
+
+inst:FinancialMetric_LNG_lng-incometaxprovision-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_IncomeTaxProvision_2023",
+        "Total Income Tax Provision" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "2519" .
+
+inst:FinancialMetric_LNG_lng-incometaxprovision-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_IncomeTaxProvision_2024",
+        "Total Income Tax Provision" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "811" .
+
+inst:FinancialMetric_LNG_lng-lngrevenue-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG Revenues",
+        "LNG_LNGRevenue_2022" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "32132" .
+
+inst:FinancialMetric_LNG_lng-lngrevenue-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG Revenues",
+        "LNG_LNGRevenue_2023" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "19459" .
+
+inst:FinancialMetric_LNG_lng-lngrevenue-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG Revenues",
+        "LNG_LNGRevenue_2024" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "14972" .
+
+inst:FinancialMetric_LNG_lng-longtermdebtnet-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_LongTermDebtNet_2023",
+        "Total Long-Term Debt, Net of Unamortized Discount and Debt Issuance Costs" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "23397" .
+
+inst:FinancialMetric_LNG_lng-longtermdebtnet-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_LongTermDebtNet_2024",
+        "Total Long-Term Debt, Net of Unamortized Discount and Debt Issuance Costs" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "22554" .
+
+inst:FinancialMetric_LNG_lng-netdeferredtaxliability-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_NetDeferredTaxLiability_2023",
+        "Net Deferred Tax Liabilities" ;
+    msg:metricPeriod "December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-1519" .
+
+inst:FinancialMetric_LNG_lng-netdeferredtaxliability-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_NetDeferredTaxLiability_2024",
+        "Net Deferred Tax Liabilities" ;
+    msg:metricPeriod "December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "-1837" .
+
+inst:FinancialMetric_LNG_lng-netincome-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG_NetIncome_2022",
+        "Net Income Attributable to Cheniere" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1428" .
+
+inst:FinancialMetric_LNG_lng-netincome-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_NetIncome_2023",
+        "Net Income Attributable to Cheniere" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "9881" .
+
+inst:FinancialMetric_LNG_lng-netincome-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_NetIncome_2024",
+        "Net Income Attributable to Cheniere" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3252" .
+
+inst:FinancialMetric_LNG_lng-operatingcashflowoperatingleases-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_OperatingCashFlowOperatingLeases_2023",
+        "Operating Cash Flows from Operating Leases" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "720" .
+
+inst:FinancialMetric_LNG_lng-operatingcashflowoperatingleases-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_OperatingCashFlowOperatingLeases_2024",
+        "Operating Cash Flows from Operating Leases" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "803" .
+
+inst:FinancialMetric_LNG_lng-ppe-net-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_PPE_Net_2023",
+        "Property, Plant and Equipment, Net of Accumulated Depreciation" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "32456" .
+
+inst:FinancialMetric_LNG_lng-ppe-net-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_PPE_Net_2024",
+        "Property, Plant and Equipment, Net of Accumulated Depreciation" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "33552" .
+
+inst:FinancialMetric_LNG_lng-subleaseincome-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_SubleaseIncome_2023",
+        "Total Sublease Income" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "503" .
+
+inst:FinancialMetric_LNG_lng-subleaseincome-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_SubleaseIncome_2024",
+        "Total Sublease Income" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "322" .
+
+inst:FinancialMetric_LNG_lng-totalaccruedliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalAccruedLiabilities_2023",
+        "Total Accrued Liabilities" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1780" .
+
+inst:FinancialMetric_LNG_lng-totalaccruedliabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalAccruedLiabilities_2024",
+        "Total Accrued Liabilities" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "2179" .
+
+inst:FinancialMetric_LNG_lng-totaldebt-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalDebt_2023",
+        "Total Debt" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "23888" .
+
+inst:FinancialMetric_LNG_lng-totaldebt-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalDebt_2024",
+        "Total Debt" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "23097" .
+
+inst:FinancialMetric_LNG_lng-totalinterestexpense-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalInterestExpense_2022",
+        "Total Interest Expense, Net of Capitalized Interest" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1406" .
+
+inst:FinancialMetric_LNG_lng-totalinterestexpense-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalInterestExpense_2023",
+        "Total Interest Expense, Net of Capitalized Interest" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1141" .
+
+inst:FinancialMetric_LNG_lng-totalinterestexpense-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalInterestExpense_2024",
+        "Total Interest Expense, Net of Capitalized Interest" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1010" .
+
+inst:FinancialMetric_LNG_lng-totalinventory-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalInventory_2023",
+        "Total Inventory" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "445" .
+
+inst:FinancialMetric_LNG_lng-totalinventory-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalInventory_2024",
+        "Total Inventory" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "501" .
+
+inst:FinancialMetric_LNG_lng-totalleasecost-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalLeaseCost_2023",
+        "Total Lease Cost" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "868" .
+
+inst:FinancialMetric_LNG_lng-totalleasecost-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalLeaseCost_2024",
+        "Total Lease Cost" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "927" .
+
+inst:FinancialMetric_LNG_lng-totalleaseliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalLeaseLiabilities_2023",
+        "Total Lease Liabilities" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3128" .
+
+inst:FinancialMetric_LNG_lng-totalleaseliabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalLeaseLiabilities_2024",
+        "Total Lease Liabilities" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3212" .
+
+inst:FinancialMetric_LNG_lng-totalothernoncurrentassets-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalOtherNonCurrentAssets_2023",
+        "Total Other Non-Current Assets, Net" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "759" .
+
+inst:FinancialMetric_LNG_lng-totalothernoncurrentassets-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalOtherNonCurrentAssets_2024",
+        "Total Other Non-Current Assets, Net" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "899" .
+
+inst:FinancialMetric_LNG_lng-totalrevenue-2022 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalRevenue_2022",
+        "Total Revenues" ;
+    msg:metricPeriod "Year Ended December 31, 2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "33428" .
+
+inst:FinancialMetric_LNG_lng-totalrevenue-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalRevenue_2023",
+        "Total Revenues" ;
+    msg:metricPeriod "Year Ended December 31, 2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "20394" .
+
+inst:FinancialMetric_LNG_lng-totalrevenue-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TotalRevenue_2024",
+        "Total Revenues" ;
+    msg:metricPeriod "Year Ended December 31, 2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "15703" .
+
+inst:FinancialMetric_LNG_lng-tradereceivables-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_TradeReceivables_2023",
+        "Total Trade and Other Receivables, Net" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1106" .
+
+inst:FinancialMetric_LNG_lng-tradereceivables-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_TradeReceivables_2024",
+        "Total Trade and Other Receivables, Net" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "727" .
+
+inst:FinancialMetric_LNG_lng-unsatisfiedtransactionprice-2023 a msg:FinancialMetric ;
+    msg:metricName "LNG_UnsatisfiedTransactionPrice_2023",
+        "Total Unsatisfied Transaction Price (Future Performance Obligations)" ;
+    msg:metricPeriod "December 31, 2023" ;
+    msg:metricUnit "billions USD" ;
+    msg:metricValue "111.7" .
+
+inst:FinancialMetric_LNG_lng-unsatisfiedtransactionprice-2024 a msg:FinancialMetric ;
+    msg:metricName "LNG_UnsatisfiedTransactionPrice_2024",
+        "Total Unsatisfied Transaction Price (Future Performance Obligations)" ;
+    msg:metricPeriod "December 31, 2024" ;
+    msg:metricUnit "billions USD" ;
+    msg:metricValue "105.2" .
+
+inst:FinancialMetric_LNG_lng-vie-totalassets-2023 a msg:FinancialMetric ;
+    msg:metricName "Consolidated VIE Total Assets",
+        "LNG_VIE_TotalAssets_2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "17740" .
+
+inst:FinancialMetric_LNG_lng-vie-totalassets-2024 a msg:FinancialMetric ;
+    msg:metricName "Consolidated VIE Total Assets",
+        "LNG_VIE_TotalAssets_2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "17345" .
+
+inst:FinancialMetric_LNG_lng-vie-totalliabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "Consolidated VIE Total Liabilities",
+        "LNG_VIE_TotalLiabilities_2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "18805" .
+
+inst:FinancialMetric_LNG_lng-vie-totalliabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "Consolidated VIE Total Liabilities",
+        "LNG_VIE_TotalLiabilities_2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "17918" .
+
+inst:FinancialMetric_LNG_net-income-2022 a msg:FinancialMetric ;
+    msg:metricName "Net Income",
+        "Net Income 2022" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "2635" .
+
+inst:FinancialMetric_LNG_net-income-2023 a msg:FinancialMetric ;
+    msg:metricName "Net Income",
+        "Net Income 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "12059" .
+
+inst:FinancialMetric_LNG_net-income-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Income",
+        "Net Income 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "4492" .
+
+inst:FinancialMetric_LNG_net-income-attributable-to-cheniere-2022 a msg:FinancialMetric ;
+    msg:metricName "Net Income Attributable to Cheniere",
+        "Net Income Attributable to Cheniere 2022" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "1428" .
+
+inst:FinancialMetric_LNG_net-income-attributable-to-cheniere-2023 a msg:FinancialMetric ;
+    msg:metricName "Net Income Attributable to Cheniere",
+        "Net Income Attributable to Cheniere 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "9881" .
+
+inst:FinancialMetric_LNG_net-income-attributable-to-cheniere-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Income Attributable to Cheniere",
+        "Net Income Attributable to Cheniere 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "3252" .
+
+inst:FinancialMetric_LNG_net-income-derivative-gains-2023 a msg:FinancialMetric ;
+    msg:metricName "Net Income - Derivative Fair Value Gains",
+        "Net Income - Derivative Gains 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "8.0" .
+
+inst:FinancialMetric_LNG_net-income-derivative-gains-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Income - Derivative Fair Value Gains",
+        "Net Income - Derivative Gains 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "1.3" .
+
+inst:FinancialMetric_LNG_operating-cash-flow-2022 a msg:FinancialMetric ;
+    msg:metricName "Net Cash Provided by Operating Activities",
+        "Operating Cash Flow 2022" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "10523" .
+
+inst:FinancialMetric_LNG_operating-cash-flow-2023 a msg:FinancialMetric ;
+    msg:metricName "Net Cash Provided by Operating Activities",
+        "Operating Cash Flow 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "8418" .
+
+inst:FinancialMetric_LNG_operating-cash-flow-2024 a msg:FinancialMetric ;
+    msg:metricName "Net Cash Provided by Operating Activities",
+        "Operating Cash Flow 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "5394" .
+
+inst:FinancialMetric_LNG_share-repurchase-authority-remaining-2024 a msg:FinancialMetric ;
+    msg:metricName "Remaining Share Repurchase Authority",
+        "Share Repurchase Authority Remaining 2024" ;
+    msg:metricPeriod "As of December 31, 2024" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "3.9" .
+
+inst:FinancialMetric_LNG_share-repurchase-program-increase-june-2024 a msg:FinancialMetric ;
+    msg:metricName "Share Repurchase Program Authorization Increase",
+        "Share Repurchase Program Increase June 2024" ;
+    msg:metricPeriod "June 2024" ;
+    msg:metricUnit "billion USD" ;
+    msg:metricValue "4.0" .
+
+inst:FinancialMetric_LNG_total-assets-2023 a msg:FinancialMetric ;
+    msg:metricName "Total Assets",
+        "Total Assets 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "43076" .
+
+inst:FinancialMetric_LNG_total-assets-2024 a msg:FinancialMetric ;
+    msg:metricName "Total Assets",
+        "Total Assets 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "43858" .
+
+inst:FinancialMetric_LNG_total-cheniere-stockholders-equity-2023 a msg:FinancialMetric ;
+    msg:metricName "Total Cheniere Stockholders Equity 2023",
+        "Total Cheniere Stockholders' Equity" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "5060" .
+
+inst:FinancialMetric_LNG_total-cheniere-stockholders-equity-2024 a msg:FinancialMetric ;
+    msg:metricName "Total Cheniere Stockholders Equity 2024",
+        "Total Cheniere Stockholders' Equity" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "5699" .
+
+inst:FinancialMetric_LNG_total-liabilities-2023 a msg:FinancialMetric ;
+    msg:metricName "Total Liabilities",
+        "Total Liabilities 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "34056" .
+
+inst:FinancialMetric_LNG_total-liabilities-2024 a msg:FinancialMetric ;
+    msg:metricName "Total Liabilities",
+        "Total Liabilities 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "33798" .
+
+inst:FinancialMetric_LNG_total-revenues-2022 a msg:FinancialMetric ;
+    msg:metricName "Total Revenues",
+        "Total Revenues 2022" ;
+    msg:metricPeriod "FY2022" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "33428" .
+
+inst:FinancialMetric_LNG_total-revenues-2023 a msg:FinancialMetric ;
+    msg:metricName "Total Revenues",
+        "Total Revenues 2023" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "20394" .
+
+inst:FinancialMetric_LNG_total-revenues-2024 a msg:FinancialMetric ;
+    msg:metricName "Total Revenues",
+        "Total Revenues 2024" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "15703" .
+
+inst:FinancialMetric_LNG_total-stockholders-equity-2023 a msg:FinancialMetric ;
+    msg:metricName "Total Stockholders Equity 2023",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "FY2023" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "9020" .
+
+inst:FinancialMetric_LNG_total-stockholders-equity-2024 a msg:FinancialMetric ;
+    msg:metricName "Total Stockholders Equity 2024",
+        "Total Stockholders' Equity" ;
+    msg:metricPeriod "FY2024" ;
+    msg:metricUnit "millions USD" ;
+    msg:metricValue "10053" .
+
+inst:GeographicRegion_LNG_corpus-christi-texas a msg:GeographicRegion ;
+    msg:regionName "Corpus Christi, Texas" .
+
+inst:GeographicRegion_LNG_sabine-pass-louisiana a msg:GeographicRegion ;
+    msg:regionName "Sabine Pass, Louisiana" .
+
+inst:Initiative_LNG_ccl-midscale-trains-8-9-project a msg:Initiative ;
+    msg:initiativeName "CCL Midscale Trains 8 & 9 Project" ;
+    msg:status "Development" .
+
+inst:Initiative_LNG_corpus-christi-stage-3-project a msg:Initiative ;
+    msg:initiativeName "Corpus Christi Stage 3 Project" ;
+    msg:status "Under Construction" .
+
+inst:Initiative_LNG_share-repurchase-program a msg:Initiative ;
+    msg:initiativeName "Share Repurchase Program" ;
+    msg:startYear "2024" ;
+    msg:status "Active" .
+
+inst:Initiative_LNG_spl-expansion-project a msg:Initiative ;
+    msg:initiativeName "SPL Expansion Project" ;
+    msg:status "Development" .
+
+inst:Regulation_LNG_49-cfr-part-193-lng-facilities-federal-safety-standards a msg:Regulation ;
+    msg:regulationName "49 CFR Part 193 - LNG Facilities Federal Safety Standards",
+        "49 Code of Federal Regulations Part 193, Liquefied Natural Gas Facilities: Federal Safety Standards" .
+
+inst:RiskTheme_LNG_air-emissions-regulatory-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Air Emissions Regulatory Risk" .
+
+inst:RiskTheme_LNG_capital-markets-access-risk a msg:RiskTheme ;
+    msg:riskCategory "financial" ;
+    msg:riskName "Capital Markets Access Risk" .
+
+inst:RiskTheme_LNG_coastal-zone-compliance-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Coastal Zone Compliance Risk" .
+
+inst:RiskTheme_LNG_commodity-price-risk a msg:RiskTheme ;
+    msg:riskCategory "Market Risk" ;
+    msg:riskName "Commodity Price Risk" ;
+    msg:text "Substantial volatility in results of operations from changes in fair values of derivatives indexed to international LNG prices" .
+
+inst:RiskTheme_LNG_construction-cost-and-delay-risk a msg:RiskTheme ;
+    msg:riskCategory "Operational Risk" ;
+    msg:riskName "Construction Cost Overrun and Delay Risk",
+        "Construction Cost and Delay Risk" ;
+    msg:text "Cost overruns and delays in completion of expansion projects including Corpus Christi Stage 3 Project" .
+
+inst:RiskTheme_LNG_energy-transition-substitution-risk a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "Energy Transition Substitution Risk" .
+
+inst:RiskTheme_LNG_epc-contractor-performance-risk a msg:RiskTheme ;
+    msg:riskCategory "Operational Risk" ;
+    msg:riskName "EPC Contractor Performance Risk" ;
+    msg:text "Dependent on EPC partners and other contractors for successful completion of expansion projects" .
+
+inst:RiskTheme_LNG_expansion-funding-risk a msg:RiskTheme ;
+    msg:riskCategory "Financial Risk" ;
+    msg:riskName "Expansion Funding Risk" ;
+    msg:text "Ability to complete additional Trains contingent on obtaining additional funding" .
+
+inst:RiskTheme_LNG_global-natural-gas-supply-risk a msg:RiskTheme ;
+    msg:riskCategory "operational" ;
+    msg:riskName "Global Natural Gas Supply Risk" .
+
+inst:RiskTheme_LNG_hazardous-waste-disposal-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Hazardous Waste Disposal Risk" .
+
+inst:RiskTheme_LNG_lng-market-price-cyclicality-risk a msg:RiskTheme ;
+    msg:riskCategory "Market Risk" ;
+    msg:riskName "LNG Market Price Cyclicality Risk" ;
+    msg:text "Cyclical or other changes in the demand for and price of LNG and natural gas" .
+
+inst:RiskTheme_LNG_lng-price-competition-risk a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "LNG Price Competition Risk" .
+
+inst:RiskTheme_LNG_lng-vessel-availability-risk a msg:RiskTheme ;
+    msg:riskCategory "Operational Risk" ;
+    msg:riskName "LNG Vessel Availability Risk" ;
+    msg:text "Shortages of LNG vessels worldwide or operational impacts on LNG shipping" .
+
+inst:RiskTheme_LNG_methane-emissions-charge-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Methane Emissions Charge Risk" .
+
+inst:RiskTheme_LNG_natural-gas-supply-disruption-risk a msg:RiskTheme ;
+    msg:riskCategory "Operational Risk" ;
+    msg:riskName "Natural Gas Supply Disruption Risk" ;
+    msg:text "Disruptions to the third party supply of natural gas to pipelines and facilities" .
+
+inst:RiskTheme_LNG_protected-species-habitat-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Protected Species Habitat Risk" .
+
+inst:RiskTheme_LNG_regulatory-policy-uncertainty-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Regulatory Policy Uncertainty Risk" .
+
+inst:RiskTheme_LNG_spa-replacement-competition-risk a msg:RiskTheme ;
+    msg:riskCategory "competitive" ;
+    msg:riskName "SPA Replacement Competition Risk" .
+
+inst:RiskTheme_LNG_water-discharge-regulatory-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "Water Discharge Regulatory Risk" .
+
+inst:RiskTheme_LNG_weather-and-catastrophic-event-risk a msg:RiskTheme ;
+    msg:riskCategory "Operational Risk" ;
+    msg:riskName "Weather and Catastrophic Event Risk" ;
+    msg:text "Catastrophic weather events or other disasters could interrupt operations or delay construction of Liquefaction Projects" .
+
+inst:StrategicObjective_LNG_lng-liquefaction-expansion a msg:StrategicObjective ;
+    msg:objectiveType "Growth" ;
+    msg:priority "High" ;
+    msg:text "Continuously pursue liquefaction expansion opportunities and other projects along the LNG value chain",
+        "LNG Liquefaction Expansion" .
+
+inst:StrategicObjective_LNG_quarterly-dividend-payment a msg:StrategicObjective ;
+    msg:objectiveType "Capital Return" ;
+    msg:priority "High" ;
+    msg:text "Continue to pay quarterly dividends to stockholders",
+        "Quarterly Dividend Payment" .
+
+inst:RiskTheme_LNG_climate-change-physical-risk a msg:RiskTheme ;
+    msg:riskCategory "environmental" ;
+    msg:riskName "Climate Change Physical Risk" .
+
+inst:RiskTheme_LNG_eu-methane-import-regulation-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "EU Methane Import Regulation Risk" .
+
+inst:RiskTheme_LNG_ghg-emissions-regulation-risk a msg:RiskTheme ;
+    msg:riskCategory "regulatory" ;
+    msg:riskName "GHG Emissions Regulation Risk" .
+
+inst:RiskTheme_LNG_lng-market-demand-volatility a msg:RiskTheme ;
+    msg:riskCategory "macro" ;
+    msg:riskName "LNG Market Demand Volatility" .
+
