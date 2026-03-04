@@ -786,6 +786,7 @@ def get_company_overview(company: str) -> dict:
             label = G.nodes[neighbor].get(":LABEL", "")
             text = (G.nodes[neighbor].get("text", "") or
                     G.nodes[neighbor].get("name", "") or str(neighbor))
+            relation = G[company_node][neighbor].get("relation", "")
             seen_nodes.add(neighbor)
             total_edges += 1
 
@@ -794,7 +795,22 @@ def get_company_overview(company: str) -> dict:
                 continue
             seen_texts.add(text)
 
-            if "Mission" in label:
+            # HCM-related edges override label-based classification
+            # Schema uses hasHumanCapital*, governsHumanCapital, adaptsTalentPolicy,
+            # usesEngagementTool, supportsGroup as HCM predicates
+            rel_lower = relation.lower()
+            node_lower = str(neighbor).lower()
+            is_hcm = (
+                "humancapital" in rel_lower or
+                "talent" in rel_lower or
+                "workforce" in rel_lower or
+                "engagement" in rel_lower or
+                "compensation" in rel_lower and "philosophy" in rel_lower
+            )
+
+            if is_hcm:
+                overview["hcm_metrics"].append(text)
+            elif "Mission" in label:
                 overview["mission"] = text
             elif "StrategicObjective" in label or "Strategy" in label:
                 overview["objectives"].append(text)
