@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: ADVANCED MICRO DEVICES INC
+# CIK: 0000002488
+# Stakeholders: Employees, Society
+# Values: Innovation
+# Objectives: 0 found
+# Domains: Technology
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_ADVANCED_MICRO_DEVICES_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "ADVANCED MICRO DEVICES INC" ;
+    msg:cik "0000002488" ;
+    msg:sector "3674 - Semiconductors & Related Devices" ;
+    msg:hasMission inst:Mission_ADVANCED_MICRO_DEVICES_INC .
+
+# ── Mission Statement ──
+inst:Mission_ADVANCED_MICRO_DEVICES_INC a msg:MissionStatement ;
+    msg:missionText "Build great products that accelerate next-generation computing experiences." ;
+    msg:extractedFrom "cleaned_10-K_0000002488-25-000012.txt" ;
+    msg:servesStakeholder inst:ADVANCED_MICRO_DEVICES_INC_Stakeholder_Employees ;
+    msg:servesStakeholder inst:ADVANCED_MICRO_DEVICES_INC_Stakeholder_Society ;
+    msg:embodiesValue inst:ADVANCED_MICRO_DEVICES_INC_Value_Innovation ;
+    msg:operatesInDomain inst:ADVANCED_MICRO_DEVICES_INC_Domain_Technology ;
+    msg:leveragesCapability inst:ADVANCED_MICRO_DEVICES_INC_Capability_0 ;
+    msg:leveragesCapability inst:ADVANCED_MICRO_DEVICES_INC_Capability_1 ;
+    msg:leveragesCapability inst:ADVANCED_MICRO_DEVICES_INC_Capability_2 ;
+    msg:leveragesCapability inst:ADVANCED_MICRO_DEVICES_INC_Capability_3  .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Value_Innovation a msg:CorporateValue ;
+    rdfs:label "Innovation" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Domain_Technology a msg:BusinessDomain ;
+    rdfs:label "Technology" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Data Center segment with AI accelerator products including AMD Instinct MI300X GPUs" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "High-performance computing solutions for data centers, cloud, edge, and AI" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Semi-custom SoCs, Adaptive SoCs, APUs, and accelerated processing units" .
+
+inst:ADVANCED_MICRO_DEVICES_INC_Capability_3 a msg:BusinessCapability ;
+    rdfs:label "Self-described high performance and adaptive computing leader" .

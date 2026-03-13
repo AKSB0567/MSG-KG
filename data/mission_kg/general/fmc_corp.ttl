@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: FMC CORP
+# CIK: 0000037785
+
+inst:Company_FMC_CORP a msg:Company ;
+    rdfs:label "FMC CORP" ;
+    msg:cik "0000037785" ;
+    msg:sector "2800 - Chemicals & Allied Products" ;
+    msg:hasMission inst:Mission_FMC_CORP .
+
+inst:Mission_FMC_CORP a msg:MissionStatement ;
+    msg:missionText "FMC CORP — Mission; Transform grower relationship to become trusted source for technical expertise and solutions." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000037785-25-000030.txt" .

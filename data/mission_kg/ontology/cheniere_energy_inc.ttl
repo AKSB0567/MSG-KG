@@ -1,0 +1,64 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: Cheniere Energy, Inc.
+# CIK: 0000003570
+# Stakeholders: Customers, Employees, Society
+# Values: Safety
+# Objectives: 0 found
+# Domains: Energy
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_Cheniere_Energy_Inc a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "Cheniere Energy, Inc." ;
+    msg:cik "0000003570" ;
+    msg:sector "4922 - Natural Gas Distribution" ;
+    msg:hasMission inst:Mission_Cheniere_Energy_Inc .
+
+# ── Mission Statement ──
+inst:Mission_Cheniere_Energy_Inc a msg:MissionStatement ;
+    msg:missionText "Our vision is to provide clean, secure and affordable energy to." ;
+    msg:extractedFrom "cleaned_10-K_0000003570-25-000033.txt" ;
+    msg:servesStakeholder inst:Cheniere_Energy_Inc_Stakeholder_Customers ;
+    msg:servesStakeholder inst:Cheniere_Energy_Inc_Stakeholder_Employees ;
+    msg:servesStakeholder inst:Cheniere_Energy_Inc_Stakeholder_Society ;
+    msg:embodiesValue inst:Cheniere_Energy_Inc_Value_Safety ;
+    msg:operatesInDomain inst:Cheniere_Energy_Inc_Domain_Energy  .
+
+inst:Cheniere_Energy_Inc_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:Cheniere_Energy_Inc_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:Cheniere_Energy_Inc_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:Cheniere_Energy_Inc_Value_Safety a msg:CorporateValue ;
+    rdfs:label "Safety" .
+
+inst:Cheniere_Energy_Inc_Domain_Energy a msg:BusinessDomain ;
+    rdfs:label "Energy" .

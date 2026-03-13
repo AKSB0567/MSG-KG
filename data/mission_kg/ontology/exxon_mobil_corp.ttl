@@ -1,0 +1,72 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: EXXON MOBIL CORP
+# CIK: 0000034088
+# Stakeholders: Government
+# Values: Growth
+# Objectives: 0 found
+# Domains: Financial Services, Energy
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_EXXON_MOBIL_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "EXXON MOBIL CORP" ;
+    msg:cik "0000034088" ;
+    msg:sector "2911 - Petroleum Refining" ;
+    msg:hasMission inst:Mission_EXXON_MOBIL_CORP .
+
+# ── Mission Statement ──
+inst:Mission_EXXON_MOBIL_CORP a msg:MissionStatement ;
+    msg:missionText "EXXON MOBIL CORP — Mission; Grow pipeline of emission-reduction opportunities and lower-emission investments." ;
+    msg:extractedFrom "cleaned_10-K_0000034088-25-000010.txt" ;
+    msg:servesStakeholder inst:EXXON_MOBIL_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:EXXON_MOBIL_CORP_Value_Growth ;
+    msg:operatesInDomain inst:EXXON_MOBIL_CORP_Domain_Financial_Services ;
+    msg:operatesInDomain inst:EXXON_MOBIL_CORP_Domain_Energy ;
+    msg:leveragesCapability inst:EXXON_MOBIL_CORP_Capability_0 ;
+    msg:leveragesCapability inst:EXXON_MOBIL_CORP_Capability_1 ;
+    msg:leveragesCapability inst:EXXON_MOBIL_CORP_Capability_2  .
+
+inst:EXXON_MOBIL_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:EXXON_MOBIL_CORP_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:EXXON_MOBIL_CORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:EXXON_MOBIL_CORP_Domain_Energy a msg:BusinessDomain ;
+    rdfs:label "Energy" .
+
+inst:EXXON_MOBIL_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Low Carbon Solutions - carbon capture/storage, hydrogen, lower-emission fuels, Proxxima, lithium" .
+
+inst:EXXON_MOBIL_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Lower-emission opportunities: carbon capture/storage, hydrogen, lower-emission fuels, lithium" .
+
+inst:EXXON_MOBIL_CORP_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Crude oil, natural gas, petroleum products, petrochemicals and specialty products" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: GENERAL DYNAMICS CORP
+# CIK: 0000040533
+
+inst:Company_GENERAL_DYNAMICS_CORP a msg:Company ;
+    rdfs:label "GENERAL DYNAMICS CORP" ;
+    msg:cik "0000040533" ;
+    msg:sector "3730 - Ship & Boat Building & Repairing" ;
+    msg:hasMission inst:Mission_GENERAL_DYNAMICS_CORP .
+
+inst:Mission_GENERAL_DYNAMICS_CORP a msg:MissionStatement ;
+    msg:missionText "We are committed to continual investment in R&D to create new aircraft that consistently broaden customer offerings while raising the bar for safety and performance." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.85^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000040533-25-000008.txt" .

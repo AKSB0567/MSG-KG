@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Ally Financial Inc.
+# CIK: 0000040729
+
+inst:Company_Ally_Financial_Inc a msg:Company ;
+    rdfs:label "Ally Financial Inc." ;
+    msg:cik "0000040729" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_Ally_Financial_Inc .
+
+inst:Mission_Ally_Financial_Inc a msg:MissionStatement ;
+    msg:missionText "Do It Right - be a relentless ally for customers and communities." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000040729-25-000006.txt" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: JPMORGAN CHASE & CO
+# CIK: 0000019617
+
+inst:Company_JPMORGAN_CHASE_CO a msg:Company ;
+    rdfs:label "JPMORGAN CHASE & CO" ;
+    msg:cik "0000019617" ;
+    msg:sector "6021 - National Commercial Banks" ;
+    msg:hasMission inst:Mission_JPMORGAN_CHASE_CO .
+
+inst:Mission_JPMORGAN_CHASE_CO a msg:MissionStatement ;
+    msg:missionText "(“JPMorganChase” or the “Firm”, NYSE: JPM), a financial holding company incorporated under Delaware law in 1968, is a leading financial services firm based in the United States of America (“U." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.51^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000019617-25-000270.txt" .

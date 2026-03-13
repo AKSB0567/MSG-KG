@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: AMERICAN INTERNATIONAL GROUP, INC.
+# CIK: 0000005272
+
+inst:Company_AMERICAN_INTERNATIONAL_GROUP_INC a msg:Company ;
+    rdfs:label "AMERICAN INTERNATIONAL GROUP, INC." ;
+    msg:cik "0000005272" ;
+    msg:sector "6331 - Fire, Marine & Casualty Insurance" ;
+    msg:hasMission inst:Mission_AMERICAN_INTERNATIONAL_GROUP_INC .
+
+inst:Mission_AMERICAN_INTERNATIONAL_GROUP_INC a msg:MissionStatement ;
+    msg:missionText "" ;
+    msg:missionSource "" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000005272-25-000012.txt" .

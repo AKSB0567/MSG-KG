@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: HUMANA INC
+# CIK: 0000049071
+
+inst:Company_HUMANA_INC a msg:Company ;
+    rdfs:label "HUMANA INC" ;
+    msg:cik "0000049071" ;
+    msg:sector "6324 - Hospital & Medical Service Plans" ;
+    msg:hasMission inst:Mission_HUMANA_INC .
+
+inst:Mission_HUMANA_INC a msg:MissionStatement ;
+    msg:missionText "HUMANA INC — Mission; Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000049071-25-000007.txt" .

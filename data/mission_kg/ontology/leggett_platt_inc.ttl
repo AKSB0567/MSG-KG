@@ -1,0 +1,64 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: LEGGETT & PLATT INC
+# CIK: 0000058492
+# Stakeholders: Employees
+# Values: Growth
+# Objectives: 0 found
+# Domains: Consumer Goods
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_LEGGETT_PLATT_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "LEGGETT & PLATT INC" ;
+    msg:cik "0000058492" ;
+    msg:sector "2510 - Household Furniture" ;
+    msg:hasMission inst:Mission_LEGGETT_PLATT_INC .
+
+# ── Mission Statement ──
+inst:Mission_LEGGETT_PLATT_INC a msg:MissionStatement ;
+    msg:missionText "Succession Development We are committed to having strong managers and leadership in critical roles across the Company." ;
+    msg:extractedFrom "cleaned_10-K_0000058492-25-000136.txt" ;
+    msg:servesStakeholder inst:LEGGETT_PLATT_INC_Stakeholder_Employees ;
+    msg:embodiesValue inst:LEGGETT_PLATT_INC_Value_Growth ;
+    msg:operatesInDomain inst:LEGGETT_PLATT_INC_Domain_Consumer_Goods ;
+    msg:leveragesCapability inst:LEGGETT_PLATT_INC_Capability_0 ;
+    msg:leveragesCapability inst:LEGGETT_PLATT_INC_Capability_1  .
+
+inst:LEGGETT_PLATT_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:LEGGETT_PLATT_INC_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:LEGGETT_PLATT_INC_Domain_Consumer_Goods a msg:BusinessDomain ;
+    rdfs:label "Consumer Goods" .
+
+inst:LEGGETT_PLATT_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Specialized Products" .
+
+inst:LEGGETT_PLATT_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Aerospace tubing and fabricated assemblies" .

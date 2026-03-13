@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Unum Group
+# CIK: 0000005513
+
+inst:Company_Unum_Group a msg:Company ;
+    rdfs:label "Unum Group" ;
+    msg:cik "0000005513" ;
+    msg:sector "6321 - Accident & Health Insurance" ;
+    msg:hasMission inst:Mission_Unum_Group .
+
+inst:Mission_Unum_Group a msg:MissionStatement ;
+    msg:missionText "Unum Group — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000005513-25-000015.txt" .

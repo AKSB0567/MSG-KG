@@ -1,0 +1,60 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: Churchill Downs Inc
+# CIK: 0000020212
+# Stakeholders: Employees, Government
+# Values: Growth
+# Objectives: 0 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_Churchill_Downs_Inc a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "Churchill Downs Inc" ;
+    msg:cik "0000020212" ;
+    msg:sector "7948 - Services-Racing, Including Track Operation" ;
+    msg:hasMission inst:Mission_Churchill_Downs_Inc .
+
+# ── Mission Statement ──
+inst:Mission_Churchill_Downs_Inc a msg:MissionStatement ;
+    msg:missionText "Attracting, developing, and retaining top talent through leadership-led culture of growth; Churchill Downs Inc — Mission." ;
+    msg:extractedFrom "cleaned_10-K_0000020212-25-000051.txt" ;
+    msg:servesStakeholder inst:Churchill_Downs_Inc_Stakeholder_Employees ;
+    msg:servesStakeholder inst:Churchill_Downs_Inc_Stakeholder_Government ;
+    msg:embodiesValue inst:Churchill_Downs_Inc_Value_Growth ;
+    msg:leveragesCapability inst:Churchill_Downs_Inc_Capability_0  .
+
+inst:Churchill_Downs_Inc_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:Churchill_Downs_Inc_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:Churchill_Downs_Inc_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:Churchill_Downs_Inc_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Wagering Services and Solutions (formerly TwinSpires)" .

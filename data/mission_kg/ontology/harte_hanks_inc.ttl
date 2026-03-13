@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: HARTE HANKS INC
+# CIK: 0000045919
+# Stakeholders: Customers, Partners, Government
+# Values: Service
+# Objectives: 1 found
+# Domains: Technology, Media & Communications
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_HARTE_HANKS_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "HARTE HANKS INC" ;
+    msg:cik "0000045919" ;
+    msg:sector "7331 - Direct Mail Advertising Services" ;
+    msg:hasMission inst:Mission_HARTE_HANKS_INC .
+
+# ── Mission Statement ──
+inst:Mission_HARTE_HANKS_INC a msg:MissionStatement ;
+    msg:missionText "Our mission is to partner with clients to provide them with robust customer-experience, or CX strategy, data-driven analytics, and actionable insights combined with seamless program execution to better understand, attract, and engage their customers. Our services include strat." ;
+    msg:extractedFrom "cleaned_10-K_0000045919-25-000008.txt" ;
+    msg:servesStakeholder inst:HARTE_HANKS_INC_Stakeholder_Customers ;
+    msg:servesStakeholder inst:HARTE_HANKS_INC_Stakeholder_Partners ;
+    msg:servesStakeholder inst:HARTE_HANKS_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:HARTE_HANKS_INC_Value_Service ;
+    msg:pursuesObjective inst:HARTE_HANKS_INC_Objective_0 ;
+    msg:operatesInDomain inst:HARTE_HANKS_INC_Domain_Technology ;
+    msg:operatesInDomain inst:HARTE_HANKS_INC_Domain_Media_Communications ;
+    msg:leveragesCapability inst:HARTE_HANKS_INC_Capability_0  .
+
+inst:HARTE_HANKS_INC_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:HARTE_HANKS_INC_Stakeholder_Partners a msg:Stakeholder ;
+    rdfs:label "Partners" .
+
+inst:HARTE_HANKS_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:HARTE_HANKS_INC_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:HARTE_HANKS_INC_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "provide them with robust customer-experience" .
+
+inst:HARTE_HANKS_INC_Domain_Technology a msg:BusinessDomain ;
+    rdfs:label "Technology" .
+
+inst:HARTE_HANKS_INC_Domain_Media_Communications a msg:BusinessDomain ;
+    rdfs:label "Media & Communications" .
+
+inst:HARTE_HANKS_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Data, marketing, sales, customer care, fulfillment and logistics services" .

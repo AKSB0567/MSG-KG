@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: LINCOLN ELECTRIC HOLDINGS INC
+# CIK: 0000059527
+
+inst:Company_LINCOLN_ELECTRIC_HOLDINGS_INC a msg:Company ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC" ;
+    msg:cik "0000059527" ;
+    msg:sector "3540 - Metalworking Machinery & Equipment" ;
+    msg:hasMission inst:Mission_LINCOLN_ELECTRIC_HOLDINGS_INC .
+
+inst:Mission_LINCOLN_ELECTRIC_HOLDINGS_INC a msg:MissionStatement ;
+    msg:missionText "Our goal is to proactively manage risks in a structured approach an." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.74^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000059527-25-000006.txt" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: BIO-RAD LABORATORIES, INC.
+# CIK: 0000012208
+
+inst:Company_BIO_RAD_LABORATORIES_INC a msg:Company ;
+    rdfs:label "BIO-RAD LABORATORIES, INC." ;
+    msg:cik "0000012208" ;
+    msg:sector "3826 - Laboratory Analytical Instruments" ;
+    msg:hasMission inst:Mission_BIO_RAD_LABORATORIES_INC .
+
+inst:Mission_BIO_RAD_LABORATORIES_INC a msg:MissionStatement ;
+    msg:missionText "Our products currently address specific niches within the in vitro diagnostics (\"IVD\") test market, and we seek to focus on the higher margin, higher growth segments of this market." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.75^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000012208-25-000007.txt" .

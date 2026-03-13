@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: CITIZENS, INC.
+# CIK: 0000024090
+# Stakeholders: Customers, Society, Government
+# Values: Growth
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_CITIZENS_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "CITIZENS, INC." ;
+    msg:cik "0000024090" ;
+    msg:sector "6311 - Life Insurance" ;
+    msg:hasMission inst:Mission_CITIZENS_INC .
+
+# ── Mission Statement ──
+inst:Mission_CITIZENS_INC a msg:MissionStatement ;
+    msg:missionText "CITIZENS, INC. — Mission; Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts; Slow decline of premiums through policyholder retention efforts and improved customer experience; Grow first year sales to reverse decline in total revenue through new products and expanding distribution." ;
+    msg:extractedFrom "cleaned_10-K_0000024090-25-000018.txt" ;
+    msg:servesStakeholder inst:CITIZENS_INC_Stakeholder_Customers ;
+    msg:servesStakeholder inst:CITIZENS_INC_Stakeholder_Society ;
+    msg:servesStakeholder inst:CITIZENS_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:CITIZENS_INC_Value_Growth ;
+    msg:operatesInDomain inst:CITIZENS_INC_Domain_Financial_Services ;
+    msg:leveragesCapability inst:CITIZENS_INC_Capability_0 ;
+    msg:leveragesCapability inst:CITIZENS_INC_Capability_1 ;
+    msg:leveragesCapability inst:CITIZENS_INC_Capability_2  .
+
+inst:CITIZENS_INC_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:CITIZENS_INC_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:CITIZENS_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:CITIZENS_INC_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:CITIZENS_INC_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:CITIZENS_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Life Insurance (international USD whole life, endowment, critical illness" .
+
+inst:CITIZENS_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "domestic whole life final expense)" .
+
+inst:CITIZENS_INC_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "U.S. dollar-denominated whole life insurance, endowment policies, critical illness policies, final e" .

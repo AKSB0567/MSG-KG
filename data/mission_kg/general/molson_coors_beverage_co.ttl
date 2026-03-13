@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: MOLSON COORS BEVERAGE CO
+# CIK: 0000024545
+
+inst:Company_MOLSON_COORS_BEVERAGE_CO a msg:Company ;
+    rdfs:label "MOLSON COORS BEVERAGE CO" ;
+    msg:cik "0000024545" ;
+    msg:sector "2082 - Malt Beverages" ;
+    msg:hasMission inst:Mission_MOLSON_COORS_BEVERAGE_CO .
+
+inst:Mission_MOLSON_COORS_BEVERAGE_CO a msg:MissionStatement ;
+    msg:missionText "Scale and expand in beyond beer; MOLSON COORS BEVERAGE CO — Mission; Consistently grow core power brand net sales; Aggressively premiumize portfolio; Invest in capabilities and support people, communities and planet." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000024545-25-000007.txt" .

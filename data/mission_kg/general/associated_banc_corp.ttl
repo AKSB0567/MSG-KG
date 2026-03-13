@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: ASSOCIATED BANC-CORP
+# CIK: 0000007789
+
+inst:Company_ASSOCIATED_BANC_CORP a msg:Company ;
+    rdfs:label "ASSOCIATED BANC-CORP" ;
+    msg:cik "0000007789" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_ASSOCIATED_BANC_CORP .
+
+inst:Mission_ASSOCIATED_BANC_CORP a msg:MissionStatement ;
+    msg:missionText "Profitable growth strategy including managing loan/deposit growth and retaining employees; ASSOCIATED BANC-CORP — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000007789-25-000013.txt" .

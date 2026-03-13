@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: FMC CORP
+# CIK: 0000037785
+# Stakeholders: Government
+# Values: Innovation, Integrity, Growth
+# Objectives: 0 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_FMC_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "FMC CORP" ;
+    msg:cik "0000037785" ;
+    msg:sector "2800 - Chemicals & Allied Products" ;
+    msg:hasMission inst:Mission_FMC_CORP .
+
+# ── Mission Statement ──
+inst:Mission_FMC_CORP a msg:MissionStatement ;
+    msg:missionText "FMC CORP — Mission; Transform grower relationship to become trusted source for technical expertise and solutions." ;
+    msg:extractedFrom "cleaned_10-K_0000037785-25-000030.txt" ;
+    msg:servesStakeholder inst:FMC_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:FMC_CORP_Value_Innovation ;
+    msg:embodiesValue inst:FMC_CORP_Value_Integrity ;
+    msg:embodiesValue inst:FMC_CORP_Value_Growth ;
+    msg:leveragesCapability inst:FMC_CORP_Capability_0 ;
+    msg:leveragesCapability inst:FMC_CORP_Capability_1  .
+
+inst:FMC_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:FMC_CORP_Value_Innovation a msg:CorporateValue ;
+    rdfs:label "Innovation" .
+
+inst:FMC_CORP_Value_Integrity a msg:CorporateValue ;
+    rdfs:label "Integrity" .
+
+inst:FMC_CORP_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:FMC_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Plant health biologicals including pheromones platform" .
+
+inst:FMC_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Tier-one leader and 5th largest global innovator in agrochemicals/crop protection market" .

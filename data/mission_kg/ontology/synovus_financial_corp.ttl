@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: SYNOVUS FINANCIAL CORP
+# CIK: 0000018349
+# Stakeholders: Customers, Shareholders, Government
+# Values: Service
+# Objectives: 0 found
+# Domains: Financial Services, Consumer Goods
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_SYNOVUS_FINANCIAL_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "SYNOVUS FINANCIAL CORP" ;
+    msg:cik "0000018349" ;
+    msg:sector "6021 - National Commercial Banks" ;
+    msg:hasMission inst:Mission_SYNOVUS_FINANCIAL_CORP .
+
+# ── Mission Statement ──
+inst:Mission_SYNOVUS_FINANCIAL_CORP a msg:MissionStatement ;
+    msg:missionText "We provide commercial and consumer banking in addition to a full suite of specialized products and services including wealth services, treasury management, mortgage services, premium finance, asset-based lendin." ;
+    msg:extractedFrom "cleaned_10-K_0000018349-25-000049.txt" ;
+    msg:servesStakeholder inst:SYNOVUS_FINANCIAL_CORP_Stakeholder_Customers ;
+    msg:servesStakeholder inst:SYNOVUS_FINANCIAL_CORP_Stakeholder_Shareholders ;
+    msg:servesStakeholder inst:SYNOVUS_FINANCIAL_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:SYNOVUS_FINANCIAL_CORP_Value_Service ;
+    msg:operatesInDomain inst:SYNOVUS_FINANCIAL_CORP_Domain_Financial_Services ;
+    msg:operatesInDomain inst:SYNOVUS_FINANCIAL_CORP_Domain_Consumer_Goods  .
+
+inst:SYNOVUS_FINANCIAL_CORP_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:SYNOVUS_FINANCIAL_CORP_Stakeholder_Shareholders a msg:Stakeholder ;
+    rdfs:label "Shareholders" .
+
+inst:SYNOVUS_FINANCIAL_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:SYNOVUS_FINANCIAL_CORP_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:SYNOVUS_FINANCIAL_CORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:SYNOVUS_FINANCIAL_CORP_Domain_Consumer_Goods a msg:BusinessDomain ;
+    rdfs:label "Consumer Goods" .

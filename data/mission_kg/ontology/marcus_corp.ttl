@@ -1,0 +1,72 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: MARCUS CORP
+# CIK: 0000062234
+# Stakeholders: Employees, Government
+# Values: Inclusion, Growth, Service
+# Objectives: 0 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_MARCUS_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "MARCUS CORP" ;
+    msg:cik "0000062234" ;
+    msg:sector "7830 - Services-Motion Picture Theaters" ;
+    msg:hasMission inst:Mission_MARCUS_CORP .
+
+# ── Mission Statement ──
+inst:Mission_MARCUS_CORP a msg:MissionStatement ;
+    msg:missionText "Developing a committed team dedicated to service; fostering diverse and inclusive culture; MARCUS CORP — Mission." ;
+    msg:extractedFrom "cleaned_10-K_0000062234-25-000006.txt" ;
+    msg:servesStakeholder inst:MARCUS_CORP_Stakeholder_Employees ;
+    msg:servesStakeholder inst:MARCUS_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:MARCUS_CORP_Value_Inclusion ;
+    msg:embodiesValue inst:MARCUS_CORP_Value_Growth ;
+    msg:embodiesValue inst:MARCUS_CORP_Value_Service ;
+    msg:leveragesCapability inst:MARCUS_CORP_Capability_0 ;
+    msg:leveragesCapability inst:MARCUS_CORP_Capability_1  .
+
+inst:MARCUS_CORP_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:MARCUS_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:MARCUS_CORP_Value_Inclusion a msg:CorporateValue ;
+    rdfs:label "Inclusion" .
+
+inst:MARCUS_CORP_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:MARCUS_CORP_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:MARCUS_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Hotels and Resorts" .
+
+inst:MARCUS_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "4th largest theatre circuit in the United States" .

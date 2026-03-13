@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: LEGGETT & PLATT INC
+# CIK: 0000058492
+
+inst:Company_LEGGETT_PLATT_INC a msg:Company ;
+    rdfs:label "LEGGETT & PLATT INC" ;
+    msg:cik "0000058492" ;
+    msg:sector "2510 - Household Furniture" ;
+    msg:hasMission inst:Mission_LEGGETT_PLATT_INC .
+
+inst:Mission_LEGGETT_PLATT_INC a msg:MissionStatement ;
+    msg:missionText "Succession Development We are committed to having strong managers and leadership in critical roles across the Company." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.83^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000058492-25-000136.txt" .

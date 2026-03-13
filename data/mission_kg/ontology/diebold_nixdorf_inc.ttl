@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: DIEBOLD NIXDORF, Inc
+# CIK: 0000028823
+# Stakeholders: Customers, Government
+# Values: Growth
+# Objectives: 0 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_DIEBOLD_NIXDORF_Inc a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "DIEBOLD NIXDORF, Inc" ;
+    msg:cik "0000028823" ;
+    msg:sector "3578 - Calculating & Accounting Machines (No Electronic Computers)" ;
+    msg:hasMission inst:Mission_DIEBOLD_NIXDORF_Inc .
+
+# ── Mission Statement ──
+inst:Mission_DIEBOLD_NIXDORF_Inc a msg:MissionStatement ;
+    msg:missionText "DIEBOLD NIXDORF, Inc — Mission; Margin Expansion through continuous improvement and lean journey; Profitable Revenue Growth through new customers and increased wallet share; Free Cash Flow Conversion improvement." ;
+    msg:extractedFrom "cleaned_10-K_0000028823-25-000022.txt" ;
+    msg:servesStakeholder inst:DIEBOLD_NIXDORF_Inc_Stakeholder_Customers ;
+    msg:servesStakeholder inst:DIEBOLD_NIXDORF_Inc_Stakeholder_Government ;
+    msg:embodiesValue inst:DIEBOLD_NIXDORF_Inc_Value_Growth ;
+    msg:leveragesCapability inst:DIEBOLD_NIXDORF_Inc_Capability_0 ;
+    msg:leveragesCapability inst:DIEBOLD_NIXDORF_Inc_Capability_1 ;
+    msg:leveragesCapability inst:DIEBOLD_NIXDORF_Inc_Capability_2  .
+
+inst:DIEBOLD_NIXDORF_Inc_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:DIEBOLD_NIXDORF_Inc_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:DIEBOLD_NIXDORF_Inc_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:DIEBOLD_NIXDORF_Inc_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Banking segment" .
+
+inst:DIEBOLD_NIXDORF_Inc_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Mission-critical hardware, software, and services for banking and retail clients" .
+
+inst:DIEBOLD_NIXDORF_Inc_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Global market leader in mission-critical hardware, software, and services for banking and retail" .

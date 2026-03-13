@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: LOWES COMPANIES INC
+# CIK: 0000060667
+
+inst:Company_LOWES_COMPANIES_INC a msg:Company ;
+    rdfs:label "LOWES COMPANIES INC" ;
+    msg:cik "0000060667" ;
+    msg:sector "5211 - Lumber & Building Materials Dealers" ;
+    msg:hasMission inst:Mission_LOWES_COMPANIES_INC .
+
+inst:Mission_LOWES_COMPANIES_INC a msg:MissionStatement ;
+    msg:missionText "Create a loyalty ecosystem (MyLowe's Rewards); Expand home services; Drive Pro penetration; LOWES COMPANIES INC — Mission; Increase space productivity; Accelerate online sales." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000060667-25-000049.txt" .

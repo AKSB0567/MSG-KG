@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: INTERNATIONAL PAPER CO /NEW/
+# CIK: 0000051434
+
+inst:Company_INTERNATIONAL_PAPER_CO_NEW a msg:Company ;
+    rdfs:label "INTERNATIONAL PAPER CO /NEW/" ;
+    msg:cik "0000051434" ;
+    msg:sector "2621 - Paper Mills" ;
+    msg:hasMission inst:Mission_INTERNATIONAL_PAPER_CO_NEW .
+
+inst:Mission_INTERNATIONAL_PAPER_CO_NEW a msg:MissionStatement ;
+    msg:missionText "Results of the survey will be analyzed in 2025 with the goal of learning, growing and aspiring to achieve our Vision 2030 goal to create a 100% injury-free workplace for our t." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 1^^xsd:integer ;
+    msg:missionConfidence 0.94^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000051434-25-000013.txt" .

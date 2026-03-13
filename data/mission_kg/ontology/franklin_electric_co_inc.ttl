@@ -1,0 +1,60 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: FRANKLIN ELECTRIC CO INC
+# CIK: 0000038725
+# Stakeholders: Government
+# Values: None identified
+# Objectives: 0 found
+# Domains: Manufacturing
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_FRANKLIN_ELECTRIC_CO_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "FRANKLIN ELECTRIC CO INC" ;
+    msg:cik "0000038725" ;
+    msg:sector "3621 - Motors & Generators" ;
+    msg:hasMission inst:Mission_FRANKLIN_ELECTRIC_CO_INC .
+
+# ── Mission Statement ──
+inst:Mission_FRANKLIN_ELECTRIC_CO_INC a msg:MissionStatement ;
+    msg:missionText "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices." ;
+    msg:extractedFrom "cleaned_10-K_0000038725-25-000026.txt" ;
+    msg:servesStakeholder inst:FRANKLIN_ELECTRIC_CO_INC_Stakeholder_Government ;
+    msg:operatesInDomain inst:FRANKLIN_ELECTRIC_CO_INC_Domain_Manufacturing ;
+    msg:leveragesCapability inst:FRANKLIN_ELECTRIC_CO_INC_Capability_0 ;
+    msg:leveragesCapability inst:FRANKLIN_ELECTRIC_CO_INC_Capability_1  .
+
+inst:FRANKLIN_ELECTRIC_CO_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:FRANKLIN_ELECTRIC_CO_INC_Domain_Manufacturing a msg:BusinessDomain ;
+    rdfs:label "Manufacturing" .
+
+inst:FRANKLIN_ELECTRIC_CO_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Water Systems (about 60% of total revenue in 2024)" .
+
+inst:FRANKLIN_ELECTRIC_CO_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Submersible fueling systems for gas stations including pumps, pipes, controls and monitoring devices" .

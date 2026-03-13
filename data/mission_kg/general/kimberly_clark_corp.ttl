@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: KIMBERLY CLARK CORP
+# CIK: 0000055785
+
+inst:Company_KIMBERLY_CLARK_CORP a msg:Company ;
+    rdfs:label "KIMBERLY CLARK CORP" ;
+    msg:cik "0000055785" ;
+    msg:sector "2670 - Converted Paper & Paperboard Products" ;
+    msg:hasMission inst:Mission_KIMBERLY_CLARK_CORP .
+
+inst:Mission_KIMBERLY_CLARK_CORP a msg:MissionStatement ;
+    msg:missionText "KIMBERLY CLARK CORP — Mission; 2024 Transformation Initiative: innovation, margin optimization, organizational agility." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000055785-25-000013.txt" .

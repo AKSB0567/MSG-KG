@@ -1,0 +1,80 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: OMNICOM GROUP INC.
+# CIK: 0000029989
+# Stakeholders: Customers, Employees, Society, Partners, Government
+# Values: Integrity
+# Objectives: 0 found
+# Domains: Media & Communications
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_OMNICOM_GROUP_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "OMNICOM GROUP INC." ;
+    msg:cik "0000029989" ;
+    msg:sector "7311 - Services-Advertising Agencies" ;
+    msg:hasMission inst:Mission_OMNICOM_GROUP_INC .
+
+# ── Mission Statement ──
+inst:Mission_OMNICOM_GROUP_INC a msg:MissionStatement ;
+    msg:missionText "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio." ;
+    msg:extractedFrom "cleaned_10-K_0000029989-25-000009.txt" ;
+    msg:servesStakeholder inst:OMNICOM_GROUP_INC_Stakeholder_Customers ;
+    msg:servesStakeholder inst:OMNICOM_GROUP_INC_Stakeholder_Employees ;
+    msg:servesStakeholder inst:OMNICOM_GROUP_INC_Stakeholder_Society ;
+    msg:servesStakeholder inst:OMNICOM_GROUP_INC_Stakeholder_Partners ;
+    msg:servesStakeholder inst:OMNICOM_GROUP_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:OMNICOM_GROUP_INC_Value_Integrity ;
+    msg:operatesInDomain inst:OMNICOM_GROUP_INC_Domain_Media_Communications ;
+    msg:leveragesCapability inst:OMNICOM_GROUP_INC_Capability_0 ;
+    msg:leveragesCapability inst:OMNICOM_GROUP_INC_Capability_1  .
+
+inst:OMNICOM_GROUP_INC_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:OMNICOM_GROUP_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:OMNICOM_GROUP_INC_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:OMNICOM_GROUP_INC_Stakeholder_Partners a msg:Stakeholder ;
+    rdfs:label "Partners" .
+
+inst:OMNICOM_GROUP_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:OMNICOM_GROUP_INC_Value_Integrity a msg:CorporateValue ;
+    rdfs:label "Integrity" .
+
+inst:OMNICOM_GROUP_INC_Domain_Media_Communications a msg:BusinessDomain ;
+    rdfs:label "Media & Communications" .
+
+inst:OMNICOM_GROUP_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Communications Consultancy Network" .
+
+inst:OMNICOM_GROUP_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Experiential marketing, Execution & Support, field marketing, merchandising" .

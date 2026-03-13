@@ -1,0 +1,64 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: DMC Global Inc.
+# CIK: 0000034067
+# Stakeholders: Shareholders, Government
+# Values: None identified
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_DMC_Global_Inc a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "DMC Global Inc." ;
+    msg:cik "0000034067" ;
+    msg:sector "3390 - Miscellaneous Primary Metal Products" ;
+    msg:hasMission inst:Mission_DMC_Global_Inc .
+
+# ── Mission Statement ──
+inst:Mission_DMC_Global_Inc a msg:MissionStatement ;
+    msg:missionText "DMC Global Inc. — Mission; Maximize company value by capitalizing on unique strengths of three businesses." ;
+    msg:extractedFrom "cleaned_10-K_0000034067-25-000028.txt" ;
+    msg:servesStakeholder inst:DMC_Global_Inc_Stakeholder_Shareholders ;
+    msg:servesStakeholder inst:DMC_Global_Inc_Stakeholder_Government ;
+    msg:operatesInDomain inst:DMC_Global_Inc_Domain_Financial_Services ;
+    msg:leveragesCapability inst:DMC_Global_Inc_Capability_0 ;
+    msg:leveragesCapability inst:DMC_Global_Inc_Capability_1  .
+
+inst:DMC_Global_Inc_Stakeholder_Shareholders a msg:Stakeholder ;
+    rdfs:label "Shareholders" .
+
+inst:DMC_Global_Inc_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:DMC_Global_Inc_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:DMC_Global_Inc_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "NobelClad - explosion-welded clad metal plates for industrial processing equipment" .
+
+inst:DMC_Global_Inc_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Aluminum framing systems, windows, curtain walls, storefronts, doors, partitions" .

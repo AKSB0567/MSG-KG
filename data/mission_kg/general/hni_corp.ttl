@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: HNI CORP
+# CIK: 0000048287
+
+inst:Company_HNI_CORP a msg:Company ;
+    rdfs:label "HNI CORP" ;
+    msg:cik "0000048287" ;
+    msg:sector "2522 - Office Furniture (Except Wood)" ;
+    msg:hasMission inst:Mission_HNI_CORP .
+
+inst:Mission_HNI_CORP a msg:MissionStatement ;
+    msg:missionText "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.55^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000048287-25-000084.txt" .

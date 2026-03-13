@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: ENVIRI Corp
+# CIK: 0000045876
+# Stakeholders: Customers, Society
+# Values: Sustainability, Service
+# Objectives: 0 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_ENVIRI_Corp a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "ENVIRI Corp" ;
+    msg:cik "0000045876" ;
+    msg:sector "8900 - Services, NEC" ;
+    msg:hasMission inst:Mission_ENVIRI_Corp .
+
+# ── Mission Statement ──
+inst:Mission_ENVIRI_Corp a msg:MissionStatement ;
+    msg:missionText "Viewing every customer need through a sustainability lens; helping customers build better businesses; ENVIRI Corp — Mission; To continue building a leading, global environmental solutions company." ;
+    msg:extractedFrom "cleaned_10-K_0000045876-25-000018.txt" ;
+    msg:servesStakeholder inst:ENVIRI_Corp_Stakeholder_Customers ;
+    msg:servesStakeholder inst:ENVIRI_Corp_Stakeholder_Society ;
+    msg:embodiesValue inst:ENVIRI_Corp_Value_Sustainability ;
+    msg:embodiesValue inst:ENVIRI_Corp_Value_Service ;
+    msg:leveragesCapability inst:ENVIRI_Corp_Capability_0 ;
+    msg:leveragesCapability inst:ENVIRI_Corp_Capability_1  .
+
+inst:ENVIRI_Corp_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:ENVIRI_Corp_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:ENVIRI_Corp_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:ENVIRI_Corp_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:ENVIRI_Corp_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Harsco Environmental - onsite environmental services and material processing for global metals indus" .
+
+inst:ENVIRI_Corp_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Ecoproducts portfolio including road materials, agricultural products and aggregates" .

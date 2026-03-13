@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: LINCOLN NATIONAL CORP
+# CIK: 0000059558
+
+inst:Company_LINCOLN_NATIONAL_CORP a msg:Company ;
+    rdfs:label "LINCOLN NATIONAL CORP" ;
+    msg:cik "0000059558" ;
+    msg:sector "6311 - Life Insurance" ;
+    msg:hasMission inst:Mission_LINCOLN_NATIONAL_CORP .
+
+inst:Mission_LINCOLN_NATIONAL_CORP a msg:MissionStatement ;
+    msg:missionText "Provide financial protection and security to customers and families through products and services across four core businesses." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000059558-25-000023.txt" .

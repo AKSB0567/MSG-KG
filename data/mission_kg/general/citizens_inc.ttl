@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: CITIZENS, INC.
+# CIK: 0000024090
+
+inst:Company_CITIZENS_INC a msg:Company ;
+    rdfs:label "CITIZENS, INC." ;
+    msg:cik "0000024090" ;
+    msg:sector "6311 - Life Insurance" ;
+    msg:hasMission inst:Mission_CITIZENS_INC .
+
+inst:Mission_CITIZENS_INC a msg:MissionStatement ;
+    msg:missionText "CITIZENS, INC. — Mission; Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts; Slow decline of premiums through policyholder retention efforts and improved customer experience; Grow first year sales to reverse decline in total revenue through new products and expanding distribution." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000024090-25-000018.txt" .

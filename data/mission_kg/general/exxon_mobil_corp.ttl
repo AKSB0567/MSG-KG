@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: EXXON MOBIL CORP
+# CIK: 0000034088
+
+inst:Company_EXXON_MOBIL_CORP a msg:Company ;
+    rdfs:label "EXXON MOBIL CORP" ;
+    msg:cik "0000034088" ;
+    msg:sector "2911 - Petroleum Refining" ;
+    msg:hasMission inst:Mission_EXXON_MOBIL_CORP .
+
+inst:Mission_EXXON_MOBIL_CORP a msg:MissionStatement ;
+    msg:missionText "EXXON MOBIL CORP — Mission; Grow pipeline of emission-reduction opportunities and lower-emission investments." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000034088-25-000010.txt" .

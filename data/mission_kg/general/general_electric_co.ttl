@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: GENERAL ELECTRIC CO
+# CIK: 0000040545
+
+inst:Company_GENERAL_ELECTRIC_CO a msg:Company ;
+    rdfs:label "GENERAL ELECTRIC CO" ;
+    msg:cik "0000040545" ;
+    msg:sector "3600 - Electronic & Other Electrical Equipment" ;
+    msg:hasMission inst:Mission_GENERAL_ELECTRIC_CO .
+
+inst:Mission_GENERAL_ELECTRIC_CO a msg:MissionStatement ;
+    msg:missionText "ELECTRIC CO — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000040545-25-000015.txt" .

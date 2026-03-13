@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: COCA COLA CO
+# CIK: 0000021344
+
+inst:Company_COCA_COLA_CO a msg:Company ;
+    rdfs:label "COCA COLA CO" ;
+    msg:cik "0000021344" ;
+    msg:sector "2080 - Beverages" ;
+    msg:hasMission inst:Mission_COCA_COLA_CO .
+
+inst:Mission_COCA_COLA_CO a msg:MissionStatement ;
+    msg:missionText "For a Better Shared Future - invest to improve people's lives across the business system; COCA COLA CO — Mission; Loved Brands - craft meaningful brands and drinks that people love and enjoy; Done Sustainably - grow business achieving positive change and a more sustainable future." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000021344-25-000011.txt" .

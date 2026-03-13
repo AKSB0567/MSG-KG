@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: ILLINOIS TOOL WORKS INC
+# CIK: 0000049826
+
+inst:Company_ILLINOIS_TOOL_WORKS_INC a msg:Company ;
+    rdfs:label "ILLINOIS TOOL WORKS INC" ;
+    msg:cik "0000049826" ;
+    msg:sector "3560 - General Industrial Machinery & Equipment" ;
+    msg:hasMission inst:Mission_ILLINOIS_TOOL_WORKS_INC .
+
+inst:Mission_ILLINOIS_TOOL_WORKS_INC a msg:MissionStatement ;
+    msg:missionText "The Company is a global manufacturer of a diversified range of industrial products and equipment with 86 divisions in 51 countries." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.55^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000049826-25-000007.txt" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: CUMMINS INC
+# CIK: 0000026172
+
+inst:Company_CUMMINS_INC a msg:Company ;
+    rdfs:label "CUMMINS INC" ;
+    msg:cik "0000026172" ;
+    msg:sector "3510 - Engines & Turbines" ;
+    msg:hasMission inst:Mission_CUMMINS_INC .
+
+inst:Mission_CUMMINS_INC a msg:MissionStatement ;
+    msg:missionText "We do this through our commitment to fostering an accountable culture that champions our vision of a workforce mirroring the communities we serve. This commitment starts at the top with our Board and permeates throughout our organization as everyone plays a role in nurturing inclusive environments where all employees can reach their full potential and thrive." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 1^^xsd:integer ;
+    msg:missionConfidence 0.92^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000026172-25-000007.txt" .

@@ -1,0 +1,3841 @@
+{
+  "0000034782": {
+    "name": "1ST SOURCE CORP",
+    "cik": "0000034782",
+    "sector": "6022 - State Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000034782-25-000025",
+    "filing_date": "2025-02-18",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034782&type=10-K",
+    "overview": {
+      "mission": "Help clients achieve security, build wealth, and realize their dreams.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Specialty Finance Group with 18 locations nationwide",
+        "Renewable energy financing for commercial solar projects across contiguous US",
+        "Forbes Americas Best Banks",
+        "Forbes Best-In-State Bank for 3rd consecutive year (2024)"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Cultivates diversity in all forms as part of building a strong culture of inclusion and belonging; 1ST SOURCE CORP — DiversityEquityInclusion",
+        "1ST SOURCE CORP — CompensationAndBenefits; Tuition Reimbursement Program: over $132,500 reimbursed in 2024, avg ~$3,900 per colleague",
+        "1ST SOURCE CORP — TrainingAndDevelopment; Commercial Banker Development Program for recent college graduates; 1st Source University for building skills and knowledge in multiple business facets; Unconscious bias training for all new employees within 6 months of hire, 3rd consecutive year",
+        "Approximately 1,205 full-time equivalent colleagues as of Dec 31, 2024; 1ST SOURCE CORP — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000002488": {
+    "name": "ADVANCED MICRO DEVICES INC",
+    "cik": "0000002488",
+    "sector": "3674 - Semiconductors & Related Devices",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000002488-25-000012",
+    "filing_date": "2025-02-05",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000002488&type=10-K",
+    "overview": {
+      "mission": "Build great products that accelerate next-generation computing experiences.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: High performance and adaptive computing is transforming our lives",
+        "Providing compelling user experiences on open and proven AI software platform"
+      ],
+      "capabilities": [
+        "Data Center segment with AI accelerator products including AMD Instinct MI300X GPUs",
+        "High-performance computing solutions for data centers, cloud, edge, and AI",
+        "Semi-custom SoCs, Adaptive SoCs, APUs, and accelerated processing units",
+        "Self-described high performance and adaptive computing leader"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "ADVANCED MICRO DEVICES INC — TrainingAndDevelopment; Manager and leadership development programs, highly rated; Educational assistance via tuition reimbursement for university education and advanced certifications; Enterprise-wide mentoring program for skills development and professional networking",
+        "Hybrid and remote work options, global parental and bereavement leave, adoption/surrogacy assistance; ADVANCED MICRO DEVICES INC — CompensationAndBenefits; Strong pay-for-performance culture with short-term and long-term incentive programs",
+        "ADVANCED MICRO DEVICES INC — DiversityEquityInclusion; Diversity, Belonging and Inclusion (DB&I) program; ERGs open to all employees; more than 85% of new hires join at least one ERG; Advancing Women in Technology program supporting career development of women in technical careers",
+        "Approximately 28,000 employees globally as of December 28, 2024; ADVANCED MICRO DEVICES INC — WorkforceComposition",
+        "Culture described as inclusive, innovative, open, and respectful by employees; ADVANCED MICRO DEVICES INC — CultureAndValues",
+        "2024 annual survey scores in top 10% of high-performing technology industry peers; ADVANCED MICRO DEVICES INC — EngagementAndRetention"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000004977": {
+    "name": "AFLAC INC",
+    "cik": "0000004977",
+    "sector": "6321 - Accident & Health Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000004977-25-000047",
+    "filing_date": "2025-02-26",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000004977&type=10-K",
+    "overview": {
+      "mission": "The Company’s principal business is supplemental health and life insurance products with the goal to provide customers the best value in supplemental insurance products in Japan and the U.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.42,
+      "mission_evidence": "The Company’s principal business is supplemental health and life insurance products with the goal to provide customers the best value in supplemental insurance products in Japan and the U."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000004904": {
+    "name": "AMERICAN ELECTRIC POWER CO INC",
+    "cik": "0000004904",
+    "sector": "4911 - Electric Services",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000004904-25-000027",
+    "filing_date": "2025-02-13",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000004904&type=10-K",
+    "overview": {
+      "mission": "We are committed to fundamentally embed layers of protection in the work we do.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Vertically Integrated Utilities, Transmission & Distribution Utilities, AEP Transmission Holdco, Generation & Marketing"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Employee Voice Survey conducted for 11th consecutive year in 2024; AMERICAN ELECTRIC POWER CO INC — EngagementAndRetention",
+        "AMERICAN ELECTRIC POWER CO INC — CompensationAndBenefits; Medical, dental, life insurance, well-being programs, vacation, holidays, sick time, parental leave; Market-competitive compensation; nearly all employees participate in annual incentive program",
+        "AMERICAN ELECTRIC POWER CO INC — TrainingAndDevelopment; Operational skills, professional, leadership development, educational assistance, performance coaching",
+        "AMERICAN ELECTRIC POWER CO INC — CultureAndValues; Safety is integral to culture and is one of AEP's core values",
+        "AMERICAN ELECTRIC POWER CO INC — WorkforceComposition; 16,330 total employees as of December 31, 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.82,
+      "mission_evidence": "We are committed to fundamentally embed layers of protection in the work we do."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000004962": {
+    "name": "AMERICAN EXPRESS CO",
+    "cik": "0000004962",
+    "sector": "6199 - Finance Services",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000004962-25-000016",
+    "filing_date": "2025-02-07",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000004962&type=10-K",
+    "overview": {
+      "mission": "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous a.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "U.S. Consumer Services (USCS), Commercial Services (CS), International Card Services (ICS), GMNS",
+        "Credit card, charge card, banking, payment, merchant acquisition, travel and lifestyle services",
+        "Leader in providing general purpose credit and charge cards to consumers and businesses"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "AMERICAN EXPRESS CO — TrainingAndDevelopment; Wide range of learning and development opportunities with competitive benefits",
+        "AMERICAN EXPRESS CO — CompensationAndBenefits; Annual pay equity review conducted since 2017 assessing pay on statistical basis; Career coaching, mentoring, professional networking, rotation opportunities, on-demand and classroom courses; Competitive compensation with holistic approach to physical, financial and mental well-being",
+        "AMERICAN EXPRESS CO — EngagementAndRetention; 90% of colleagues in 2024 survey said they would recommend American Express as great place to work"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.79,
+      "mission_evidence": "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous a"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000005272": {
+    "name": "AMERICAN INTERNATIONAL GROUP, INC.",
+    "cik": "0000005272",
+    "sector": "6331 - Fire, Marine & Casualty Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000005272-25-000012",
+    "filing_date": "2025-02-13",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000005272&type=10-K",
+    "overview": {
+      "mission": "",
+      "mission_source": "",
+      "objectives": [],
+      "capabilities": [
+        "General Insurance"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 0,
+      "mission_confidence": 0,
+      "mission_evidence": ""
+    },
+    "scores": {
+      "Mission Clarity": 0,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000007789": {
+    "name": "ASSOCIATED BANC-CORP",
+    "cik": "0000007789",
+    "sector": "6022 - State Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000007789-25-000013",
+    "filing_date": "2025-02-12",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000007789&type=10-K",
+    "overview": {
+      "mission": "Profitable growth strategy including managing loan/deposit growth and retaining employees; ASSOCIATED BANC-CORP — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Profitable growth strategy including managing loan/deposit growth and retaining employees"
+      ],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 6,
+        "edges": 5
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000008063": {
+    "name": "ASTRONICS CORP",
+    "cik": "0000008063",
+    "sector": "3728 - Aircraft Part & Auxiliary Equipment, NEC",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000008063-25-000017",
+    "filing_date": "2025-03-05",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000008063&type=10-K",
+    "overview": {
+      "mission": "Increase value by developing technologies internally or through acquisition for targeted markets; ASTRONICS CORP — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Increase value by developing technologies internally or through acquisition for targeted markets"
+      ],
+      "capabilities": [
+        "Test Systems segment - automated test systems for aerospace, defense, communications, mass transit",
+        "Avionics products, aircraft structures and automated test systems"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Health/dental insurance, 401K, profit sharing, bonus, ESPP, disability, life insurance, tuition; Competitive salaries, bonuses, equity ownership opportunities, and development programs; ASTRONICS CORP — CompensationAndBenefits",
+        "ASTRONICS CORP — WorkforceComposition; Approximately 2,500 full-time employees as of December 31, 2024",
+        "Conducting business with integrity and responsibility for the greater good; ASTRONICS CORP — CultureAndValues",
+        "ASTRONICS CORP — EngagementAndRetention",
+        "Equal Employment Opportunity Policy with affirmative action plans regardless of protected status; ASTRONICS CORP — DiversityEquityInclusion"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000040729": {
+    "name": "Ally Financial Inc.",
+    "cik": "0000040729",
+    "sector": "6022 - State Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000040729-25-000006",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040729&type=10-K",
+    "overview": {
+      "mission": "Do It Right - be a relentless ally for customers and communities.",
+      "mission_source": "kg",
+      "objectives": [
+        "Investing in market-leading franchises with differentiated value proposition"
+      ],
+      "capabilities": [
+        "Dealer Financial Services (Automotive Finance and Insurance)",
+        "Deposits, securities brokerage, investment advisory, auto financing, insurance",
+        "Nations largest all-digital bank and industry-leading auto financing business"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Ally Financial Inc. — EngagementAndRetention; 80% employee survey participation rate in 2024 (benchmark: 75%); 7 points above financial services industry benchmark of 76 in 2024; 2024 engagement score 83/100; top 10% globally for 5th consecutive year",
+        "Ally Financial Inc. — CultureAndValues",
+        "Ally Financial Inc. — WorkforceComposition; ~10,700 employees as of December 31, 2024 (primarily full-time, U.S.-based)"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000006201": {
+    "name": "American Airlines Group Inc.",
+    "cik": "0000006201",
+    "sector": "4512 - Air Transportation, Scheduled",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000006201-25-000010",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000006201&type=10-K",
+    "overview": {
+      "mission": "We are committed to engaging with our stakeholders to seek to advance these initiatives and have de.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.81,
+      "mission_evidence": "We are committed to engaging with our stakeholders to seek to advance these initiatives and have de"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000007084": {
+    "name": "Archer-Daniels-Midland Co",
+    "cik": "0000007084",
+    "sector": "2070 - Fats & Oils",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000007084-25-000011",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000007084&type=10-K",
+    "overview": {
+      "mission": "Essential global agricultural supply chain manager and processor providing food security.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Ag Services and Oilseeds",
+        "Human and animal nutrition with broadest portfolio of ingredients and solutions from nature",
+        "Flour, oils, sweeteners, plant-based meat/dairy, probiotics, enzymes, supplements"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Archer-Daniels-Midland Co — EngagementAndRetention",
+        "Ability to Connect Program cultivating business language skills for collaboration; Archer-Daniels-Midland Co — TrainingAndDevelopment; LinkedIn Learning Platform with access to over 16,000 courses in 7 languages",
+        "Archer-Daniels-Midland Co — WorkforceComposition; Approximately 44,000 employees globally as of December 31, 2024 (44,043 total)",
+        "Integrity, respect, excellence, resourcefulness, teamwork, and responsibility; Archer-Daniels-Midland Co — CultureAndValues",
+        "Annual Global Week of Understanding with keynotes, training, roundtables, and onsite activities; Voluntary employee-led ERGs for shared experiences, community building, and development; Archer-Daniels-Midland Co — DiversityEquityInclusion",
+        "Archer-Daniels-Midland Co — CompensationAndBenefits; Global bonus plan with uniform enterprise metrics for all eligible employees; Market-competitive pay with global rewards including base pay, STI, LTI equity, and PTO"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000008818": {
+    "name": "Avery Dennison Corp",
+    "cik": "0000008818",
+    "sector": "2670 - Converted Paper & Paperboard Products",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000008818-25-000003",
+    "filing_date": "2025-02-26",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000008818&type=10-K",
+    "overview": {
+      "mission": "Avery Dennison Corp — Mission; Innovation to accelerate growth, expand margins via material re-engineering, sustainability; Lead at intersection of physical and digital worlds leveraging Materials and Solutions groups.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: Lead at intersection of physical and digital worlds leveraging Materials and Solutions groups",
+        "Innovation to accelerate growth, expand margins via material re-engineering, sustainability"
+      ],
+      "capabilities": [
+        "Materials Group - approx. 69% of total net sales in 2024",
+        "Label materials, RFID inlays and tags, graphics and reflective materials, functional tapes"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Avery Dennison Corp — CompensationAndBenefits; Market-based competitive wages; pay around market median with pay-for-performance philosophy; Short-term/long-term incentives, healthcare, retirement, flexible work arrangements",
+        "Employee resource groups open to all team members for improving employee experience; Avery Dennison Corp — DiversityEquityInclusion",
+        "Enterprise-wide competency model introduced in 2024 for talent development and succession; Avery Dennison Corp — TrainingAndDevelopment",
+        "Annual global employee engagement survey on advanced platform since 2023 with year-over-year data; Avery Dennison Corp — EngagementAndRetention"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000011544": {
+    "name": "BERKLEY W R CORP",
+    "cik": "0000011544",
+    "sector": "6331 - Fire, Marine & Casualty Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000011544-25-000005",
+    "filing_date": "2025-02-24",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000011544&type=10-K",
+    "overview": {
+      "mission": "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Insurance - commercial insurance including E&S, admitted and specialty personal lines",
+        "Moody's A1 rating for Berkley Insurance Co, Berkley Regional, Admiral Insurance Co"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "BERKLEY W R CORP — CultureAndValues; Accountability, People Oriented Strategy, Responsible Financial Practices, Transparency",
+        "Health/wellness, financial, educational, life management benefits; community service support; BERKLEY W R CORP — CompensationAndBenefits; Pay-for-performance philosophy connecting individual, business and company results",
+        "Formal and informal programs to build skills and thought leadership in business facets; BERKLEY W R CORP — TrainingAndDevelopment"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 8,
+        "edges": 7
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.42,
+      "mission_evidence": "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000012208": {
+    "name": "BIO-RAD LABORATORIES, INC.",
+    "cik": "0000012208",
+    "sector": "3826 - Laboratory Analytical Instruments",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000012208-25-000007",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000012208&type=10-K",
+    "overview": {
+      "mission": "Our products currently address specific niches within the in vitro diagnostics (\"IVD\") test market, and we seek to focus on the higher margin, higher growth segments of this market.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Clinical Diagnostics segment - 60% of consolidated net sales in 2024",
+        "IVD test systems, informatics systems, test kits and quality controls for clinical labs"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Medical, dental, vision, life insurance, 401(k), ESPP, pensions, profit sharing, fertility benefit; Competitive total rewards: salary, bonus plans, annual stock grants to senior employees; BIO-RAD LABORATORIES, INC. — CompensationAndBenefits",
+        "Management series courses for leadership learning; employee effectiveness courses; Tuition reimbursement program for qualified educational expenses; BIO-RAD LABORATORIES, INC. — TrainingAndDevelopment",
+        "BIO-RAD LABORATORIES, INC. — WorkforceComposition; Approximately 7,700 employees as of December 31, 2024, overwhelmingly full-time"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.75,
+      "mission_evidence": "Our products currently address specific niches within the in vitro diagnostics (\"IVD\") test market, and we seek to focus on the higher margin, higher growth segments of this market."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000012927": {
+    "name": "BOEING CO",
+    "cik": "0000012927",
+    "sector": "3721 - Aircraft",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000012927-25-000015",
+    "filing_date": "2025-02-03",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000012927&type=10-K",
+    "overview": {
+      "mission": "We aspire to achieve zero workplace injuries and provide a safe, open and accountable work environment for our employee.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Global Services (BGS)",
+        "Supply chain and logistics management, engineering, maintenance, spare parts, pilot training",
+        "737 narrow-body, 767, 777 and 787 wide-body commercial jet aircraft",
+        "One of the world's major aerospace firms and leading producer of commercial aircraft"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Approximately 172,000 as of December 31, 2024; BOEING CO — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 6,
+        "edges": 5
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.74,
+      "mission_evidence": "We aspire to achieve zero workplace injuries and provide a safe, open and accountable work environment for our employee"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000014272": {
+    "name": "BRISTOL MYERS SQUIBB CO",
+    "cik": "0000014272",
+    "sector": "2834 - Pharmaceutical Preparations",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000014272-25-000039",
+    "filing_date": "2025-02-12",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000014272&type=10-K",
+    "overview": {
+      "mission": "Expand in neuroscience and oncology through acquisitions to strengthen core therapeutic areas; BRISTOL MYERS SQUIBB CO — Mission; Oncology, hematology, immunology, cardiovascular and neuroscience therapeutic areas.",
+      "mission_source": "kg",
+      "objectives": [
+        "Oncology, hematology, immunology, cardiovascular and neuroscience therapeutic areas"
+      ],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "BRISTOL MYERS SQUIBB CO — CultureAndValues; Effective governance, uncompromising quality and compliance, and highest ethical standards"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000014930": {
+    "name": "BRUNSWICK CORP",
+    "cik": "0000014930",
+    "sector": "3510 - Engines & Turbines",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000014930-25-000025",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000014930&type=10-K",
+    "overview": {
+      "mission": "Lead industry in ACES strategies and be acknowledged marine sustainability leader; BRUNSWICK CORP — Mission; Expand boating participation through innovative products and shared-access experiences.",
+      "mission_source": "kg",
+      "objectives": [
+        "Expand boating participation through innovative products and shared-access experiences"
+      ],
+      "capabilities": [
+        "Navico Group segment - net sales of $800.2 million in 2024",
+        "Marine propulsion: outboard engines 2.5-600 HP",
+        "inboard/sterndrive 115-1,550 HP",
+        "Global leader in marine recreation",
+        "traded on NYSE for 100 years"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "BRUNSWICK CORP — CultureAndValues",
+        "Pay-for-performance culture; equitable pay regardless of race or gender; BRUNSWICK CORP — CompensationAndBenefits; Market-competitive salaries, incentive bonuses, equity program, retirement contribution, healthcare, PTO",
+        "Women on Water, Black Professionals Network, Asians/Pacific Islanders in Marine, Hispanic/Latino, Veterans; BRUNSWICK CORP — DiversityEquityInclusion",
+        "Approximately 15,000 employees as of December 31, 2024; 95% full-time; BRUNSWICK CORP — WorkforceComposition",
+        "77% employee participation in 2024 global employee engagement survey; BRUNSWICK CORP — EngagementAndRetention",
+        "Technical career tracks for engineers; inventor recognition award program; Continuous learning, skill building, mentoring, tuition reimbursement, apprenticeship programs; BRUNSWICK CORP — TrainingAndDevelopment"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000018230": {
+    "name": "CATERPILLAR INC",
+    "cik": "0000018230",
+    "sector": "3531 - Construction Machinery & Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000018230-25-000008",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000018230&type=10-K",
+    "overview": {
+      "mission": "Help customers build a better, more sustainable world; Expanded Offerings, Operational Excellence, Services, and Sustainability; CATERPILLAR INC — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: Help customers build a better, more sustainable world",
+        "Expanded Offerings, Operational Excellence, Services, and Sustainability"
+      ],
+      "capabilities": [
+        "Energy & Transportation",
+        "Construction/mining equipment, off-highway diesel/natural gas engines, gas turbines, locomotives",
+        "World's leading manufacturer of construction and mining equipment"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "CATERPILLAR INC — DiversityEquityInclusion; 14 Employee Resource Groups (ERGs) sponsored and supported by leadership",
+        "About 112,900 full-time employees as of Dec 31, 2024; ~51,500 U.S., ~61,400 outside U.S.; CATERPILLAR INC — WorkforceComposition",
+        "CATERPILLAR INC — CultureAndValues",
+        "Annual Employee Insights Survey for all employees to share perspectives confidentially; CATERPILLAR INC — EngagementAndRetention",
+        "Pay-for-performance philosophy aligning individual contributions with rewards; CATERPILLAR INC — CompensationAndBenefits",
+        "CATERPILLAR INC — TrainingAndDevelopment; Career programs for engineering, marketing and manufacturing; technical/professional capability building; Skill-based programs for manufacturing employees; mentoring programs; global internships and co-ops"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000020286": {
+    "name": "CINCINNATI FINANCIAL CORP",
+    "cik": "0000020286",
+    "sector": "6331 - Fire, Marine & Casualty Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000020286-25-000009",
+    "filing_date": "2025-02-24",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000020286&type=10-K",
+    "overview": {
+      "mission": "We are committed to providing equal opportunity for all associates, encouraging a work environment free from unlawful discrimination and harassment.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Broad range of business, homeowner and auto policies"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "CINCINNATI FINANCIAL CORP — WorkforceComposition; 5,624 associates at end of 2024: 3,426 HQ, 2,095 field, 103 at Cincinnati Global",
+        "Health, prescription, vision and dental insurance for all full-time associates; CINCINNATI FINANCIAL CORP — CompensationAndBenefits; Annual stock-based compensation (stock options and RSUs) for all full-time salaried associates; Matching 401(k) program, annual cash bonus, stock ownership opportunities, healthcare benefits; Competitive, market-based base pay re-evaluated on a recurring basis; Stock ownership at all levels to drive good decision making and encourage long-term view; Holiday Stock Plan: one share per full calendar year of service, up to 10 shares for all regular FT associates",
+        "Equal opportunity for all associates; work environment free from unlawful discrimination and harassment; CINCINNATI FINANCIAL CORP — CultureAndValues",
+        "CINCINNATI FINANCIAL CORP — EngagementAndRetention",
+        "Partnering with career services, faculty and staff at local and regional colleges and universities; CINCINNATI FINANCIAL CORP — TrainingAndDevelopment"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.81,
+      "mission_evidence": "We are committed to providing equal opportunity for all associates, encouraging a work environment free from unlawful discrimination and harassment."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000024090": {
+    "name": "CITIZENS, INC.",
+    "cik": "0000024090",
+    "sector": "6311 - Life Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000024090-25-000018",
+    "filing_date": "2025-03-13",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000024090&type=10-K",
+    "overview": {
+      "mission": "CITIZENS, INC. — Mission; Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts; Slow decline of premiums through policyholder retention efforts and improved customer experience; Grow first year sales to reverse decline in total revenue through new products and expanding distribution.",
+      "mission_source": "kg",
+      "objectives": [
+        "Grow first year sales to reverse decline in total revenue through new products and expanding distribution"
+      ],
+      "capabilities": [
+        "Life Insurance (international USD whole life, endowment, critical illness",
+        "domestic whole life final expense)",
+        "U.S. dollar-denominated whole life insurance, endowment policies, critical illness policies, final expense insurance"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Fostering equitable and inclusive workplace with diverse teams for creative solutions and innovative products; CITIZENS, INC. — DiversityEquityInclusion",
+        "247 full-time employees and 3 part-time employees as of December 31, 2024; CITIZENS, INC. — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000021175": {
+    "name": "CNA FINANCIAL CORP",
+    "cik": "0000021175",
+    "sector": "6331 - Fire, Marine & Casualty Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000021175-25-000008",
+    "filing_date": "2025-02-11",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021175&type=10-K",
+    "overview": {
+      "mission": "",
+      "mission_source": "",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "CNA FINANCIAL CORP — CultureAndValues",
+        "Approximately 6,500 employees as of December 31, 2024; CNA FINANCIAL CORP — WorkforceComposition",
+        "Pulse surveys and routine dialogue with ERGs used for employee feedback; CNA FINANCIAL CORP — EngagementAndRetention",
+        "Technical training programs; Trainee and internship programs at entry levels with college partnerships; Apprenticeship and sponsorship programs; Mentorship and reverse mentorship programs; CNA FINANCIAL CORP — TrainingAndDevelopment; Tuition reimbursement program",
+        "CNA FINANCIAL CORP — CompensationAndBenefits; Healthcare and insurance benefits; Health savings and flexible spending accounts; 401(k) plan; Paid time off and family assistance programs"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      },
+      "mission_tier": 0,
+      "mission_confidence": 0,
+      "mission_evidence": ""
+    },
+    "scores": {
+      "Mission Clarity": 0,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000021344": {
+    "name": "COCA COLA CO",
+    "cik": "0000021344",
+    "sector": "2080 - Beverages",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000021344-25-000011",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021344&type=10-K",
+    "overview": {
+      "mission": "For a Better Shared Future - invest to improve people's lives across the business system; COCA COLA CO — Mission; Loved Brands - craft meaningful brands and drinks that people love and enjoy; Done Sustainably - grow business achieving positive change and a more sustainable future.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: Done Sustainably - grow business achieving positive change and a more sustainable future"
+      ],
+      "capabilities": [
+        "Asia Pacific",
+        "Sparkling flavors",
+        "water, sports, coffee and tea",
+        "juice, value-added dairy and plant-based beverages",
+        "emerging beverages"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "COCA COLA CO — CultureAndValues",
+        "COCA COLA CO — EngagementAndRetention; Performance Enablement and Culture & Engagement Survey platforms for regular employee feedback",
+        "COCA COLA CO — WorkforceComposition; Approximately 69,700 employees as of December 31, 2024 (down from 79,100 in 2023 due to refranchising)",
+        "Employee-led inclusion networks regionally structured to meet local needs, open to all employees; COCA COLA CO — DiversityEquityInclusion",
+        "Annual incentive awards, recognition programs and equity awards for certain job levels based on performance; COCA COLA CO — CompensationAndBenefits; Compensation designed to reinforce growth agenda, talent strategy and drive connection between contributions and pay; Base pay competitive and aligned with position, skill level, experience and geographic location",
+        "COCA COLA CO — TrainingAndDevelopment; Thrive global career strategy program providing clarity on careers at the Company; Thrive Opportunity Marketplace connecting project opportunities to interested employees; Company-wide onboarding, coaching and mentoring programs at all levels; Online learning through robust catalog of digital content and experiential learning opportunities"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000021665": {
+    "name": "COLGATE PALMOLIVE CO",
+    "cik": "0000021665",
+    "sector": "2844 - Perfumes, Cosmetics & Other Toilet Preparations",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000021665-25-000008",
+    "filing_date": "2025-02-13",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021665&type=10-K",
+    "overview": {
+      "mission": "COLGATE PALMOLIVE CO — Mission.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Oral, Personal and Home Care",
+        "Global leader in liquid hand soap category in Personal Care"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "COLGATE PALMOLIVE CO — WorkforceComposition; Approximately 34,000 employees based in over 100 countries as of December 31, 2024",
+        "Compensation viewed as important tool to motivate leaders at all levels of the organization; COLGATE PALMOLIVE CO — CompensationAndBenefits",
+        "COLGATE PALMOLIVE CO — DiversityEquityInclusion",
+        "COLGATE PALMOLIVE CO — EngagementAndRetention; Regular employee engagement surveys to listen to employees and track company evolution",
+        "We are Inclusive; COLGATE PALMOLIVE CO — CultureAndValues; We are Caring; We are Courageous"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000028412": {
+    "name": "COMERICA INC /NEW/",
+    "cik": "0000028412",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000028412-25-000108",
+    "filing_date": "2025-02-24",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000028412&type=10-K",
+    "overview": {
+      "mission": "",
+      "mission_source": "",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 0,
+      "mission_confidence": 0,
+      "mission_evidence": ""
+    },
+    "scores": {
+      "Mission Clarity": 0,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000022356": {
+    "name": "COMMERCE BANCSHARES INC /MO/",
+    "cik": "0000022356",
+    "sector": "6022 - State Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000022356-25-000016",
+    "filing_date": "2025-02-25",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000022356&type=10-K",
+    "overview": {
+      "mission": "And its subsidiaries (collectively, the \"Company\") is one of the nation’s top 50 bank holding companies, based on asset size.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Consumer",
+        "General banking, retail, mortgage, corporate, investment, trust, asset management, securities brokerage, specialty lending, leasing",
+        "One of the nation's top 50 bank holding companies based on asset size"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "ENABLE (supporting team members with disabilities and their caregivers); SALUTE (supporting veterans); PRIDE (engaging the LGBTQIA+ community); COMMERCE BANCSHARES INC /MO/ — DiversityEquityInclusion; VIBE (valuing multicultural perspectives); Inclusion efforts focused on four key pillars: workforce, suppliers, community, and customers; RISE (empowering women); EMERGE (connecting young professionals)",
+        "COMMERCE BANCSHARES INC /MO/ — WorkforceComposition; 4,537 full-time and 150 part-time employees at December 31, 2024",
+        "COMMERCE BANCSHARES INC /MO/ — EngagementAndRetention; Engagement recognized by Korn Ferry as best-in-class; recognized by Forbes as one of best mid-sized employers",
+        "Educational and adoption assistance programs; COMMERCE BANCSHARES INC /MO/ — CompensationAndBenefits; Company-matching 401(k) plan and health savings accounts; Paid time off, employee assistance program (EAP) and company-paid Care.com membership; Comprehensive Total Rewards approach supporting physical, financial, emotional well-being and career development; Health, dental, vision, life insurance and wellness program incentivizing healthy lifestyle",
+        "Job shadowing, competency assessments and education assistance programs; COMMERCE BANCSHARES INC /MO/ — TrainingAndDevelopment",
+        "COMMERCE BANCSHARES INC /MO/ — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.5,
+      "mission_evidence": "and its subsidiaries (collectively, the \"Company\") is one of the nation’s top 50 bank holding companies, based on asset size."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000039263": {
+    "name": "CULLEN/FROST BANKERS, INC.",
+    "cik": "0000039263",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000039263-25-000017",
+    "filing_date": "2025-02-06",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000039263&type=10-K",
+    "overview": {
+      "mission": "CULLEN/FROST BANKERS, INC. — Mission.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Banking",
+        "Commercial and consumer banking, trust, investment management, insurance, brokerage, mutual funds, leasing",
+        "One of the largest independent bank holding companies headquartered in Texas"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Integrity, caring and excellence; CULLEN/FROST BANKERS, INC. — CultureAndValues",
+        "Resources dedicated to fostering professional and personal growth; Continuing education, on-the-job training and development programs; CULLEN/FROST BANKERS, INC. — TrainingAndDevelopment",
+        "CULLEN/FROST BANKERS, INC. — WorkforceComposition; 5,854 full-time equivalent employees at December 31, 2024",
+        "Competitive compensation and benefits alongside a positive work-life balance; CULLEN/FROST BANKERS, INC. — CompensationAndBenefits",
+        "CULLEN/FROST BANKERS, INC. — EngagementAndRetention"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000026172": {
+    "name": "CUMMINS INC",
+    "cik": "0000026172",
+    "sector": "3510 - Engines & Turbines",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000026172-25-000007",
+    "filing_date": "2025-02-11",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000026172&type=10-K",
+    "overview": {
+      "mission": "We do this through our commitment to fostering an accountable culture that champions our vision of a workforce mirroring the communities we serve. This commitment starts at the top with our Board and permeates throughout our organization as everyone plays a role in nurturing inclusive environments where all employees can reach their full potential and thrive.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Distribution",
+        "Power generation systems, high-HP engines, application engineering, aftermarket parts, repair services",
+        "Electric power generation systems, battery, fuel cell, hydrogen production technologies"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 6,
+        "edges": 5
+      },
+      "mission_tier": 1,
+      "mission_confidence": 0.92,
+      "mission_evidence": "We do this through our commitment to fostering an accountable culture that champions our vision of a workforce mirroring the communities we serve. This commitment starts at the top with our Board and permeates throughout our organization as everyone plays a role in nurturing inclusive environments where all employees can reach their full potential and thrive."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000026324": {
+    "name": "CURTISS WRIGHT CORP",
+    "cik": "0000026324",
+    "sector": "3590 - Misc Industrial & Commercial Machinery & Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000026324-25-000015",
+    "filing_date": "2025-02-13",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000026324&type=10-K",
+    "overview": {
+      "mission": "CURTISS WRIGHT CORP — Mission; Disciplined capital allocation: acquisitions, share repurchases and dividends; Operational Growth Platform for margin expansion and steady R&D investment for innovation; Pivot to Growth strategy: maximize revenue, operating income, and free cash flow growth.",
+      "mission_source": "kg",
+      "objectives": [
+        "Pivot to Growth strategy: maximize revenue, operating income, and free cash flow growth"
+      ],
+      "capabilities": [
+        "Aerospace & Industrial"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "CURTISS WRIGHT CORP — CompensationAndBenefits; Tuition reimbursement, annual and local incentive compensation plans; Equity-based incentive plans: performance share units, restricted stock units, cash-based performance units; 401(k) matching, Employee Stock Purchase Plan, employer-sponsored health insurance",
+        "Inclusive workforce where various backgrounds are represented, engaged and empowered to inspire and innovate; CURTISS WRIGHT CORP — CultureAndValues",
+        "Learning Management System with online career-specific tools, training and resources; Technical Fellows program and Innovation Council program for domain expertise and thought leadership; CURTISS WRIGHT CORP — TrainingAndDevelopment; Tuition Assistance Program and early-in-career rotation program for new business leaders",
+        "Partnerships with diversity organizations and military organizations for diverse talent pipeline; CURTISS WRIGHT CORP — DiversityEquityInclusion",
+        "CURTISS WRIGHT CORP — WorkforceComposition; Approximately 8,800 employees in more than 20 countries as of end of 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000003570": {
+    "name": "Cheniere Energy, Inc.",
+    "cik": "0000003570",
+    "sector": "4922 - Natural Gas Distribution",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000003570-25-000033",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000003570&type=10-K",
+    "overview": {
+      "mission": "Our vision is to provide clean, secure and affordable energy to.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 1,
+      "mission_confidence": 0.92,
+      "mission_evidence": "Our vision is to provide clean, secure and affordable energy to"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000020212": {
+    "name": "Churchill Downs Inc",
+    "cik": "0000020212",
+    "sector": "7948 - Services-Racing, Including Track Operation",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000020212-25-000051",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000020212&type=10-K",
+    "overview": {
+      "mission": "Attracting, developing, and retaining top talent through leadership-led culture of growth; Churchill Downs Inc — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Attracting, developing, and retaining top talent through leadership-led culture of growth"
+      ],
+      "capabilities": [
+        "Wagering Services and Solutions (formerly TwinSpires)"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Talent reviews and succession planning conducted regularly with CEO and Board of Directors; Opportunities for skill development across different areas of the Company; Churchill Downs Inc — TrainingAndDevelopment",
+        "Churchill Downs Inc — CompensationAndBenefits; Comprehensive health and retirement benefits; voluntary benefits and paid time-off programs",
+        "Approximately 8,870 team members including 6,480 full-time as of December 31, 2024; Churchill Downs Inc — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000027904": {
+    "name": "DELTA AIR LINES, INC.",
+    "cik": "0000027904",
+    "sector": "4512 - Air Transportation, Scheduled",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000027904-25-000004",
+    "filing_date": "2025-02-11",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000027904&type=10-K",
+    "overview": {
+      "mission": "DELTA AIR LINES, INC. — Mission.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "FORTUNE World's No. 11 Most Admired Company",
+        "Glassdoor No. 13 Best Places to Work in U.S."
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Highly competitive total compensation to share Delta's success; profit sharing and Shared Rewards; DELTA AIR LINES, INC. — CompensationAndBenefits",
+        "DELTA AIR LINES, INC. — WorkforceComposition; Approximately 103,000 full-time employee equivalents as of Dec 31, 2024; ~100,000 U.S.-based",
+        "4 employee engagement groups and 12 business resource groups; 40,000+ members as of Dec 31, 2024; Merit-based hiring seeking diverse talent; expanded candidate slates and diverse interview panels; Skills-first talent approach creating merit-based access to career opportunities; DELTA AIR LINES, INC. — DiversityEquityInclusion",
+        "DELTA AIR LINES, INC. — EngagementAndRetention; Annual employee surveys on satisfaction, leadership effectiveness, safety culture, wellbeing, DEI"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000027996": {
+    "name": "DELUXE CORP",
+    "cik": "0000027996",
+    "sector": "2780 - Blankbooks, Looseleaf Binders & Bookbinding & Related Work",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000027996-25-000051",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000027996&type=10-K",
+    "overview": {
+      "mission": "Operational efficiency and cost management; Disciplined capital allocation aligned with growth objectives; DELUXE CORP — Mission; Cross-selling through One Deluxe go-to-market model.",
+      "mission_source": "kg",
+      "objectives": [
+        "Cross-selling through One Deluxe go-to-market model"
+      ],
+      "capabilities": [
+        "Print (56.8% of 2024 revenue)",
+        "Treasury management including remittance, lockbox processing, and remote deposit capture",
+        "Printed business and personal checks (33.1% of revenue)"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "DELUXE CORP — TrainingAndDevelopment; Learning and development opportunities covering leadership, skill development, and mentoring",
+        "Tuition assistance and 401(k) with company match; Care.com partnership for tutors, nannies, childcare, and eldercare; Medical, dental, life, and disability insurance; DELUXE CORP — CompensationAndBenefits; Paid parental leave, infertility, adoption, and surrogacy assistance; Unlimited flexible time off for salaried employees and sabbatical for long-term employees",
+        "4,981 total employees as of December 31, 2024; DELUXE CORP — WorkforceComposition",
+        "Culture of Inclusion embracing workforce, customer, and partner differences; DELUXE CORP — DiversityEquityInclusion",
+        "DELUXE CORP — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000028823": {
+    "name": "DIEBOLD NIXDORF, Inc",
+    "cik": "0000028823",
+    "sector": "3578 - Calculating & Accounting Machines (No Electronic Computers)",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000028823-25-000022",
+    "filing_date": "2025-02-25",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000028823&type=10-K",
+    "overview": {
+      "mission": "DIEBOLD NIXDORF, Inc — Mission; Margin Expansion through continuous improvement and lean journey; Profitable Revenue Growth through new customers and increased wallet share; Free Cash Flow Conversion improvement.",
+      "mission_source": "kg",
+      "objectives": [
+        "Free Cash Flow Conversion improvement"
+      ],
+      "capabilities": [
+        "Banking segment",
+        "Mission-critical hardware, software, and services for banking and retail clients",
+        "Global market leader in mission-critical hardware, software, and services for banking and retail"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Accountability, Collaboration, Decisiveness, Sense of Urgency, Willingness to Change; DIEBOLD NIXDORF, Inc — CultureAndValues",
+        "Approximately 21,000 employees worldwide as of December 31, 2024; DIEBOLD NIXDORF, Inc — WorkforceComposition",
+        "DIEBOLD NIXDORF, Inc — TrainingAndDevelopment; Learning and development offerings with well-defined performance management process",
+        "DIEBOLD NIXDORF, Inc — DiversityEquityInclusion; Women @ DN, Veterans @ DN, Pride @ DN, Parents @ DN, Multi-Cultural Connections",
+        "Pay for performance culture aligning long-term pay and performance; DIEBOLD NIXDORF, Inc — CompensationAndBenefits",
+        "DIEBOLD NIXDORF, Inc — EngagementAndRetention; Global employee experience survey conducted in 2024 to monitor engagement"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000028917": {
+    "name": "DILLARD'S, INC.",
+    "cik": "0000028917",
+    "sector": "5311 - Retail Department Stores",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000028917-25-000004",
+    "filing_date": "2025-03-28",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000028917&type=10-K",
+    "overview": {
+      "mission": "We seek to expand the number and use of the private label cards by, among other things, providing incentives to sales associates to encourage customers.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Retail operations segment (96% of net sales)",
+        "Among the nation's largest fashion apparel, cosmetics and home furnishing retailers"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "DILLARD'S, INC. — EngagementAndRetention",
+        "DILLARD'S, INC. — TrainingAndDevelopment; Formalized classroom training, specialized sales management training, and mentorship programs",
+        "Competitive compensation and benefits packages within the applicable market; DILLARD'S, INC. — CompensationAndBenefits",
+        "Approximately 28,800 associates as of December 23, 2024; DILLARD'S, INC. — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.74,
+      "mission_evidence": "We seek to expand the number and use of the private label cards by, among other things, providing incentives to sales associates to encourage customers"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000034067": {
+    "name": "DMC Global Inc.",
+    "cik": "0000034067",
+    "sector": "3390 - Miscellaneous Primary Metal Products",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000034067-25-000028",
+    "filing_date": "2025-02-24",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034067&type=10-K",
+    "overview": {
+      "mission": "DMC Global Inc. — Mission; Maximize company value by capitalizing on unique strengths of three businesses.",
+      "mission_source": "kg",
+      "objectives": [
+        "Maximize company value by capitalizing on unique strengths of three businesses"
+      ],
+      "capabilities": [
+        "NobelClad - explosion-welded clad metal plates for industrial processing equipment",
+        "Aluminum framing systems, windows, curtain walls, storefronts, doors, partitions"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "DMC Global Inc. — WorkforceComposition; Approximately 1,600 employees as of December 31, 2024",
+        "DMC Global Inc. — CompensationAndBenefits; 401(k) with matching, health benefits, life/disability insurance, tuition reimbursement, parental leave; Fair policies supporting business goals, competitiveness, and shared fiscal responsibility",
+        "Formal diversity and inclusion policy adopted in May 2021; DMC Global Inc. — DiversityEquityInclusion",
+        "DMC Global Inc. — CultureAndValues; Integrity, Courage, Teamwork, and Humility",
+        "Employee development through combination of training and experience to maximize potential; DMC Global Inc. — TrainingAndDevelopment"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000029905": {
+    "name": "DOVER Corp",
+    "cik": "0000029905",
+    "sector": "3530 - Construction, Mining & Materials Handling Machinery & Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000029905-25-000006",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000029905&type=10-K",
+    "overview": {
+      "mission": "Sustained profitable growth, operational excellence, superior free cash flow generation; Zero-harm workplace with priority on health and safety compliance and risk mitigation; DOVER Corp — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: Zero-harm workplace with priority on health and safety compliance and risk mitigation",
+        "Sustained profitable growth, operational excellence, superior free cash flow generation"
+      ],
+      "capabilities": [
+        "Clean Energy & Fueling - storage, transport, dispensing of traditional and clean fuels"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "DOVER Corp — TrainingAndDevelopment; Significant investments in talent development; growth of employees essential for success",
+        "DOVER Corp — WorkforceComposition; Approximately 24,000 employees worldwide as of December 31, 2024",
+        "DOVER Corp — DiversityEquityInclusion; Equal opportunity hiring regardless of race, color, religion, disability, national origin, gender; Talent outreach action plans to recruit qualified candidates with diverse backgrounds",
+        "Proactive, dedicated, ownership mindset, commitment to operational excellence; DOVER Corp — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000059478": {
+    "name": "ELI LILLY & Co",
+    "cik": "0000059478",
+    "sector": "2834 - Pharmaceutical Preparations",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000059478-25-000067",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000059478&type=10-K",
+    "overview": {
+      "mission": "Our purpose is to unite caring with discovery to create.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "ELI LILLY & Co — CultureAndValues",
+        "Director and executive compensation overseen by Talent and Compensation Committee; ELI LILLY & Co — CompensationAndBenefits"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      },
+      "mission_tier": 1,
+      "mission_confidence": 0.98,
+      "mission_evidence": "Our purpose is to unite caring with discovery to create"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000045876": {
+    "name": "ENVIRI Corp",
+    "cik": "0000045876",
+    "sector": "8900 - Services, NEC",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000045876-25-000018",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045876&type=10-K",
+    "overview": {
+      "mission": "Viewing every customer need through a sustainability lens; helping customers build better businesses; ENVIRI Corp — Mission; To continue building a leading, global environmental solutions company.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: To continue building a leading, global environmental solutions company",
+        "Viewing every customer need through a sustainability lens",
+        "helping customers build better businesses"
+      ],
+      "capabilities": [
+        "Harsco Environmental - onsite environmental services and material processing for global metals industry",
+        "Ecoproducts portfolio including road materials, agricultural products and aggregates"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "ENVIRI Corp — WorkforceComposition; Almost 12,000 employees in over 30 countries as of December 31, 2024",
+        "Annual talent review process to assess organizational capabilities and create tailored development plans; Global Competency Model introduced in 2024 for talent development and succession planning; ENVIRI Corp — TrainingAndDevelopment",
+        "ENVIRI Corp — DiversityEquityInclusion; CultureLink - established 2024, celebrates diverse cultures of countries where Enviri operates; Belonging Program fostering collaborative and inclusive workplace for all employees; Enviri Women - promotes awareness and advancement through mentorship and empowerment; Global Belonging and Inclusion Council chaired by SVP & CHRO with 16 cross-functional leaders",
+        "Be Environmental, Be Performance Driven, Be Customer Focused, Be Caring, Be Inclusive, Be Respectful; ENVIRI Corp — CultureAndValues",
+        "ENVIRI Corp — CompensationAndBenefits; Bonuses, stock awards, retirement programs, HSA/FSA, paid-time off, paid parental leave, tuition assistance"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 3,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000033213": {
+    "name": "EQT Corp",
+    "cik": "0000033213",
+    "sector": "1311 - Crude Petroleum & Natural Gas",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000033213-25-000011",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000033213&type=10-K",
+    "overview": {
+      "mission": "To be the operator of choice for all stakeholders while addressing energy security and affordability.",
+      "mission_source": "kg",
+      "objectives": [
+        "Lowest-cost producer of natural gas through combo-development projects"
+      ],
+      "capabilities": [
+        "Natural gas and natural gas liquids (NGLs)"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000033185": {
+    "name": "EQUIFAX INC",
+    "cik": "0000033185",
+    "sector": "7320 - Services-Consumer Credit Reporting, Collection Agencies",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000033185-25-000025",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000033185&type=10-K",
+    "overview": {
+      "mission": "EQUIFAX INC — Mission; To be a trusted global leader in data, analytics and technology creating innovative solutions; Leverage and expand differentiated portfolio of data assets; Leverage Equifax Cloud capabilities to accelerate innovation, new products and growth.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: To be a trusted global leader in data, analytics and technology creating innovative solutions",
+        "Leverage Equifax Cloud capabilities to accelerate innovation, new products and growth"
+      ],
+      "capabilities": [
+        "U.S. Information Solutions (USIS) - consumer and commercial information solutions",
+        "Human resources business process automation and outsourcing services for employers"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "EQUIFAX INC — WorkforceComposition; Approximately 14,700 employees in 22 countries as of December 31, 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000034088": {
+    "name": "EXXON MOBIL CORP",
+    "cik": "0000034088",
+    "sector": "2911 - Petroleum Refining",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000034088-25-000010",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000034088&type=10-K",
+    "overview": {
+      "mission": "EXXON MOBIL CORP — Mission; Grow pipeline of emission-reduction opportunities and lower-emission investments.",
+      "mission_source": "kg",
+      "objectives": [
+        "Grow pipeline of emission-reduction opportunities and lower-emission investments"
+      ],
+      "capabilities": [
+        "Low Carbon Solutions - carbon capture/storage, hydrogen, lower-emission fuels, Proxxima, lithium",
+        "Lower-emission opportunities: carbon capture/storage, hydrogen, lower-emission fuels, lithium",
+        "Crude oil, natural gas, petroleum products, petrochemicals and specialty products"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Career-oriented talent development with individually planned experiences and training; EXXON MOBIL CORP — TrainingAndDevelopment",
+        "EXXON MOBIL CORP — WorkforceComposition; 61,000 regular employees at year end 2024",
+        "Market competitive, long-term oriented, highly differentiated by individual performance; EXXON MOBIL CORP — CompensationAndBenefits"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000035527": {
+    "name": "FIFTH THIRD BANCORP",
+    "cik": "0000035527",
+    "sector": "6022 - State Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000035527-25-000079",
+    "filing_date": "2025-02-24",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000035527&type=10-K",
+    "overview": {
+      "mission": "The Bancorp is a diversified financial services company headquartered in Cincinnati, Ohio and is the indirect holding company of Fifth Third Bank, National Association (the “Bank”).",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Uses Stock Appreciation Rights (SARs) valued with Black-Scholes option-pricing model; FIFTH THIRD BANCORP — CompensationAndBenefits"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 6,
+        "edges": 5
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.52,
+      "mission_evidence": "The Bancorp is a diversified financial services company headquartered in Cincinnati, Ohio and is the indirect holding company of Fifth Third Bank, National Association (the “Bank”)."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000036966": {
+    "name": "FIRST HORIZON CORP",
+    "cik": "0000036966",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000036966-25-000024",
+    "filing_date": "2025-02-27",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000036966&type=10-K",
+    "overview": {
+      "mission": "Our principal businesses are heavily regulated.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.42,
+      "mission_evidence": "Our principal businesses are heavily regulated."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000030625": {
+    "name": "FLOWSERVE CORP",
+    "cik": "0000030625",
+    "sector": "3561 - Pumps & Pumping Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000030625-25-000008",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000030625&type=10-K",
+    "overview": {
+      "mission": "FLOWSERVE CORP — Mission; 3D Strategy: Diversification, Decarbonization, and Digitization.",
+      "mission_source": "kg",
+      "objectives": [
+        "3D Strategy: Diversification, Decarbonization, and Digitization"
+      ],
+      "capabilities": [
+        "Flowserve Pump Division (FPD) - approximately 9,000 associates",
+        "Pumps, valves, seals, automation and aftermarket services",
+        "World-leading manufacturer and aftermarket service provider of flow control systems"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "On-the-job training, online learning, rotational programs, language learning, leadership development; FLOWSERVE CORP — TrainingAndDevelopment",
+        "People Excellence as core category of Flowserve Business System; FLOWSERVE CORP — CultureAndValues",
+        "FLOWSERVE CORP — WorkforceComposition; Approximately 16,000 associates globally as of December 31, 2024",
+        "FLOWSERVE CORP — CompensationAndBenefits; Market-based compensation strategy providing competitive total target compensation"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000037785": {
+    "name": "FMC CORP",
+    "cik": "0000037785",
+    "sector": "2800 - Chemicals & Allied Products",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000037785-25-000030",
+    "filing_date": "2025-02-28",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000037785&type=10-K",
+    "overview": {
+      "mission": "FMC CORP — Mission; Transform grower relationship to become trusted source for technical expertise and solutions.",
+      "mission_source": "kg",
+      "objectives": [
+        "Transform grower relationship to become trusted source for technical expertise and solutions"
+      ],
+      "capabilities": [
+        "Plant health biologicals including pheromones platform",
+        "Tier-one leader and 5th largest global innovator in agrochemicals/crop protection market"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Approximately 5,700 employees globally as of December 31, 2024; FMC CORP — WorkforceComposition",
+        "FMC CORP — DiversityEquityInclusion; All-employee engagement survey to capture voice and sustain inclusive environment; Culture of belonging where every employee can bring full authentic selves to work",
+        "FMC CORP — CultureAndValues; Safety, inclusion, and sustainability define FMC and guide how it does business",
+        "Comprehensive global benefit packages supporting health and well-being of employees and families; Performance-based pay with competitive base pay, short-term and long-term incentives; FMC CORP — CompensationAndBenefits",
+        "FMC CORP — TrainingAndDevelopment; Best-in-class on-demand learning platform with vast course library for all employees; Individual development plans, stretch projects, and rotational assignments"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000037808": {
+    "name": "FNB CORP/PA/",
+    "cik": "0000037808",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000037808-25-000071",
+    "filing_date": "2025-02-27",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000037808&type=10-K",
+    "overview": {
+      "mission": "Our compensation philosophy is to maintain a program that supports our mission and values. The compensat.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Community Banking"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Named to Newsweek's lists for Diversity, LGBTQ+, Veterans and Parents and Families; Named to JUST Capital's annual list for just business behavior; FNB CORP/PA/ — DiversityEquityInclusion; Partnerships with job/recruiting centers, colleges and universities for diverse recruitment",
+        "Mentoring and coaching programs, succession planning reviews, and leadership development programs; Internship program to funnel high potential talent into Development Programs; FNB CORP/PA/ — TrainingAndDevelopment",
+        "Participated in regional Top Workplace surveys in 2024 with outstanding scores; FNB CORP/PA/ — EngagementAndRetention",
+        "Tuition reimbursement for post-secondary education including college and graduate school; Competitive base salary, short-term incentive plans, and long-term incentive plans; FNB CORP/PA/ — CompensationAndBenefits",
+        "FNB CORP/PA/ — WorkforceComposition; 4,104 full-time and 176 part-time employees as of December 31, 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      },
+      "mission_tier": 1,
+      "mission_confidence": 1.04,
+      "mission_evidence": "Our compensation philosophy is to maintain a program that supports our mission and values. The compensat"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000037996": {
+    "name": "FORD MOTOR CO",
+    "cik": "0000037996",
+    "sector": "3711 - Motor Vehicles & Passenger Car Bodies",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000037996-25-000013",
+    "filing_date": "2025-02-06",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000037996&type=10-K",
+    "overview": {
+      "mission": "We provide warranties on.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Ford Credit (financial services segment)",
+        "Motor vehicles including electric vehicles"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.42,
+      "mission_evidence": "We provide warranties on"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000038725": {
+    "name": "FRANKLIN ELECTRIC CO INC",
+    "cik": "0000038725",
+    "sector": "3621 - Motors & Generators",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000038725-25-000026",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000038725&type=10-K",
+    "overview": {
+      "mission": "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Water Systems (about 60% of total revenue in 2024)",
+        "Submersible fueling systems for gas stations including pumps, pipes, controls and monitoring devices"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "FRANKLIN ELECTRIC CO INC — CultureAndValues",
+        "FRANKLIN ELECTRIC CO INC — WorkforceComposition; Approximately 6,300 employees as of December 31, 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 8,
+        "edges": 7
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.55,
+      "mission_evidence": "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000039911": {
+    "name": "GAP INC",
+    "cik": "0000039911",
+    "sector": "5651 - Retail-Family Clothing Stores",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000039911-25-000029",
+    "filing_date": "2025-03-18",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000039911&type=10-K",
+    "overview": {
+      "mission": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also deli.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "GAP INC — WorkforceComposition; Approximately 82,000 employees as of February 1, 2025",
+        "Annual tuition reimbursement for full-time U.S. employees with 1 year of service; GAP INC — CompensationAndBenefits",
+        "Inclusion and belonging culture for employees, customers, and communities; Employee resource groups and heritage month programming; GAP INC — DiversityEquityInclusion",
+        "Retail Academy combining classroom, e-learning, and experiential learning; GAP INC — TrainingAndDevelopment; IGNITE leadership training in distribution centers and contact centers"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.84,
+      "mission_evidence": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also deli"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000040211": {
+    "name": "GATX CORP",
+    "cik": "0000040211",
+    "sector": "4700 - Transportation Services",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000040211-25-000024",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040211&type=10-K",
+    "overview": {
+      "mission": "SUSTAINABILITY We are committed to growing our business in a sustainable and socially.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Rail North America"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Strong corporate citizenship with employee volunteerism and community giving; GATX CORP — CultureAndValues",
+        "Annual bonuses, stock awards, matched 401(k), health insurance, pension plans, parental leave; Tuition reimbursement, adoption assistance, telecommuting flexibility, flexible time off; GATX CORP — CompensationAndBenefits",
+        "GATX CORP — WorkforceComposition; 2,150 employees globally as of December 31, 2024",
+        "GATX CORP — TrainingAndDevelopment; Multi-tiered learning: manager training, maintenance certification, e-learning"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.83,
+      "mission_evidence": "SUSTAINABILITY We are committed to growing our business in a sustainable and socially"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000040533": {
+    "name": "GENERAL DYNAMICS CORP",
+    "cik": "0000040533",
+    "sector": "3730 - Ship & Boat Building & Repairing",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000040533-25-000008",
+    "filing_date": "2025-02-07",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040533&type=10-K",
+    "overview": {
+      "mission": "We are committed to continual investment in R&D to create new aircraft that consistently broaden customer offerings while raising the bar for safety and performance.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Marine Systems",
+        "Technology products and services for defense customers",
+        "Business jets (Gulfstream G700, G800, G400, G500, G600, G280)"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "GENERAL DYNAMICS CORP — DiversityEquityInclusion; Promotes diversity of thought, experience, perspectives, backgrounds for innovation",
+        "Ethos of transparency, trust, honesty and alignment; GENERAL DYNAMICS CORP — CultureAndValues",
+        "GENERAL DYNAMICS CORP — WorkforceComposition; Approximately 117,000 employees globally",
+        "Pay-for-performance with fair, market-based, competitive and equitable compensation; GENERAL DYNAMICS CORP — CompensationAndBenefits",
+        "GENERAL DYNAMICS CORP — TrainingAndDevelopment; Critical job skills training and leadership behaviors consistent with Ethos"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.85,
+      "mission_evidence": "We are committed to continual investment in R&D to create new aircraft that consistently broaden customer offerings while raising the bar for safety and performance."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000040545": {
+    "name": "GENERAL ELECTRIC CO",
+    "cik": "0000040545",
+    "sector": "3600 - Electronic & Other Electrical Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000040545-25-000015",
+    "filing_date": "2025-02-03",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040545&type=10-K",
+    "overview": {
+      "mission": "ELECTRIC CO — Mission.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "GENERAL ELECTRIC CO — CompensationAndBenefits",
+        "GENERAL ELECTRIC CO — CultureAndValues",
+        "~53,000 employees; ~28,000 in the U.S. as of December 31, 2024; GENERAL ELECTRIC CO — WorkforceComposition",
+        "GENERAL ELECTRIC CO — TrainingAndDevelopment; Annual organization and talent review led by senior management for each business",
+        "GENERAL ELECTRIC CO — EngagementAndRetention; First enterprise-wide culture survey conducted in 2024 as independent company"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000040987": {
+    "name": "GENUINE PARTS CO",
+    "cik": "0000040987",
+    "sector": "5013 - Wholesale Motor Vehicle Supplies & New Parts",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000040987-25-000026",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040987&type=10-K",
+    "overview": {
+      "mission": "Employer of choice, supplier of choice, valued customer, responsible corporate citizen, investment of choice.",
+      "mission_source": "kg",
+      "objectives": [
+        "Revenue growth exceeding market",
+        "improving operating margins",
+        "strong balance sheet",
+        "effective capital allocation"
+      ],
+      "capabilities": [
+        "Industrial Parts Group"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "GENUINE PARTS CO — CultureAndValues; Steadfast commitment to equality for teammates, suppliers, customers, communities and stakeholders",
+        "Commitment to inclusive and welcoming culture valuing and respecting all employees with equal opportunities; GENUINE PARTS CO — DiversityEquityInclusion",
+        "GENUINE PARTS CO — WorkforceComposition; More than 63,000 employees worldwide as of December 31, 2024",
+        "Internship and rotational programs; on-demand and live training courses; GENUINE PARTS CO — TrainingAndDevelopment",
+        "GENUINE PARTS CO — EngagementAndRetention; Most recent global engagement survey results favorable overall; employees proud to work for the company"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 3,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000042888": {
+    "name": "GRACO INC",
+    "cik": "0000042888",
+    "sector": "3561 - Pumps & Pumping Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000042888-25-000011",
+    "filing_date": "2025-02-18",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000042888&type=10-K",
+    "overview": {
+      "mission": "We are committed to maintaining a culture of trust that recognizes the dignity and uniqueness of the individual.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Contractor segment",
+        "Systems and equipment to move, measure, mix, control, dispense and spray fluid and powder materials"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Biennial employee survey to assess culture and benchmark against industry leaders; New employee orientation and regular ethics training required for all employees; Continuous improvement program with financial incentives for employee ideas; GRACO INC — TrainingAndDevelopment",
+        "Approximately 4,300 employees as of December 27, 2024; GRACO INC — WorkforceComposition",
+        "Growth, product innovation, premium customer service, quality and continuous improvement; GRACO INC — CultureAndValues",
+        "GRACO INC — CompensationAndBenefits; Market competitive, fair and equitable; designed to attract and retain top talent and drive performance; Base pay, variable pay, equity-based compensation for all employees, health/welfare/retirement benefits"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.84,
+      "mission_evidence": "We are committed to maintaining a culture of trust that recognizes the dignity and uniqueness of the individual."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000045012": {
+    "name": "HALLIBURTON CO",
+    "cik": "0000045012",
+    "sector": "1389 - Oil, Gas Field Services, NEC",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000045012-25-000010",
+    "filing_date": "2025-02-12",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045012&type=10-K",
+    "overview": {
+      "mission": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly devel.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Completion and Production segment (20% operating margin in 2024)",
+        "Cementing, stimulation, specialty chemicals, intervention, pressure control, artificial lift, completions",
+        "One of the worlds largest providers of products and services to the energy industry"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Comprehensive medical coverage, retirement plans, paid time off, emergency childcare, third-party discounts; HALLIBURTON CO — CompensationAndBenefits",
+        "HALLIBURTON CO — WorkforceComposition; Over 48,000 employees representing 145 nationalities in more than 70 countries",
+        "HALLIBURTON CO — CultureAndValues; Safety is a Halliburton core value",
+        "95% of employees feel work they do matters (Feb 2024 survey, 86% response rate); HALLIBURTON CO — EngagementAndRetention",
+        "Monthly Lessons for Life Web series covering parenting in digital age and combating burnout; HALLIBURTON CO — TrainingAndDevelopment"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.84,
+      "mission_evidence": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly devel"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000045919": {
+    "name": "HARTE HANKS INC",
+    "cik": "0000045919",
+    "sector": "7331 - Direct Mail Advertising Services",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000045919-25-000008",
+    "filing_date": "2025-03-17",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045919&type=10-K",
+    "overview": {
+      "mission": "Our mission is to partner with clients to provide them with robust customer-experience, or CX strategy, data-driven analytics, and actionable insights combined with seamless program execution to better understand, attract, and engage their customers. Our services include strat.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Data, marketing, sales, customer care, fulfillment and logistics services"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Diversity, equity and inclusion program to promote collaboration, innovation, creativity and belonging; HARTE HANKS INC — DiversityEquityInclusion",
+        "HARTE HANKS INC — TrainingAndDevelopment; Technical skill development, soft skills development, workplace conduct guidance, IT security training",
+        "1,715 full-time and 288 part-time employees as of December 31, 2024; HARTE HANKS INC — WorkforceComposition",
+        "401(k) retirement plan with company match; employee and matching contributions vest immediately; Medical, prescription drug, vision, dental; company-paid life insurance, AD&D, short/long-term disability; HARTE HANKS INC — CompensationAndBenefits; Competitive salaries and wages with comprehensive insurance options"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      },
+      "mission_tier": 1,
+      "mission_confidence": 1.0,
+      "mission_evidence": "Our mission is to partner with clients to provide them with robust customer-experience, or CX strategy, data-driven analytics, and actionable insights combined with seamless program execution to better understand, attract, and engage their customers. Our services include strat"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000046080": {
+    "name": "HASBRO, INC.",
+    "cik": "0000046080",
+    "sector": "3944 - Games, Toys & Children's Vehicles",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000046080-25-000027",
+    "filing_date": "2025-02-27",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000046080&type=10-K",
+    "overview": {
+      "mission": "Create joy and community through the magic of play.",
+      "mission_source": "kg",
+      "objectives": [
+        "Vision: Be one of the most profitable and diverse toy and game companies globally",
+        "Playing to Win strategy focused on play and partnership, launched 2025"
+      ],
+      "capabilities": [
+        "Wizards of the Coast and Digital Games"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Total rewards package including base pay, equity compensation, annual incentives, and recognition program; HASBRO, INC. — CompensationAndBenefits; Comprehensive core benefits, voluntary benefits, product discounts, and well-being program",
+        "HASBRO, INC. — TrainingAndDevelopment; Blended learning, in-house trainings, and third-party programs including specialized and academic pursuits",
+        "Approximately 4,985 employees worldwide as of year-end 2024; HASBRO, INC. — WorkforceComposition",
+        "HASBRO, INC. — CultureAndValues",
+        "HASBRO, INC. — DiversityEquityInclusion; Inclusion and Belonging initiative to foster inclusive culture reflecting consumers and communities served"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000047111": {
+    "name": "HERSHEY CO",
+    "cik": "0000047111",
+    "sector": "2060 - Sugar & Confectionery Products",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000047111-25-000014",
+    "filing_date": "2025-02-18",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000047111&type=10-K",
+    "overview": {
+      "mission": "HERSHEY CO — Mission; Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions.",
+      "mission_source": "kg",
+      "objectives": [
+        "Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions"
+      ],
+      "capabilities": [
+        "International",
+        "Largest producer of quality chocolate in North America and a leading snack maker in the United States"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "HERSHEY CO — WorkforceComposition; Approximately 18,540 full-time and 1,490 part-time employees worldwide as of December 31, 2024",
+        "Best of Both flexible work model allowing remote, in-office, or hybrid work for corporate employees; HERSHEY CO — CompensationAndBenefits; Competitive, fair and transparent compensation with incentives tied to business and individual performance; Health, retirement, parental leave, adoption benefits, employee stock purchase plan, SmartFlex work policies",
+        "Individual development plans, learning opportunities, feedback and coaching for career building; HERSHEY CO — TrainingAndDevelopment; Partnered with leading online content experts; expanded catalog of online and classroom courses",
+        "HERSHEY CO — CultureAndValues; Togetherness - advancing innovation, business growth and strong company culture",
+        "HERSHEY CO — DiversityEquityInclusion; 8 BRGs: Abilities First, Black Heritage, Asian and Pacific Islander, GenH, Latino, Prism, Veterans, Women's",
+        "HERSHEY CO — EngagementAndRetention"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000048287": {
+    "name": "HNI CORP",
+    "cik": "0000048287",
+    "sector": "2522 - Office Furniture (Except Wood)",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000048287-25-000084",
+    "filing_date": "2025-02-25",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000048287&type=10-K",
+    "overview": {
+      "mission": "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Workplace Furnishings",
+        "Furniture systems, seating, storage, tables, architectural products, ancillary and hospitality products",
+        "Leading global designer and provider of commercial furnishings",
+        "leading manufacturer of hearth products"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Stock-based plans and profit sharing allowing most members to benefit from corporate success; HNI CORP — CompensationAndBenefits; Competitive and equitable compensation and benefits designed to attract, retain, and motivate members",
+        "Fair and inclusive treatment - treat all members with fairness and respect, ensuring all voices are heard; HNI CORP — CultureAndValues; Unique perspectives - diverse backgrounds drive innovation and growth; Transparent communication - frequent opportunities for members to raise concerns with company leaders",
+        "HNI CORP — TrainingAndDevelopment; Apprenticeships, on-the-job training, performance and talent-management processes, leadership development",
+        "HNI CORP — WorkforceComposition; Approximately 7,700 persons including fewer than 100 temporary personnel as of December 28, 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.55,
+      "mission_evidence": "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000049071": {
+    "name": "HUMANA INC",
+    "cik": "0000049071",
+    "sector": "6324 - Hospital & Medical Service Plans",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000049071-25-000007",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000049071&type=10-K",
+    "overview": {
+      "mission": "HUMANA INC — Mission; Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics.",
+      "mission_source": "kg",
+      "objectives": [
+        "Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics"
+      ],
+      "capabilities": [
+        "Insurance",
+        "HMO, PPO, and POS health insurance plans"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "HUMANA INC — WorkforceComposition; Approximately 65,680 associates as of December 31, 2024",
+        "Medical, dental, vision, on-site health/fitness centers, paid parental leave (6 weeks), paid caregiver time (2 weeks); Market-based pay recognizing associate contributions; annual comprehensive pay equity/gap analysis; HUMANA INC — CompensationAndBenefits; Competitive base pay, short/long-term disability, 401(k) with match, tuition assistance, HSA/FSA, life insurance; Employer-sponsored personal emergency savings account with matching funds from the Company",
+        "HUMANA INC — TrainingAndDevelopment; Professional development with tools, mentorship, and opportunities for current role and future growth; Internal and external learning events; access to degree and certification programs with tuition assistance",
+        "Annual Engagement Survey (AES) covering 18 dimensions, third-party administered, with continuous listening pulse surveys; HUMANA INC — EngagementAndRetention",
+        "HUMANA INC — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000049196": {
+    "name": "HUNTINGTON BANCSHARES INC /MD/",
+    "cik": "0000049196",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000049196-25-000020",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000049196&type=10-K",
+    "overview": {
+      "mission": "Stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Consumer & Regional Banking (net income $1.5B in 2024, up 15% YoY)",
+        "Consumer lending: residential mortgage, automobile, home equity, RV and marine loans"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Specialized lending compliance training: flood disaster protection, equal credit opportunity, fair lending; Mandatory cybersecurity training; anti-money laundering and customer privacy training for all colleagues; HUNTINGTON BANCSHARES INC /MD/ — TrainingAndDevelopment",
+        "11,191 average full-time equivalent employees in 2024, down from 11,536 in 2023; HUNTINGTON BANCSHARES INC /MD/ — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      },
+      "mission_tier": 1,
+      "mission_confidence": 0.92,
+      "mission_evidence": "stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000004281": {
+    "name": "Howmet Aerospace Inc.",
+    "cik": "0000004281",
+    "sector": "3350 - Rolling & Drawing of Nonferrous Metals",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000004281-25-000011",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000004281&type=10-K",
+    "overview": {
+      "mission": "We seek to identify high performers and support their development into potential future leaders, focusing on providing opportunities to all individuals.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Engine Products, Fastening Systems, Engineered Structures, and Forged Wheels",
+        "Investment castings, seamless rolled rings, fastening systems, forged jet engine components, forged aluminum wheels"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Human capital management platform for employee career profiles, skills development, and succession planning; Onboarding program to develop sense of belonging, teamwork, and productivity; Howmet Aerospace Inc. — TrainingAndDevelopment; Training development programs for salaried employees; extending access to hourly employees via technology in 2024",
+        "Approximately 23,930 employees in 22 countries at end of 2024; Howmet Aerospace Inc. — WorkforceComposition",
+        "Competitive wages, benefits and terms of employment; Howmet Aerospace Inc. — CompensationAndBenefits",
+        "Howmet Aerospace Inc. — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.73,
+      "mission_evidence": "We seek to identify high performers and support their development into potential future leaders, focusing on providing opportunities to all individuals."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000049826": {
+    "name": "ILLINOIS TOOL WORKS INC",
+    "cik": "0000049826",
+    "sector": "3560 - General Industrial Machinery & Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000049826-25-000007",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000049826&type=10-K",
+    "overview": {
+      "mission": "The Company is a global manufacturer of a diversified range of industrial products and equipment with 86 divisions in 51 countries.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Food Equipment",
+        "Plastic and metal components, fasteners and assemblies for automotive applications"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "ILLINOIS TOOL WORKS INC — TrainingAndDevelopment",
+        "ILLINOIS TOOL WORKS INC — CultureAndValues; Integrity, Respect, Trust, Shared Risk and Simplicity",
+        "Market-competitive compensation and benefits supporting physical, mental, and financial well-being; ILLINOIS TOOL WORKS INC — CompensationAndBenefits",
+        "Approximately 44,000 as of December 31, 2024; ILLINOIS TOOL WORKS INC — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.55,
+      "mission_evidence": "The Company is a global manufacturer of a diversified range of industrial products and equipment with 86 divisions in 51 countries."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000039311": {
+    "name": "INDEPENDENT BANK CORP /MI/",
+    "cik": "0000039311",
+    "sector": "6022 - State Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000039311-25-000044",
+    "filing_date": "2025-03-07",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000039311&type=10-K",
+    "overview": {
+      "mission": "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating a.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Title insurance services"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "732 full-time and 102 part-time employees as of December 31, 2024; INDEPENDENT BANK CORP /MI/ — WorkforceComposition",
+        "INDEPENDENT BANK CORP /MI/ — CompensationAndBenefits; Employee stock ownership plan (ESOP) and deferred compensation plans; Competitive compensation and benefits, strong employee relations through culture, training and growth"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 8,
+        "edges": 7
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.72,
+      "mission_evidence": "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating a"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000050863": {
+    "name": "INTEL CORP",
+    "cik": "0000050863",
+    "sector": "3674 - Semiconductors & Related Devices",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000050863-25-000009",
+    "filing_date": "2025-01-31",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000050863&type=10-K",
+    "overview": {
+      "mission": "INTEL CORP — Mission.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Training programs, rotational assignment opportunities, and custom learning curricula; INTEL CORP — TrainingAndDevelopment",
+        "INTEL CORP — CompensationAndBenefits; Market-competitive pay, stock grants, bonuses, ESPP, healthcare, retirement, family leave, sabbaticals",
+        "Diversity and inclusion metrics linked to executive and employee compensation in 2024; INTEL CORP — DiversityEquityInclusion",
+        "Customer first, fearless innovation, results driven, one Intel, inclusion, quality, and integrity; INTEL CORP — CultureAndValues",
+        "INTEL CORP — EngagementAndRetention; Annual employee experience survey with bonus linked to year-over-year survey improvements",
+        "108,900 as of December 28, 2024; INTEL CORP — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000051143": {
+    "name": "INTERNATIONAL BUSINESS MACHINES CORP",
+    "cik": "0000051143",
+    "sector": "3570 - Computer & Office Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000051143-25-000015",
+    "filing_date": "2025-02-25",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000051143&type=10-K",
+    "overview": {
+      "mission": "Competition IBM is a globally in.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "INTERNATIONAL BUSINESS MACHINES CORP — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 6,
+        "edges": 5
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.53,
+      "mission_evidence": "Competition IBM is a globally in"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000051253": {
+    "name": "INTERNATIONAL FLAVORS & FRAGRANCES INC",
+    "cik": "0000051253",
+    "sector": "2860 - Industrial Organic Chemicals",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000051253-25-000013",
+    "filing_date": "2025-02-28",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000051253&type=10-K",
+    "overview": {
+      "mission": "Supply Chain We strive to provide our customers with consistent and quality products on a timely and cost-effecti.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Pharma Solutions",
+        "Enzymes for laundry and dishwashing detergents and patented biodegradable enzymatic polymers",
+        "Global leadership positions in Food & Beverage, Home & Personal Care and Health & Wellness markets"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "INTERNATIONAL FLAVORS & FRAGRANCES INC — TrainingAndDevelopment; Digitalized learning plans on human capital platform captured in employee profiles"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 8,
+        "edges": 7
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.79,
+      "mission_evidence": "Supply Chain We strive to provide our customers with consistent and quality products on a timely and cost-effecti"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000051434": {
+    "name": "INTERNATIONAL PAPER CO /NEW/",
+    "cik": "0000051434",
+    "sector": "2621 - Paper Mills",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000051434-25-000013",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000051434&type=10-K",
+    "overview": {
+      "mission": "Results of the survey will be analyzed in 2025 with the goal of learning, growing and aspiring to achieve our Vision 2030 goal to create a 100% injury-free workplace for our t.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 1,
+      "mission_confidence": 0.94,
+      "mission_evidence": "Results of the survey will be analyzed in 2025 with the goal of learning, growing and aspiring to achieve our Vision 2030 goal to create a 100% injury-free workplace for our t"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000051644": {
+    "name": "INTERPUBLIC GROUP OF COMPANIES, INC.",
+    "cik": "0000051644",
+    "sector": "7311 - Services-Advertising Agencies",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000051644-25-000024",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000051644&type=10-K",
+    "overview": {
+      "mission": "INTERPUBLIC GROUP OF COMPANIES, INC. — Mission; Digital commerce, retail media, AI, audience resolution, production.",
+      "mission_source": "kg",
+      "objectives": [
+        "Digital commerce, retail media, AI, audience resolution, production"
+      ],
+      "capabilities": [
+        "Integrated Advertising & Creativity Led Solutions (IA&C)",
+        "Insights, data, media, creative, production, digital commerce, healthcare marketing"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Approximately 53,300 employees; INTERPUBLIC GROUP OF COMPANIES, INC. — WorkforceComposition",
+        "INTERPUBLIC GROUP OF COMPANIES, INC. — CompensationAndBenefits; Executive compensation for senior leaders with annual performance assessment",
+        "INTERPUBLIC GROUP OF COMPANIES, INC. — TrainingAndDevelopment; Skills-training, management training, onboarding processes, goal-setting platforms",
+        "INTERPUBLIC GROUP OF COMPANIES, INC. — DiversityEquityInclusion; Programs for recruitment, retention, advancement, well-being and belonging",
+        "Inclusion, talent potential, growth and social impact as essential priorities; INTERPUBLIC GROUP OF COMPANIES, INC. — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000019617": {
+    "name": "JPMORGAN CHASE & CO",
+    "cik": "0000019617",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000019617-25-000270",
+    "filing_date": "2025-02-14",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000019617&type=10-K",
+    "overview": {
+      "mission": "(“JPMorganChase” or the “Firm”, NYSE: JPM), a financial holding company incorporated under Delaware law in 1968, is a leading financial services firm based in the United States of America (“U.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.51,
+      "mission_evidence": "(“JPMorganChase” or the “Firm”, NYSE: JPM), a financial holding company incorporated under Delaware law in 1968, is a leading financial services firm based in the United States of America (“U."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000055785": {
+    "name": "KIMBERLY CLARK CORP",
+    "cik": "0000055785",
+    "sector": "2670 - Converted Paper & Paperboard Products",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000055785-25-000013",
+    "filing_date": "2025-02-13",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000055785&type=10-K",
+    "overview": {
+      "mission": "KIMBERLY CLARK CORP — Mission; 2024 Transformation Initiative: innovation, margin optimization, organizational agility.",
+      "mission_source": "kg",
+      "objectives": [
+        "2024 Transformation Initiative: innovation, margin optimization, organizational agility"
+      ],
+      "capabilities": [
+        "International Personal Care (IPC)",
+        "Baby & Child Care, Adult Care, Feminine Care, Family Care, Professional products"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "KIMBERLY CLARK CORP — TrainingAndDevelopment",
+        "KIMBERLY CLARK CORP — EngagementAndRetention",
+        "KIMBERLY CLARK CORP — DiversityEquityInclusion; ERGs for African, Hispanic/Latino, Asian ancestry, women, LGBTQ+, parents, veterans, etc.; Inclusion, equity and diversity as fundamental business strategy overseen by MDC",
+        "KIMBERLY CLARK CORP — WorkforceComposition; Approximately 38,000 employees as of December 31, 2024",
+        "KIMBERLY CLARK CORP — CompensationAndBenefits; Market-based competitive salary, annual incentive, long-term equity incentives; Short-term cash incentives, long-term equity incentives, retirement planning resources"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000033992": {
+    "name": "KINGSTONE COMPANIES, INC.",
+    "cik": "0000033992",
+    "sector": "6331 - Fire, Marine & Casualty Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000033992-25-000007",
+    "filing_date": "2025-03-18",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000033992&type=10-K",
+    "overview": {
+      "mission": "Be the preferred multi-line P&C insurer for selected producers in geographic markets; Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base; KINGSTONE COMPANIES, INC. — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base"
+      ],
+      "capabilities": [
+        "Personal lines: homeowners, dwelling fire, cooperative/condominium, renters, personal umbrella",
+        "12th largest writer of homeowners insurance in New York in 2024"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "KINGSTONE COMPANIES, INC. — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 8,
+        "edges": 7
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000058492": {
+    "name": "LEGGETT & PLATT INC",
+    "cik": "0000058492",
+    "sector": "2510 - Household Furniture",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000058492-25-000136",
+    "filing_date": "2025-02-26",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000058492&type=10-K",
+    "overview": {
+      "mission": "Succession Development We are committed to having strong managers and leadership in critical roles across the Company.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Specialized Products",
+        "Aerospace tubing and fabricated assemblies"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Health, dental, vision, retirement savings, disability, life insurance, well-being programs; Discount stock purchase plan, flexible hours, remote/hybrid work options; LEGGETT & PLATT INC — CompensationAndBenefits",
+        "LEGGETT & PLATT INC — TrainingAndDevelopment; Monthly learning spotlights on career growth, change management, collaboration, etc.",
+        "LEGGETT & PLATT INC — WorkforceComposition; Approximately 17,700 employees at year-end 2024",
+        "LEGGETT & PLATT INC — EngagementAndRetention",
+        "Inclusion, respect, and equal opportunity for all employees; LEGGETT & PLATT INC — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.83,
+      "mission_evidence": "Succession Development We are committed to having strong managers and leadership in critical roles across the Company."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000059527": {
+    "name": "LINCOLN ELECTRIC HOLDINGS INC",
+    "cik": "0000059527",
+    "sector": "3540 - Metalworking Machinery & Equipment",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000059527-25-000006",
+    "filing_date": "2025-02-26",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000059527&type=10-K",
+    "overview": {
+      "mission": "Our goal is to proactively manage risks in a structured approach an.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "The Harris Products Group (global cutting, soldering, brazing, specialty gas equipment, US retail)",
+        "Arc welding consumables, equipment, plasma and oxyfuel cutting systems, wire feeding systems, fume control equipment",
+        "World leader in design, development and manufacture of arc welding solutions"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "LINCOLN ELECTRIC HOLDINGS INC — CompensationAndBenefits; Base pay below competitive market; incentive-based cash compensation above competitive market; pay for performance culture",
+        "The Golden Rule: Treat Others How You Would Like to Be Treated; LINCOLN ELECTRIC HOLDINGS INC — CultureAndValues",
+        "Longstanding commitment to equal opportunity in employment regardless of gender, race or other personal characteristics; LINCOLN ELECTRIC HOLDINGS INC — DiversityEquityInclusion",
+        "LINCOLN ELECTRIC HOLDINGS INC — EngagementAndRetention",
+        "LINCOLN ELECTRIC HOLDINGS INC — TrainingAndDevelopment; Formal leadership, management and professional development programs; Early career and internship programs, mentoring, self-guided online courses, rotational assignments; Tuition reimbursement for external accredited programs",
+        "Approximately 12,000 employees worldwide as of December 31, 2024; LINCOLN ELECTRIC HOLDINGS INC — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.74,
+      "mission_evidence": "Our goal is to proactively manage risks in a structured approach an"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000059558": {
+    "name": "LINCOLN NATIONAL CORP",
+    "cik": "0000059558",
+    "sector": "6311 - Life Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000059558-25-000023",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000059558&type=10-K",
+    "overview": {
+      "mission": "Provide financial protection and security to customers and families through products and services across four core businesses.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Financial protection and security products across four core businesses"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "9,783 employees as of December 31, 2024; LINCOLN NATIONAL CORP — WorkforceComposition",
+        "Company-wide engagement survey every two years; department-specific pulse surveys in alternate years; LINCOLN NATIONAL CORP — EngagementAndRetention",
+        "Subsidized medical plan with domestic partner eligibility, dental, vision, HSA with company contribution; 401(k) with non-discretionary core company contribution and company matching contribution; Homework Connection providing one-on-one on-demand homework help to students at no cost; Fertility, pregnancy and parenting support, paid parental leave and adoption assistance; Personalized Your Total Rewards statement showing comprehensive direct and indirect compensation; LINCOLN NATIONAL CORP — CompensationAndBenefits; Hybrid work model informed by direct feedback from workforce; paid time off and flexible work arrangements; Market-competitive compensation with broad range of health, wellness, retirement savings and financial protection plans",
+        "LINCOLN NATIONAL CORP — TrainingAndDevelopment; Access to TED@Work and Harvard Business Publishing open online courses for all employees; Partnership with Harvard Business Publishing for mid-level and senior level leader courses; Get CAREER FIT enterprise-wide boot-camp style development planning program for all employees"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000060086": {
+    "name": "LOEWS CORP",
+    "cik": "0000060086",
+    "sector": "6331 - Fire, Marine & Casualty Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000060086-25-000036",
+    "filing_date": "2025-02-11",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000060086&type=10-K",
+    "overview": {
+      "mission": "We also own approximately 53% of Altium Packaging LLC, an unconsolidated subsidiary, which is engaged in the manufacture of rigid plastic packaging solutions.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "LOEWS CORP — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.43,
+      "mission_evidence": "We also own approximately 53% of Altium Packaging LLC, an unconsolidated subsidiary, which is engaged in the manufacture of rigid plastic packaging solutions."
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000060519": {
+    "name": "LOUISIANA-PACIFIC CORP",
+    "cik": "0000060519",
+    "sector": "2400 - Lumber & Wood Products",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000060519-25-000005",
+    "filing_date": "2025-02-19",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000060519&type=10-K",
+    "overview": {
+      "mission": "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Siding ($1,558 million net sales, 53% of 2024 revenue)",
+        "Leading producer of OSB and siding products in South America"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 7,
+        "edges": 6
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.83,
+      "mission_evidence": "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000060667": {
+    "name": "LOWES COMPANIES INC",
+    "cik": "0000060667",
+    "sector": "5211 - Lumber & Building Materials Dealers",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000060667-25-000049",
+    "filing_date": "2025-03-24",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000060667&type=10-K",
+    "overview": {
+      "mission": "Create a loyalty ecosystem (MyLowe's Rewards); Expand home services; Drive Pro penetration; LOWES COMPANIES INC — Mission; Increase space productivity; Accelerate online sales.",
+      "mission_source": "kg",
+      "objectives": [
+        "Accelerate online sales"
+      ],
+      "capabilities": [
+        "Fortune 50 company and world's second largest home improvement retailer"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Four community pillars: safe/affordable housing, community improvements, skilled trades education, disaster response; Evolved 8 Business Resource Groups into one unified umbrella associate engagement organization; LOWES COMPANIES INC — DiversityEquityInclusion",
+        "Lowe's University with District Manager and Store Manager immersive week-long leadership programs; Track to the Trades program offering apprentice certifications in electrical, plumbing, HVAC, appliance repair; Tuition-free education program for associates; LOWES COMPANIES INC — TrainingAndDevelopment",
+        "LOWES COMPANIES INC — EngagementAndRetention; More than 90% of associates participated in annual engagement survey in fiscal 2024",
+        "LOWES COMPANIES INC — WorkforceComposition; Approximately 161,000 full-time and 109,000 part-time associates as of January 31, 2025",
+        "Workforce management tools for scheduling: shortened workweek, consistent shifts, consecutive days off; Spanish language capabilities to promote bilingual hiring; Health care, insurance, retirement plans, employee stock purchase plan, paid time off, and leave programs; Minimum wage starts at $15 per hour; locally competitive salaries and wages; LOWES COMPANIES INC — CompensationAndBenefits"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000018926": {
+    "name": "Lumen Technologies, Inc.",
+    "cik": "0000018926",
+    "sector": "4813 - Telephone Communications (No Radio Telephone)",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000018926-25-000010",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000018926&type=10-K",
+    "overview": {
+      "mission": "Unleashing the world's digital potential through integrated products and services.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Edge, Network-as-a-Service and cybersecurity services"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Approximately 8,900 courses in learning management system, mostly Lumen-specific content; Tuition reimbursement and tailored intern and mentoring programs; Over 150,000 resources on learning platform; Lumen Technologies, Inc. — TrainingAndDevelopment",
+        "Lumen Technologies, Inc. — EngagementAndRetention",
+        "Lumen Technologies, Inc. — CultureAndValues",
+        "Approximately 25,000 employees world-wide, including approximately 3,400 outside the U.S.; Lumen Technologies, Inc. — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 1,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000062234": {
+    "name": "MARCUS CORP",
+    "cik": "0000062234",
+    "sector": "7830 - Services-Motion Picture Theaters",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000062234-25-000006",
+    "filing_date": "2025-02-28",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000062234&type=10-K",
+    "overview": {
+      "mission": "Developing a committed team dedicated to service; fostering diverse and inclusive culture; MARCUS CORP — Mission.",
+      "mission_source": "kg",
+      "objectives": [
+        "Developing a committed team dedicated to service",
+        "fostering diverse and inclusive culture"
+      ],
+      "capabilities": [
+        "Hotels and Resorts",
+        "4th largest theatre circuit in the United States"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "MARCUS CORP — EngagementAndRetention",
+        "Approximately 8,550 employees as of December 26, 2024; ~66% variable or part-time; MARCUS CORP — WorkforceComposition",
+        "MARCUS CORP — TrainingAndDevelopment; Required annual training on preventing, identifying, reporting and stopping unlawful discrimination",
+        "Pays employees competitively; offers broad range of company-paid benefits competitive with industry; MARCUS CORP — CompensationAndBenefits",
+        "MARCUS CORP — CultureAndValues; Committed to maintaining an equal opportunity workplace with honest, ethical and respectful conduct"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 12,
+        "edges": 11
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000015615": {
+    "name": "MASTEC INC",
+    "cik": "0000015615",
+    "sector": "1623 - Water, Sewer, Pipeline, Comm and Power Line Construction",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000015615-25-000021",
+    "filing_date": "2025-02-28",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000015615&type=10-K",
+    "overview": {
+      "mission": "Achieve customer expectations safely, profitably and in an environmentally responsible manner.",
+      "mission_source": "kg",
+      "objectives": [
+        "Focus on nation's transition to low-carbon energy sources",
+        "expanded in renewables and power delivery"
+      ],
+      "capabilities": [
+        "Communications",
+        "Construction of clean energy and renewable power generation: wind, solar, biomass, battery storage",
+        "Leading infrastructure construction company",
+        "ranked among top 5 in ENR Top 400 Contractors"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Medical, dental, vision, prescription insurance, telehealth, 401(k) with match, ESPP, life/disability; MASTEC INC — CompensationAndBenefits",
+        "Safety orientation, OSHA outreach, defensive driving, DOT, operator qualification, electric worker training; MASTEC INC — TrainingAndDevelopment; Apprenticeship and leadership programs, tuition reimbursement, employee training centers",
+        "Approximately 32,000 as of Dec 31, 2024; average ~33,000 for 12-month period; MASTEC INC — WorkforceComposition",
+        "Safety is a core value; commitment to fairness, respect, teamwork and collaboration; MASTEC INC — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 2,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000024545": {
+    "name": "MOLSON COORS BEVERAGE CO",
+    "cik": "0000024545",
+    "sector": "2082 - Malt Beverages",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000024545-25-000007",
+    "filing_date": "2025-02-18",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000024545&type=10-K",
+    "overview": {
+      "mission": "Scale and expand in beyond beer; MOLSON COORS BEVERAGE CO — Mission; Consistently grow core power brand net sales; Aggressively premiumize portfolio; Invest in capabilities and support people, communities and planet.",
+      "mission_source": "kg",
+      "objectives": [
+        "Invest in capabilities and support people, communities and planet"
+      ],
+      "capabilities": [
+        "Americas",
+        "Beer, flavored beverages (Vizzy Hard Seltzer), spirits (Five Trail whiskey), non-alcoholic beverages",
+        "Fourth largest global brewer in the world"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "MOLSON COORS BEVERAGE CO — TrainingAndDevelopment; First Choice Learning - global development resource platform with in-person and online training",
+        "MOLSON COORS BEVERAGE CO — EngagementAndRetention; Employee Experience surveys conducted 3x/year in Americas and yearly in EMEA&APAC",
+        "People are the heart of the Company; culture encouraging unique perspectives and experiences; MOLSON COORS BEVERAGE CO — CultureAndValues",
+        "MOLSON COORS BEVERAGE CO — WorkforceComposition; Approximately 16,800 employees globally as of December 31, 2024"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 10,
+        "edges": 9
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  },
+  "0000029989": {
+    "name": "OMNICOM GROUP INC.",
+    "cik": "0000029989",
+    "sector": "7311 - Services-Advertising Agencies",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000029989-25-000008",
+    "filing_date": "2025-02-10",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000029989&type=10-K",
+    "overview": {
+      "mission": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [
+        "Communications Consultancy Network",
+        "Experiential marketing, Execution & Support, field marketing, merchandising"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Approximately 74,900 employees worldwide as of December 31, 2024; OMNICOM GROUP INC. — WorkforceComposition",
+        "OMNICOM GROUP INC. — CultureAndValues",
+        "OMNICOM GROUP INC. — CompensationAndBenefits; Competitive wages and benefits with comprehensive training programs and succession planning",
+        "Training and development programs that build leadership and professional skills; OMNICOM GROUP INC. — TrainingAndDevelopment"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      },
+      "mission_tier": 2,
+      "mission_confidence": 0.84,
+      "mission_evidence": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000052827": {
+    "name": "RAYONIER INC",
+    "cik": "0000052827",
+    "sector": "6798 - Real Estate Investment Trusts",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000052827-25-000018",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000052827&type=10-K",
+    "overview": {
+      "mission": "RAYONIER INC — Mission; Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions.",
+      "mission_source": "kg",
+      "objectives": [
+        "Active portfolio management through selective acquisitions and dispositions"
+      ],
+      "capabilities": [
+        "Real Estate",
+        "Strategic location in core softwood producing regions with favorable supply-demand"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "RAYONIER INC — CompensationAndBenefits; 401(k) with company matching and enhanced retirement contributions; Medical, dental, vision, life, accident, disability, paid parental and caregiver leave; Competitive compensation with base salary, annual bonus, and equity grants",
+        "RAYONIER INC — EngagementAndRetention; Biennial company-wide anonymous employee survey benchmarked against global database",
+        "424 employees (332 U.S., 92 New Zealand) as of December 31, 2024; RAYONIER INC — WorkforceComposition",
+        "Tuition reimbursement covering 80% of degreed program costs; Micro/on-demand learning, classroom programs, coaching and mentoring; Cross-functional assignments and job rotation for early career foresters; RAYONIER INC — TrainingAndDevelopment",
+        "Culture as an asset; goal of being preferred employer in forestry industry; RAYONIER INC — CultureAndValues"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000031791": {
+    "name": "REVVITY, INC.",
+    "cik": "0000031791",
+    "sector": "3826 - Laboratory Analytical Instruments",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000031791-25-000008",
+    "filing_date": "2025-02-25",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000031791&type=10-K",
+    "overview": {
+      "mission": "REVVITY, INC. — Mission; Innovation via R&D and acquisitions; operational excellence; expand global offerings.",
+      "mission_source": "kg",
+      "objectives": [
+        "Innovation via R&D and acquisitions",
+        "operational excellence",
+        "expand global offerings"
+      ],
+      "capabilities": [
+        "Diagnostics",
+        "Dharmacon reagents and gene modulation technologies (RNAi) for drug discovery"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "REVVITY, INC. — EngagementAndRetention",
+        "REVVITY, INC. — CompensationAndBenefits; Competitive base pay with attractive incentive opportunities; benefits tailored by country; Benefits benchmarked for market practices; adjusted to remain equitable and competitive",
+        "REVVITY, INC. — CultureAndValues",
+        "Formal (classroom, blended, digital) and informal on-the-job learning across all levels; REVVITY, INC. — TrainingAndDevelopment; Annual performance review with constructive feedback and development goal creation",
+        "Approximately 11,000 employees worldwide as of December 29, 2024; REVVITY, INC. — WorkforceComposition"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 13,
+        "edges": 12
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 3,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000018349": {
+    "name": "SYNOVUS FINANCIAL CORP",
+    "cik": "0000018349",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000018349-25-000049",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000018349&type=10-K",
+    "overview": {
+      "mission": "We provide commercial and consumer banking in addition to a full suite of specialized products and services including wealth services, treasury management, mortgage services, premium finance, asset-based lendin.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Performance share units with market and performance target levels; Stock options with service-based vesting period of three years; Restricted share units, primarily equity-based with some cash settled; SYNOVUS FINANCIAL CORP — CompensationAndBenefits; Dividend equivalents paid on outstanding restricted and performance share units; Share-based compensation including stock options, restricted share units, and performance share units"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.42,
+      "mission_evidence": "We provide commercial and consumer banking in addition to a full suite of specialized products and services including wealth services, treasury management, mortgage services, premium finance, asset-based lendin"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 2,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000027419": {
+    "name": "TARGET CORP",
+    "cik": "0000027419",
+    "sector": "5331 - Retail-Variety Stores",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000027419-25-000018",
+    "filing_date": "2025-03-12",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000027419&type=10-K",
+    "overview": {
+      "mission": "TARGET CORP — Mission; Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value.",
+      "mission_source": "kg",
+      "objectives": [
+        "Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value"
+      ],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "TARGET CORP — CultureAndValues",
+        "TARGET CORP — EngagementAndRetention",
+        "TARGET CORP — WorkforceComposition; Approximately 440,000 full-time, part-time, and seasonal team members as of February 1, 2025",
+        "Tuition-free education assistance, free mental health services, free virtual health care visits; Starting wage range of $15-$24/hour for U.S. hourly team members in stores and supply chain; TARGET CORP — CompensationAndBenefits; 401(k) with dollar-for-dollar matching up to 5% of eligible earnings; Support financial, mental and physical well-being of team members and their families"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000100790": {
+    "name": "UNION CARBIDE CORP /NEW/",
+    "cik": "0000100790",
+    "sector": "2860 - Industrial Organic Chemicals",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000029915-25-000003",
+    "filing_date": "2025-02-04",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000100790&type=10-K",
+    "overview": {
+      "mission": "",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [
+        "Technology Licensing and Catalysts including METEOR Process and LP OXO process",
+        "Polyethylene resins including FLEXOMER, TUFLIN, and UNIVAL brands"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 5,
+        "edges": 4
+      }
+    },
+    "scores": {
+      "Mission Clarity": 0,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 2,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 1,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 2
+    }
+  },
+  "0000036104": {
+    "name": "US BANCORP \\DE\\",
+    "cik": "0000036104",
+    "sector": "6021 - National Commercial Banks",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000036104-25-000016",
+    "filing_date": "2025-02-21",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000036104&type=10-K",
+    "overview": {
+      "mission": "USBNA provides a wide range of products and services to individua.",
+      "mission_source": "10k",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "US BANCORP \\DE\\ — EngagementAndRetention",
+        "US BANCORP \\DE\\ — TrainingAndDevelopment; Development Network providing all employees networking, learning, and leadership opportunities; Development Day highlighting importance of self-development and Company commitment to learning; Product Academy, Foundational Leadership, Skill of the Month, and Skills Academy programs",
+        "70,263 employees globally as of December 31, 2024; US BANCORP \\DE\\ — WorkforceComposition",
+        "US BANCORP \\DE\\ — CompensationAndBenefits; Competitive 401(k) matching program and educational assistance programs; Comprehensive healthcare, retirement, leave, recognition, wellness, disability, and life insurance; Competitive pay with periodic peer/benchmarking reviews; disclosed compensation ranges for all US roles; Active cash balance pension program for U.S. employees including new hires"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 9,
+        "edges": 8
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.44,
+      "mission_evidence": "USBNA provides a wide range of products and services to individua"
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000005513": {
+    "name": "Unum Group",
+    "cik": "0000005513",
+    "sector": "6321 - Accident & Health Insurance",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000005513-25-000015",
+    "filing_date": "2025-02-27",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000005513&type=10-K",
+    "overview": {
+      "mission": "Unum Group — Mission.",
+      "mission_source": "kg",
+      "objectives": [],
+      "capabilities": [],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Unum Group — WorkforceComposition; 11,063 total employees as of December 31, 2024; approximately 10,833 full-time",
+        "Regular confidential employee surveys conducted to obtain feedback and gain insights; Unum Group — EngagementAndRetention",
+        "Industry-leading emergency savings program, student debt relief, 401(k) plan; Unum Group — CompensationAndBenefits; Paid caregiver and parental leave, telehealth, digital behavioral health support; Annual bonus, stock awards, stock purchase plans, life/medical/dental/vision insurance",
+        "Portfolio of skills and career development offerings including operational training; Tuition reimbursement, leadership development programs, and multi-year rotational programs; Unum Group — TrainingAndDevelopment",
+        "Unum Group — DiversityEquityInclusion; Culture of inclusivity and belonging; employee networks open to entire workforce"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 11,
+        "edges": 10
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 0,
+      "Strategy → Operations Grounding": 0,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 1
+    }
+  },
+  "0000030697": {
+    "name": "Wendy's Co",
+    "cik": "0000030697",
+    "sector": "5810 - Retail-Eating & Drinking Places",
+    "fiscal_year": "FY2024",
+    "filing_id": "0000030697-25-000009",
+    "filing_date": "2025-02-20",
+    "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000030697&type=10-K",
+    "overview": {
+      "mission": "Fresh Famous Food...Made Right...For You - delivered every time, every restaurant, every customer.",
+      "mission_source": "kg",
+      "objectives": [
+        "Same-restaurant sales growth, digital growth, restaurant profitability, global unit growth"
+      ],
+      "capabilities": [
+        "Global Real Estate & Development (owned/leased sites, TimWen JV, Franchise Flips)",
+        "2nd largest QSR in hamburger segment in US by traffic/dollar share",
+        "3rd largest globally"
+      ],
+      "initiatives": [],
+      "risks": [],
+      "hcm_metrics": [
+        "Wendy's University - targeted training for management and leadership skills at all levels; Wendy's Co — TrainingAndDevelopment; Online learning curriculum and hands-on training led by crew trainers, managers, field staff",
+        "Administers employee engagement survey annually; tracks turnover vs. restaurant industry; Wendy's Co — EngagementAndRetention",
+        "Wendy's Co — CultureAndValues; Doing the Right Thing, Treating People with Respect, Giving Something Back (Dave Thomas values)",
+        "Medical, dental, vision, Rx insurance, telehealth, 401(k), HSA, EAP, paid sick leave, bonding leave; Wendy's Co — CompensationAndBenefits; Market-competitive pay and benefits; benchmarking externally and internally",
+        "Approximately 14,500 employees; ~1/3 full-time, ~2/3 part-time as of Dec 29, 2024; Wendy's Co — WorkforceComposition",
+        "Wendy's Co — DiversityEquityInclusion; WeBERG (Black), WenGEN (Young Professionals), GiveCare (Care Givers) - 7 ERGs total; Women of Wendy's, WeQual (LGBTQ+), WeVets (Military), WCD (Culturally Diverse)"
+      ],
+      "financial_metrics": [],
+      "kg_stats": {
+        "nodes": 14,
+        "edges": 13
+      }
+    },
+    "scores": {
+      "Mission Clarity": 3,
+      "Vision → Strategy Linkage": 1,
+      "Strategy → Operations Grounding": 3,
+      "Operations → Financial Linkage": 0,
+      "HCM Disclosure Depth": 3,
+      "Risk Awareness & Mitigation": 0,
+      "Initiative Specificity": 0,
+      "Capability Articulation": 3
+    }
+  }
+}

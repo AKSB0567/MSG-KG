@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: GRACO INC
+# CIK: 0000042888
+
+inst:Company_GRACO_INC a msg:Company ;
+    rdfs:label "GRACO INC" ;
+    msg:cik "0000042888" ;
+    msg:sector "3561 - Pumps & Pumping Equipment" ;
+    msg:hasMission inst:Mission_GRACO_INC .
+
+inst:Mission_GRACO_INC a msg:MissionStatement ;
+    msg:missionText "We are committed to maintaining a culture of trust that recognizes the dignity and uniqueness of the individual." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.84^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000042888-25-000011.txt" .

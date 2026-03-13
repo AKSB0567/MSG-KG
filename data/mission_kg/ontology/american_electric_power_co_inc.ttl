@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: AMERICAN ELECTRIC POWER CO INC
+# CIK: 0000004904
+# Stakeholders: Customers, Employees, Society
+# Values: Safety
+# Objectives: 0 found
+# Domains: Energy
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_AMERICAN_ELECTRIC_POWER_CO_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC" ;
+    msg:cik "0000004904" ;
+    msg:sector "4911 - Electric Services" ;
+    msg:hasMission inst:Mission_AMERICAN_ELECTRIC_POWER_CO_INC .
+
+# ── Mission Statement ──
+inst:Mission_AMERICAN_ELECTRIC_POWER_CO_INC a msg:MissionStatement ;
+    msg:missionText "We are committed to fundamentally embed layers of protection in the work we do." ;
+    msg:extractedFrom "cleaned_10-K_0000004904-25-000027.txt" ;
+    msg:servesStakeholder inst:AMERICAN_ELECTRIC_POWER_CO_INC_Stakeholder_Customers ;
+    msg:servesStakeholder inst:AMERICAN_ELECTRIC_POWER_CO_INC_Stakeholder_Employees ;
+    msg:servesStakeholder inst:AMERICAN_ELECTRIC_POWER_CO_INC_Stakeholder_Society ;
+    msg:embodiesValue inst:AMERICAN_ELECTRIC_POWER_CO_INC_Value_Safety ;
+    msg:operatesInDomain inst:AMERICAN_ELECTRIC_POWER_CO_INC_Domain_Energy ;
+    msg:leveragesCapability inst:AMERICAN_ELECTRIC_POWER_CO_INC_Capability_0  .
+
+inst:AMERICAN_ELECTRIC_POWER_CO_INC_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:AMERICAN_ELECTRIC_POWER_CO_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:AMERICAN_ELECTRIC_POWER_CO_INC_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:AMERICAN_ELECTRIC_POWER_CO_INC_Value_Safety a msg:CorporateValue ;
+    rdfs:label "Safety" .
+
+inst:AMERICAN_ELECTRIC_POWER_CO_INC_Domain_Energy a msg:BusinessDomain ;
+    rdfs:label "Energy" .
+
+inst:AMERICAN_ELECTRIC_POWER_CO_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Vertically Integrated Utilities, Transmission & Distribution Utilities, AEP Transmission Holdco, Gen" .

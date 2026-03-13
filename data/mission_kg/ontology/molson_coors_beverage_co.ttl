@@ -1,0 +1,88 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: MOLSON COORS BEVERAGE CO
+# CIK: 0000024545
+# Stakeholders: Employees, Society, Government
+# Values: Growth, Service
+# Objectives: 0 found
+# Domains: Financial Services, Energy, Consumer Goods
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_MOLSON_COORS_BEVERAGE_CO a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "MOLSON COORS BEVERAGE CO" ;
+    msg:cik "0000024545" ;
+    msg:sector "2082 - Malt Beverages" ;
+    msg:hasMission inst:Mission_MOLSON_COORS_BEVERAGE_CO .
+
+# ── Mission Statement ──
+inst:Mission_MOLSON_COORS_BEVERAGE_CO a msg:MissionStatement ;
+    msg:missionText "Scale and expand in beyond beer; MOLSON COORS BEVERAGE CO — Mission; Consistently grow core power brand net sales; Aggressively premiumize portfolio; Invest in capabilities and support people, communities and planet." ;
+    msg:extractedFrom "cleaned_10-K_0000024545-25-000007.txt" ;
+    msg:servesStakeholder inst:MOLSON_COORS_BEVERAGE_CO_Stakeholder_Employees ;
+    msg:servesStakeholder inst:MOLSON_COORS_BEVERAGE_CO_Stakeholder_Society ;
+    msg:servesStakeholder inst:MOLSON_COORS_BEVERAGE_CO_Stakeholder_Government ;
+    msg:embodiesValue inst:MOLSON_COORS_BEVERAGE_CO_Value_Growth ;
+    msg:embodiesValue inst:MOLSON_COORS_BEVERAGE_CO_Value_Service ;
+    msg:operatesInDomain inst:MOLSON_COORS_BEVERAGE_CO_Domain_Financial_Services ;
+    msg:operatesInDomain inst:MOLSON_COORS_BEVERAGE_CO_Domain_Energy ;
+    msg:operatesInDomain inst:MOLSON_COORS_BEVERAGE_CO_Domain_Consumer_Goods ;
+    msg:leveragesCapability inst:MOLSON_COORS_BEVERAGE_CO_Capability_0 ;
+    msg:leveragesCapability inst:MOLSON_COORS_BEVERAGE_CO_Capability_1 ;
+    msg:leveragesCapability inst:MOLSON_COORS_BEVERAGE_CO_Capability_2  .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Domain_Energy a msg:BusinessDomain ;
+    rdfs:label "Energy" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Domain_Consumer_Goods a msg:BusinessDomain ;
+    rdfs:label "Consumer Goods" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Americas" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Beer, flavored beverages (Vizzy Hard Seltzer), spirits (Five Trail whiskey), non-alcoholic beverages" .
+
+inst:MOLSON_COORS_BEVERAGE_CO_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Fourth largest global brewer in the world" .

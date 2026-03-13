@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: FORD MOTOR CO
+# CIK: 0000037996
+
+inst:Company_FORD_MOTOR_CO a msg:Company ;
+    rdfs:label "FORD MOTOR CO" ;
+    msg:cik "0000037996" ;
+    msg:sector "3711 - Motor Vehicles & Passenger Car Bodies" ;
+    msg:hasMission inst:Mission_FORD_MOTOR_CO .
+
+inst:Mission_FORD_MOTOR_CO a msg:MissionStatement ;
+    msg:missionText "We provide warranties on." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.42^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000037996-25-000013.txt" .

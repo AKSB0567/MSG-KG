@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: OMNICOM GROUP INC.
+# CIK: 0000029989
+
+inst:Company_OMNICOM_GROUP_INC a msg:Company ;
+    rdfs:label "OMNICOM GROUP INC." ;
+    msg:cik "0000029989" ;
+    msg:sector "7311 - Services-Advertising Agencies" ;
+    msg:hasMission inst:Mission_OMNICOM_GROUP_INC .
+
+inst:Mission_OMNICOM_GROUP_INC a msg:MissionStatement ;
+    msg:missionText "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.84^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000029989-25-000009.txt" .

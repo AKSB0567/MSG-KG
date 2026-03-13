@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: INDEPENDENT BANK CORP /MI/
+# CIK: 0000039311
+
+inst:Company_INDEPENDENT_BANK_CORP_MI a msg:Company ;
+    rdfs:label "INDEPENDENT BANK CORP /MI/" ;
+    msg:cik "0000039311" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_INDEPENDENT_BANK_CORP_MI .
+
+inst:Mission_INDEPENDENT_BANK_CORP_MI a msg:MissionStatement ;
+    msg:missionText "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating a." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.72^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000039311-25-000044.txt" .

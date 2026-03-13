@@ -1,0 +1,52 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: INTEL CORP
+# CIK: 0000050863
+# Stakeholders: Government
+# Values: None identified
+# Objectives: 0 found
+# Domains: Technology
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_INTEL_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "INTEL CORP" ;
+    msg:cik "0000050863" ;
+    msg:sector "3674 - Semiconductors & Related Devices" ;
+    msg:hasMission inst:Mission_INTEL_CORP .
+
+# ── Mission Statement ──
+inst:Mission_INTEL_CORP a msg:MissionStatement ;
+    msg:missionText "INTEL CORP — Mission." ;
+    msg:extractedFrom "cleaned_10-K_0000050863-25-000009.txt" ;
+    msg:servesStakeholder inst:INTEL_CORP_Stakeholder_Government ;
+    msg:operatesInDomain inst:INTEL_CORP_Domain_Technology  .
+
+inst:INTEL_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:INTEL_CORP_Domain_Technology a msg:BusinessDomain ;
+    rdfs:label "Technology" .

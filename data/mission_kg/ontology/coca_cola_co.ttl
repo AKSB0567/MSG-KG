@@ -1,0 +1,92 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: COCA COLA CO
+# CIK: 0000021344
+# Stakeholders: Employees, Government
+# Values: Sustainability, Growth
+# Objectives: 1 found
+# Domains: Financial Services, Consumer Goods
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_COCA_COLA_CO a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "COCA COLA CO" ;
+    msg:cik "0000021344" ;
+    msg:sector "2080 - Beverages" ;
+    msg:hasMission inst:Mission_COCA_COLA_CO .
+
+# ── Mission Statement ──
+inst:Mission_COCA_COLA_CO a msg:MissionStatement ;
+    msg:missionText "For a Better Shared Future - invest to improve people's lives across the business system; COCA COLA CO — Mission; Loved Brands - craft meaningful brands and drinks that people love and enjoy; Done Sustainably - grow business achieving positive change and a more sustainable future." ;
+    msg:extractedFrom "cleaned_10-K_0000021344-25-000011.txt" ;
+    msg:servesStakeholder inst:COCA_COLA_CO_Stakeholder_Employees ;
+    msg:servesStakeholder inst:COCA_COLA_CO_Stakeholder_Government ;
+    msg:embodiesValue inst:COCA_COLA_CO_Value_Sustainability ;
+    msg:embodiesValue inst:COCA_COLA_CO_Value_Growth ;
+    msg:pursuesObjective inst:COCA_COLA_CO_Objective_0 ;
+    msg:operatesInDomain inst:COCA_COLA_CO_Domain_Financial_Services ;
+    msg:operatesInDomain inst:COCA_COLA_CO_Domain_Consumer_Goods ;
+    msg:leveragesCapability inst:COCA_COLA_CO_Capability_0 ;
+    msg:leveragesCapability inst:COCA_COLA_CO_Capability_1 ;
+    msg:leveragesCapability inst:COCA_COLA_CO_Capability_2 ;
+    msg:leveragesCapability inst:COCA_COLA_CO_Capability_3 ;
+    msg:leveragesCapability inst:COCA_COLA_CO_Capability_4  .
+
+inst:COCA_COLA_CO_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:COCA_COLA_CO_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:COCA_COLA_CO_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:COCA_COLA_CO_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:COCA_COLA_CO_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "improve people's lives across the business system" .
+
+inst:COCA_COLA_CO_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:COCA_COLA_CO_Domain_Consumer_Goods a msg:BusinessDomain ;
+    rdfs:label "Consumer Goods" .
+
+inst:COCA_COLA_CO_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Asia Pacific" .
+
+inst:COCA_COLA_CO_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Sparkling flavors" .
+
+inst:COCA_COLA_CO_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "water, sports, coffee and tea" .
+
+inst:COCA_COLA_CO_Capability_3 a msg:BusinessCapability ;
+    rdfs:label "juice, value-added dairy and plant-based beverages" .
+
+inst:COCA_COLA_CO_Capability_4 a msg:BusinessCapability ;
+    rdfs:label "emerging beverages" .

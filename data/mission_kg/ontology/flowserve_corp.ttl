@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: FLOWSERVE CORP
+# CIK: 0000030625
+# Stakeholders: Government
+# Values: Sustainability, Inclusion, Service
+# Objectives: 0 found
+# Domains: Manufacturing
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_FLOWSERVE_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "FLOWSERVE CORP" ;
+    msg:cik "0000030625" ;
+    msg:sector "3561 - Pumps & Pumping Equipment" ;
+    msg:hasMission inst:Mission_FLOWSERVE_CORP .
+
+# ── Mission Statement ──
+inst:Mission_FLOWSERVE_CORP a msg:MissionStatement ;
+    msg:missionText "FLOWSERVE CORP — Mission; 3D Strategy: Diversification, Decarbonization, and Digitization." ;
+    msg:extractedFrom "cleaned_10-K_0000030625-25-000039.txt" ;
+    msg:servesStakeholder inst:FLOWSERVE_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:FLOWSERVE_CORP_Value_Sustainability ;
+    msg:embodiesValue inst:FLOWSERVE_CORP_Value_Inclusion ;
+    msg:embodiesValue inst:FLOWSERVE_CORP_Value_Service ;
+    msg:operatesInDomain inst:FLOWSERVE_CORP_Domain_Manufacturing ;
+    msg:leveragesCapability inst:FLOWSERVE_CORP_Capability_0 ;
+    msg:leveragesCapability inst:FLOWSERVE_CORP_Capability_1 ;
+    msg:leveragesCapability inst:FLOWSERVE_CORP_Capability_2  .
+
+inst:FLOWSERVE_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:FLOWSERVE_CORP_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:FLOWSERVE_CORP_Value_Inclusion a msg:CorporateValue ;
+    rdfs:label "Inclusion" .
+
+inst:FLOWSERVE_CORP_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:FLOWSERVE_CORP_Domain_Manufacturing a msg:BusinessDomain ;
+    rdfs:label "Manufacturing" .
+
+inst:FLOWSERVE_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Flowserve Pump Division (FPD) - approximately 9,000 associates" .
+
+inst:FLOWSERVE_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Pumps, valves, seals, automation and aftermarket services" .
+
+inst:FLOWSERVE_CORP_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "World-leading manufacturer and aftermarket service provider of flow control systems" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Lumen Technologies, Inc.
+# CIK: 0000018926
+
+inst:Company_Lumen_Technologies_Inc a msg:Company ;
+    rdfs:label "Lumen Technologies, Inc." ;
+    msg:cik "0000018926" ;
+    msg:sector "4813 - Telephone Communications (No Radio Telephone)" ;
+    msg:hasMission inst:Mission_Lumen_Technologies_Inc .
+
+inst:Mission_Lumen_Technologies_Inc a msg:MissionStatement ;
+    msg:missionText "Unleashing the world's digital potential through integrated products and services." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000018926-25-000010.txt" .

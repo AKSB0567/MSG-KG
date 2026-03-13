@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: RAYONIER INC
+# CIK: 0000052827
+
+inst:Company_RAYONIER_INC a msg:Company ;
+    rdfs:label "RAYONIER INC" ;
+    msg:cik "0000052827" ;
+    msg:sector "6798 - Real Estate Investment Trusts" ;
+    msg:hasMission inst:Mission_RAYONIER_INC .
+
+inst:Mission_RAYONIER_INC a msg:MissionStatement ;
+    msg:missionText "RAYONIER INC — Mission; Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000052827-25-000018.txt" .

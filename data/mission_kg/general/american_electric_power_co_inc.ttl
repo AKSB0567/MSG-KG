@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: AMERICAN ELECTRIC POWER CO INC
+# CIK: 0000004904
+
+inst:Company_AMERICAN_ELECTRIC_POWER_CO_INC a msg:Company ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC" ;
+    msg:cik "0000004904" ;
+    msg:sector "4911 - Electric Services" ;
+    msg:hasMission inst:Mission_AMERICAN_ELECTRIC_POWER_CO_INC .
+
+inst:Mission_AMERICAN_ELECTRIC_POWER_CO_INC a msg:MissionStatement ;
+    msg:missionText "We are committed to fundamentally embed layers of protection in the work we do." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.82^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000004904-25-000027.txt" .

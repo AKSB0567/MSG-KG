@@ -1,0 +1,72 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: HUNTINGTON BANCSHARES INC /MD/
+# CIK: 0000049196
+# Stakeholders: Customers, Employees
+# Values: Service
+# Objectives: 1 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_HUNTINGTON_BANCSHARES_INC_MD a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "HUNTINGTON BANCSHARES INC /MD/" ;
+    msg:cik "0000049196" ;
+    msg:sector "6021 - National Commercial Banks" ;
+    msg:hasMission inst:Mission_HUNTINGTON_BANCSHARES_INC_MD .
+
+# ── Mission Statement ──
+inst:Mission_HUNTINGTON_BANCSHARES_INC_MD a msg:MissionStatement ;
+    msg:missionText "Stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p." ;
+    msg:extractedFrom "cleaned_10-K_0000049196-25-000020.txt" ;
+    msg:servesStakeholder inst:HUNTINGTON_BANCSHARES_INC_MD_Stakeholder_Customers ;
+    msg:servesStakeholder inst:HUNTINGTON_BANCSHARES_INC_MD_Stakeholder_Employees ;
+    msg:embodiesValue inst:HUNTINGTON_BANCSHARES_INC_MD_Value_Service ;
+    msg:pursuesObjective inst:HUNTINGTON_BANCSHARES_INC_MD_Objective_0 ;
+    msg:operatesInDomain inst:HUNTINGTON_BANCSHARES_INC_MD_Domain_Financial_Services ;
+    msg:leveragesCapability inst:HUNTINGTON_BANCSHARES_INC_MD_Capability_0 ;
+    msg:leveragesCapability inst:HUNTINGTON_BANCSHARES_INC_MD_Capability_1  .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "provide solutions that are specific to each customer" .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Consumer & Regional Banking (net income $1.5B in 2024, up 15% YoY)" .
+
+inst:HUNTINGTON_BANCSHARES_INC_MD_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Consumer lending: residential mortgage, automobile, home equity, RV and marine loans" .

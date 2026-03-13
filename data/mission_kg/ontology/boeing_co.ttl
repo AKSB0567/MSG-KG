@@ -1,0 +1,92 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: BOEING CO
+# CIK: 0000012927
+# Stakeholders: Employees, Society, Partners
+# Values: Sustainability, Integrity, Safety
+# Objectives: 1 found
+# Domains: Aerospace & Defense
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_BOEING_CO a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "BOEING CO" ;
+    msg:cik "0000012927" ;
+    msg:sector "3721 - Aircraft" ;
+    msg:hasMission inst:Mission_BOEING_CO .
+
+# ── Mission Statement ──
+inst:Mission_BOEING_CO a msg:MissionStatement ;
+    msg:missionText "We aspire to achieve zero workplace injuries and provide a safe, open and accountable work environment for our employee." ;
+    msg:extractedFrom "cleaned_10-K_0000012927-25-000015.txt" ;
+    msg:servesStakeholder inst:BOEING_CO_Stakeholder_Employees ;
+    msg:servesStakeholder inst:BOEING_CO_Stakeholder_Society ;
+    msg:servesStakeholder inst:BOEING_CO_Stakeholder_Partners ;
+    msg:embodiesValue inst:BOEING_CO_Value_Sustainability ;
+    msg:embodiesValue inst:BOEING_CO_Value_Integrity ;
+    msg:embodiesValue inst:BOEING_CO_Value_Safety ;
+    msg:pursuesObjective inst:BOEING_CO_Objective_0 ;
+    msg:operatesInDomain inst:BOEING_CO_Domain_Aerospace_Defense ;
+    msg:leveragesCapability inst:BOEING_CO_Capability_0 ;
+    msg:leveragesCapability inst:BOEING_CO_Capability_1 ;
+    msg:leveragesCapability inst:BOEING_CO_Capability_2 ;
+    msg:leveragesCapability inst:BOEING_CO_Capability_3  .
+
+inst:BOEING_CO_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:BOEING_CO_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:BOEING_CO_Stakeholder_Partners a msg:Stakeholder ;
+    rdfs:label "Partners" .
+
+inst:BOEING_CO_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:BOEING_CO_Value_Integrity a msg:CorporateValue ;
+    rdfs:label "Integrity" .
+
+inst:BOEING_CO_Value_Safety a msg:CorporateValue ;
+    rdfs:label "Safety" .
+
+inst:BOEING_CO_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "achieve zero workplace injuries and provide a safe" .
+
+inst:BOEING_CO_Domain_Aerospace_Defense a msg:BusinessDomain ;
+    rdfs:label "Aerospace & Defense" .
+
+inst:BOEING_CO_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Global Services (BGS)" .
+
+inst:BOEING_CO_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Supply chain and logistics management, engineering, maintenance, spare parts, pilot training" .
+
+inst:BOEING_CO_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "737 narrow-body, 767, 777 and 787 wide-body commercial jet aircraft" .
+
+inst:BOEING_CO_Capability_3 a msg:BusinessCapability ;
+    rdfs:label "One of the world's major aerospace firms and leading producer of commercial aircraft" .

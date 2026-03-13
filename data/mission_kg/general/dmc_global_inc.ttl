@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: DMC Global Inc.
+# CIK: 0000034067
+
+inst:Company_DMC_Global_Inc a msg:Company ;
+    rdfs:label "DMC Global Inc." ;
+    msg:cik "0000034067" ;
+    msg:sector "3390 - Miscellaneous Primary Metal Products" ;
+    msg:hasMission inst:Mission_DMC_Global_Inc .
+
+inst:Mission_DMC_Global_Inc a msg:MissionStatement ;
+    msg:missionText "DMC Global Inc. — Mission; Maximize company value by capitalizing on unique strengths of three businesses." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000034067-25-000028.txt" .

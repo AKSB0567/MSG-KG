@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: GRACO INC
+# CIK: 0000042888
+# Stakeholders: Employees, Society
+# Values: Integrity
+# Objectives: 0 found
+# Domains: Manufacturing
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_GRACO_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "GRACO INC" ;
+    msg:cik "0000042888" ;
+    msg:sector "3561 - Pumps & Pumping Equipment" ;
+    msg:hasMission inst:Mission_GRACO_INC .
+
+# ── Mission Statement ──
+inst:Mission_GRACO_INC a msg:MissionStatement ;
+    msg:missionText "We are committed to maintaining a culture of trust that recognizes the dignity and uniqueness of the individual." ;
+    msg:extractedFrom "cleaned_10-K_0000042888-25-000011.txt" ;
+    msg:servesStakeholder inst:GRACO_INC_Stakeholder_Employees ;
+    msg:servesStakeholder inst:GRACO_INC_Stakeholder_Society ;
+    msg:embodiesValue inst:GRACO_INC_Value_Integrity ;
+    msg:operatesInDomain inst:GRACO_INC_Domain_Manufacturing ;
+    msg:leveragesCapability inst:GRACO_INC_Capability_0 ;
+    msg:leveragesCapability inst:GRACO_INC_Capability_1  .
+
+inst:GRACO_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:GRACO_INC_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:GRACO_INC_Value_Integrity a msg:CorporateValue ;
+    rdfs:label "Integrity" .
+
+inst:GRACO_INC_Domain_Manufacturing a msg:BusinessDomain ;
+    rdfs:label "Manufacturing" .
+
+inst:GRACO_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Contractor segment" .
+
+inst:GRACO_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Systems and equipment to move, measure, mix, control, dispense and spray fluid and powder materials" .
