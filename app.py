@@ -494,6 +494,23 @@ def get_overview(cik: str) -> dict:
         return _REGISTRY_DATA[cik].get("overview", {})
     return {}
 
+def get_active_mission(cik: str, is_llm_mode: bool) -> tuple:
+    """Return (mission_text, label, is_improved) based on active pipeline.
+    label: 'mission' | 'business_purpose' | 'original'
+    """
+    ov = get_overview(cik)
+    has_improvement = "mission_before_improvement" in ov
+    is_m0_bp = ov.get("mission_improvement_phase") == "phase3_business_purpose"
+
+    if is_llm_mode:
+        if is_m0_bp and ov.get("business_purpose"):
+            return ov["business_purpose"], "business_purpose", has_improvement
+        return ov.get("mission", ""), "mission", has_improvement
+    else:
+        if has_improvement:
+            return ov["mission_before_improvement"], "original", True
+        return ov.get("mission", ""), "mission", False
+
 
 # ═══════════════════════════════════════════════════════════════════════════
 # HEADER
@@ -525,43 +542,120 @@ col_filters, col_content = st.columns([1, 4])
 with col_filters:
     all_sorted = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
 
-    # Company dropdown — default to first company
-    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:0 0 4px 0;">Select Company</p>', unsafe_allow_html=True)
+    # ── Validation Approach Toggle ──
+    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:0 0 4px 0;">Validation Approach</p>', unsafe_allow_html=True)
+    if "validation_approach" not in st.session_state:
+        st.session_state.validation_approach = "Text Matching"
+    st.radio("val_approach_radio", ["Text Matching", "LLM Validation"],
+             key="validation_approach", horizontal=True, label_visibility="collapsed")
+
+    # ── Company dropdown ──
+    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Select Company</p>', unsafe_allow_html=True)
     company = st.selectbox("company_main", all_sorted,
                            format_func=lambda c: f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
                            label_visibility="collapsed")
 
-    # Mission Quality filter
-    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Mission Quality</p>', unsafe_allow_html=True)
-    MQ_OPTIONS = ["All", "M1 — Directly stated", "M2 — Requires inference", "M3 — Derived from context", "M4 — Present but vague", "M0 — Absent"]
-    MQ_MAP = {"All": None, "M1 — Directly stated": 1, "M2 — Requires inference": 2, "M3 — Derived from context": 3, "M4 — Present but vague": 4, "M0 — Absent": 0}
-    mq_filter = st.selectbox("mq_filter", MQ_OPTIONS, label_visibility="collapsed")
-    mq_val = MQ_MAP[mq_filter]
+    # ── Dynamic filter based on validation approach ──
+    _is_text_matching = st.session_state.validation_approach == "Text Matching"
 
-    if mq_val is not None:
-        filtered = [c for c in all_sorted
-                    if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("mission_quality", 0) == mq_val]
+    if _is_text_matching:
+        # Text Matching: filter by verification status
+        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Verification Status</p>', unsafe_allow_html=True)
+        _VS_OPTIONS = [
+            "All",
+            "VERIFIED_M1 — Exact + mission language",
+            "VERIFIED_M2 — Match + commitment language",
+            "TEXT_MATCH_NO_CONTEXT — Found, no keywords",
+            "KEYWORD_WITH_CONTEXT — Keywords + context",
+            "KEYWORD_ONLY — Keyword density only",
+            "NO_MATCH — Not found in source",
+            "NO_MISSION — No mission extracted",
+        ]
+        _vs_filter = st.selectbox("vs_filter", _VS_OPTIONS, label_visibility="collapsed")
+        _vs_val = _vs_filter.split(" — ")[0] if _vs_filter != "All" else None
+
+        if _vs_val:
+            filtered = [c for c in all_sorted
+                        if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("verification_status") == _vs_val]
+        else:
+            filtered = None
+    else:
+        # LLM Validation: filter by verdict and/or actual type
+        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">LLM Verdict</p>', unsafe_allow_html=True)
+        _LLM_V_OPTIONS = ["All", "YES — True mission", "PARTIAL — Mixed content", "NO — Not a mission"]
+        _llm_v_filter = st.selectbox("llm_v_filter", _LLM_V_OPTIONS, label_visibility="collapsed")
+        _llm_v_val = _llm_v_filter.split(" — ")[0] if _llm_v_filter != "All" else None
+
+        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Content Type</p>', unsafe_allow_html=True)
+        _LLM_T_OPTIONS = ["All", "MISSION", "STRATEGY", "MIXED", "OPERATIONS", "HR", "VISION", "FINANCIAL", "REGULATORY"]
+        _llm_t_filter = st.selectbox("llm_t_filter", _LLM_T_OPTIONS, label_visibility="collapsed")
+        _llm_t_val = _llm_t_filter if _llm_t_filter != "All" else None
+
+        filtered = all_sorted
+        if _llm_v_val:
+            filtered = [c for c in filtered
+                        if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("llm_is_mission") == _llm_v_val]
+        if _llm_t_val:
+            filtered = [c for c in filtered
+                        if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("llm_actual_type") == _llm_t_val]
+        if not _llm_v_val and not _llm_t_val:
+            filtered = None
+
+    # Show filtered company list
+    if filtered is not None:
         st.markdown(f'<p style="font-size:0.75rem; color:#666; margin:2px 0;">{len(filtered)} companies</p>', unsafe_allow_html=True)
         if filtered:
             company = st.selectbox("filtered_company", filtered,
                                    format_func=lambda c: COMPANIES[c]["name"],
                                    label_visibility="collapsed")
 
-    # Company details — compact
+    # ── Company details card ──
     meta = COMPANIES[company]
-    st.markdown(f"""
-    <div style="background:#F0F4FF; border:1px solid #B3D4FC; border-radius:6px; padding:8px 10px; margin:8px 0; font-size:0.75rem;">
-        <div style="font-weight:700; color:#1A237E; font-size:0.85rem; margin-bottom:4px;">{meta['name']}</div>
-        <div style="color:#555;">{meta['sector']}</div>
-        <div style="color:#555; margin-top:4px;">{meta['fiscal_year']}</div>
-        <div style="margin-top:6px; border-top:1px solid #D0D8E8; padding-top:4px;">
-            <span style="color:#888;">Filed:</span> {meta.get('filing_date','')}<br>
-            <span style="color:#888;">Period:</span> {meta.get('period_of_report','')}<br>
-            <span style="color:#888;">Accepted:</span> {meta.get('accepted_date','')}<br>
-            <span style="color:#888;">Changed:</span> {meta.get('date_of_change','')}
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+    _ov_sidebar = _REGISTRY_DATA.get(company, {}).get("overview", {})
+
+    # Quick validation badge for sidebar
+    if _is_text_matching:
+        _sb_status = _ov_sidebar.get("verification_status", "N/A")
+        _sb_match = _ov_sidebar.get("verification_match", "none")
+        _sb_badge_colors = {"VERIFIED_M1": "#2E7D32", "VERIFIED_M2": "#E65100",
+                            "TEXT_MATCH_NO_CONTEXT": "#F9A825", "KEYWORD_WITH_CONTEXT": "#FF8F00",
+                            "KEYWORD_ONLY": "#F57F17", "NO_MATCH": "#D32F2F", "NO_MISSION": "#D32F2F"}
+        _sb_bc = _sb_badge_colors.get(_sb_status, "#9E9E9E")
+        _sb_badge = f'<span style="background:{_sb_bc}; color:white; padding:2px 6px; border-radius:8px; font-size:0.65rem;">{_sb_status}</span>'
+    else:
+        _sb_llm_is = _ov_sidebar.get("llm_is_mission", "N/A")
+        _sb_llm_type = _ov_sidebar.get("llm_actual_type", "N/A")
+        _sb_is_colors = {"YES": "#2E7D32", "PARTIAL": "#E65100", "NO": "#D32F2F"}
+        _sb_ic = _sb_is_colors.get(_sb_llm_is, "#9E9E9E")
+        _sb_badge = (f'<span style="background:{_sb_ic}; color:white; padding:2px 6px; border-radius:8px; font-size:0.65rem;">{_sb_llm_is}</span> '
+                     f'<span style="background:#455A64; color:white; padding:2px 6px; border-radius:8px; font-size:0.65rem;">{_sb_llm_type}</span>')
+
+    # Mission version badge
+    _has_imp = "mission_before_improvement" in _ov_sidebar
+    _is_m0_bp = _ov_sidebar.get("mission_improvement_phase") == "phase3_business_purpose"
+    _ver_badge = ""
+    if _is_m0_bp and not _is_text_matching:
+        _ver_badge = '<span style="background:#7B1FA2; color:white; padding:2px 6px; border-radius:8px; font-size:0.62rem;">Business Purpose</span>'
+    elif _has_imp:
+        if _is_text_matching:
+            _ver_badge = '<span style="background:#FF8F00; color:white; padding:2px 6px; border-radius:8px; font-size:0.62rem;">Original</span>'
+        else:
+            _ver_badge = '<span style="background:#00897B; color:white; padding:2px 6px; border-radius:8px; font-size:0.62rem;">Improved</span>'
+
+    _info_html = (
+        f'<div style="background:#F0F4FF;border:1px solid #B3D4FC;border-radius:6px;padding:8px 10px;margin:8px 0;font-size:0.75rem;">'
+        f'<div style="font-weight:700;color:#1A237E;font-size:0.85rem;margin-bottom:2px;">{meta["name"]}</div>'
+        f'<div style="margin-bottom:4px;">{_sb_badge} {_ver_badge}</div>'
+        f'<div style="color:#555;">{meta["sector"]}</div>'
+        f'<div style="color:#555;margin-top:4px;">{meta["fiscal_year"]}</div>'
+        f'<div style="margin-top:6px;border-top:1px solid #D0D8E8;padding-top:4px;">'
+        f'<span style="color:#888;">Filed:</span> {meta.get("filing_date","")}<br>'
+        f'<span style="color:#888;">Period:</span> {meta.get("period_of_report","")}<br>'
+        f'<span style="color:#888;">Accepted:</span> {meta.get("accepted_date","")}<br>'
+        f'<span style="color:#888;">Changed:</span> {meta.get("date_of_change","")}'
+        f'</div></div>'
+    )
+    st.markdown(_info_html, unsafe_allow_html=True)
     st.caption(f"{len(COMPANIES)} companies loaded")
 
 
@@ -570,12 +664,11 @@ with col_filters:
 # ═══════════════════════════════════════════════════════════════════════════
 
 with col_content:
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4 = st.tabs([
         "📜 Mission Statement",
         "🔍 Evidence-Based Reasoning",
         "📊 Portfolio Comparison",
         "🕸️ Knowledge Graph",
-        "✅ Verification Report",
     ])
 
 
@@ -584,7 +677,8 @@ with col_content:
 # ═══════════════════════════════════════════════════════════════════════════
 with tab1:
     overview = get_overview(company)
-    mission = overview.get("mission", "")
+    _is_llm_mode = st.session_state.validation_approach != "Text Matching"
+    mission, _mission_label, _is_improved = get_active_mission(company, _is_llm_mode)
     company_name = COMPANIES[company]["name"]
 
     st.markdown(f"### Mission Statement — {company_name}")
@@ -607,28 +701,64 @@ with tab1:
     mq_code, mq_label, mq_color = MQ_LABELS.get(mq, ("M0", "Not Found", "#D32F2F"))
 
     if mission:
-        st.markdown(f"""
-        <div style="background: #F0F7FF; border: 1px solid #B3D4FC; border-left: 5px solid #1565C0;
-             padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1rem 0;">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
-                <strong style="font-size:1.05rem; color:#333;">Corporate Mission Statement</strong>
-                <div style="display:flex; gap:8px;">
-                    <span style="background:{mq_color}; color:white; padding:4px 12px;
-                          border-radius:14px; font-weight:600; font-size:0.8rem;">{mq_code} — {mq_label}</span>
-                    <span style="background:{overall_color}; color:white; padding:4px 14px;
-                          border-radius:14px; font-weight:600; font-size:0.85rem;">{overall_label}</span>
-                </div>
-            </div>
-            <blockquote style="border-left:3px solid #90CAF9; padding:0.5rem 1rem; margin:0.8rem 0;
-                 font-size:1.05rem; line-height:1.6; color:#1A237E; font-style:italic;">
-                "{mission}"
-            </blockquote>
-            <div style="font-size:0.78rem; color:#888; margin-top:4px;">
-                📌 Source: {source_label}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        # Determine display style based on mission label
+        if _mission_label == "business_purpose":
+            _box_bg = "#F3E5F5"
+            _box_border = "#CE93D8"
+            _box_accent = "#7B1FA2"
+            _box_title = "Business Purpose (no mission statement in filing)"
+            _quote_color = "#4A148C"
+            _quote_border = "#CE93D8"
+        else:
+            _box_bg = "#F0F7FF"
+            _box_border = "#B3D4FC"
+            _box_accent = "#1565C0"
+            _box_title = "Corporate Mission Statement"
+            _quote_color = "#1A237E"
+            _quote_border = "#90CAF9"
+
+        # Improved badge
+        _imp_badge = ""
+        if _is_improved and _is_llm_mode and _mission_label != "business_purpose":
+            _imp_badge = '<span style="background:#00897B; color:white; padding:4px 10px; border-radius:14px; font-weight:600; font-size:0.75rem;">LLM Improved</span>'
+        elif _is_improved and not _is_llm_mode:
+            _imp_badge = '<span style="background:#FF8F00; color:white; padding:4px 10px; border-radius:14px; font-weight:600; font-size:0.75rem;">Original Extraction</span>'
+
+        # Build HTML as single string with no blank lines (blank lines break CommonMark HTML blocks)
+        _mission_html = (
+            f'<div style="background:{_box_bg};border:1px solid {_box_border};border-left:5px solid {_box_accent};'
+            f'padding:1.2rem 1.5rem;border-radius:0 8px 8px 0;margin:1rem 0;">'
+            f'<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">'
+            f'<strong style="font-size:1.05rem;color:#333;">{_box_title}</strong>'
+            f'<div style="display:flex;gap:6px;flex-wrap:wrap;">'
+            f'{_imp_badge}'
+            f'<span style="background:{mq_color};color:white;padding:4px 12px;border-radius:14px;font-weight:600;font-size:0.8rem;">{mq_code} — {mq_label}</span>'
+            f'<span style="background:{overall_color};color:white;padding:4px 14px;border-radius:14px;font-weight:600;font-size:0.85rem;">{overall_label}</span>'
+            f'</div></div>'
+            f'<blockquote style="border-left:3px solid {_quote_border};padding:0.5rem 1rem;margin:0.8rem 0;'
+            f'font-size:1.05rem;line-height:1.6;color:{_quote_color};font-style:italic;">'
+            f'"{mission}"</blockquote>'
+            f'<div style="font-size:0.78rem;color:#888;margin-top:4px;">Source: {source_label}</div>'
+            f'</div>'
+        )
+        st.markdown(_mission_html, unsafe_allow_html=True)
+
+        # Before/After expander for improved companies
+        if _is_improved and _is_llm_mode and _mission_label != "business_purpose":
+            _old_m = overview.get("mission_before_improvement", "")
+            if _old_m:
+                with st.expander("View original extraction (before LLM improvement)"):
+                    st.markdown(f'> *"{_old_m}"*')
+        elif _is_improved and not _is_llm_mode:
+            _new_m = overview.get("mission", "")
+            if _new_m and _new_m != mission:
+                with st.expander("View LLM-improved version"):
+                    st.markdown(f'> *"{_new_m}"*')
     else:
         st.warning("No mission statement found for this company.")
+
+    if _mission_label == "business_purpose":
+        st.caption("Evaluation below is based on business purpose description — no formal mission statement was found in the 10-K filing.")
 
     # Quick Evaluation Summary
     st.markdown("### Quick Evaluation Summary")
@@ -640,68 +770,49 @@ with tab1:
         ev = eval_results[dim]
         color = RATING_COLORS.get(ev["rating"], "#999")
         with cols[i % 4]:
-            st.markdown(f"""
-            <div style="background:white; border:1px solid #E0E0E0; border-radius:8px;
-                 padding:12px; margin-bottom:10px; border-top:4px solid {color};
-                 min-height:120px;">
-                <div style="font-size:0.8rem; color:#666; text-transform:uppercase;
-                     letter-spacing:0.5px;">{dim}</div>
-                <div style="font-size:1.5rem; font-weight:700; color:{color};
-                     margin:4px 0;">{ev['score']}/4</div>
-                <div style="font-size:0.75rem; color:{color}; font-weight:600;">
-                    {ev['rating']}</div>
-                <div style="font-size:0.75rem; color:#666; margin-top:4px;">
-                    {ev['detail']}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            _card_html = (
+                f'<div style="background:white;border:1px solid #E0E0E0;border-radius:8px;'
+                f'padding:12px;margin-bottom:10px;border-top:4px solid {color};min-height:120px;">'
+                f'<div style="font-size:0.8rem;color:#666;text-transform:uppercase;letter-spacing:0.5px;">{dim}</div>'
+                f'<div style="font-size:1.5rem;font-weight:700;color:{color};margin:4px 0;">{ev["score"]}/4</div>'
+                f'<div style="font-size:0.75rem;color:{color};font-weight:600;">{ev["rating"]}</div>'
+                f'<div style="font-size:0.75rem;color:#666;margin-top:4px;">{ev["detail"]}</div>'
+                f'</div>'
+            )
+            st.markdown(_card_html, unsafe_allow_html=True)
 
-    # Source file and extraction metadata
+    # ═════════════════════════════════════════════════════════════════════
+    # VALIDATION APPROACH (synced with sidebar)
+    # ═════════════════════════════════════════════════════════════════════
     st.markdown("---")
-    st.markdown("### Source Evidence from 10-K Filing")
+    st.markdown("### Validation & Evidence")
 
+    _approach = st.session_state.validation_approach
+    if _approach == "Text Matching":
+        _ab_html = '<span style="background:#2E7D32; color:white; padding:4px 14px; border-radius:14px; font-weight:600; font-size:0.82rem;">Text Matching (Exact / Keyword)</span>'
+    else:
+        _ab_html = '<span style="background:#1565C0; color:white; padding:4px 14px; border-radius:14px; font-weight:600; font-size:0.82rem;">LLM-Driven (Qwen2.5-72B)</span>'
+    st.markdown(f'{_ab_html} <span style="font-size:0.72rem; color:#999; margin-left:8px;">Switch approach from sidebar</span>', unsafe_allow_html=True)
+
+    # ── Shared: load 10-K data ──
     txt_file = _find_company_10k_file(company)
-    mission_tier = overview.get("mission_tier", 0)
-    mission_conf = overview.get("mission_confidence", 0)
     mission_evidence_text = overview.get("mission_evidence", "")
-    tier_labels = {1: "Tier 1 — Explicit", 2: "Tier 2 — Implied", 3: "Tier 3 — Inferred", 0: "N/A"}
-    tier_colors = {1: "#2E7D32", 2: "#E65100", 3: "#F57F17", 0: "#999"}
 
-    t_label = tier_labels.get(mission_tier, "N/A")
-    t_color = tier_colors.get(mission_tier, "#999")
-    source_name = txt_file.name if txt_file else overview.get("source_filename", overview.get("filing_id", "Registry"))
-    st.markdown(f"""
-    <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:8px;
-         padding:10px 14px; margin-bottom:12px; display:flex; gap:20px; align-items:center;
-         flex-wrap:wrap;">
-        <span style="font-size:0.82rem; color:#555;">
-            <strong>Source:</strong> {source_name}</span>
-        <span style="background:{t_color}; color:white; padding:2px 10px;
-              border-radius:10px; font-size:0.78rem; font-weight:600;">{t_label}</span>
-        <span style="font-size:0.82rem; color:#555;">
-            <strong>Confidence:</strong> {mission_conf:.0%}</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # ── Find mission text in 10-K regardless of source ──
-    # For KG-sourced missions, we still search the 10-K for supporting evidence
     _10k_context = ""
     _10k_mission_found = False
     if txt_file and mission:
         try:
             _raw = txt_file.read_text(encoding="utf-8", errors="ignore")
-            # Strip SEC SGML header
             _hdr = _raw.find("</SEC-HEADER>")
             if _hdr > 0:
                 _raw = _raw[_hdr + len("</SEC-HEADER>"):]
             _raw_norm = re.sub(r'\s+', ' ', _raw)
 
-            # Try to find mission text (or keywords from it) in the document
             _mission_words = [w for w in re.findall(r'\b[a-z]{4,}\b', mission.lower())
                               if w not in {"that", "this", "with", "from", "have", "been",
                                            "will", "their", "they", "them", "also", "more",
                                            "would", "could", "about", "which", "into", "through"}]
 
-            # Strategy 1: Find exact mission phrase
             _clean_m = re.sub(r'\s+', ' ', mission[:60]).strip()
             _idx = _raw_norm.lower().find(_clean_m[:40].lower())
 
@@ -711,7 +822,6 @@ with tab1:
                 _end = min(len(_raw_norm), _idx + len(mission) + 300)
                 _10k_context = _raw_norm[_start:_end]
             else:
-                # Strategy 2: Find best matching window using keyword density
                 _best_score = 0
                 _best_pos = 0
                 _step = 200
@@ -727,54 +837,296 @@ with tab1:
         except Exception:
             pass
 
-    # Show the mission evidence chunk with highlighting
-    if mission and (_10k_context or mission_evidence_text):
-        evidence_text = _10k_context if _10k_context else mission_evidence_text
-        highlighted_ev = highlight_mission_in_text(evidence_text[:1000], mission)
-        match_label = "Exact match found" if _10k_mission_found else "Best keyword match"
-        st.markdown(f"""
-        <div style="background:#FFFDF0; border:1px solid #E0D8A8; border-left:5px solid #F9A825;
-             border-radius:0 8px 8px 0; padding:14px; margin-bottom:12px;">
-            <div style="font-size:0.78rem; color:#888; margin-bottom:8px;">
-                <strong>Mission Evidence from 10-K</strong>
-                <span style="margin-left:10px; background:#FFF9C4; padding:2px 8px;
-                      border-radius:8px; font-size:0.72rem;">{match_label}</span></div>
-            <div style="font-size:0.92rem; line-height:1.7;">{highlighted_ev}</div>
-        </div>
-        """, unsafe_allow_html=True)
-    elif mission:
-        st.info("Could not locate mission evidence in the 10-K text file.")
+    # ─────────────────────────────────────────────────────────────────────
+    # VIEW A: TEXT MATCHING (Exact / Keyword)
+    # ─────────────────────────────────────────────────────────────────────
+    if _approach == "Text Matching":
+        # Method header
+        st.markdown(
+            '<div style="background:#E8F5E9;border:1px solid #A5D6A7;border-radius:8px;padding:10px 14px;margin-bottom:14px;">'
+            '<strong style="color:#2E7D32;">Text Matching Validation</strong>'
+            '<span style="font-size:0.78rem;color:#555;margin-left:8px;">'
+            'Searches the extracted mission back in the source 10-K filing using exact string matching'
+            ' and keyword density sliding window. Classifies based on match type and surrounding context keywords.</span>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
 
-    # Additional supporting evidence from filing (only when 10-K files available)
-    if txt_file:
-        st.markdown("##### Additional Supporting Passages")
-        evidence = find_mission_evidence(company, mission)
-        if evidence:
-            for i, ev in enumerate(evidence[:5]):
-                highlighted = highlight_mission_in_text(ev["text"][:600], mission)
-                relevance_pct = int(ev["relevance"] * 100)
-                st.markdown(f"""
-                <div style="background:#FAFAFA; border:1px solid #E0E0E0; border-radius:8px;
-                     padding:12px; margin-bottom:8px;">
-                    <div style="font-size:0.75rem; color:#888; margin-bottom:6px;">
-                        {ev['section']} | Relevance: {relevance_pct}% | {ev['chunk_id']}</div>
-                    <div style="font-size:0.88rem; line-height:1.6;">{highlighted}</div>
-                </div>
-                """, unsafe_allow_html=True)
-        else:
-            st.caption("No additional supporting passages found in the filing.")
+        # Verification result cards
+        v_status = overview.get("verification_status", "N/A")
+        v_match = overview.get("verification_match", "N/A")
+        mission_tier = overview.get("mission_tier", 0)
+        mission_conf = overview.get("mission_confidence", 0)
 
-    # Raw source text expander
-    if txt_file and mission:
-        with st.expander("View Raw 10-K Source Text (around mission)"):
-            if _10k_context:
-                highlighted_raw = highlight_mission_in_text(_10k_context[:2000], mission)
-                st.markdown(f'<div style="font-size:0.85rem; line-height:1.7; '
-                            f'background:#FFFFF0; padding:12px; border-radius:6px;">'
-                            f'{highlighted_raw}</div>',
-                            unsafe_allow_html=True)
+        tier_labels = {1: "Tier 1 — Explicit", 2: "Tier 2 — Implied", 3: "Tier 3 — Inferred", 0: "N/A"}
+        tier_colors = {1: "#2E7D32", 2: "#E65100", 3: "#F57F17", 0: "#999"}
+        t_label = tier_labels.get(mission_tier, "N/A")
+        t_color = tier_colors.get(mission_tier, "#999")
+
+        v_method_labels = {
+            "VERIFIED_M1": ("Exact match + explicit mission language", "#2E7D32"),
+            "VERIFIED_M2": ("Exact/partial match + commitment language", "#E65100"),
+            "TEXT_MATCH_NO_CONTEXT": ("Found in text, no mission keywords nearby", "#F9A825"),
+            "KEYWORD_WITH_CONTEXT": ("Keyword match + mission/commitment language", "#FF8F00"),
+            "KEYWORD_ONLY": ("Keyword density match only", "#F57F17"),
+            "NO_MATCH": ("Not found in source file", "#D32F2F"),
+            "NO_FILE": ("Source file unavailable", "#9E9E9E"),
+            "NO_MISSION": ("No mission extracted", "#D32F2F"),
+            "LOW_CONFIDENCE": ("Low confidence extraction", "#9E9E9E"),
+        }
+        v_desc, v_color = v_method_labels.get(v_status, (v_status, "#999"))
+
+        source_name = txt_file.name if txt_file else overview.get("source_filename", overview.get("filing_id", "Registry"))
+
+        # Metrics row
+        vc1, vc2, vc3, vc4 = st.columns(4)
+        with vc1:
+            st.markdown(f"""
+            <div style="background:white; border:1px solid #E0E0E0; border-radius:8px; padding:10px;
+                 border-top:4px solid {v_color}; text-align:center; min-height:90px;">
+                <div style="font-size:0.72rem; color:#888; text-transform:uppercase;">Status</div>
+                <div style="font-size:0.85rem; font-weight:700; color:{v_color}; margin:4px 0;">{v_status}</div>
+                <div style="font-size:0.68rem; color:#666;">{v_desc}</div>
+            </div>""", unsafe_allow_html=True)
+        with vc2:
+            match_colors = {"exact": "#2E7D32", "partial": "#E65100", "keyword": "#F9A825", "none": "#D32F2F"}
+            mc = match_colors.get(v_match, "#999")
+            st.markdown(f"""
+            <div style="background:white; border:1px solid #E0E0E0; border-radius:8px; padding:10px;
+                 border-top:4px solid {mc}; text-align:center; min-height:90px;">
+                <div style="font-size:0.72rem; color:#888; text-transform:uppercase;">Match Type</div>
+                <div style="font-size:1.1rem; font-weight:700; color:{mc}; margin:4px 0;">{v_match.upper()}</div>
+                <div style="font-size:0.68rem; color:#666;">in source 10-K</div>
+            </div>""", unsafe_allow_html=True)
+        with vc3:
+            st.markdown(f"""
+            <div style="background:white; border:1px solid #E0E0E0; border-radius:8px; padding:10px;
+                 border-top:4px solid {t_color}; text-align:center; min-height:90px;">
+                <div style="font-size:0.72rem; color:#888; text-transform:uppercase;">Extraction Tier</div>
+                <div style="font-size:0.85rem; font-weight:700; color:{t_color}; margin:4px 0;">{t_label}</div>
+                <div style="font-size:0.68rem; color:#666;">{source_name}</div>
+            </div>""", unsafe_allow_html=True)
+        with vc4:
+            conf_color = "#2E7D32" if mission_conf >= 0.7 else "#E65100" if mission_conf >= 0.4 else "#D32F2F"
+            st.markdown(f"""
+            <div style="background:white; border:1px solid #E0E0E0; border-radius:8px; padding:10px;
+                 border-top:4px solid {conf_color}; text-align:center; min-height:90px;">
+                <div style="font-size:0.72rem; color:#888; text-transform:uppercase;">Confidence</div>
+                <div style="font-size:1.4rem; font-weight:700; color:{conf_color}; margin:4px 0;">{mission_conf:.0%}</div>
+                <div style="font-size:0.68rem; color:#666;">text match</div>
+            </div>""", unsafe_allow_html=True)
+
+        # Verification context
+        v_context = overview.get("verification_context", "")
+        if v_context:
+            st.markdown(
+                f'<div style="background:#FFF8E1;border:1px solid #FFE082;border-left:4px solid #F9A825;'
+                f'border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0;font-size:0.82rem;">'
+                f'<strong style="color:#E65100;">Context before mission in source:</strong>'
+                f'<div style="margin-top:6px;line-height:1.6;color:#333;">...{v_context}...</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+        # Mission evidence
+        if mission and (_10k_context or mission_evidence_text):
+            evidence_text = _10k_context if _10k_context else mission_evidence_text
+            highlighted_ev = highlight_mission_in_text(evidence_text[:1000], mission)
+            match_label = "Exact match found" if _10k_mission_found else "Best keyword match"
+            st.markdown(
+                f'<div style="background:#FFFDF0;border:1px solid #E0D8A8;border-left:5px solid #F9A825;'
+                f'border-radius:0 8px 8px 0;padding:14px;margin-bottom:12px;">'
+                f'<div style="font-size:0.78rem;color:#888;margin-bottom:8px;">'
+                f'<strong>Mission Evidence from 10-K</strong>'
+                f'<span style="margin-left:10px;background:#FFF9C4;padding:2px 8px;border-radius:8px;font-size:0.72rem;">{match_label}</span></div>'
+                f'<div style="font-size:0.92rem;line-height:1.7;">{highlighted_ev}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+        elif mission:
+            st.info("Could not locate mission evidence in the 10-K text file.")
+
+        # Additional supporting passages
+        if txt_file:
+            st.markdown("##### Additional Supporting Passages")
+            evidence = find_mission_evidence(company, mission)
+            if evidence:
+                for i_ev, ev in enumerate(evidence[:5]):
+                    highlighted = highlight_mission_in_text(ev["text"][:600], mission)
+                    relevance_pct = int(ev["relevance"] * 100)
+                    st.markdown(
+                        f'<div style="background:#FAFAFA;border:1px solid #E0E0E0;border-radius:8px;padding:12px;margin-bottom:8px;">'
+                        f'<div style="font-size:0.75rem;color:#888;margin-bottom:6px;">'
+                        f'{ev["section"]} | Relevance: {relevance_pct}% | {ev["chunk_id"]}</div>'
+                        f'<div style="font-size:0.88rem;line-height:1.6;">{highlighted}</div>'
+                        f'</div>',
+                        unsafe_allow_html=True,
+                    )
             else:
-                st.caption("Could not locate the mission passage in the source file.")
+                st.caption("No additional supporting passages found in the filing.")
+
+        # Raw source text expander
+        if txt_file and mission:
+            with st.expander("View Raw 10-K Source Text (around mission)"):
+                if _10k_context:
+                    highlighted_raw = highlight_mission_in_text(_10k_context[:2000], mission)
+                    st.markdown(f'<div style="font-size:0.85rem; line-height:1.7; '
+                                f'background:#FFFFF0; padding:12px; border-radius:6px;">'
+                                f'{highlighted_raw}</div>',
+                                unsafe_allow_html=True)
+                else:
+                    st.caption("Could not locate the mission passage in the source file.")
+
+    # ─────────────────────────────────────────────────────────────────────
+    # VIEW B: LLM-DRIVEN VALIDATION (Qwen2.5-72B)
+    # ─────────────────────────────────────────────────────────────────────
+    else:
+        # Method header
+        st.markdown(
+            '<div style="background:#E3F2FD;border:1px solid #90CAF9;border-radius:8px;padding:10px 14px;margin-bottom:14px;">'
+            '<strong style="color:#1565C0;">LLM-Driven Validation</strong>'
+            '<span style="font-size:0.78rem;color:#555;margin-left:8px;">'
+            'Qwen2.5-72B-Instruct semantically evaluates whether the extracted text is truly a corporate'
+            ' mission statement vs. strategy, operations, HR language, or financial goals.</span>'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+
+        llm_is = overview.get("llm_is_mission", "")
+        llm_type = overview.get("llm_actual_type", "")
+        llm_q = overview.get("llm_quality", 0)
+        llm_conf = overview.get("llm_confidence", 0)
+        llm_reason = overview.get("llm_quality_reason", "")
+        llm_corrected = overview.get("llm_corrected_mission", "")
+        llm_issues = overview.get("llm_issues", [])
+
+        if not llm_is:
+            st.info("LLM validation has not been run for this company yet.")
+        else:
+            # Is Mission verdict
+            is_colors = {"YES": "#2E7D32", "PARTIAL": "#E65100", "NO": "#D32F2F"}
+            is_icons = {"YES": "checkmark", "PARTIAL": "warning", "NO": "cross"}
+            is_c = is_colors.get(llm_is, "#999")
+
+            # Type badge colors
+            type_colors = {
+                "MISSION": "#2E7D32", "VISION": "#1565C0", "STRATEGY": "#E65100",
+                "OPERATIONS": "#6A1B9A", "HR": "#C62828", "FINANCIAL": "#00695C",
+                "MIXED": "#F57F17", "REGULATORY": "#455A64",
+            }
+            tc = type_colors.get(llm_type, "#999")
+
+            # Quality labels
+            llm_mq_labels = {
+                0: ("M0", "Not a mission statement"),
+                1: ("M1", "Directly stated as mission/purpose"),
+                2: ("M2", "Commitment/goal/belief, requires inference"),
+                3: ("M3", "Derived from business description"),
+                4: ("M4", "Vague or generic corporate language"),
+            }
+            llm_mq_code, llm_mq_desc = llm_mq_labels.get(llm_q, ("M?", "Unknown"))
+            llm_mq_color = MQ_LABELS.get(llm_q, ("", "", "#999"))[2]
+
+            # Metrics row
+            lc1, lc2, lc3, lc4 = st.columns(4)
+            with lc1:
+                st.markdown(
+                    f'<div style="background:white;border:1px solid #E0E0E0;border-radius:8px;padding:10px;'
+                    f'border-top:4px solid {is_c};text-align:center;min-height:90px;">'
+                    f'<div style="font-size:0.72rem;color:#888;text-transform:uppercase;">Is Mission?</div>'
+                    f'<div style="font-size:1.4rem;font-weight:700;color:{is_c};margin:4px 0;">{llm_is}</div>'
+                    f'<div style="font-size:0.68rem;color:#666;">LLM verdict</div></div>',
+                    unsafe_allow_html=True)
+            with lc2:
+                st.markdown(
+                    f'<div style="background:white;border:1px solid #E0E0E0;border-radius:8px;padding:10px;'
+                    f'border-top:4px solid {tc};text-align:center;min-height:90px;">'
+                    f'<div style="font-size:0.72rem;color:#888;text-transform:uppercase;">Actual Type</div>'
+                    f'<div style="font-size:1.0rem;font-weight:700;color:{tc};margin:4px 0;">{llm_type}</div>'
+                    f'<div style="font-size:0.68rem;color:#666;">content classification</div></div>',
+                    unsafe_allow_html=True)
+            with lc3:
+                st.markdown(
+                    f'<div style="background:white;border:1px solid #E0E0E0;border-radius:8px;padding:10px;'
+                    f'border-top:4px solid {llm_mq_color};text-align:center;min-height:90px;">'
+                    f'<div style="font-size:0.72rem;color:#888;text-transform:uppercase;">Quality</div>'
+                    f'<div style="font-size:1.1rem;font-weight:700;color:{llm_mq_color};margin:4px 0;">{llm_mq_code}</div>'
+                    f'<div style="font-size:0.68rem;color:#666;">{llm_mq_desc}</div></div>',
+                    unsafe_allow_html=True)
+            with lc4:
+                llm_conf_color = "#2E7D32" if llm_conf >= 85 else "#E65100" if llm_conf >= 60 else "#D32F2F"
+                st.markdown(
+                    f'<div style="background:white;border:1px solid #E0E0E0;border-radius:8px;padding:10px;'
+                    f'border-top:4px solid {llm_conf_color};text-align:center;min-height:90px;">'
+                    f'<div style="font-size:0.72rem;color:#888;text-transform:uppercase;">Confidence</div>'
+                    f'<div style="font-size:1.4rem;font-weight:700;color:{llm_conf_color};margin:4px 0;">{llm_conf}%</div>'
+                    f'<div style="font-size:0.68rem;color:#666;">Qwen2.5-72B</div></div>',
+                    unsafe_allow_html=True)
+
+            # Quality reason
+            if llm_reason:
+                reason_bg = "#E8F5E9" if llm_is == "YES" else "#FFF3E0" if llm_is == "PARTIAL" else "#FFEBEE"
+                reason_border = "#2E7D32" if llm_is == "YES" else "#E65100" if llm_is == "PARTIAL" else "#D32F2F"
+                st.markdown(
+                    f'<div style="background:{reason_bg};border:1px solid {reason_border}33;border-left:4px solid {reason_border};'
+                    f'border-radius:0 6px 6px 0;padding:10px 14px;margin:12px 0;">'
+                    f'<strong style="font-size:0.82rem;color:{reason_border};">LLM Assessment:</strong>'
+                    f'<span style="font-size:0.85rem;color:#333;margin-left:6px;">{llm_reason}</span>'
+                    f'</div>',
+                    unsafe_allow_html=True)
+
+            # Issues list
+            if llm_issues:
+                issues_html = " ".join(
+                    f'<span style="background:#FFF9C4; border:1px solid #F9A825; padding:2px 8px; '
+                    f'border-radius:10px; font-size:0.72rem; color:#795548; margin:2px;">{iss}</span>'
+                    for iss in llm_issues
+                )
+                st.markdown(
+                    f'<div style="margin:8px 0;">'
+                    f'<span style="font-size:0.78rem;color:#888;margin-right:6px;">Issues found:</span>'
+                    f'{issues_html}</div>',
+                    unsafe_allow_html=True)
+
+            # Corrected mission (if PARTIAL or NO)
+            if llm_corrected and llm_corrected != "NONE" and llm_is != "YES":
+                st.markdown(
+                    f'<div style="background:#F3E5F5;border:1px solid #CE93D8;border-left:4px solid #7B1FA2;'
+                    f'border-radius:0 6px 6px 0;padding:12px 14px;margin:12px 0;">'
+                    f'<strong style="font-size:0.82rem;color:#7B1FA2;">LLM Suggested Mission:</strong>'
+                    f'<blockquote style="border-left:3px solid #CE93D8;padding:0.4rem 0.8rem;margin:8px 0;'
+                    f'font-size:0.95rem;line-height:1.5;color:#4A148C;font-style:italic;">'
+                    f'"{llm_corrected}"</blockquote></div>',
+                    unsafe_allow_html=True)
+
+            # Reclassification notice
+            prev_mq = overview.get("mission_quality_prev")
+            if prev_mq is not None and prev_mq != mq:
+                st.markdown(
+                    f'<div style="background:#E3F2FD;border:1px solid #90CAF9;border-radius:6px;'
+                    f'padding:8px 12px;margin:8px 0;font-size:0.8rem;">'
+                    f'<strong>Reclassified:</strong> M{prev_mq} &rarr; M{mq}'
+                    f'<span style="color:#888;margin-left:8px;">(auto-updated by LLM with {llm_conf}% confidence)</span>'
+                    f'</div>',
+                    unsafe_allow_html=True)
+
+            # Show evidence with LLM context
+            st.markdown("##### Source Evidence from 10-K")
+            if mission and (_10k_context or mission_evidence_text):
+                evidence_text = _10k_context if _10k_context else mission_evidence_text
+                highlighted_ev = highlight_mission_in_text(evidence_text[:1000], mission)
+                match_label = "Exact match found" if _10k_mission_found else "Best keyword match"
+                st.markdown(
+                    f'<div style="background:#FFFDF0;border:1px solid #E0D8A8;border-left:5px solid #1565C0;'
+                    f'border-radius:0 8px 8px 0;padding:14px;margin-bottom:12px;">'
+                    f'<div style="font-size:0.78rem;color:#888;margin-bottom:8px;">'
+                    f'<strong>10-K Filing Context</strong>'
+                    f'<span style="margin-left:10px;background:#E3F2FD;padding:2px 8px;border-radius:8px;font-size:0.72rem;color:#1565C0;">{match_label}</span></div>'
+                    f'<div style="font-size:0.92rem;line-height:1.7;">{highlighted_ev}</div>'
+                    f'</div>',
+                    unsafe_allow_html=True)
+            elif mission:
+                st.info("Could not locate mission evidence in the 10-K text file.")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -782,36 +1134,34 @@ with tab1:
 # ═══════════════════════════════════════════════════════════════════════════
 with tab2:
     overview = get_overview(company)
-    mission = overview.get("mission", "")
+    _is_llm_mode_t2 = st.session_state.validation_approach != "Text Matching"
+    mission, _ml_t2, _imp_t2 = get_active_mission(company, _is_llm_mode_t2)
     company_name = COMPANIES[company]["name"]
 
     st.markdown(f"### Evidence-Based Reasoning — {company_name}")
-    st.caption("Detailed evaluation of each mission statement dimension with supporting evidence.")
+    _approach_label_t2 = "LLM-Improved Pipeline" if _is_llm_mode_t2 else "Original Extraction Pipeline"
+    st.caption(f"Detailed evaluation of each mission statement dimension. Active: **{_approach_label_t2}**")
 
     eval_results = evaluate_mission(mission, overview)
 
     if mission:
+        if _ml_t2 == "business_purpose":
+            st.markdown(f"**Business Purpose** (no mission in filing):")
         st.markdown(f'> *"{mission}"*')
         st.markdown("---")
 
     for dim, ev in eval_results.items():
         color = RATING_COLORS.get(ev["rating"], "#999")
-        st.markdown(f"""
-        <div style="background:white; border:1px solid #E0E0E0; border-radius:8px;
-             padding:16px; margin-bottom:12px; border-left:5px solid {color};">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div>
-                    <span style="font-size:1rem; font-weight:600; color:#333;">{dim}</span>
-                </div>
-                <div style="background:{color}; color:white; padding:3px 12px;
-                     border-radius:12px; font-weight:600; font-size:0.85rem;">
-                    {ev['rating']} ({ev['score']}/4)
-                </div>
-            </div>
-            <div style="font-size:0.9rem; color:#555; margin-top:8px;">
-                {ev['detail']}</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f'<div style="background:white;border:1px solid #E0E0E0;border-radius:8px;'
+            f'padding:16px;margin-bottom:12px;border-left:5px solid {color};">'
+            f'<div style="display:flex;justify-content:space-between;align-items:center;">'
+            f'<div><span style="font-size:1rem;font-weight:600;color:#333;">{dim}</span></div>'
+            f'<div style="background:{color};color:white;padding:3px 12px;border-radius:12px;font-weight:600;font-size:0.85rem;">'
+            f'{ev["rating"]} ({ev["score"]}/4)</div></div>'
+            f'<div style="font-size:0.9rem;color:#555;margin-top:8px;">{ev["detail"]}</div>'
+            f'</div>',
+            unsafe_allow_html=True)
 
     # Pattern analysis
     st.markdown("---")
@@ -881,13 +1231,15 @@ with tab2:
 # ═══════════════════════════════════════════════════════════════════════════
 with tab3:
     st.markdown("### Portfolio Mission Statement Comparison")
-    st.caption("Heatmap evaluation of mission statements across all companies in the portfolio.")
+    _is_llm_mode_t3 = st.session_state.validation_approach != "Text Matching"
+    _approach_label_t3 = "LLM-Improved Pipeline" if _is_llm_mode_t3 else "Original Extraction Pipeline"
+    st.caption(f"Heatmap evaluation across all companies. Active: **{_approach_label_t3}**")
 
-    # Compute evaluations for all companies
+    # Compute evaluations for all companies using active pipeline's missions
     all_evals = {}
     for cik in COMPANIES:
         ov = get_overview(cik)
-        m = ov.get("mission", "")
+        m, _ml_t3, _ = get_active_mission(cik, _is_llm_mode_t3)
         ev = evaluate_mission(m, ov)
         avg, label, _ = overall_rating(ev)
         all_evals[cik] = {
@@ -895,6 +1247,7 @@ with tab3:
             "mission": m[:100] + ("..." if len(m) > 100 else ""),
             "overall": avg,
             "overall_label": label,
+            "source_type": _ml_t3,
             **{dim: v["score"] for dim, v in ev.items()},
         }
 
@@ -973,13 +1326,12 @@ with tab3:
             cnt = rating_counts.get(label, 0)
             color = RATING_COLORS.get(label, "#999")
             with col:
-                st.markdown(f"""
-                <div style="text-align:center; padding:10px; background:white;
-                     border-radius:8px; border-top:4px solid {color};">
-                    <div style="font-size:2rem; font-weight:700; color:{color};">{cnt}</div>
-                    <div style="font-size:0.8rem; color:#666;">{label}</div>
-                </div>
-                """, unsafe_allow_html=True)
+                st.markdown(
+                    f'<div style="text-align:center;padding:10px;background:white;'
+                    f'border-radius:8px;border-top:4px solid {color};">'
+                    f'<div style="font-size:2rem;font-weight:700;color:{color};">{cnt}</div>'
+                    f'<div style="font-size:0.8rem;color:#666;">{label}</div></div>',
+                    unsafe_allow_html=True)
 
         # Top and bottom performers
         st.markdown("---")
@@ -1010,7 +1362,7 @@ with tab3:
         sector_data = []
         for cik in COMPANIES:
             ov = get_overview(cik)
-            m = ov.get("mission", "")
+            m, _, _ = get_active_mission(cik, _is_llm_mode_t3)
             ev = evaluate_mission(m, ov)
             avg, label, _ = overall_rating(ev)
             sector_name = COMPANIES[cik]["sector"]
@@ -1057,8 +1409,10 @@ with tab3:
         if comp1 != comp2:
             ov1 = get_overview(comp1)
             ov2 = get_overview(comp2)
-            ev1 = evaluate_mission(ov1.get("mission", ""), ov1)
-            ev2 = evaluate_mission(ov2.get("mission", ""), ov2)
+            _m1_h2h, _, _ = get_active_mission(comp1, _is_llm_mode_t3)
+            _m2_h2h, _, _ = get_active_mission(comp2, _is_llm_mode_t3)
+            ev1 = evaluate_mission(_m1_h2h, ov1)
+            ev2 = evaluate_mission(_m2_h2h, ov2)
 
             comparison_rows = []
             for dim in dims:
@@ -1340,20 +1694,20 @@ with tab4:
     # ── Mission details below graph ──
     st.markdown("---")
     overview_kg = get_overview(company)
-    mission_kg = overview_kg.get("mission", "")
+    _is_llm_mode_t4 = st.session_state.validation_approach != "Text Matching"
+    mission_kg, _ml_t4, _ = get_active_mission(company, _is_llm_mode_t4)
 
     if mission_kg:
         tier_kg = overview_kg.get("mission_tier", 0)
         source_kg = overview_kg.get("mission_source", "unknown")
-        st.markdown(f"""
-        <div style="background:#E8F5E9; border:1px solid #C8E6C9; border-radius:8px;
-             padding:14px; margin-bottom:12px;">
-            <strong>Mission Statement:</strong> <em>"{mission_kg}"</em><br>
-            <span style="font-size:0.8rem; color:#555;">
-                Source: {source_kg.upper()} | Tier: {tier_kg} |
-                Schema: {kg_mode.split("(")[-1].replace(")", "").strip() if "(" in kg_mode else "Full KG"}</span>
-        </div>
-        """, unsafe_allow_html=True)
+        _kg_schema_label = kg_mode.split("(")[-1].replace(")", "").strip() if "(" in kg_mode else "Full KG"
+        st.markdown(
+            f'<div style="background:#E8F5E9;border:1px solid #C8E6C9;border-radius:8px;padding:14px;margin-bottom:12px;">'
+            f'<strong>Mission Statement:</strong> <em>"{mission_kg}"</em><br>'
+            f'<span style="font-size:0.8rem;color:#555;">'
+            f'Source: {source_kg.upper()} | Tier: {tier_kg} | Schema: {_kg_schema_label}</span>'
+            f'</div>',
+            unsafe_allow_html=True)
 
     # Show decomposition details for ontology schema
     if "Ontology" in kg_mode and subgraph.number_of_nodes() > 0:
@@ -1388,99 +1742,6 @@ with tab4:
 # ═══════════════════════════════════════════════════════════════════════════
 # TAB 5: VERIFICATION REPORT
 # ═══════════════════════════════════════════════════════════════════════════
-with tab5:
-    st.markdown("### Mission Statement Verification Report")
-    st.caption("Automated back-verification: each extracted mission is searched in its source 10-K filing "
-               "and reclassified based on match type and surrounding context.")
-
-    # Build verification data for all companies
-    v_rows = []
-    for cik_v in COMPANIES:
-        ov_v = get_overview(cik_v)
-        v_rows.append({
-            "Company": COMPANIES[cik_v]["name"][:30],
-            "Quality": f"M{ov_v.get('mission_quality', 0)}",
-            "Confidence": f"{ov_v.get('mission_confidence', 0):.0%}",
-            "Verification": ov_v.get("verification_status", ""),
-            "Match": ov_v.get("verification_match", ""),
-            "Mission": ov_v.get("mission", "")[:60] + "...",
-        })
-
-    df_v = pd.DataFrame(v_rows)
-
-    # Summary metrics
-    MQ_COLORS_V = {"M0": "#D32F2F", "M1": "#2E7D32", "M2": "#E65100", "M3": "#F9A825", "M4": "#9E9E9E"}
-    MQ_LABELS_V = {"M0": "Absent from filing", "M1": "Directly stated", "M2": "Stated, requires inference",
-                   "M3": "Derived from context", "M4": "Present but vague"}
-    qcounts = df_v["Quality"].value_counts()
-
-    cols_v = st.columns(5)
-    for i, (code, label) in enumerate(MQ_LABELS_V.items()):
-        cnt = qcounts.get(code, 0)
-        color = MQ_COLORS_V[code]
-        with cols_v[i]:
-            st.markdown(f"""
-            <div style="text-align:center; padding:8px; background:white;
-                 border-radius:6px; border-top:4px solid {color}; min-height:80px;">
-                <div style="font-size:1.8rem; font-weight:700; color:{color};">{cnt}</div>
-                <div style="font-size:0.7rem; color:#666;">{code}</div>
-                <div style="font-size:0.65rem; color:#999;">{label}</div>
-            </div>
-            """, unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    # Verification status breakdown
-    st.markdown("#### Verification Method Breakdown")
-    v_status_counts = df_v["Verification"].value_counts()
-    v_method_labels = {
-        "VERIFIED_M1": "Exact match + explicit mission language",
-        "VERIFIED_M2": "Exact/partial match + commitment language",
-        "TEXT_MATCH_NO_CONTEXT": "Found in text, no mission keywords nearby",
-        "KEYWORD_WITH_CONTEXT": "Keyword match + mission/commitment language",
-        "KEYWORD_ONLY": "Keyword density match only",
-        "NO_MATCH": "Not found in source file",
-        "NO_FILE": "Source file unavailable",
-        "NO_MISSION": "No mission extracted",
-        "LOW_CONFIDENCE": "Low confidence extraction",
-    }
-    for status, count in v_status_counts.items():
-        desc = v_method_labels.get(status, status)
-        st.markdown(f"- **{status}** ({count}): {desc}")
-
-    st.markdown("---")
-
-    # Full table
-    st.markdown("#### All Companies")
-    st.dataframe(df_v, use_container_width=True, hide_index=True, height=600)
-
-    # CSV export
-    csv_v = df_v.to_csv(index=False).encode("utf-8")
-    st.download_button("Download Verification Report (CSV)", csv_v,
-                       "verification_report.csv", "text/csv")
-
-    # Selected company detail
-    st.markdown("---")
-    st.markdown(f"#### Detail: {COMPANIES[company]['name']}")
-    ov_detail = get_overview(company)
-    detail_items = [
-        ("Mission Quality", f"M{ov_detail.get('mission_quality', 0)}"),
-        ("Confidence", f"{ov_detail.get('mission_confidence', 0):.0%}"),
-        ("Verification Status", ov_detail.get("verification_status", "N/A")),
-        ("Match Type", ov_detail.get("verification_match", "N/A")),
-    ]
-    for label_d, val_d in detail_items:
-        st.markdown(f"**{label_d}:** {val_d}")
-
-    v_context = ov_detail.get("verification_context", "")
-    if v_context:
-        st.markdown("**Context before mission in source:**")
-        st.markdown(f"""
-        <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:6px;
-             padding:10px; font-size:0.85rem; line-height:1.5; max-height:200px; overflow-y:auto;">
-            ...{v_context}...
-        </div>
-        """, unsafe_allow_html=True)
 
 
 # ── Footer ───────────────────────────────────────────────────────────────
