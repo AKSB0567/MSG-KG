@@ -533,8 +533,8 @@ with col_filters:
 
     # Mission Quality filter
     st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Mission Quality</p>', unsafe_allow_html=True)
-    MQ_OPTIONS = ["All", "M1 — Direct", "M2 — Implied", "M3 — Inferred", "M4 — Vague", "M0 — Not Found"]
-    MQ_MAP = {"All": None, "M1 — Direct": 1, "M2 — Implied": 2, "M3 — Inferred": 3, "M4 — Vague": 4, "M0 — Not Found": 0}
+    MQ_OPTIONS = ["All", "M1 — Directly stated", "M2 — Requires inference", "M3 — Derived from context", "M4 — Present but vague", "M0 — Absent"]
+    MQ_MAP = {"All": None, "M1 — Directly stated": 1, "M2 — Requires inference": 2, "M3 — Derived from context": 3, "M4 — Present but vague": 4, "M0 — Absent": 0}
     mq_filter = st.selectbox("mq_filter", MQ_OPTIONS, label_visibility="collapsed")
     mq_val = MQ_MAP[mq_filter]
 
@@ -596,11 +596,11 @@ with tab1:
 
     # Mission Quality Classification
     MQ_LABELS = {
-        0: ("M0", "Not Found", "#D32F2F"),       # Red
-        1: ("M1", "Direct Statement", "#2E7D32"), # Green
-        2: ("M2", "Implied Statement", "#E65100"),# Orange
-        3: ("M3", "Inferred Statement", "#F9A825"),# Yellow
-        4: ("M4", "Vague / Generic", "#9E9E9E"),  # Gray
+        0: ("M0", "Absent from filing", "#D32F2F"),            # Red
+        1: ("M1", "Directly stated in filing", "#2E7D32"),     # Green
+        2: ("M2", "Stated but requires inference", "#E65100"), # Orange
+        3: ("M3", "Not stated, derived from context", "#F9A825"),# Yellow
+        4: ("M4", "Present but vague", "#9E9E9E"),             # Gray
     }
     mq = overview.get("mission_quality", 0)
     mq_code, mq_label, mq_color = MQ_LABELS.get(mq, ("M0", "Not Found", "#D32F2F"))
