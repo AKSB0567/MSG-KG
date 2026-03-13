@@ -1,3 +1,14 @@
+---
+title: MSG-KG
+emoji: 📊
+colorFrom: red
+colorTo: gray
+sdk: streamlit
+sdk_version: "1.30.0"
+app_file: app.py
+pinned: false
+---
+
 # MSG-KG: Mission Statement Knowledge Graph Intelligence
 
 **Mission-Strategy-Goals Knowledge Graph (MSG-KG)** is a financial intelligence platform that extracts, evaluates, and compares corporate mission statements from **91 S&P company SEC 10-K filings** using a hybrid **RAG + Knowledge Graph** pipeline with **FIBO ontology alignment**.
