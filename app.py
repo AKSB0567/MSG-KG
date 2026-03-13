@@ -1014,13 +1014,15 @@ with tab3:
         st.markdown("#### Head-to-Head Comparison")
         comp_col1, comp_col2 = st.columns(2)
         with comp_col1:
-            comp1 = st.selectbox("Company A", available,
+            all_ciks = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
+            comp1 = st.selectbox("Company A", all_ciks,
                                  format_func=lambda c: COMPANIES[c]["name"],
                                  key="comp1")
         with comp_col2:
-            comp2 = st.selectbox("Company B", available,
+            all_ciks = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
+            comp2 = st.selectbox("Company B", all_ciks,
                                  format_func=lambda c: COMPANIES[c]["name"],
-                                 key="comp2", index=min(1, len(available)-1))
+                                 key="comp2", index=min(1, len(all_ciks)-1))
 
         if comp1 != comp2:
             ov1 = get_overview(comp1)
