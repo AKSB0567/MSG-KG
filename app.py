@@ -46,6 +46,9 @@ COMPANIES = {
         "cik": cik,
         "filing_id": info.get("filing_id", ""),
         "filing_date": info.get("filing_date", ""),
+        "period_of_report": info.get("period_of_report", ""),
+        "accepted_date": info.get("accepted_date", ""),
+        "date_of_change": info.get("date_of_change", ""),
         "sec_link": info.get("sec_link", ""),
     }
     for cik, info in _REGISTRY_DATA.items()
@@ -538,10 +541,19 @@ with col_filters:
                            label_visibility="collapsed")
 
     meta = COMPANIES[company]
-    filing_date = meta.get("filing_date", "")
-    st.info(f"📅 {meta['fiscal_year']}  ·  🏭 {meta['sector'][:30]}")
-    if filing_date:
-        st.caption(f"Filed: {filing_date}")
+    st.info(f"{meta['fiscal_year']}  |  {meta['sector'][:30]}")
+
+    # All SEC dates
+    st.markdown("#### Filing Dates")
+    date_fields = [
+        ("Filed", meta.get("filing_date", "")),
+        ("Period of Report", meta.get("period_of_report", "")),
+        ("Accepted", meta.get("accepted_date", "")),
+        ("Date of Change", meta.get("date_of_change", "")),
+    ]
+    for label, val in date_fields:
+        if val:
+            st.caption(f"{label}: {val}")
 
     st.markdown("---")
     st.caption(f"{len(COMPANIES)} companies loaded")
