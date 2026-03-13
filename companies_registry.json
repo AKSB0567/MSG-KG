@@ -34,7 +34,10 @@
       "source_filename": "cleaned_10-K_0000034782-25-000025.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "aining modules consisting of over 985 different courses covering topics such as regulations, leadership development, relationship building, cybersecurity, communication, and unconscious bias. • The 1s"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -89,8 +92,11 @@
       "mission_evidence": "performance and adaptive computing to solve some of the world’s toughest and most interesting challenges. Our Vision - High performance and adaptive computing is transforming our lives. Our Mission - Build great products that accelerate next-generation computing experiences. Our employees are driven by this vision and mission. Innovation occurs when creative minds and diverse perspectives from all over the world work together. This is the foundation of our unique culture",
       "source_filename": "cleaned_10-K_0000002488-25-000012.txt",
       "mission_tier": 1,
-      "mission_confidence": 0.9,
-      "mission_quality": 1
+      "mission_confidence": 0.86,
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "of Contents company achieving many important industry firsts along the way. Today, we develop high-performance and adaptive computing to solve some of the world’s toughest and most interesting challen"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -128,10 +134,13 @@
         "edges": 4
       },
       "mission_tier": 3,
-      "mission_confidence": 0.42,
+      "mission_confidence": 0.5,
       "mission_evidence": "The Company’s principal business is supplemental health and life insurance products with the goal to provide customers the best value in supplemental insurance products in Japan and the U.",
       "source_filename": "cleaned_10-K_0000004977-25-000047.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "SINESS OVERVIEW Aflac Incorporated (the Parent Company) was incorporated in 1973 under the laws of the state of Georgia. The Parent Company and its subsidiaries (collectively, the Company) provide fin"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -177,10 +186,13 @@
         "edges": 10
       },
       "mission_tier": 2,
-      "mission_confidence": 0.82,
+      "mission_confidence": 0.71,
       "mission_evidence": "We are committed to fundamentally embed layers of protection in the work we do.",
       "source_filename": "cleaned_10-K_0000004904-25-000027.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ty is integral to our culture and is one of AEP’s core values. AEP is dedicated to ensuring the safety of our employees, contractors, customers and the communities we serve. AEP has policies, procedur"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -226,10 +238,13 @@
         "edges": 8
       },
       "mission_tier": 2,
-      "mission_confidence": 0.79,
+      "mission_confidence": 0.63,
       "mission_evidence": "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous a",
       "source_filename": "cleaned_10-K_0000004962-25-000016.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "our products and services in a manner consistent with our brand promise. The American Express brand is ranked among the most valuable brands in the world. We place significant importance on trademarks"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -269,10 +284,13 @@
         "edges": 4
       },
       "mission_tier": 2,
-      "mission_confidence": 0.65,
+      "mission_confidence": 0.78,
       "mission_evidence": "Unifying under our Purpose and Values empowers AIG colleagues to be conduits of positive change - delivering exceptional client service, enhanced shareholder value and a better experience for all stakeholders.",
       "source_filename": "cleaned_10-K_0000005272-25-000012.txt",
-      "mission_quality": 1
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "NTENTS ITEM 1 | Business AIG's global team is both results oriented and focused on how we achieve positive outcomes. This balance creates an aligned and inclusive culture that enables further progress"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -315,7 +333,10 @@
       "source_filename": "cleaned_10-K_0000007789-25-000013.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "the regional and local economies where we 30 conduct business and to our customers, which, in turn, could be materially adverse to our business, financial condition and results of operations. Our fina"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -367,7 +388,10 @@
       "source_filename": "cleaned_10-K_0000008063-25-000017.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "for the commercial transport, military and general aviation markets, suppliers to those OEMs, aircraft operators such as airlines, suppliers to the aircraft operators, and branches of the U.S. Departm"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -418,7 +442,10 @@
       "source_filename": "cleaned_10-K_0000040729-25-000006.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "Accepted in the United States of America VIE Variable interest entity VIN Vehicle identification number VMC Vehicle maintenance contract VSC Vehicle service contract WAC Weighted-average coupon wSTWF "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -456,10 +483,13 @@
         "edges": 6
       },
       "mission_tier": 2,
-      "mission_confidence": 0.81,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to engaging with our stakeholders to seek to advance these initiatives and have de",
       "source_filename": "cleaned_10-K_0000006201-25-000010.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "e also an anchor partner of Breakthrough Energy Catalyst, which aims to make investments to accelerate the development of new clean energy technologies, including SAF. Achieving our ambitious goals wi"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -510,8 +540,11 @@
       "mission_evidence": "tion to update publicly any forward-looking statement whether as a result of new information, future events, changes in assumptions or otherwise. 3 ARCHER-DANIELS-MIDLAND COMPANY FORM 10-K FOR THE YEAR ENDED DECEMBER 31, 2024 TABLE OF CONTENTS [TABLE REMOVED] 4 Table of Contents ARCHER-DANIELS-MIDLAND COMPANY PART I Item 1. BUSINESS Company Overview Archer-Daniels-Midland Company (the \"Company\" or \"ADM\") unlocks the power of nature to enrich the quality of life. The Company is an essential global agricultural supply chain manager and processor, providing food security by connecting local needs",
       "source_filename": "cleaned_10-K_0000007084-25-000011.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.4,
-      "mission_quality": 3
+      "mission_confidence": 0.5,
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "0-K FOR THE YEAR ENDED DECEMBER 31, 2024 TABLE OF CONTENTS [TABLE REMOVED] 4 Table of Contents ARCHER-DANIELS-MIDLAND COMPANY PART I Item 1. BUSINESS Company Overview Archer-Daniels-Midland Company (t"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -563,7 +596,10 @@
       "source_filename": "cleaned_10-K_0000008818-25-000003.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "vantages in maintaining and further developing our competitive position. Research, Development and Innovation As a global leader in materials science, we innovate to develop and introduce new products"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -608,10 +644,13 @@
         "edges": 7
       },
       "mission_tier": 3,
-      "mission_confidence": 0.42,
+      "mission_confidence": 0.5,
       "mission_evidence": "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through",
       "source_filename": "cleaned_10-K_0000011544-25-000005.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "liability 12.0 13.1 15.8 Workers' compensation 10.0 10.8 11.9 Total 100.0% 100.0% 100.0% ___________________ (1) Short-tail lines include commercial multi-peril (non-liability), inland marine, acciden"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -656,10 +695,13 @@
         "edges": 8
       },
       "mission_tier": 2,
-      "mission_confidence": 0.75,
+      "mission_confidence": 0.63,
       "mission_evidence": "Our products currently address specific niches within the in vitro diagnostics (\"IVD\") test market, and we seek to focus on the higher margin, higher growth segments of this market.",
       "source_filename": "cleaned_10-K_0000012208-25-000007.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "s, food producers and food testing laboratories. Clinical Diagnostics Segment Our Clinical Diagnostics segment designs, manufactures, markets and supports test systems, informatics systems, test kits "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -704,10 +746,13 @@
         "edges": 5
       },
       "mission_tier": 2,
-      "mission_confidence": 0.74,
+      "mission_confidence": 0.63,
       "mission_evidence": "We aspire to achieve zero workplace injuries and provide a safe, open and accountable work environment for our employee",
       "source_filename": "cleaned_10-K_0000012927-25-000015.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ly 5.9 million hours of learning and approximately 14,000 Boeing employees leveraged our tuition assistance program to pursue degrees, professional certificates and individual courses in strategic fie"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -751,8 +796,11 @@
       "mission_evidence": "advantage, drive operational excellence and strategically allocate capital for long-term growth and shareholder returns. For a further discussion of our strategy initiatives, refer to “Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operations—Strategy.” In addition, we expect that our acquisitions of Karuna, RayzeBio and Mirati in 2024 will allow us to expand in neuroscience and oncology, and continue to position us as a leading biopharmaceutical company across our core therapeutic areas. We compete with other global research-based biopharmaceutical compani",
       "source_filename": "cleaned_10-K_0000014272-25-000039.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_confidence": 0.5,
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "partial",
+      "verification_context": "owth and shareholder returns. For a further discussion of our strategy initiatives, refer to “Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operations—Strategy.” I"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -808,7 +856,10 @@
       "source_filename": "cleaned_10-K_0000014930-25-000025.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "and leveraging our leading brands to meet consumer needs; • Providing customers industry leading quality and customer support; • Delivering distinctive, elevated ownership and shared-access experience"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -862,8 +913,11 @@
       "mission_evidence": "and services to support our customers on their sustainability journey. The addition of sustainability as a strategic area, together with operational excellence, expanded offerings and services, highlights our work to help customers build a better, more sustainable world. Currently, we have five operating segments, of which four are reportable segments and are described below. Categories of Business Organization 1. Machinery, Energy & Transportation — Caterpillar Inc. and its subsidiaries, excluding Financial Products. Machinery, Energy & Transportation information relates to the design, manufa",
       "source_filename": "cleaned_10-K_0000018230-25-000008.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.4,
-      "mission_quality": 3
+      "mission_confidence": 0.5,
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "overnance goals. It’s also allowed us to develop innovative products, technologies and services to support our customers on their sustainability journey. The addition of sustainability as a strategic "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -909,10 +963,13 @@
         "edges": 11
       },
       "mission_tier": 2,
-      "mission_confidence": 0.81,
+      "mission_confidence": 0.71,
       "mission_evidence": "We are committed to providing equal opportunity for all associates, encouraging a work environment free from unlawful discrimination and harassment.",
       "source_filename": "cleaned_10-K_0000020286-25-000009.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "critical to our strategy that emphasizes superior service to agencies and their clients, as described in this report. Our goal is to hire job candidates with promise, matching their strengths to posit"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -962,7 +1019,10 @@
       "source_filename": "cleaned_10-K_0000024090-25-000018.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "ionally, our limited products, which were mostly endowment products, burdened us with known high levels of maturities after a certain period with limited products to replace the business. As a result,"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1006,10 +1066,13 @@
         "edges": 10
       },
       "mission_tier": 3,
-      "mission_confidence": 0.4,
+      "mission_confidence": 0.3,
       "mission_evidence": "We focus on attracting, developing and retaining top-tier talent to reflect the specialist nature of our business. We aim to continually build on the expertise of our workforce.",
       "source_filename": "cleaned_10-K_0000021175-25-000008.txt",
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "e reserves $ 1,697 $ 1,392 Net IBNR reserves 4,282 4,524 Total net carried claim and claim adjustment expense reserves $ 5,979 $ 5,916 36 Table of Contents Commercial Commercial works with a network o"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -1064,8 +1127,11 @@
       "mission_evidence": "Our vision for growth has three connected pillars: • Loved Brands. We craft meaningful brands and a choice of drinks that people love and enjoy and that refresh them in body and spirit. • Done Sustainably. We grow our business in ways that achieve positive change in the world and build a more sustainable future for our planet. • For a Better Shared Future. We invest to improve people’s lives, from our employees to all those who touch our business system, to our investors, to the communities we call home. The Coca-Cola Company was incorporated in September 1919 under the laws of the State of D",
       "source_filename": "cleaned_10-K_0000021344-25-000011.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_confidence": 0.4,
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_WITH_CONTEXT",
+      "verification_match": "keyword",
+      "verification_context": "ends on our ability to connect with consumers by providing them with a wide variety of beverage options to meet their desires, needs and lifestyles. Our success further depends on the ability of our p"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1115,7 +1181,10 @@
       "source_filename": "cleaned_10-K_0000021665-25-000008.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": ""
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1153,10 +1222,13 @@
         "edges": 4
       },
       "mission_tier": 3,
-      "mission_confidence": 0.35,
+      "mission_confidence": 0.3,
       "mission_evidence": "Comerica's relationship banking strategy relies heavily on the personal relationships and the quality of service provided by employees. Accordingly, Comerica aims to attract, develop and retain employees who can drive financial and strategic growth objectives and build long-term shareholder value.",
       "source_filename": "cleaned_10-K_0000028412-25-000108.txt",
-      "mission_quality": 4
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "ining loans are typically eligible to be sold on the secondary market. Adjustable-rate loans are limited to standard conventional loan programs. For additional information specific to our residential "
     },
     "scores": {
       "Mission Clarity": 0,
@@ -1208,7 +1280,10 @@
       "mission_confidence": 0.5,
       "mission_evidence": "and its subsidiaries (collectively, the \"Company\") is one of the nation’s top 50 bank holding companies, based on asset size.",
       "source_filename": "cleaned_10-K_0000022356-25-000016.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "directly or through the Bank, various non-banking subsidiaries. Their activities include private equity investment, securities brokerage, underwriting, specialty lending, and leasing activities. A lis"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1259,7 +1334,10 @@
       "source_filename": "cleaned_10-K_0000039263-25-000017.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "263 cfr:NonBanksMember 2023-01-01 2023-12-31 0000039263 cfr:BankMember 2023-12-31 0000039263 cfr:NonBanksMember 2023-12-31 0000039263 cfr:BankMember 2022-01-01 2022-12-31 0000039263 cfr:FrostWealthAdv"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1301,10 +1379,13 @@
         "edges": 5
       },
       "mission_tier": 1,
-      "mission_confidence": 0.92,
+      "mission_confidence": 0.78,
       "mission_evidence": "We do this through our commitment to fostering an accountable culture that champions our vision of a workforce mirroring the communities we serve. This commitment starts at the top with our Board and permeates throughout our organization as everyone plays a role in nurturing inclusive environments where all employees can reach their full potential and thrive.",
       "source_filename": "cleaned_10-K_0000026172-25-000007.txt",
-      "mission_quality": 3
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "our commitment to inclusion dates back more than a half-century and continues to be core to our fabric and continued success. We leverage the strength of our broadly diverse, global workforce to drive"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1355,7 +1436,10 @@
       "source_filename": "cleaned_10-K_0000026324-25-000015.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "ed drive for top-line acceleration through both organic and inorganic sales growth, building on the strengths across our A&D and commercial markets, while deepening and expanding our customer relation"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1393,10 +1477,13 @@
         "edges": 4
       },
       "mission_tier": 1,
-      "mission_confidence": 0.92,
+      "mission_confidence": 0.78,
       "mission_evidence": "Our vision is to provide clean, secure and affordable energy to",
       "source_filename": "cleaned_10-K_0000003570-25-000033.txt",
-      "mission_quality": 1
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "subject to market-based price competition. Corporate Responsibility As described in Market Factors and Competition , we expect that global demand for natural gas and LNG will continue to increase as n"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1444,8 +1531,11 @@
       "mission_evidence": "Derby. As of the same date, approximately 840 full-time team members were covered by 12 collective bargaining agreements. We have not experienced any material operational disruptions due to labor disputes. Talent Acquisition, Development and Retention We are committed to attracting, developing, and retaining top talent. Our approach emphasizes a clear purpose and strategy, setting ambitious goals, fostering accountability, continuously assessing and advancing talent, and driving a leadership-led culture of growth. We provide opportunities for team members to expand their expertise within their",
       "source_filename": "cleaned_10-K_0000020212-25-000051.txt",
       "mission_tier": 1,
-      "mission_confidence": 0.8,
-      "mission_quality": 2
+      "mission_confidence": 0.63,
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "partial",
+      "verification_context": "oinciding with the Kentucky Derby. As of the same date, approximately 840 full-time team members were covered by 12 collective bargaining agreements. We have not experienced any material operational d"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1494,7 +1584,10 @@
       "source_filename": "cleaned_10-K_0000027904-25-000004.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": ""
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1547,7 +1640,10 @@
       "source_filename": "cleaned_10-K_0000027996-25-000051.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "nterprise strategy is straightforward: leverage the cash flows, customer relationships, and brand equity from our print business to fuel profitable organic growth in our other businesses. To execute t"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1601,7 +1697,10 @@
       "source_filename": "cleaned_10-K_0000028823-25-000022.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "while simultaneously streamlining cost structures and business processes through the smart integration of hardware, software and services. The Company partners with other leading technology companies "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1647,10 +1746,13 @@
         "edges": 8
       },
       "mission_tier": 2,
-      "mission_confidence": 0.74,
+      "mission_confidence": 0.63,
       "mission_evidence": "We seek to expand the number and use of the private label cards by, among other things, providing incentives to sales associates to encourage customers",
       "source_filename": "cleaned_10-K_0000028917-25-000004.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ion received from the portfolio is determined monthly and has no recourse provisions. We participate in the marketing of the private label cards, which includes the cost of customer reward programs. C"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1702,7 +1804,10 @@
       "source_filename": "cleaned_10-K_0000034067-25-000028.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "NobelClad is a leader in the production of explosion-welded clad metal plates for use in the construction of corrosion resistant industrial processing equipment, as well as specialized transition join"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1752,8 +1857,11 @@
       "mission_evidence": "ns in the consolidated financial statements in Item 8 of this Form 10-K. 4 Table of Contents Management Philosophy Dover is committed to delivering shareholder value creation through a combination of sustained profitable growth, operational excellence, superior free cash flow generation and productive capital re-deployment while adhering to a conservative financial policy. Dover seeks to be a leader in a diverse set of growing markets where customers are loyal to trusted partners and suppliers, and value product performance and differentiation driven by superior engineering, manufacturing p",
       "source_filename": "cleaned_10-K_0000029905-25-000006.txt",
       "mission_tier": 2,
-      "mission_confidence": 0.6,
-      "mission_quality": 3
+      "mission_confidence": 0.63,
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "lely to our continuing operations. For more details, see Note 4 — Discontinued and Disposed Operations in the consolidated financial statements in Item 8 of this Form 10-K. 4 Table of Contents Managem"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1794,10 +1902,13 @@
         "edges": 6
       },
       "mission_tier": 1,
-      "mission_confidence": 0.98,
+      "mission_confidence": 0.78,
       "mission_evidence": "Our purpose is to unite caring with discovery to create",
       "source_filename": "cleaned_10-K_0000059478-25-000067.txt",
-      "mission_quality": 1
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "d to as the company, Lilly, we, or us) was incorporated in 1901 in Indiana to succeed to the drug manufacturing business founded in Indianapolis, Indiana, in 1876 by Colonel Eli Lilly. We discover, de"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1850,8 +1961,11 @@
       "mission_evidence": "sale of Rail in the future when the appropriate value can be realized. More broadly, we are committed to viewing every customer need through a sustainability lens. Our customers expect customizable solutions that address environmental challenges within their industries. The Company is responding to this need by helping our customers build better businesses and, in a larger sense, a better environment. Our go-forward strategy is clear: to continue building a leading, global environmental solutions company. SEGMENT INFORMATION The Company’s current operations consist of three reportable busines",
       "source_filename": "cleaned_10-K_0000045876-25-000018.txt",
       "mission_tier": 2,
-      "mission_confidence": 0.6,
-      "mission_quality": 2
+      "mission_confidence": 0.63,
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ransactions have reduced the Company’s portfolio complexity and business cyclicality. In 2024, 88% of our revenues were generated from our two environmental segments. The Company anticipates the sale "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1896,7 +2010,10 @@
       "source_filename": "cleaned_10-K_0000033213-25-000011.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "rategy includes creating value through mergers and acquisitions, divestitures, joint ventures and similar business transactions as well as by investing in energy transition opportunities directed at c"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1945,7 +2062,10 @@
       "source_filename": "cleaned_10-K_0000033185-25-000025.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "recovery management. In addition, we provide products to consumers in Canada, the U.K., Australia and Chile to enable them to understand and monitor their credit and help protect their identity. This "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1996,7 +2116,10 @@
       "source_filename": "cleaned_10-K_0000034088-25-000010.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "; and • 60-70 percent reduction in corporate-wide flaring intensity. Our emission-reduction plans and 2050 net-zero ambition cover Scope 1 and 2 emissions from assets we operate, which now include Pio"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2036,10 +2159,13 @@
         "edges": 5
       },
       "mission_tier": 3,
-      "mission_confidence": 0.52,
+      "mission_confidence": 0.5,
       "mission_evidence": "The Bancorp is a diversified financial services company headquartered in Cincinnati, Ohio and is the indirect holding company of Fifth Third Bank, National Association (the “Bank”).",
       "source_filename": "cleaned_10-K_0000035527-25-000079.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "ng company (“BHC”) as defined by the Bank Holding Company Act of 1956, as amended (the “BHCA”), and has elected to be treated as a financial holding company (“FHC”) under the Gramm-Leach-Bliley Act of"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2077,10 +2203,13 @@
         "edges": 4
       },
       "mission_tier": 3,
-      "mission_confidence": 0.42,
+      "mission_confidence": 0.5,
       "mission_evidence": "Our principal businesses are heavily regulated.",
       "source_filename": "cleaned_10-K_0000036966-25-000024.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "is expensive and difficult. Moreover, rapid innovation has the potential to be destructive of traditional business models and companies in our industry, as it has done and is doing in other industries"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2131,8 +2260,11 @@
       "mission_evidence": "tives and accelerates growth through three key areas: diversification, decarbonization, and digitization (the \"3D Strategy\"). The goal of our 3D Strategy is to utilize our leadership in the flow control industry, and through our commitment to research and development, create innovative products and solutions which address the emerging climate and environmental issues that our customers face. In addition, we recently launched the Flowserve Business System to guide the enterprise on incorporating best in class operational practices within the following categories: People Excellence; Operational",
       "source_filename": "cleaned_10-K_0000030625-25-000039.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_confidence": 0.4,
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_WITH_CONTEXT",
+      "verification_match": "keyword",
+      "verification_context": "icantly in the coming years. We believe that the persistent demand for fresh water during all economic cycles supports continued investments, especially in North America and developing regions. 30 Out"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2183,8 +2315,11 @@
       "mission_evidence": "de active ingredients, product formulations and pioneering technologies that are consistently better for the planet. FMC Strategy We are a tier-one leader and the fifth largest global innovator in the agrochemicals/crop protection market. Our strong competitive position is driven by our technology and innovation, as well as our geographic balance and crop diversity. FMC is guided by our strategic plan which aims to transform our relationship with growers to become a trusted source for technical expertise and innovative solutions, to deliver superior growth and returns to our stakeholders, and",
       "source_filename": "cleaned_10-K_0000037785-25-000030.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_confidence": 0.4,
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_WITH_CONTEXT",
+      "verification_match": "keyword",
+      "verification_context": "ce food, feed, fiber and fuel for an expanding world population while adapting to a changing environment. FMC is committed to discovering new insecticide, herbicide and fungicide active ingredients, p"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2230,10 +2365,13 @@
         "edges": 11
       },
       "mission_tier": 1,
-      "mission_confidence": 1.04,
+      "mission_confidence": 0.78,
       "mission_evidence": "Our compensation philosophy is to maintain a program that supports our mission and values. The compensat",
       "source_filename": "cleaned_10-K_0000037808-25-000071.txt",
-      "mission_quality": 1
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "t-secondary education, including college and graduate school. Engagement. We regularly seek feedback from our employees and in 2024 participated in several regional Top Workplace surveys. Our outstand"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2274,10 +2412,13 @@
         "edges": 4
       },
       "mission_tier": 2,
-      "mission_confidence": 0.5,
+      "mission_confidence": 0.79,
       "mission_evidence": "are committed to supporting and sustaining a respectful and inclusive workplace for all employees. We believe this empowers every person to do their best work and ultimately achieve the Ford+ plan. We actively recruit and hire the best talent and are proud that our workforce is made up of people with different backgrounds, perspectives, and experiences so we can deliver the best products and services for our customers around the world. Ford offers 10 global Employee Resource Groups (“ERGs”) tha",
       "source_filename": "cleaned_10-K_0000037996-25-000013.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ves and leading safety metrics have been implemented as we strive to prevent workplace injuries and reduce risk to our employees and contractors. Building a Diverse and Inclusive Workplace At Ford, we"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2321,10 +2462,13 @@
         "edges": 7
       },
       "mission_tier": 3,
-      "mission_confidence": 0.55,
+      "mission_confidence": 0.5,
       "mission_evidence": "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices.",
       "source_filename": "cleaned_10-K_0000038725-25-000026.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "roducts and related equipment are sold to specialty distributors and some original equipment manufacturers (“OEMs”), as well as industrial and petroleum equipment distributors and major oil and utilit"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2367,10 +2511,13 @@
         "edges": 9
       },
       "mission_tier": 2,
-      "mission_confidence": 0.84,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also deli",
       "source_filename": "cleaned_10-K_0000039911-25-000029.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "and redeem gift cards. Product Development We design, develop, market, and sell a wide range of apparel and accessory products reflecting a mix of basics and fashion items based on widely accepted fas"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2415,10 +2562,13 @@
         "edges": 9
       },
       "mission_tier": 2,
-      "mission_confidence": 0.83,
+      "mission_confidence": 0.63,
       "mission_evidence": "SUSTAINABILITY We are committed to growing our business in a sustainable and socially",
       "source_filename": "cleaned_10-K_0000040211-25-000024.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ts were prepared for the new school year by donating backpacks, school supplies, and a specialty printer to a school. In recognition of these efforts, GATX received the \"Stand Up for Texas Public Scho"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2466,10 +2616,13 @@
         "edges": 9
       },
       "mission_tier": 2,
-      "mission_confidence": 0.85,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to continual investment in R&D to create new aircraft that consistently broaden customer offerings while raising the bar for safety and performance.",
       "source_filename": "cleaned_10-K_0000040533-25-000008.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "R&D), state-of-the-art manufacturing facilities, and maintenance and support through a combination of product development efforts, capital expansion and Jet Aviation’s global support network. We are a"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2514,9 +2667,12 @@
       },
       "source_filename": "cleaned_10-K_0000040545-25-000015.txt",
       "mission_tier": 2,
-      "mission_confidence": 0.5,
+      "mission_confidence": 0.78,
       "mission_evidence": "ity roadmap. HUMAN CAPITAL. The strength and talent of our workforce are critical to the success of our purpose to invent the future of flight, lift people up and bring them home safely. We strive to attract, develop and retain a workforce that can deliver for our global customer base. The Company’s human capital management priorities are aligned to our business strategy and support the execution of operational results, financial results and the development of technologies that we believe will d",
-      "mission_quality": 1
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "r in Europe supporting the development of indigenous, classified engine technology and a core member of Clean Aviation, significantly contributing to and benefiting from the European Union sustainabil"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2569,8 +2725,11 @@
       "mission_evidence": "ted by the context; and the terms “automotive parts” and “industrial parts” refer to replacement parts in each respective category. OUR BUSINESS We are one global team unified by our mission to be an employer of choice, supplier of choice, valued customer, responsible corporate citizen and investment of choice for our shareholders. In order to execute this mission, we focus our businesses on delivering excellent customer service, profitable growth, operational efficiencies and strong cash flow. In 2024,",
       "source_filename": "cleaned_10-K_0000040987-25-000026.txt",
       "mission_tier": 1,
-      "mission_confidence": 0.8,
-      "mission_quality": 1
+      "mission_confidence": 0.78,
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "\"us,\" \"our,\" \"GPC,\" and the “company” refers to GPC and its subsidiaries, except as otherwise indicated by the context; and the terms “automotive parts” and “industrial parts” refer to replacement par"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2616,10 +2775,13 @@
         "edges": 9
       },
       "mission_tier": 2,
-      "mission_confidence": 0.84,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to maintaining a culture of trust that recognizes the dignity and uniqueness of the individual.",
       "source_filename": "cleaned_10-K_0000042888-25-000011.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "aged nearly 23 years of tenure. Tenure of all employees averaged nearly 10 years, reflective of our positive workplace culture. Our recruiting team uses internal and external resources to recruit high"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2667,10 +2829,13 @@
         "edges": 10
       },
       "mission_tier": 2,
-      "mission_confidence": 0.84,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly devel",
       "source_filename": "cleaned_10-K_0000045012-25-000010.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ss, which offer our customers a variety of environment-friendly options related to the use of hydraulic fracturing fluid additives and other aspects of our hydraulic fracturing operations. We created "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2715,10 +2880,13 @@
         "edges": 8
       },
       "mission_tier": 1,
-      "mission_confidence": 1.0,
+      "mission_confidence": 0.86,
       "mission_evidence": "Our mission is to partner with clients to provide them with robust customer-experience, or CX strategy, data-driven analytics, and actionable insights combined with seamless program execution to better understand, attract, and engage their customers. Our services include strat",
       "source_filename": "cleaned_10-K_0000045919-25-000008.txt",
-      "mission_quality": 1
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "n conjunction with, our Consolidated Financial Statements and the accompanying notes included herein. 22 Table of Contents Harte Hanks, Inc. is a leading global customer experience company operating i"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2769,8 +2937,11 @@
       "mission_evidence": "d on January 8, 1926, and its subsidiaries. 5 Table of Contents Item 1. Business. Overview Hasbro, Inc. (“Hasbro”) is a leading game, intellectual property (\"IP\"), and toy company whose mission is to create joy and community through the magic of play. With over 100 years of expertise, we deliver play experiences to kids, families, and fans around the world, through physical and digital games, video games, toys, licensed consumer products, location",
       "source_filename": "cleaned_10-K_0000046080-25-000027.txt",
       "mission_tier": 1,
-      "mission_confidence": 0.8,
-      "mission_quality": 3
+      "mission_confidence": 0.78,
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "ein, “Hasbro”, the “Company”, “we”, or “us”, means Hasbro, Inc., a Rhode Island corporation organized on January 8, 1926, and its subsidiaries. 5 Table of Contents Item 1. Business. Overview Hasbro, I"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2823,7 +2994,10 @@
       "source_filename": "cleaned_10-K_0000047111-25-000014.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "l standards. The annual operating and capital expenditures associated with ordinary course payments and additional climate change commitments are not material with respect to our results of operations"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2871,10 +3045,13 @@
         "edges": 9
       },
       "mission_tier": 3,
-      "mission_confidence": 0.55,
+      "mission_confidence": 0.63,
       "mission_evidence": "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products.",
       "source_filename": "cleaned_10-K_0000048287-25-000084.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "and together with its consolidated subsidiaries. The Corporation follows a 52/53-week fiscal year, which ends on the Saturday nearest December 31. Fiscal year 2024 ended on December 28, 2024, fiscal y"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2926,7 +3103,10 @@
       "source_filename": "cleaned_10-K_0000049071-25-000007.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "network. Point of Service, or POS, plans combine the advantages of HMO plans with the flexibility of PPO plans. In general, POS plans allow members to choose, at the time medical services are needed, "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2970,10 +3150,13 @@
         "edges": 6
       },
       "mission_tier": 1,
-      "mission_confidence": 0.92,
+      "mission_confidence": 0.78,
       "mission_evidence": "stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p",
       "source_filename": "cleaned_10-K_0000049196-25-000020.txt",
-      "mission_quality": 3
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "zes the delivery of a complete set of banking products and services offered by larger banks, but distinguished by local delivery and customer service. A key strategic emphasis has been for our busines"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3019,10 +3202,13 @@
         "edges": 10
       },
       "mission_tier": 2,
-      "mission_confidence": 0.73,
+      "mission_confidence": 0.63,
       "mission_evidence": "We seek to identify high performers and support their development into potential future leaders, focusing on providing opportunities to all individuals.",
       "source_filename": "cleaned_10-K_0000004281-25-000011.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "platform allows us to align employee goals and growth with the Company’s future business needs so that we can pinpoint potential successor candidates and build their readiness for their future roles. "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3068,10 +3254,13 @@
         "edges": 9
       },
       "mission_tier": 3,
-      "mission_confidence": 0.55,
+      "mission_confidence": 0.5,
       "mission_evidence": "The Company is a global manufacturer of a diversified range of industrial products and equipment with 86 divisions in 51 countries.",
       "source_filename": "cleaned_10-K_0000049826-25-000007.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "y Reference Portions of the 2025 Proxy Statement for Annual Meeting of Stockholders to be held on May 2, 2025. Part III [TABLE REMOVED] PART I ITEM 1. Business General Illinois Tool Works Inc. (the \"C"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3114,10 +3303,13 @@
         "edges": 7
       },
       "mission_tier": 2,
-      "mission_confidence": 0.72,
+      "mission_confidence": 0.63,
       "mission_evidence": "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating a",
       "source_filename": "cleaned_10-K_0000039311-25-000044.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "sk in our securities portfolio. We maintain diversified securities portfolios, which include obligations of the Treasury and government-sponsored agencies as well as securities issued by states and po"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3164,8 +3356,11 @@
       "mission_evidence": "ufacturers. Supply Chain Our supply chain is a cornerstone of our success and a critical enabler of our mission to deliver cutting-edge technology solutions to our customers. Our global supply chain supports internal partners across architecture, product design, technology development, manufacturing and operations, and sales and marketing. It encompasses thousands of suppliers worldwide, forming a robust supply ecosystem designed to enable product and process competitiveness, deliver industry-le",
       "source_filename": "cleaned_10-K_0000050863-25-000009.txt",
       "mission_tier": 2,
-      "mission_confidence": 0.5,
-      "mission_quality": 1
+      "mission_confidence": 0.78,
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "ly, as we build out our external foundry services, we expect to receive customer pre-payments to secure capacity and other benefits. Customer pre-payments are a standard practice for semiconductor man"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3205,10 +3400,13 @@
         "edges": 5
       },
       "mission_tier": 3,
-      "mission_confidence": 0.53,
+      "mission_confidence": 0.5,
       "mission_evidence": "Competition IBM is a globally in",
       "source_filename": "cleaned_10-K_0000051143-25-000015.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "partial",
+      "verification_context": "challenges while accelerating growth. Our strategic partners include: Adobe, Amazon Web Services (AWS), Microsoft, Oracle, Palo Alto Networks, Salesforce, Samsung Electronics and SAP, among others. Co"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3252,10 +3450,13 @@
         "edges": 7
       },
       "mission_tier": 2,
-      "mission_confidence": 0.79,
+      "mission_confidence": 0.63,
       "mission_evidence": "Supply Chain We strive to provide our customers with consistent and quality products on a timely and cost-effecti",
       "source_filename": "cleaned_10-K_0000051253-25-000013.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "r improve functionality of their formulations. This often results in creating a better value proposition for our customers. Most of our formulas are treated as trade secrets and remain our proprietary"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3293,10 +3494,13 @@
         "edges": 4
       },
       "mission_tier": 1,
-      "mission_confidence": 0.94,
+      "mission_confidence": 0.78,
       "mission_evidence": "Results of the survey will be analyzed in 2025 with the goal of learning, growing and aspiring to achieve our Vision 2030 goal to create a 100% injury-free workplace for our t",
       "source_filename": "cleaned_10-K_0000051434-25-000013.txt",
-      "mission_quality": 2
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": "e engaged an independent safety consultant firm to help the Company improve workplace safety performance through risk assessments, safety culture development and programs designed to reduce accidents "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3347,8 +3551,11 @@
       "mission_evidence": "for each. To learn more about our broad range of capabilities, visit our website at www.interpublic.com. Information on our website is not part of this report. Market Strategy We operate in a media, consumer and technology ecosystem that continues to evolve at a rapid pace. To help our clients win in a data-led and digital first world, we have made and continue to make investments in strategic areas including digital commerce, retail media, artificial intelligence, audience resolution, and production across world markets. In addition, we consistently review opportunities within our Company to",
       "source_filename": "cleaned_10-K_0000051644-25-000024.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_confidence": 0.5,
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "partial",
+      "verification_context": "ISSION Washington, D.C. 20549 Form 10-K ☒ ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the fiscal year ended December 31, 2024 or ☐ TRANSITION REPORT PURSUA"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3386,10 +3593,13 @@
         "edges": 4
       },
       "mission_tier": 3,
-      "mission_confidence": 0.51,
+      "mission_confidence": 0.5,
       "mission_evidence": "(“JPMorganChase” or the “Firm”, NYSE: JPM), a financial holding company incorporated under Delaware law in 1968, is a leading financial services firm based in the United States of America (“U.",
       "source_filename": "cleaned_10-K_0000019617-25-000270.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "tions of the registrant’s Proxy Statement for the annual meeting of stockholders to be held on May 20, 2025, are incorporated by reference in this Form 10-K in response to Items 10, 11, 12, 13 and 14 "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3440,8 +3650,11 @@
       "mission_evidence": "e, and wire our organization for growth. Our first pillar focuses on 19 KIMBERLY-CLARK CORPORATION - 2024 Annual Report investing in our brands to enhance our competitive advantage by leveraging our best-in-class science and proprietary, category-shaping technologies for innovative product solutions that solve unmet consumer needs around the world. Our second pillar is driven by our supply chain transformation and investment in three key areas that will enhance our value chain and improve our margin structure: value stream simplification, network optimization, and scalable automation. Our thir",
       "source_filename": "cleaned_10-K_0000055785-25-000013.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_confidence": 0.4,
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_WITH_CONTEXT",
+      "verification_match": "keyword",
+      "verification_context": "Sweety, Softex, Viva and WypAll, encompass five global daily-need product categories: Baby & Child Care, Adult Care, Feminine Care, Family Care, and Professional. We strive to use sustainable practice"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3488,8 +3701,11 @@
       "mission_evidence": "f business for which an underwriting profit is not likely. Our strategy is to be the preferred multi-line property and casualty insurance company for selected producers in the geographic markets in which we operate. We believe producers place profitable business with us because we provide excellent, consistent service to insureds and claimants. Producers also value our broad underwriting appetite coupled with competitive rate and commission structures. Our principal objectives are to grow profitably while managing risk through prudent use of reinsurance in order to strengthen our capital base.",
       "source_filename": "cleaned_10-K_0000033992-25-000007.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_confidence": 0.4,
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_WITH_CONTEXT",
+      "verification_match": "keyword",
+      "verification_context": "commissions to these agencies. We seek to deliver an attractive return on capital and to provide consistent earnings growth through underwriting profits and income from our investment portfolio. Our g"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3536,10 +3752,13 @@
         "edges": 10
       },
       "mission_tier": 2,
-      "mission_confidence": 0.83,
+      "mission_confidence": 0.63,
       "mission_evidence": "Succession Development We are committed to having strong managers and leadership in critical roles across the Company.",
       "source_filename": "cleaned_10-K_0000058492-25-000136.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ve new hire and annual refresher safety training, weekly “tool box” talks regarding safety and training, job-specific safety training based on the job hazards analysis developed from our SafeGuard pro"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3588,10 +3807,13 @@
         "edges": 11
       },
       "mission_tier": 2,
-      "mission_confidence": 0.74,
+      "mission_confidence": 0.63,
       "mission_evidence": "Our goal is to proactively manage risks in a structured approach an",
       "source_filename": "cleaned_10-K_0000059527-25-000006.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "to monitor and mitigate risks, where possible. Our Board of Directors (“Board”) provides oversight of the ERM process and systematically reviews identified critical risks. The Audit Committee also rev"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3638,8 +3860,11 @@
       "mission_evidence": "nd Lincoln Financial names, the Lincoln logo and the combination of these marks. Trademark registrations may be renewed indefinitely subject to continued use and registration requirements. We regard our trademarks as valuable assets in marketing our products and services and intend to protect them against infringement and dilution. HUMAN CAPITAL MANAGEMENT As of December 31, 2024, we had a total of 9,783 employees. Our mission is to provide financial protection and security to our customers and their families by offering products and services across our four core businesses. We believe that ev",
       "source_filename": "cleaned_10-K_0000059558-25-000023.txt",
       "mission_tier": 1,
-      "mission_confidence": 0.9,
-      "mission_quality": 1
+      "mission_confidence": 0.63,
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "partial",
+      "verification_context": "ect to continued use and registration requirements. We regard our trademarks as valuable assets in marketing our products and services and intend to protect them against infringement and dilution. HUM"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3679,10 +3904,13 @@
         "edges": 6
       },
       "mission_tier": 3,
-      "mission_confidence": 0.43,
+      "mission_confidence": 0.5,
       "mission_evidence": "We also own approximately 53% of Altium Packaging LLC, an unconsolidated subsidiary, which is engaged in the manufacture of rigid plastic packaging solutions.",
       "source_filename": "cleaned_10-K_0000060086-25-000036.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "e (CNA Financial Corporation, an approximately 92% owned subsidiary); • transportation and storage of natural gas and natural gas liquids (Boardwalk Pipeline Partners, LP, a wholly owned subsidiary); "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3723,10 +3951,13 @@
         "edges": 6
       },
       "mission_tier": 2,
-      "mission_confidence": 0.83,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such",
       "source_filename": "cleaned_10-K_0000060519-25-000005.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ufacturing operations depend on significant amounts of energy and raw materials, these initiatives could have an adverse impact on our operations and profitability. Future legislation or regulatory ac"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3777,7 +4008,10 @@
       "source_filename": "cleaned_10-K_0000060667-25-000049.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "ute on our Total Home strategy that was introduced in fiscal 2020, by focusing on serving the professional customer (Pro customer), accelerating our online business, expanding installation services, i"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3824,8 +4058,11 @@
       "mission_evidence": "sessment of regulatory, technological, industry, competitive, economic and market conditions, as of such date. We may change our intentions, strategies or plans (including our capital allocation plans) at any time and without notice, based upon any changes in such factors or otherwise. ITEM 1. BUSINESS Business Overview and Purpose We are a networking company with the goal of connecting people, data, and applications quickly, securely and effortlessly. We are unleashing the world's digital potential by providing a broad array of integrated products and services to our domestic and global Busin",
       "source_filename": "cleaned_10-K_0000018926-25-000010.txt",
       "mission_tier": 1,
-      "mission_confidence": 0.8,
-      "mission_quality": 3
+      "mission_confidence": 0.5,
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "partial",
+      "verification_context": "cluding our capital allocation plans) at any time and without notice, based upon any changes in such factors or otherwise. ITEM 1. BUSINESS Business Overview and Purpose We are a networking company wi"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3878,7 +4115,10 @@
       "source_filename": "cleaned_10-K_0000062234-25-000006.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "terial respects, with all federal, state, and local environmental laws and ordinances. However, additional operating costs and capital expenditures could be incurred if additional or more stringent re"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3932,7 +4172,10 @@
       "source_filename": "cleaned_10-K_0000015615-25-000021.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "our operations. Our executive management team, business unit presidents and project management teams have broad industry experience and a deep understanding of our customers and their requirements. Ke"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3983,8 +4226,11 @@
       "mission_evidence": "The Acceleration Plan focuses on the execution of the following principal strategies: consistently grow our core power brand net sales, aggressively premiumize our portfolio, scale and expand in beyond beer, invest in our capabilities and support our people, communities and planet. Under this plan, we aim to further accelerate our premiumization efforts, targeting one-third of our global brand portfolio within the above premium category in the medium term, while continuing to invest in operational enhancements and expanding beyond beer. Our core power brands, such as Coors Light , Miller Lite",
       "source_filename": "cleaned_10-K_0000024545-25-000007.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_confidence": 0.63,
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "partial",
+      "verification_context": "r Acceleration Plan, building off the successes achieved under the Revitalization Plan, which was announced in October 2019. The Acceleration Plan focuses on the execution of the following principal s"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4030,10 +4276,13 @@
         "edges": 8
       },
       "mission_tier": 2,
-      "mission_confidence": 0.84,
+      "mission_confidence": 0.63,
       "mission_evidence": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio",
       "source_filename": "cleaned_10-K_0000029989-25-000009.txt",
-      "mission_quality": 2
+      "mission_quality": 2,
+      "verification_status": "VERIFIED_M2",
+      "verification_match": "exact",
+      "verification_context": "ct on how we provide services to our clients and how we enhance the productivity of our people. As with any new technology, we are working closely with our clients and technology partners to take adva"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4085,7 +4334,10 @@
       "source_filename": "cleaned_10-K_0000052827-25-000018.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "balance among biological timber growth, cash flow generation from harvesting activities, and responsible environmental stewardship. Our timber harvesting strategy is designed to produce a long-term, s"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4139,7 +4391,10 @@
       "source_filename": "cleaned_10-K_0000031791-25-000009.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "is to develop and deliver innovative products, services and solutions in high-growth markets that utilize our knowledge and expertise to address customers’ critical needs and drive scientific breakthr"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4179,10 +4434,13 @@
         "edges": 4
       },
       "mission_tier": 3,
-      "mission_confidence": 0.42,
+      "mission_confidence": 0.5,
       "mission_evidence": "We provide commercial and consumer banking in addition to a full suite of specialized products and services including wealth services, treasury management, mortgage services, premium finance, asset-based lendin",
       "source_filename": "cleaned_10-K_0000018349-25-000049.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "tatement is made or to reflect the occurrence of new information or unanticipated events, except as may otherwise be required by law. 2 ITEM 1. BUSINESS Overview General Synovus Financial Corp. is a f"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4229,8 +4487,11 @@
       "mission_evidence": "o play a critical role in differentiating Target and bringing our purpose to life. Our strategy aims to expand Target’s relevancy in consumers’ lives and drive traffic, sales , and market share growth. Core elements include: • Delighting with newness, style, and value by strengthening our owned brands portfolio, curating leading national brands, and expanding the breadth and depth of signature partnerships. • Delivering value by providing everyday low pricing and leveraging promotions and our loyalty ecosystem, Target Circle. • Opening new stores, updating existing stores , and enhancing our d",
       "source_filename": "cleaned_10-K_0000027419-25-000018.txt",
       "mission_tier": 3,
-      "mission_confidence": 0.3,
-      "mission_quality": 1
+      "mission_confidence": 0.4,
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_WITH_CONTEXT",
+      "verification_match": "keyword",
+      "verification_context": "rategy Target delivers on our purpose of helping all families discover the joy of everyday life through our curated, multi-category assortment, outstanding value, and a team that’s centered on care fo"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4274,7 +4535,10 @@
       "mission_confidence": 0.25,
       "mission_evidence": "Union Carbide Corporation is a wholly owned subsidiary of The Dow Chemical Company, producing industrial chemicals and polymers.",
       "source_filename": "N/A",
-      "mission_quality": 3
+      "mission_quality": 3,
+      "verification_status": "NO_FILE",
+      "verification_match": "none",
+      "verification_context": ""
     },
     "scores": {
       "Mission Clarity": 0,
@@ -4314,10 +4578,13 @@
         "edges": 8
       },
       "mission_tier": 3,
-      "mission_confidence": 0.44,
+      "mission_confidence": 0.5,
       "mission_evidence": "USBNA provides a wide range of products and services to individua",
       "source_filename": "cleaned_10-K_0000036104-25-000016.txt",
-      "mission_quality": 3
+      "mission_quality": 2,
+      "verification_status": "TEXT_MATCH_NO_CONTEXT",
+      "verification_match": "exact",
+      "verification_context": "vices, merchant and ATM processing, mortgage banking, insurance, brokerage and leasing. U.S. Bancorp’s banking subsidiary, USBNA, is engaged in the general banking business, principally in domestic ma"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4363,8 +4630,11 @@
       "mission_evidence": "programs. Employee Engagement To ensure our employees are engaged and are effectively delivering on our mission and meeting our customers’ needs, we regularly conduct confidential employee surveys to obtain feedback and gain insights from our employees. These surveys are thoughtfully considered and actioned by leadership. We are committed to our employees’ growth and development and embrace the diversity of ideas for improvement. 19 Table of Contents Available Information Our internet website ad",
       "source_filename": "cleaned_10-K_0000005513-25-000015.txt",
       "mission_tier": 2,
-      "mission_confidence": 0.5,
-      "mission_quality": 1
+      "mission_confidence": 0.78,
+      "mission_quality": 1,
+      "verification_status": "VERIFIED_M1",
+      "verification_match": "exact",
+      "verification_context": ", tools and workshops, dedicated learning time and on-demand skill building resources. We also offer tuition reimbursement benefits, in role leadership development programs, and multi-year rotational "
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4418,7 +4688,10 @@
       "source_filename": "cleaned_10-K_0000030697-25-000003.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 2
+      "mission_quality": 3,
+      "verification_status": "KEYWORD_ONLY",
+      "verification_match": "keyword",
+      "verification_context": "Quebec, for which there is no national advertising contribution rate and the local and regional advertising contribution rate is 4% of sales. Non-traditional locations, including delivery kitchens, ma"
     },
     "scores": {
       "Mission Clarity": 3,

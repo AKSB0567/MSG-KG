@@ -570,11 +570,12 @@ with col_filters:
 # ═══════════════════════════════════════════════════════════════════════════
 
 with col_content:
-    tab1, tab2, tab3, tab4 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "📜 Mission Statement",
         "🔍 Evidence-Based Reasoning",
         "📊 Portfolio Comparison",
         "🕸️ Knowledge Graph",
+        "✅ Verification Report",
     ])
 
 
@@ -1384,7 +1385,105 @@ with tab4:
                     st.caption("None found")
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# TAB 5: VERIFICATION REPORT
+# ═══════════════════════════════════════════════════════════════════════════
+with tab5:
+    st.markdown("### Mission Statement Verification Report")
+    st.caption("Automated back-verification: each extracted mission is searched in its source 10-K filing "
+               "and reclassified based on match type and surrounding context.")
+
+    # Build verification data for all companies
+    v_rows = []
+    for cik_v in COMPANIES:
+        ov_v = get_overview(cik_v)
+        v_rows.append({
+            "Company": COMPANIES[cik_v]["name"][:30],
+            "Quality": f"M{ov_v.get('mission_quality', 0)}",
+            "Confidence": f"{ov_v.get('mission_confidence', 0):.0%}",
+            "Verification": ov_v.get("verification_status", ""),
+            "Match": ov_v.get("verification_match", ""),
+            "Mission": ov_v.get("mission", "")[:60] + "...",
+        })
+
+    df_v = pd.DataFrame(v_rows)
+
+    # Summary metrics
+    MQ_COLORS_V = {"M0": "#D32F2F", "M1": "#2E7D32", "M2": "#E65100", "M3": "#F9A825", "M4": "#9E9E9E"}
+    MQ_LABELS_V = {"M0": "Absent from filing", "M1": "Directly stated", "M2": "Stated, requires inference",
+                   "M3": "Derived from context", "M4": "Present but vague"}
+    qcounts = df_v["Quality"].value_counts()
+
+    cols_v = st.columns(5)
+    for i, (code, label) in enumerate(MQ_LABELS_V.items()):
+        cnt = qcounts.get(code, 0)
+        color = MQ_COLORS_V[code]
+        with cols_v[i]:
+            st.markdown(f"""
+            <div style="text-align:center; padding:8px; background:white;
+                 border-radius:6px; border-top:4px solid {color}; min-height:80px;">
+                <div style="font-size:1.8rem; font-weight:700; color:{color};">{cnt}</div>
+                <div style="font-size:0.7rem; color:#666;">{code}</div>
+                <div style="font-size:0.65rem; color:#999;">{label}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # Verification status breakdown
+    st.markdown("#### Verification Method Breakdown")
+    v_status_counts = df_v["Verification"].value_counts()
+    v_method_labels = {
+        "VERIFIED_M1": "Exact match + explicit mission language",
+        "VERIFIED_M2": "Exact/partial match + commitment language",
+        "TEXT_MATCH_NO_CONTEXT": "Found in text, no mission keywords nearby",
+        "KEYWORD_WITH_CONTEXT": "Keyword match + mission/commitment language",
+        "KEYWORD_ONLY": "Keyword density match only",
+        "NO_MATCH": "Not found in source file",
+        "NO_FILE": "Source file unavailable",
+        "NO_MISSION": "No mission extracted",
+        "LOW_CONFIDENCE": "Low confidence extraction",
+    }
+    for status, count in v_status_counts.items():
+        desc = v_method_labels.get(status, status)
+        st.markdown(f"- **{status}** ({count}): {desc}")
+
+    st.markdown("---")
+
+    # Full table
+    st.markdown("#### All Companies")
+    st.dataframe(df_v, use_container_width=True, hide_index=True, height=600)
+
+    # CSV export
+    csv_v = df_v.to_csv(index=False).encode("utf-8")
+    st.download_button("Download Verification Report (CSV)", csv_v,
+                       "verification_report.csv", "text/csv")
+
+    # Selected company detail
+    st.markdown("---")
+    st.markdown(f"#### Detail: {COMPANIES[company]['name']}")
+    ov_detail = get_overview(company)
+    detail_items = [
+        ("Mission Quality", f"M{ov_detail.get('mission_quality', 0)}"),
+        ("Confidence", f"{ov_detail.get('mission_confidence', 0):.0%}"),
+        ("Verification Status", ov_detail.get("verification_status", "N/A")),
+        ("Match Type", ov_detail.get("verification_match", "N/A")),
+    ]
+    for label_d, val_d in detail_items:
+        st.markdown(f"**{label_d}:** {val_d}")
+
+    v_context = ov_detail.get("verification_context", "")
+    if v_context:
+        st.markdown("**Context before mission in source:**")
+        st.markdown(f"""
+        <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:6px;
+             padding:10px; font-size:0.85rem; line-height:1.5; max-height:200px; overflow-y:auto;">
+            ...{v_context}...
+        </div>
+        """, unsafe_allow_html=True)
+
+
 # ── Footer ───────────────────────────────────────────────────────────────
 st.markdown("---")
-st.caption("MSG-KG v3.0 — Mission Statement Intelligence | "
+st.caption("MSG-KG v4.0 — Mission Statement Intelligence | "
            "Data: SEC 10-K Filings | Finance Research")
