@@ -1352,4 +1352,4 @@ with tab4:
 # ── Footer ───────────────────────────────────────────────────────────────
 st.markdown("---")
 st.caption("MSG-KG v3.0 — Mission Statement Intelligence | "
-           "Data: SEC 10-K Filings | PhD Finance Research")
+           "Data: SEC 10-K Filings | Finance Research")

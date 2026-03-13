@@ -27,7 +27,7 @@ ITEM1_DIR  = BASE_DIR / "data" / "item1"
 CHUNKS_DIR = BASE_DIR / "data" / "chunks"
 
 HEADERS = {
-    "User-Agent": "MSGKG-Research/1.0 (PhD Finance Research; contact@university.edu)",
+    "User-Agent": "MSGKG-Research/1.0 (Finance Research; contact@university.edu)",
     "Accept-Encoding": "gzip, deflate",
 }
 

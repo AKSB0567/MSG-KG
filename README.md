@@ -469,4 +469,4 @@ streamlit run app.py
 
 ## License
 Copyright (c) 2026 MSG-KG Contributors. All Rights Reserved.
-PhD Finance Research — Confidential.
+Finance Research — Confidential.
