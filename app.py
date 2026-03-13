@@ -574,20 +574,35 @@ with tab1:
 
     st.markdown(f"### Mission Statement — {company_name}")
 
-    # Mission display with overall badge and source
+    # Mission display with overall badge, source, and quality code
     eval_results = evaluate_mission(mission, overview)
     avg_score, overall_label, overall_color = overall_rating(eval_results)
     mission_source = overview.get("mission_source", "kg")
     source_label = "Knowledge Graph (Ontology-extracted)" if mission_source == "kg" else "10-K Filing (Text-extracted)"
 
+    # Mission Quality Classification
+    MQ_LABELS = {
+        0: ("M0", "Not Found", "#D32F2F"),       # Red
+        1: ("M1", "Direct Statement", "#2E7D32"), # Green
+        2: ("M2", "Implied Statement", "#E65100"),# Orange
+        3: ("M3", "Inferred Statement", "#F9A825"),# Yellow
+        4: ("M4", "Vague / Generic", "#9E9E9E"),  # Gray
+    }
+    mq = overview.get("mission_quality", 0)
+    mq_code, mq_label, mq_color = MQ_LABELS.get(mq, ("M0", "Not Found", "#D32F2F"))
+
     if mission:
         st.markdown(f"""
         <div style="background: #F0F7FF; border: 1px solid #B3D4FC; border-left: 5px solid #1565C0;
              padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1rem 0;">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
                 <strong style="font-size:1.05rem; color:#333;">Corporate Mission Statement</strong>
-                <span style="background:{overall_color}; color:white; padding:4px 14px;
-                      border-radius:14px; font-weight:600; font-size:0.85rem;">{overall_label}</span>
+                <div style="display:flex; gap:8px;">
+                    <span style="background:{mq_color}; color:white; padding:4px 12px;
+                          border-radius:14px; font-weight:600; font-size:0.8rem;">{mq_code} — {mq_label}</span>
+                    <span style="background:{overall_color}; color:white; padding:4px 14px;
+                          border-radius:14px; font-weight:600; font-size:0.85rem;">{overall_label}</span>
+                </div>
             </div>
             <blockquote style="border-left:3px solid #90CAF9; padding:0.5rem 1rem; margin:0.8rem 0;
                  font-size:1.05rem; line-height:1.6; color:#1A237E; font-style:italic;">
