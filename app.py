@@ -377,44 +377,57 @@ def find_mission_evidence(company_cik: str, mission: str) -> list[dict]:
 
     evidence = []
     mission_lower = mission.lower()
-    mission_words = re.findall(r'\b[a-z]{3,}\b', mission_lower)
+    mission_words = re.findall(r'\b[a-z]{4,}\b', mission_lower)
     key_phrases = set(mission_words) - {
         "the", "and", "for", "that", "with", "from", "are", "our",
         "has", "have", "been", "will", "their", "this", "not", "but",
+        "which", "into", "also", "more", "would", "could", "about",
     }
 
-    # Find this company's 10-K text file by CIK
     txt_file = _find_company_10k_file(company_cik)
     if txt_file:
         raw = txt_file.read_text(encoding="utf-8", errors="ignore")
-        # Split into paragraphs
-        paragraphs = re.split(r'\n\s*\n', raw)
-        for i, para in enumerate(paragraphs):
-            para_clean = para.strip()
-            if len(para_clean) < 50 or len(para_clean) > 3000:
+        # Strip SEC header
+        hdr = raw.find("</SEC-HEADER>")
+        if hdr > 0:
+            raw = raw[hdr + len("</SEC-HEADER>"):]
+        raw_norm = re.sub(r'\s+', ' ', raw)
+
+        # Sliding window approach (600 char windows, 300 char step)
+        window_size = 600
+        step = 300
+        # Skip the main evidence window (already shown above)
+        main_mission_pos = raw_norm.lower().find(mission_lower[:40])
+
+        for i in range(0, min(len(raw_norm), 500000), step):
+            # Skip window that overlaps with the main evidence
+            if main_mission_pos >= 0 and abs(i - main_mission_pos) < window_size:
                 continue
-            para_lower = para_clean.lower()
-            hits = sum(1 for kw in key_phrases if kw in para_lower)
+            chunk = raw_norm[i:i + window_size]
+            chunk_lower = chunk.lower()
+            hits = sum(1 for kw in key_phrases if kw in chunk_lower)
             if hits >= 3:
                 evidence.append({
-                    "chunk_id": f"10K_para_{i}",
-                    "section": "10-K Filing (Item 1)",
-                    "page": i // 5 + 1,
-                    "text": para_clean[:1000],
+                    "chunk_id": f"10K_pos_{i}",
+                    "section": "10-K Filing",
+                    "page": i // 3000 + 1,
+                    "text": chunk.strip(),
                     "relevance": hits / max(len(key_phrases), 1),
                     "hits": hits,
                 })
 
-    # Deduplicate and sort by relevance
-    seen = set()
+    # Deduplicate (skip overlapping windows) and sort by relevance
+    seen_positions = []
     unique = []
-    for ev in evidence:
-        sig = ev["text"][:100]
-        if sig not in seen:
-            seen.add(sig)
-            unique.append(ev)
-    unique.sort(key=lambda x: x["relevance"], reverse=True)
-    return unique[:10]
+    for ev in sorted(evidence, key=lambda x: x["relevance"], reverse=True):
+        pos = int(ev["chunk_id"].split("_")[-1])
+        if any(abs(pos - sp) < window_size for sp in seen_positions):
+            continue
+        seen_positions.append(pos)
+        unique.append(ev)
+        if len(unique) >= 5:
+            break
+    return unique
 
 
 def highlight_mission_in_text(text: str, mission: str) -> str:
