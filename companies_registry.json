@@ -34,10 +34,18 @@
       "source_filename": "cleaned_10-K_0000034782-25-000025.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "aining modules consisting of over 985 different courses covering topics such as regulations, leadership development, relationship building, cybersecurity, communication, and unconscious bias. • The 1s"
+      "verification_context": "aining modules consisting of over 985 different courses covering topics such as regulations, leadership development, relationship building, cybersecurity, communication, and unconscious bias. • The 1s",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement is directly stated as part of the company's purpose in the context provided.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 3
     },
     "scores": {
       "Mission Clarity": 3,
@@ -96,7 +104,14 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "of Contents company achieving many important industry firsts along the way. Today, we develop high-performance and adaptive computing to solve some of the world’s toughest and most interesting challen"
+      "verification_context": "of Contents company achieving many important industry firsts along the way. Today, we develop high-performance and adaptive computing to solve some of the world’s toughest and most interesting challen",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Directly stated as mission in the filing",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 100,
+      "llm_issues": []
     },
     "scores": {
       "Mission Clarity": 3,
@@ -140,7 +155,16 @@
       "mission_quality": 2,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "SINESS OVERVIEW Aflac Incorporated (the Parent Company) was incorporated in 1973 under the laws of the state of Georgia. The Parent Company and its subsidiaries (collectively, the Company) provide fin"
+      "verification_context": "SINESS OVERVIEW Aflac Incorporated (the Parent Company) was incorporated in 1973 under the laws of the state of Georgia. The Parent Company and its subsidiaries (collectively, the Company) provide fin",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement is presented as a goal, which aligns closely with the company's purpose and who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "labeled as a goal rather than a mission"
+      ]
     },
     "scores": {
       "Mission Clarity": 3,
@@ -165,7 +189,7 @@
     "filing_date": "2025-02-13",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000004904&type=10-K",
     "overview": {
-      "mission": "We are committed to fundamentally embed layers of protection in the work we do.",
+      "mission": "AEP is committed to providing reliable affordable power to its customers.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -189,10 +213,22 @@
       "mission_confidence": 0.71,
       "mission_evidence": "We are committed to fundamentally embed layers of protection in the work we do.",
       "source_filename": "cleaned_10-K_0000004904-25-000027.txt",
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ty is integral to our culture and is one of AEP’s core values. AEP is dedicated to ensuring the safety of our employees, contractors, customers and the communities we serve. AEP has policies, procedur"
+      "verification_context": "ty is integral to our culture and is one of AEP’s core values. AEP is dedicated to ensuring the safety of our employees, contractors, customers and the communities we serve. AEP has policies, procedur",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement clearly defines the company's commitment to its customers, which is a core aspect of a mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "We are committed to fundamentally embed layers of protection in the work we do.",
+      "mission_improvement_phase": "phase2_reextract_COMMITMENT",
+      "reextract_confidence": 95,
+      "reextract_source_type": "COMMITMENT"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -217,7 +253,7 @@
     "filing_date": "2025-02-07",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000004962&type=10-K",
     "overview": {
-      "mission": "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous a.",
+      "mission": "We aim to provide the world’s best customer experience every day.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -241,10 +277,23 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous a",
       "source_filename": "cleaned_10-K_0000004962-25-000016.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "our products and services in a manner consistent with our brand promise. The American Express brand is ranked among the most valuable brands in the world. We place significant importance on trademarks"
+      "verification_context": "our products and services in a manner consistent with our brand promise. The American Express brand is ranked among the most valuable brands in the world. We place significant importance on trademarks",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement 'We aim to provide the world’s best customer experience every day' partially aligns with a mission statement as it indicates a goal of the company, but it does not clearly state the primary reason for the company's existence or the specific group it serves.",
+      "llm_corrected_mission": "We aim to provide the world’s best customer experience every day.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks clarity on the primary purpose of the company.",
+        "Does not specify the target audience or stakeholders."
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous awards over the years.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -290,7 +339,14 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "NTENTS ITEM 1 | Business AIG's global team is both results oriented and focused on how we achieve positive outcomes. This balance creates an aligned and inclusive culture that enables further progress"
+      "verification_context": "NTENTS ITEM 1 | Business AIG's global team is both results oriented and focused on how we achieve positive outcomes. This balance creates an aligned and inclusive culture that enables further progress",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement is directly labeled as part of the company's purpose and values, which aligns with the definition of a mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": []
     },
     "scores": {
       "Mission Clarity": 0,
@@ -333,10 +389,26 @@
       "source_filename": "cleaned_10-K_0000007789-25-000013.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "the regional and local economies where we 30 conduct business and to our customers, which, in turn, could be materially adverse to our business, financial condition and results of operations. Our fina"
+      "verification_context": "the regional and local economies where we 30 conduct business and to our customers, which, in turn, could be materially adverse to our business, financial condition and results of operations. Our fina",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 4,
+      "llm_quality_reason": "The text describes strategic goals and operational considerations rather than a clear mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "operational focus",
+        "financial goals",
+        "HR language",
+        "truncated sentence"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Associated Banc-Corp provides a wide range of banking and financial services to individuals and businesses through its network of branches and subsidiaries, primarily serving communities in Wisconsin, Illinois, and Minnesota.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -361,7 +433,7 @@
     "filing_date": "2025-03-05",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000008063&type=10-K",
     "overview": {
-      "mission": "Increase value by developing technologies internally or through acquisition for targeted markets; ASTRONICS CORP — Mission.",
+      "mission": "Increase value by developing technologies and capabilities, either internally or through acquisition, and using those capabilities to provide innovative solutions to our targeted markets where our technology can be beneficial.",
       "mission_source": "kg",
       "objectives": [
         "Increase value by developing technologies internally or through acquisition for targeted markets"
@@ -388,10 +460,21 @@
       "source_filename": "cleaned_10-K_0000008063-25-000017.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 2,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "for the commercial transport, military and general aviation markets, suppliers to those OEMs, aircraft operators such as airlines, suppliers to the aircraft operators, and branches of the U.S. Departm"
+      "verification_context": "for the commercial transport, military and general aviation markets, suppliers to those OEMs, aircraft operators such as airlines, suppliers to the aircraft operators, and branches of the U.S. Departm",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement focuses on how the company plans to achieve its goals rather than clearly stating its purpose and who it serves.",
+      "llm_corrected_mission": "Increase value by developing technologies and capabilities, either internally or through acquisition, and using those capabilities to provide innovative solutions to our targeted markets where our technology can be beneficial.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks clear declaration of the company's purpose and target audience"
+      ],
+      "mission_before_improvement": "Increase value by developing technologies internally or through acquisition for targeted markets; ASTRONICS CORP — Mission.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -442,10 +525,18 @@
       "source_filename": "cleaned_10-K_0000040729-25-000006.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "Accepted in the United States of America VIE Variable interest entity VIN Vehicle identification number VMC Vehicle maintenance contract VSC Vehicle service contract WAC Weighted-average coupon wSTWF "
+      "verification_context": "Accepted in the United States of America VIE Variable interest entity VIN Vehicle identification number VMC Vehicle maintenance contract VSC Vehicle service contract WAC Weighted-average coupon wSTWF ",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The mission statement is directly stated and clearly defines the purpose and who the company serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 100,
+      "llm_issues": [],
+      "mission_quality_prev": 3
     },
     "scores": {
       "Mission Clarity": 3,
@@ -486,10 +577,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to engaging with our stakeholders to seek to advance these initiatives and have de",
       "source_filename": "cleaned_10-K_0000006201-25-000010.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "e also an anchor partner of Breakthrough Energy Catalyst, which aims to make investments to accelerate the development of new clean energy technologies, including SAF. Achieving our ambitious goals wi"
+      "verification_context": "e also an anchor partner of Breakthrough Energy Catalyst, which aims to make investments to accelerate the development of new clean energy technologies, including SAF. Achieving our ambitious goals wi",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes strategic actions and commitments rather than the core purpose of the company.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence",
+        "focuses on stakeholder engagement and initiatives rather than core purpose"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "American Airlines Group Inc. operates a major network air carrier, providing scheduled air transportation for passengers and cargo to over 350 destinations worldwide through its hubs and partner gateways.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -541,10 +646,18 @@
       "source_filename": "cleaned_10-K_0000007084-25-000011.txt",
       "mission_tier": 3,
       "mission_confidence": 0.5,
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "0-K FOR THE YEAR ENDED DECEMBER 31, 2024 TABLE OF CONTENTS [TABLE REMOVED] 4 Table of Contents ARCHER-DANIELS-MIDLAND COMPANY PART I Item 1. BUSINESS Company Overview Archer-Daniels-Midland Company (t"
+      "verification_context": "0-K FOR THE YEAR ENDED DECEMBER 31, 2024 TABLE OF CONTENTS [TABLE REMOVED] 4 Table of Contents ARCHER-DANIELS-MIDLAND COMPANY PART I Item 1. BUSINESS Company Overview Archer-Daniels-Midland Company (t",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement clearly defines the company's purpose and who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2
     },
     "scores": {
       "Mission Clarity": 3,
@@ -569,7 +682,7 @@
     "filing_date": "2025-02-26",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000008818&type=10-K",
     "overview": {
-      "mission": "Avery Dennison Corp — Mission; Innovation to accelerate growth, expand margins via material re-engineering, sustainability; Lead at intersection of physical and digital worlds leveraging Materials and Solutions groups.",
+      "mission": "Innovate to develop and introduce new products and solutions that help customers solve complex problems in the industries we serve.",
       "mission_source": "kg",
       "objectives": [
         "Vision: Lead at intersection of physical and digital worlds leveraging Materials and Solutions groups",
@@ -599,7 +712,18 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "vantages in maintaining and further developing our competitive position. Research, Development and Innovation As a global leader in materials science, we innovate to develop and introduce new products"
+      "verification_context": "vantages in maintaining and further developing our competitive position. Research, Development and Innovation As a global leader in materials science, we innovate to develop and introduce new products",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "VISION",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement focuses on innovation and solving customer problems, which aligns more with a vision or strategic goal rather than a clear mission statement.",
+      "llm_corrected_mission": "Innovate to develop and introduce new products and solutions that help customers solve complex problems in the industries we serve.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Lacks a clear declaration of the company's primary purpose and who it serves."
+      ],
+      "mission_before_improvement": "Avery Dennison Corp — Mission; Innovation to accelerate growth, expand margins via material re-engineering, sustainability; Lead at intersection of physical and digital worlds leveraging Materials and Solutions groups.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -624,7 +748,7 @@
     "filing_date": "2025-02-24",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000011544&type=10-K",
     "overview": {
-      "mission": "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through.",
+      "mission": "We are committed to fostering a unifying culture and encouraging innovation across our enterprise.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -647,10 +771,25 @@
       "mission_confidence": 0.5,
       "mission_evidence": "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through",
       "source_filename": "cleaned_10-K_0000011544-25-000005.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "liability 12.0 13.1 15.8 Workers' compensation 10.0 10.8 11.9 Total 100.0% 100.0% 100.0% ___________________ (1) Short-tail lines include commercial multi-peril (non-liability), inland marine, acciden"
+      "verification_context": "liability 12.0 13.1 15.8 Workers' compensation 10.0 10.8 11.9 Total 100.0% 100.0% 100.0% ___________________ (1) Short-tail lines include commercial multi-peril (non-liability), inland marine, acciden",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes operational activities rather than the company's purpose or mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "describes operational activities",
+        "truncated sentence"
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through facultative reinsurance as well as certain program management businesses.",
+      "mission_improvement_phase": "phase2_reextract_COMMITMENT",
+      "reextract_confidence": 85,
+      "reextract_source_type": "COMMITMENT"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -698,10 +837,23 @@
       "mission_confidence": 0.63,
       "mission_evidence": "Our products currently address specific niches within the in vitro diagnostics (\"IVD\") test market, and we seek to focus on the higher margin, higher growth segments of this market.",
       "source_filename": "cleaned_10-K_0000012208-25-000007.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "s, food producers and food testing laboratories. Clinical Diagnostics Segment Our Clinical Diagnostics segment designs, manufactures, markets and supports test systems, informatics systems, test kits "
+      "verification_context": "s, food producers and food testing laboratories. Clinical Diagnostics Segment Our Clinical Diagnostics segment designs, manufactures, markets and supports test systems, informatics systems, test kits ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a strategic focus rather than the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on market segments and margins"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Bio-Rad Laboratories, Inc. develops, manufactures, and distributes life science research and clinical diagnostics products to a global customer base including universities, medical schools, industrial research organizations, government agencies, and pharmaceutical companies.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -749,10 +901,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We aspire to achieve zero workplace injuries and provide a safe, open and accountable work environment for our employee",
       "source_filename": "cleaned_10-K_0000012927-25-000015.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ly 5.9 million hours of learning and approximately 14,000 Boeing employees leveraged our tuition assistance program to pursue degrees, professional certificates and individual courses in strategic fie"
+      "verification_context": "ly 5.9 million hours of learning and approximately 14,000 Boeing employees leveraged our tuition assistance program to pursue degrees, professional certificates and individual courses in strategic fie",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The statement focuses on internal safety and employee environment, which is more aligned with HR policies rather than the company's overarching mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "not a clear statement of the company's purpose or who it serves"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "The Boeing Company designs, manufactures, and sells commercial jet aircraft, military aircraft, and related services to the commercial airline industry and defense sectors globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -797,10 +963,24 @@
       "source_filename": "cleaned_10-K_0000014272-25-000039.txt",
       "mission_tier": 3,
       "mission_confidence": 0.5,
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "partial",
-      "verification_context": "owth and shareholder returns. For a further discussion of our strategy initiatives, refer to “Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operations—Strategy.” I"
+      "verification_context": "owth and shareholder returns. For a further discussion of our strategy initiatives, refer to “Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operations—Strategy.” I",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes strategic initiatives and acquisitions rather than the company's mission or purpose.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence",
+        "focuses on growth and acquisitions rather than purpose"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Bristol Myers Squibb discovers, develops, manufactures, and sells biopharmaceutical products globally, focusing on serious diseases such as oncology, hematology, immunology, cardiovascular, and neuroscience.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -825,7 +1005,7 @@
     "filing_date": "2025-02-14",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000014930&type=10-K",
     "overview": {
-      "mission": "Lead industry in ACES strategies and be acknowledged marine sustainability leader; BRUNSWICK CORP — Mission; Expand boating participation through innovative products and shared-access experiences.",
+      "mission": "Expand boating participation through innovative products and shared-access experiences.",
       "mission_source": "kg",
       "objectives": [
         "Expand boating participation through innovative products and shared-access experiences"
@@ -856,10 +1036,19 @@
       "source_filename": "cleaned_10-K_0000014930-25-000025.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "and leveraging our leading brands to meet consumer needs; • Providing customers industry leading quality and customer support; • Delivering distinctive, elevated ownership and shared-access experience"
+      "verification_context": "and leveraging our leading brands to meet consumer needs; • Providing customers industry leading quality and customer support; • Delivering distinctive, elevated ownership and shared-access experience",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose of expanding boating participation and the target audience of users who might benefit from innovative products and shared-access experiences.",
+      "llm_corrected_mission": "Expand boating participation through innovative products and shared-access experiences.",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_before_improvement": "Lead industry in ACES strategies and be acknowledged marine sustainability leader; BRUNSWICK CORP — Mission; Expand boating participation through innovative products and shared-access experiences.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -884,7 +1073,7 @@
     "filing_date": "2025-02-14",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000018230&type=10-K",
     "overview": {
-      "mission": "Help customers build a better, more sustainable world; Expanded Offerings, Operational Excellence, Services, and Sustainability; CATERPILLAR INC — Mission.",
+      "mission": "Help customers build a better, more sustainable world",
       "mission_source": "kg",
       "objectives": [
         "Vision: Help customers build a better, more sustainable world",
@@ -914,10 +1103,22 @@
       "source_filename": "cleaned_10-K_0000018230-25-000008.txt",
       "mission_tier": 3,
       "mission_confidence": 0.5,
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "overnance goals. It’s also allowed us to develop innovative products, technologies and services to support our customers on their sustainability journey. The addition of sustainability as a strategic "
+      "verification_context": "overnance goals. It’s also allowed us to develop innovative products, technologies and services to support our customers on their sustainability journey. The addition of sustainability as a strategic ",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement aligns with the company's strategic focus but is not explicitly stated as the primary reason for the company's existence.",
+      "llm_corrected_mission": "Help customers build a better, more sustainable world",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks explicit declaration of the company's primary purpose",
+        "More aligned with strategic goals rather than a clear mission"
+      ],
+      "mission_before_improvement": "Help customers build a better, more sustainable world; Expanded Offerings, Operational Excellence, Services, and Sustainability; CATERPILLAR INC — Mission.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -966,10 +1167,24 @@
       "mission_confidence": 0.71,
       "mission_evidence": "We are committed to providing equal opportunity for all associates, encouraging a work environment free from unlawful discrimination and harassment.",
       "source_filename": "cleaned_10-K_0000020286-25-000009.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "critical to our strategy that emphasizes superior service to agencies and their clients, as described in this report. Our goal is to hire job candidates with promise, matching their strengths to posit"
+      "verification_context": "critical to our strategy that emphasizes superior service to agencies and their clients, as described in this report. Our goal is to hire job candidates with promise, matching their strengths to posit",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text focuses on HR policies and practices rather than the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "not a mission statement"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Cincinnati Financial Corporation provides fire, marine, and casualty insurance products to individuals and businesses.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -994,7 +1209,7 @@
     "filing_date": "2025-03-13",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000024090&type=10-K",
     "overview": {
-      "mission": "CITIZENS, INC. — Mission; Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts; Slow decline of premiums through policyholder retention efforts and improved customer experience; Grow first year sales to reverse decline in total revenue through new products and expanding distribution.",
+      "mission": "Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts.",
       "mission_source": "kg",
       "objectives": [
         "Grow first year sales to reverse decline in total revenue through new products and expanding distribution"
@@ -1022,7 +1237,18 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "ionally, our limited products, which were mostly endowment products, burdened us with known high levels of maturities after a certain period with limited products to replace the business. As a result,"
+      "verification_context": "ionally, our limited products, which were mostly endowment products, burdened us with known high levels of maturities after a certain period with limited products to replace the business. As a result,",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement describes a strategic approach rather than the fundamental purpose or values of the company.",
+      "llm_corrected_mission": "Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "The statement focuses on operational goals and strategies rather than the core purpose or values of the company."
+      ],
+      "mission_before_improvement": "CITIZENS, INC. — Mission; Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts; Slow decline of premiums through policyholder retention efforts and improved customer experience; Grow first year sales to reverse decline in total revenue through new products and expanding distribution.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1047,7 +1273,7 @@
     "filing_date": "2025-02-11",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021175&type=10-K",
     "overview": {
-      "mission": "To provide specialized commercial property and casualty insurance solutions, continually building on workforce expertise to deliver quality service and reflect the specialist nature of the business.",
+      "mission": "To provide specialized commercial property and casualty insurance solutions, reflecting the specialist nature of the business.",
       "mission_source": "text",
       "objectives": [],
       "capabilities": [],
@@ -1069,10 +1295,21 @@
       "mission_confidence": 0.3,
       "mission_evidence": "We focus on attracting, developing and retaining top-tier talent to reflect the specialist nature of our business. We aim to continually build on the expertise of our workforce.",
       "source_filename": "cleaned_10-K_0000021175-25-000008.txt",
-      "mission_quality": 3,
+      "mission_quality": 2,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "e reserves $ 1,697 $ 1,392 Net IBNR reserves 4,282 4,524 Total net carried claim and claim adjustment expense reserves $ 5,979 $ 5,916 36 Table of Contents Commercial Commercial works with a network o"
+      "verification_context": "e reserves $ 1,697 $ 1,392 Net IBNR reserves 4,282 4,524 Total net carried claim and claim adjustment expense reserves $ 5,979 $ 5,916 36 Table of Contents Commercial Commercial works with a network o",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement reflects the purpose of providing specialized insurance solutions but lacks specific details on who the customers are.",
+      "llm_corrected_mission": "To provide specialized commercial property and casualty insurance solutions, reflecting the specialist nature of the business.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks explicit mention of customer base"
+      ],
+      "mission_before_improvement": "To provide specialized commercial property and casualty insurance solutions, continually building on workforce expertise to deliver quality service and reflect the specialist nature of the business.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -1097,7 +1334,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021344&type=10-K",
     "overview": {
-      "mission": "For a Better Shared Future - invest to improve people's lives across the business system; COCA COLA CO — Mission; Loved Brands - craft meaningful brands and drinks that people love and enjoy; Done Sustainably - grow business achieving positive change and a more sustainable future.",
+      "mission": "We are guided by our purpose, which is to refresh the world and make a difference.",
       "mission_source": "kg",
       "objectives": [
         "Vision: Done Sustainably - grow business achieving positive change and a more sustainable future"
@@ -1131,7 +1368,20 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_WITH_CONTEXT",
       "verification_match": "keyword",
-      "verification_context": "ends on our ability to connect with consumers by providing them with a wide variety of beverage options to meet their desires, needs and lifestyles. Our success further depends on the ability of our p"
+      "verification_context": "ends on our ability to connect with consumers by providing them with a wide variety of beverage options to meet their desires, needs and lifestyles. Our success further depends on the ability of our p",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "VISION",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement provides a broad purpose but lacks specific details about who the company serves.",
+      "llm_corrected_mission": "We are guided by our purpose, which is to refresh the world and make a difference.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks specific target audience",
+        "More aligned with vision than mission"
+      ],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "For a Better Shared Future - invest to improve people's lives across the business system; COCA COLA CO — Mission; Loved Brands - craft meaningful brands and drinks that people love and enjoy; Done Sustainably - grow business achieving positive change and a more sustainable future.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1156,7 +1406,7 @@
     "filing_date": "2025-02-13",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021665&type=10-K",
     "overview": {
-      "mission": "COLGATE PALMOLIVE CO — Mission.",
+      "mission": "We are a caring, innovative growth company reimagining a healthier future for all people, their pets and our planet.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [
@@ -1181,10 +1431,22 @@
       "source_filename": "cleaned_10-K_0000021665-25-000008.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": ""
+      "verification_context": "",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose and beneficiaries of the company's efforts.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "COLGATE PALMOLIVE CO — Mission.",
+      "mission_improvement_phase": "phase2_reextract_PURPOSE",
+      "reextract_confidence": 95,
+      "reextract_source_type": "PURPOSE"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1209,7 +1471,7 @@
     "filing_date": "2025-02-24",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000028412&type=10-K",
     "overview": {
-      "mission": "To build long-term shareholder value through a relationship banking strategy, attracting, developing and retaining employees who drive financial and strategic growth across commercial, retail and wealth management segments.",
+      "mission": "To build long-term shareholder value through a relationship banking strategy.",
       "mission_source": "text",
       "objectives": [],
       "capabilities": [],
@@ -1225,10 +1487,22 @@
       "mission_confidence": 0.3,
       "mission_evidence": "Comerica's relationship banking strategy relies heavily on the personal relationships and the quality of service provided by employees. Accordingly, Comerica aims to attract, develop and retain employees who can drive financial and strategic growth objectives and build long-term shareholder value.",
       "source_filename": "cleaned_10-K_0000028412-25-000108.txt",
-      "mission_quality": 3,
+      "mission_quality": 4,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "ining loans are typically eligible to be sold on the secondary market. Adjustable-rate loans are limited to standard conventional loan programs. For additional information specific to our residential "
+      "verification_context": "ining loans are typically eligible to be sold on the secondary market. Adjustable-rate loans are limited to standard conventional loan programs. For additional information specific to our residential ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement focuses on how the company plans to achieve its goals (through a relationship banking strategy) rather than declaring why it exists and who it serves.",
+      "llm_corrected_mission": "To build long-term shareholder value through a relationship banking strategy.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Lacks clear purpose beyond financial gain",
+        "Does not specify stakeholders other than shareholders"
+      ],
+      "mission_before_improvement": "To build long-term shareholder value through a relationship banking strategy, attracting, developing and retaining employees who drive financial and strategic growth across commercial, retail and wealth management segments.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -1253,7 +1527,7 @@
     "filing_date": "2025-02-25",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000022356&type=10-K",
     "overview": {
-      "mission": "And its subsidiaries (collectively, the \"Company\") is one of the nation’s top 50 bank holding companies, based on asset size.",
+      "mission": "The Company’s goal is to be the preferred provider of financial services in its communities, based on strong customer relationships built through providing top quality service with a strong risk management culture, and employing a strong balance sheet with strong capital levels.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -1280,10 +1554,25 @@
       "mission_confidence": 0.5,
       "mission_evidence": "and its subsidiaries (collectively, the \"Company\") is one of the nation’s top 50 bank holding companies, based on asset size.",
       "source_filename": "cleaned_10-K_0000022356-25-000016.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "directly or through the Bank, various non-banking subsidiaries. Their activities include private equity investment, securities brokerage, underwriting, specialty lending, and leasing activities. A lis"
+      "verification_context": "directly or through the Bank, various non-banking subsidiaries. Their activities include private equity investment, securities brokerage, underwriting, specialty lending, and leasing activities. A lis",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement includes elements of mission (serving communities) and strategy (strong risk management, strong balance sheet), but lacks a clear declaration of the fundamental purpose.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks a clear declaration of the company's fundamental purpose",
+        "Includes strategic elements which are not typically part of a mission statement"
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "And its subsidiaries (collectively, the \"Company\") is one of the nation’s top 50 bank holding companies, based on asset size.",
+      "mission_improvement_phase": "phase2_reextract_GOAL",
+      "reextract_confidence": 85,
+      "reextract_source_type": "GOAL"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1334,10 +1623,24 @@
       "source_filename": "cleaned_10-K_0000039263-25-000017.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "263 cfr:NonBanksMember 2023-01-01 2023-12-31 0000039263 cfr:BankMember 2023-12-31 0000039263 cfr:NonBanksMember 2023-12-31 0000039263 cfr:BankMember 2022-01-01 2022-12-31 0000039263 cfr:FrostWealthAdv"
+      "verification_context": "263 cfr:NonBanksMember 2023-01-01 2023-12-31 0000039263 cfr:BankMember 2023-12-31 0000039263 cfr:NonBanksMember 2023-12-31 0000039263 cfr:BankMember 2022-01-01 2022-12-31 0000039263 cfr:FrostWealthAdv",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 0,
+      "llm_quality_reason": "The provided text is not a mission statement; it appears to be part of the document's metadata and table of contents.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 100,
+      "llm_issues": [
+        "not a mission statement",
+        "contains metadata",
+        "truncated sentence"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Cullen/Frost Bankers, Inc. provides a wide range of banking and financial services, including commercial and consumer banking, trust and investment management, and capital markets advisory, to diverse industries and customers across multiple Texas markets.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1382,10 +1685,24 @@
       "mission_confidence": 0.78,
       "mission_evidence": "We do this through our commitment to fostering an accountable culture that champions our vision of a workforce mirroring the communities we serve. This commitment starts at the top with our Board and permeates throughout our organization as everyone plays a role in nurturing inclusive environments where all employees can reach their full potential and thrive.",
       "source_filename": "cleaned_10-K_0000026172-25-000007.txt",
-      "mission_quality": 1,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "our commitment to inclusion dates back more than a half-century and continues to be core to our fabric and continued success. We leverage the strength of our broadly diverse, global workforce to drive"
+      "verification_context": "our commitment to inclusion dates back more than a half-century and continues to be core to our fabric and continued success. We leverage the strength of our broadly diverse, global workforce to drive",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text focuses on internal company culture and diversity, which is more aligned with HR policies rather than a mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "lacks external focus on customers or broader impact"
+      ],
+      "mission_quality_prev": 1,
+      "business_purpose": "Cummins Inc. designs, manufactures, and sells a wide range of power solutions, including diesel, natural gas, electric, and hybrid powertrains and related components, serving original equipment manufacturers, distributors, dealers, and other customers globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1436,10 +1753,24 @@
       "source_filename": "cleaned_10-K_0000026324-25-000015.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "ed drive for top-line acceleration through both organic and inorganic sales growth, building on the strengths across our A&D and commercial markets, while deepening and expanding our customer relation"
+      "verification_context": "ed drive for top-line acceleration through both organic and inorganic sales growth, building on the strengths across our A&D and commercial markets, while deepening and expanding our customer relation",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes strategic initiatives and financial goals rather than the core purpose of the company.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "financial goals",
+        "lacks clear purpose and beneficiary"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Curtiss-Wright Corporation provides highly engineered products, solutions, and services primarily to Aerospace & Defense markets, as well as critical technologies for commercial power, process, and industrial markets.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1464,7 +1795,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000003570&type=10-K",
     "overview": {
-      "mission": "Our vision is to provide clean, secure and affordable energy to.",
+      "mission": "Our vision is to provide clean, secure and affordable energy to the world.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [],
@@ -1480,10 +1811,25 @@
       "mission_confidence": 0.78,
       "mission_evidence": "Our vision is to provide clean, secure and affordable energy to",
       "source_filename": "cleaned_10-K_0000003570-25-000033.txt",
-      "mission_quality": 1,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "subject to market-based price competition. Corporate Responsibility As described in Market Factors and Competition , we expect that global demand for natural gas and LNG will continue to increase as n"
+      "verification_context": "subject to market-based price competition. Corporate Responsibility As described in Market Factors and Competition , we expect that global demand for natural gas and LNG will continue to increase as n",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "VISION",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement provides a broad goal but does not clearly define the company's purpose or the specific group it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Lacks specific purpose or target audience",
+        "More aspirational than operational"
+      ],
+      "mission_quality_prev": 1,
+      "mission_before_improvement": "Our vision is to provide clean, secure and affordable energy to the world.",
+      "mission_improvement_phase": "phase2_reextract_VISION",
+      "reextract_confidence": 95,
+      "reextract_source_type": "VISION"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1532,10 +1878,24 @@
       "source_filename": "cleaned_10-K_0000020212-25-000051.txt",
       "mission_tier": 1,
       "mission_confidence": 0.63,
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "partial",
-      "verification_context": "oinciding with the Kentucky Derby. As of the same date, approximately 840 full-time team members were covered by 12 collective bargaining agreements. We have not experienced any material operational d"
+      "verification_context": "oinciding with the Kentucky Derby. As of the same date, approximately 840 full-time team members were covered by 12 collective bargaining agreements. We have not experienced any material operational d",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text focuses on talent acquisition, development, and retention, which is more aligned with HR strategies rather than a mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "not a mission statement"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Churchill Downs Inc operates live and historical racing venues, online wagering platforms, and regional casino gaming properties, serving both on-site visitors and online bettors.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1560,7 +1920,7 @@
     "filing_date": "2025-02-11",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000027904&type=10-K",
     "overview": {
-      "mission": "DELTA AIR LINES, INC. — Mission.",
+      "mission": "As a global airline based in the United States, we connect customers across our expansive global network with a commitment to ensuring that the future of travel is connected, personalized and enjoyable.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [
@@ -1584,10 +1944,22 @@
       "source_filename": "cleaned_10-K_0000027904-25-000004.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": ""
+      "verification_context": "",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement clearly defines the purpose of the company and who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "DELTA AIR LINES, INC. — Mission.",
+      "mission_improvement_phase": "phase2_reextract_COMMITMENT",
+      "reextract_confidence": 90,
+      "reextract_source_type": "COMMITMENT"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1640,10 +2012,24 @@
       "source_filename": "cleaned_10-K_0000027996-25-000051.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "nterprise strategy is straightforward: leverage the cash flows, customer relationships, and brand equity from our print business to fuel profitable organic growth in our other businesses. To execute t"
+      "verification_context": "nterprise strategy is straightforward: leverage the cash flows, customer relationships, and brand equity from our print business to fuel profitable organic growth in our other businesses. To execute t",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes strategic initiatives rather than the core purpose or mission of the company.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on operational and financial goals",
+        "lacks clear statement of purpose or who the company serves"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Deluxe Corporation provides a range of payment solutions, data-driven marketing services, and printed products to small and medium-sized businesses, financial institutions, and large consumer brands.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1697,10 +2083,24 @@
       "source_filename": "cleaned_10-K_0000028823-25-000022.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "while simultaneously streamlining cost structures and business processes through the smart integration of hardware, software and services. The Company partners with other leading technology companies "
+      "verification_context": "while simultaneously streamlining cost structures and business processes through the smart integration of hardware, software and services. The Company partners with other leading technology companies ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes strategic goals and operational priorities rather than the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on internal processes and financial goals",
+        "lacks declaration of purpose or served stakeholders"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Diebold Nixdorf, Inc. designs, manufactures, and services automated teller machines (ATMs) and retail systems, serving banks and retailers globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1749,10 +2149,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We seek to expand the number and use of the private label cards by, among other things, providing incentives to sales associates to encourage customers",
       "source_filename": "cleaned_10-K_0000028917-25-000004.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ion received from the portfolio is determined monthly and has no recourse provisions. We participate in the marketing of the private label cards, which includes the cost of customer reward programs. C"
+      "verification_context": "ion received from the portfolio is determined monthly and has no recourse provisions. We participate in the marketing of the private label cards, which includes the cost of customer reward programs. C",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a strategy for expanding the use of private label cards, not the company's mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on operational details",
+        "truncated sentence"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Dillard's, Inc. operates as a leading retailer of fashion apparel, cosmetics, and home furnishings, serving customers through its network of 272 stores and an online platform across 30 states in the United States.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1804,10 +2218,24 @@
       "source_filename": "cleaned_10-K_0000034067-25-000028.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "NobelClad is a leader in the production of explosion-welded clad metal plates for use in the construction of corrosion resistant industrial processing equipment, as well as specialized transition join"
+      "verification_context": "NobelClad is a leader in the production of explosion-welded clad metal plates for use in the construction of corrosion resistant industrial processing equipment, as well as specialized transition join",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The statement describes how the company plans to achieve its goals rather than why it exists or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on maximizing company value",
+        "lacks purpose and beneficiary"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "DMC Global Inc. provides differentiated products and engineered solutions to the construction, energy, industrial processing, and transportation markets through its subsidiaries Arcadia Products, DynaEnergetics, and NobelClad.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1832,7 +2260,7 @@
     "filing_date": "2025-02-14",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000029905&type=10-K",
     "overview": {
-      "mission": "Sustained profitable growth, operational excellence, superior free cash flow generation; Zero-harm workplace with priority on health and safety compliance and risk mitigation; DOVER Corp — Mission.",
+      "mission": "Dover is committed to delivering shareholder value creation through a combination of sustained profitable growth, operational excellence, superior free cash flow generation and productive capital re-deployment while adhering to a conservative financial policy.",
       "mission_source": "kg",
       "objectives": [
         "Vision: Zero-harm workplace with priority on health and safety compliance and risk mitigation",
@@ -1858,10 +2286,22 @@
       "source_filename": "cleaned_10-K_0000029905-25-000006.txt",
       "mission_tier": 2,
       "mission_confidence": 0.63,
-      "mission_quality": 2,
+      "mission_quality": 4,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "lely to our continuing operations. For more details, see Note 4 — Discontinued and Disposed Operations in the consolidated financial statements in Item 8 of this Form 10-K. 4 Table of Contents Managem"
+      "verification_context": "lely to our continuing operations. For more details, see Note 4 — Discontinued and Disposed Operations in the consolidated financial statements in Item 8 of this Form 10-K. 4 Table of Contents Managem",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "FINANCIAL",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement focuses on financial goals and strategies rather than the core purpose and beneficiaries of the company.",
+      "llm_corrected_mission": "Dover is committed to delivering shareholder value creation through a combination of sustained profitable growth, operational excellence, superior free cash flow generation and productive capital re-deployment while adhering to a conservative financial policy.",
+      "llm_confidence": 90,
+      "llm_issues": [
+        "Lacks a clear statement of the company's purpose and the stakeholders it serves beyond shareholders."
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Sustained profitable growth, operational excellence, superior free cash flow generation; Zero-harm workplace with priority on health and safety compliance and risk mitigation; DOVER Corp — Mission.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1908,7 +2348,14 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "d to as the company, Lilly, we, or us) was incorporated in 1901 in Indiana to succeed to the drug manufacturing business founded in Indianapolis, Indiana, in 1876 by Colonel Eli Lilly. We discover, de"
+      "verification_context": "d to as the company, Lilly, we, or us) was incorporated in 1901 in Indiana to succeed to the drug manufacturing business founded in Indianapolis, Indiana, in 1876 by Colonel Eli Lilly. We discover, de",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Directly stated as the company's purpose in the 10-K filing",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 100,
+      "llm_issues": []
     },
     "scores": {
       "Mission Clarity": 3,
@@ -1933,7 +2380,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045876&type=10-K",
     "overview": {
-      "mission": "Viewing every customer need through a sustainability lens; helping customers build better businesses; ENVIRI Corp — Mission; To continue building a leading, global environmental solutions company.",
+      "mission": "To help customers build better businesses by addressing environmental challenges through sustainable solutions.",
       "mission_source": "kg",
       "objectives": [
         "Vision: To continue building a leading, global environmental solutions company",
@@ -1962,10 +2409,20 @@
       "source_filename": "cleaned_10-K_0000045876-25-000018.txt",
       "mission_tier": 2,
       "mission_confidence": 0.63,
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ransactions have reduced the Company’s portfolio complexity and business cyclicality. In 2024, 88% of our revenues were generated from our two environmental segments. The Company anticipates the sale "
+      "verification_context": "ransactions have reduced the Company’s portfolio complexity and business cyclicality. In 2024, 88% of our revenues were generated from our two environmental segments. The Company anticipates the sale ",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose of the company and who it serves.",
+      "llm_corrected_mission": "To help customers build better businesses by addressing environmental challenges through sustainable solutions.",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Viewing every customer need through a sustainability lens; helping customers build better businesses; ENVIRI Corp — Mission; To continue building a leading, global environmental solutions company.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2010,10 +2467,20 @@
       "source_filename": "cleaned_10-K_0000033213-25-000011.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 2,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "rategy includes creating value through mergers and acquisitions, divestitures, joint ventures and similar business transactions as well as by investing in energy transition opportunities directed at c"
+      "verification_context": "rategy includes creating value through mergers and acquisitions, divestitures, joint ventures and similar business transactions as well as by investing in energy transition opportunities directed at c",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement is presented in the context of the company's operational strategy, implying it as a guiding principle rather than directly labeled as a mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Present in filing but labeled as commitment/goal/belief, requires inference"
+      ],
+      "mission_quality_prev": 3
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2038,7 +2505,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000033185&type=10-K",
     "overview": {
-      "mission": "EQUIFAX INC — Mission; To be a trusted global leader in data, analytics and technology creating innovative solutions; Leverage and expand differentiated portfolio of data assets; Leverage Equifax Cloud capabilities to accelerate innovation, new products and growth.",
+      "mission": "Our vision is to be a trusted global leader in data, analytics and technology that creates innovative solutions and insights for our customers.",
       "mission_source": "kg",
       "objectives": [
         "Vision: To be a trusted global leader in data, analytics and technology creating innovative solutions",
@@ -2062,10 +2529,22 @@
       "source_filename": "cleaned_10-K_0000033185-25-000025.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 2,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "recovery management. In addition, we provide products to consumers in Canada, the U.K., Australia and Chile to enable them to understand and monitor their credit and help protect their identity. This "
+      "verification_context": "recovery management. In addition, we provide products to consumers in Canada, the U.K., Australia and Chile to enable them to understand and monitor their credit and help protect their identity. This ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "VISION",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement focuses on the company's aspirations and future state rather than its core purpose and who it serves.",
+      "llm_corrected_mission": "Our vision is to be a trusted global leader in data, analytics and technology that creates innovative solutions and insights for our customers.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Lacks clear statement of the company's purpose and primary beneficiaries."
+      ],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "EQUIFAX INC — Mission; To be a trusted global leader in data, analytics and technology creating innovative solutions; Leverage and expand differentiated portfolio of data assets; Leverage Equifax Cloud capabilities to accelerate innovation, new products and growth.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2116,10 +2595,24 @@
       "source_filename": "cleaned_10-K_0000034088-25-000010.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "; and • 60-70 percent reduction in corporate-wide flaring intensity. Our emission-reduction plans and 2050 net-zero ambition cover Scope 1 and 2 emissions from assets we operate, which now include Pio"
+      "verification_context": "; and • 60-70 percent reduction in corporate-wide flaring intensity. Our emission-reduction plans and 2050 net-zero ambition cover Scope 1 and 2 emissions from assets we operate, which now include Pio",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes strategic initiatives rather than the fundamental purpose of the company.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on operational and investment strategies",
+        "lacks clear declaration of purpose or beneficiaries"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "ExxonMobil explores, produces, refines, and markets crude oil, natural gas, and petrochemicals globally, serving industrial and individual consumers while pursuing lower-emission energy solutions.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2162,10 +2655,24 @@
       "mission_confidence": 0.5,
       "mission_evidence": "The Bancorp is a diversified financial services company headquartered in Cincinnati, Ohio and is the indirect holding company of Fifth Third Bank, National Association (the “Bank”).",
       "source_filename": "cleaned_10-K_0000035527-25-000079.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "ng company (“BHC”) as defined by the Bank Holding Company Act of 1956, as amended (the “BHCA”), and has elected to be treated as a financial holding company (“FHC”) under the Gramm-Leach-Bliley Act of"
+      "verification_context": "ng company (“BHC”) as defined by the Bank Holding Company Act of 1956, as amended (the “BHCA”), and has elected to be treated as a financial holding company (“FHC”) under the Gramm-Leach-Bliley Act of",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes the company's structure and operations, not its mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "describes company structure",
+        "focuses on operational details",
+        "lacks purpose or beneficiary"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Fifth Third Bancorp provides a wide range of financial products and services, including commercial and consumer banking, wealth management, and asset management, to individuals, corporations, and not-for-profit organizations across multiple sectors in the Midwest and Southeastern United States.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2190,7 +2697,7 @@
     "filing_date": "2025-02-27",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000036966&type=10-K",
     "overview": {
-      "mission": "Our principal businesses are heavily regulated.",
+      "mission": "To help our clients unlock their full potential with capital and counsel.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [],
@@ -2206,10 +2713,22 @@
       "mission_confidence": 0.5,
       "mission_evidence": "Our principal businesses are heavily regulated.",
       "source_filename": "cleaned_10-K_0000036966-25-000024.txt",
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "is expensive and difficult. Moreover, rapid innovation has the potential to be destructive of traditional business models and companies in our industry, as it has done and is doing in other industries"
+      "verification_context": "is expensive and difficult. Moreover, rapid innovation has the potential to be destructive of traditional business models and companies in our industry, as it has done and is doing in other industries",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose of the company and who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Our principal businesses are heavily regulated.",
+      "mission_improvement_phase": "phase2_reextract_PURPOSE",
+      "reextract_confidence": 100,
+      "reextract_source_type": "PURPOSE"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2261,10 +2780,23 @@
       "source_filename": "cleaned_10-K_0000030625-25-000039.txt",
       "mission_tier": 3,
       "mission_confidence": 0.4,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_WITH_CONTEXT",
       "verification_match": "keyword",
-      "verification_context": "icantly in the coming years. We believe that the persistent demand for fresh water during all economic cycles supports continued investments, especially in North America and developing regions. 30 Out"
+      "verification_context": "icantly in the coming years. We believe that the persistent demand for fresh water during all economic cycles supports continued investments, especially in North America and developing regions. 30 Out",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a strategic plan rather than the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on growth areas rather than purpose"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Flowserve Corp designs, manufactures, and services pumps and pumping equipment for industrial applications worldwide.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2289,7 +2821,7 @@
     "filing_date": "2025-02-28",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000037785&type=10-K",
     "overview": {
-      "mission": "FMC CORP — Mission; Transform grower relationship to become trusted source for technical expertise and solutions.",
+      "mission": "FMC is guided by our strategic plan which aims to transform our relationship with growers to become a trusted source for technical expertise and innovative solutions, to deliver superior growth and returns to our stakeholders, and to lead the crop protection industry in safety, talent, sustainability, and innovation.",
       "mission_source": "kg",
       "objectives": [
         "Transform grower relationship to become trusted source for technical expertise and solutions"
@@ -2319,7 +2851,19 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_WITH_CONTEXT",
       "verification_match": "keyword",
-      "verification_context": "ce food, feed, fiber and fuel for an expanding world population while adapting to a changing environment. FMC is committed to discovering new insecticide, herbicide and fungicide active ingredients, p"
+      "verification_context": "ce food, feed, fiber and fuel for an expanding world population while adapting to a changing environment. FMC is committed to discovering new insecticide, herbicide and fungicide active ingredients, p",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement outlines strategic goals and values but does not clearly articulate the fundamental purpose of the company.",
+      "llm_corrected_mission": "FMC is guided by our strategic plan which aims to transform our relationship with growers to become a trusted source for technical expertise and innovative solutions, to deliver superior growth and returns to our stakeholders, and to lead the crop protection industry in safety, talent, sustainability, and innovation.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks a clear statement of the company's primary purpose",
+        "More focused on strategic objectives than on mission"
+      ],
+      "mission_before_improvement": "FMC CORP — Mission; Transform grower relationship to become trusted source for technical expertise and solutions.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2368,10 +2912,24 @@
       "mission_confidence": 0.78,
       "mission_evidence": "Our compensation philosophy is to maintain a program that supports our mission and values. The compensat",
       "source_filename": "cleaned_10-K_0000037808-25-000071.txt",
-      "mission_quality": 1,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "t-secondary education, including college and graduate school. Engagement. We regularly seek feedback from our employees and in 2024 participated in several regional Top Workplace surveys. Our outstand"
+      "verification_context": "t-secondary education, including college and graduate school. Engagement. We regularly seek feedback from our employees and in 2024 participated in several regional Top Workplace surveys. Our outstand",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a compensation philosophy, which is an HR policy, not a mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "not a mission statement"
+      ],
+      "mission_quality_prev": 1,
+      "business_purpose": "FNB Corp provides a wide array of financial services, including banking, wealth management, and insurance, primarily to consumers, corporations, governments, and small- to medium-sized businesses across multiple states.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2396,7 +2954,7 @@
     "filing_date": "2025-02-06",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000037996&type=10-K",
     "overview": {
-      "mission": "We believe this empowers every person to do their best work and ultimately achieve the Ford+ plan.",
+      "mission": "We are committed to helping build a better world, where every person is free to move and pursue their dreams.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -2415,10 +2973,22 @@
       "mission_confidence": 0.79,
       "mission_evidence": "are committed to supporting and sustaining a respectful and inclusive workplace for all employees. We believe this empowers every person to do their best work and ultimately achieve the Ford+ plan. We actively recruit and hire the best talent and are proud that our workforce is made up of people with different backgrounds, perspectives, and experiences so we can deliver the best products and services for our customers around the world. Ford offers 10 global Employee Resource Groups (“ERGs”) tha",
       "source_filename": "cleaned_10-K_0000037996-25-000013.txt",
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ves and leading safety metrics have been implemented as we strive to prevent workplace injuries and reduce risk to our employees and contractors. Building a Diverse and Inclusive Workplace At Ford, we"
+      "verification_context": "ves and leading safety metrics have been implemented as we strive to prevent workplace injuries and reduce risk to our employees and contractors. Building a Diverse and Inclusive Workplace At Ford, we",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose and beneficiaries of the company's efforts.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "We believe this empowers every person to do their best work and ultimately achieve the Ford+ plan.",
+      "mission_improvement_phase": "phase2_reextract_COMMITMENT",
+      "reextract_confidence": 95,
+      "reextract_source_type": "COMMITMENT"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2443,7 +3013,7 @@
     "filing_date": "2025-02-21",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000038725&type=10-K",
     "overview": {
-      "mission": "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices.",
+      "mission": "Water Systems is a global leader in the production and marketing of water pumping systems, dedicated to providing innovative solutions for water management and distribution.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -2465,10 +3035,23 @@
       "mission_confidence": 0.5,
       "mission_evidence": "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices.",
       "source_filename": "cleaned_10-K_0000038725-25-000026.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "roducts and related equipment are sold to specialty distributors and some original equipment manufacturers (“OEMs”), as well as industrial and petroleum equipment distributors and major oil and utilit"
+      "verification_context": "roducts and related equipment are sold to specialty distributors and some original equipment manufacturers (“OEMs”), as well as industrial and petroleum equipment distributors and major oil and utilit",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement includes elements of a mission by indicating what the company does (produces and markets water pumping systems) and who it serves (global market), but it also touches on strategic aspects (innovative solutions).",
+      "llm_corrected_mission": "Water Systems is a global leader in the production and marketing of water pumping systems, dedicated to providing innovative solutions for water management and distribution.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Includes strategic elements",
+        "Lacks a clear statement of purpose beyond product description"
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Water Systems Segment Water Systems is a global leader in the production and marketing of water pumping systems and is a technical leader in submersible motors, pumps, drives, electronic controls, water treatment systems, and monitoring devices.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2493,7 +3076,7 @@
     "filing_date": "2025-03-18",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000039911&type=10-K",
     "overview": {
-      "mission": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also deli.",
+      "mission": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also delivering great quality products to our customers.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [],
@@ -2514,10 +3097,22 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also deli",
       "source_filename": "cleaned_10-K_0000039911-25-000029.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "and redeem gift cards. Product Development We design, develop, market, and sell a wide range of apparel and accessory products reflecting a mix of basics and fashion items based on widely accepted fas"
+      "verification_context": "and redeem gift cards. Product Development We design, develop, market, and sell a wide range of apparel and accessory products reflecting a mix of basics and fashion items based on widely accepted fas",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement includes elements of the company's purpose and values but is more focused on operational aspects.",
+      "llm_corrected_mission": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also delivering great quality products to our customers.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks a clear declaration of the primary purpose and beneficiaries of the company"
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also deli.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2542,7 +3137,7 @@
     "filing_date": "2025-02-19",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040211&type=10-K",
     "overview": {
-      "mission": "SUSTAINABILITY We are committed to growing our business in a sustainable and socially.",
+      "mission": "We are committed to growing our business in a sustainable and socially responsible manner, and we demonstrate our commitment through our programs and initiatives.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -2565,10 +3160,22 @@
       "mission_confidence": 0.63,
       "mission_evidence": "SUSTAINABILITY We are committed to growing our business in a sustainable and socially",
       "source_filename": "cleaned_10-K_0000040211-25-000024.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ts were prepared for the new school year by donating backpacks, school supplies, and a specialty printer to a school. In recognition of these efforts, GATX received the \"Stand Up for Texas Public Scho"
+      "verification_context": "ts were prepared for the new school year by donating backpacks, school supplies, and a specialty printer to a school. In recognition of these efforts, GATX received the \"Stand Up for Texas Public Scho",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement is derived from the context provided and aligns with aspects of a mission, but it does not clearly state the primary purpose or the beneficiaries of the company's actions.",
+      "llm_corrected_mission": "We are committed to growing our business in a sustainable and socially responsible manner, and we demonstrate our commitment through our programs and initiatives.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks clear statement of primary purpose",
+        "Does not explicitly identify who the company serves"
+      ],
+      "mission_before_improvement": "SUSTAINABILITY We are committed to growing our business in a sustainable and socially.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2619,10 +3226,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to continual investment in R&D to create new aircraft that consistently broaden customer offerings while raising the bar for safety and performance.",
       "source_filename": "cleaned_10-K_0000040533-25-000008.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "R&D), state-of-the-art manufacturing facilities, and maintenance and support through a combination of product development efforts, capital expansion and Jet Aviation’s global support network. We are a"
+      "verification_context": "R&D), state-of-the-art manufacturing facilities, and maintenance and support through a combination of product development efforts, capital expansion and Jet Aviation’s global support network. We are a",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement focuses on how the company will achieve its goals (R&D investments, creating new aircraft) rather than why it exists or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 90,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on operational activities",
+        "lacks clear purpose or beneficiary"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "General Dynamics Corporation designs, engineers, and manufactures advanced aerospace and defense products and services, serving government and commercial customers globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2647,7 +3268,7 @@
     "filing_date": "2025-02-03",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040545&type=10-K",
     "overview": {
-      "mission": "our purpose to invent the future of flight, lift people up and bring them home safely.",
+      "mission": "to invent the future of flight, lift people up and bring them home safely",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [],
@@ -2669,10 +3290,22 @@
       "mission_tier": 2,
       "mission_confidence": 0.78,
       "mission_evidence": "ity roadmap. HUMAN CAPITAL. The strength and talent of our workforce are critical to the success of our purpose to invent the future of flight, lift people up and bring them home safely. We strive to attract, develop and retain a workforce that can deliver for our global customer base. The Company’s human capital management priorities are aligned to our business strategy and support the execution of operational results, financial results and the development of technologies that we believe will d",
-      "mission_quality": 1,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "r in Europe supporting the development of indigenous, classified engine technology and a core member of Clean Aviation, significantly contributing to and benefiting from the European Union sustainabil"
+      "verification_context": "r in Europe supporting the development of indigenous, classified engine technology and a core member of Clean Aviation, significantly contributing to and benefiting from the European Union sustainabil",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement is derived from the context provided and aligns with the company's purpose but is not directly stated as a formal mission statement.",
+      "llm_corrected_mission": "to invent the future of flight, lift people up and bring them home safely",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "The statement is part of a broader context about human capital and does not stand alone as a clear, concise mission statement."
+      ],
+      "mission_quality_prev": 1,
+      "mission_before_improvement": "our purpose to invent the future of flight, lift people up and bring them home safely.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2729,7 +3362,14 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "\"us,\" \"our,\" \"GPC,\" and the “company” refers to GPC and its subsidiaries, except as otherwise indicated by the context; and the terms “automotive parts” and “industrial parts” refer to replacement par"
+      "verification_context": "\"us,\" \"our,\" \"GPC,\" and the “company” refers to GPC and its subsidiaries, except as otherwise indicated by the context; and the terms “automotive parts” and “industrial parts” refer to replacement par",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement is directly labeled as the mission in the 10-K filing.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 100,
+      "llm_issues": []
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2778,10 +3418,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to maintaining a culture of trust that recognizes the dignity and uniqueness of the individual.",
       "source_filename": "cleaned_10-K_0000042888-25-000011.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "aged nearly 23 years of tenure. Tenure of all employees averaged nearly 10 years, reflective of our positive workplace culture. Our recruiting team uses internal and external resources to recruit high"
+      "verification_context": "aged nearly 23 years of tenure. Tenure of all employees averaged nearly 10 years, reflective of our positive workplace culture. Our recruiting team uses internal and external resources to recruit high",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement focuses on internal culture and employee treatment, which is more aligned with HR policies rather than a clear declaration of the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "lacks external focus"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Graco Inc. designs, manufactures, and markets systems and equipment for moving, measuring, mixing, controlling, dispensing, and spraying fluid and powder materials, serving manufacturing, processing, construction, and maintenance industries.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2806,7 +3460,7 @@
     "filing_date": "2025-02-12",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000045012&type=10-K",
     "overview": {
-      "mission": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly devel.",
+      "mission": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly development of the world’s oil and natural gas reserves, and that reduce noise while complying with Tier 4 lower emission legislation.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -2832,10 +3486,23 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly devel",
       "source_filename": "cleaned_10-K_0000045012-25-000010.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ss, which offer our customers a variety of environment-friendly options related to the use of hydraulic fracturing fluid additives and other aspects of our hydraulic fracturing operations. We created "
+      "verification_context": "ss, which offer our customers a variety of environment-friendly options related to the use of hydraulic fracturing fluid additives and other aspects of our hydraulic fracturing operations. We created ",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement includes elements of the company's operational focus and environmental commitment, but does not clearly state the primary purpose or who the company serves.",
+      "llm_corrected_mission": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly development of the world’s oil and natural gas reserves, and that reduce noise while complying with Tier 4 lower emission legislation.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks clear statement of primary purpose",
+        "Does not explicitly identify stakeholders"
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly devel.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2886,7 +3553,14 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "n conjunction with, our Consolidated Financial Statements and the accompanying notes included herein. 22 Table of Contents Harte Hanks, Inc. is a leading global customer experience company operating i"
+      "verification_context": "n conjunction with, our Consolidated Financial Statements and the accompanying notes included herein. 22 Table of Contents Harte Hanks, Inc. is a leading global customer experience company operating i",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement directly declares the company's purpose and who it serves, as indicated in the 10-K filing.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": []
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2941,7 +3615,14 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "ein, “Hasbro”, the “Company”, “we”, or “us”, means Hasbro, Inc., a Rhode Island corporation organized on January 8, 1926, and its subsidiaries. 5 Table of Contents Item 1. Business. Overview Hasbro, I"
+      "verification_context": "ein, “Hasbro”, the “Company”, “we”, or “us”, means Hasbro, Inc., a Rhode Island corporation organized on January 8, 1926, and its subsidiaries. 5 Table of Contents Item 1. Business. Overview Hasbro, I",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Directly stated as the company's mission in the filing.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 100,
+      "llm_issues": []
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2966,7 +3647,7 @@
     "filing_date": "2025-02-18",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000047111&type=10-K",
     "overview": {
-      "mission": "HERSHEY CO — Mission; Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions.",
+      "mission": "He was a purpose-driven leader who believed we could use chocolate to Make More Moments of Goodness in the world for our consumers today and for many generations to come.",
       "mission_source": "kg",
       "objectives": [
         "Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions"
@@ -2997,7 +3678,19 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "l standards. The annual operating and capital expenditures associated with ordinary course payments and additional climate change commitments are not material with respect to our results of operations"
+      "verification_context": "l standards. The annual operating and capital expenditures associated with ordinary course payments and additional climate change commitments are not material with respect to our results of operations",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "VISION",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement reflects a vision or aspirational goal rather than a clear mission, derived from the context provided.",
+      "llm_corrected_mission": "He was a purpose-driven leader who believed we could use chocolate to Make More Moments of Goodness in the world for our consumers today and for many generations to come.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks a clear declaration of the company's primary purpose and target audience."
+      ],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "HERSHEY CO — Mission; Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3022,7 +3715,7 @@
     "filing_date": "2025-02-25",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000048287&type=10-K",
     "overview": {
-      "mission": "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products.",
+      "mission": "HNI Corporation is dedicated to enhancing spaces through innovative commercial furnishings and hearth products, serving both business and home environments globally.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -3048,10 +3741,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products.",
       "source_filename": "cleaned_10-K_0000048287-25-000084.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "and together with its consolidated subsidiaries. The Corporation follows a 52/53-week fiscal year, which ends on the Saturday nearest December 31. Fiscal year 2024 ended on December 28, 2024, fiscal y"
+      "verification_context": "and together with its consolidated subsidiaries. The Corporation follows a 52/53-week fiscal year, which ends on the Saturday nearest December 31. Fiscal year 2024 ended on December 28, 2024, fiscal y",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement describes what the company does and its market position but lacks a clear declaration of why the company exists and who it serves.",
+      "llm_corrected_mission": "HNI Corporation is dedicated to enhancing spaces through innovative commercial furnishings and hearth products, serving both business and home environments globally.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "lacks clear purpose",
+        "focuses on what rather than why",
+        "mixes operational and mission elements"
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Business General HNI Corporation is a leading global designer and provider of commercial furnishings, and a leading manufacturer and marketer of hearth products.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3076,7 +3783,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000049071&type=10-K",
     "overview": {
-      "mission": "HUMANA INC — Mission; Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics.",
+      "mission": "At the core of our strategy is our integrated care delivery model, which unites quality care, high member engagement, and sophisticated data analytics.",
       "mission_source": "kg",
       "objectives": [
         "Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics"
@@ -3106,7 +3813,19 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "network. Point of Service, or POS, plans combine the advantages of HMO plans with the flexibility of PPO plans. In general, POS plans allow members to choose, at the time medical services are needed, "
+      "verification_context": "network. Point of Service, or POS, plans combine the advantages of HMO plans with the flexibility of PPO plans. In general, POS plans allow members to choose, at the time medical services are needed, ",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement describes an integrated care delivery model, which is more aligned with how the company operates rather than why it exists.",
+      "llm_corrected_mission": "At the core of our strategy is our integrated care delivery model, which unites quality care, high member engagement, and sophisticated data analytics.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence"
+      ],
+      "mission_before_improvement": "HUMANA INC — Mission; Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3131,7 +3850,7 @@
     "filing_date": "2025-02-14",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000049196&type=10-K",
     "overview": {
-      "mission": "Stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p.",
+      "mission": "To be the leading people-first, customer-centered bank in the country by building stronger and more profitable relationships through our OCR sales and service process.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -3153,10 +3872,24 @@
       "mission_confidence": 0.78,
       "mission_evidence": "stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p",
       "source_filename": "cleaned_10-K_0000049196-25-000020.txt",
-      "mission_quality": 1,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "zes the delivery of a complete set of banking products and services offered by larger banks, but distinguished by local delivery and customer service. A key strategic emphasis has been for our busines"
+      "verification_context": "zes the delivery of a complete set of banking products and services offered by larger banks, but distinguished by local delivery and customer service. A key strategic emphasis has been for our busines",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The text includes elements of the company's vision and strategy, but not a clear mission statement.",
+      "llm_corrected_mission": "To be the leading people-first, customer-centered bank in the country by building stronger and more profitable relationships through our OCR sales and service process.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence",
+        "mixes vision and strategy with operational details"
+      ],
+      "mission_quality_prev": 1,
+      "mission_before_improvement": "Stronger and more profitable relationships using our OCR sales and service process, which aligns to our vision to be the leading people-first, customer-centered bank in the country. The objectives of OCR are to: • Use a consultative and advisory sales approach to provide solutions that are specific to each customer; • Leverage each business segment in terms of its p.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3205,10 +3938,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We seek to identify high performers and support their development into potential future leaders, focusing on providing opportunities to all individuals.",
       "source_filename": "cleaned_10-K_0000004281-25-000011.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "platform allows us to align employee goals and growth with the Company’s future business needs so that we can pinpoint potential successor candidates and build their readiness for their future roles. "
+      "verification_context": "platform allows us to align employee goals and growth with the Company’s future business needs so that we can pinpoint potential successor candidates and build their readiness for their future roles. ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text focuses on internal HR practices and employee development, not the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "not a mission statement"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Howmet Aerospace Inc. designs, manufactures, and markets advanced engineered components and assemblies, primarily for the aerospace and transportation industries.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3257,10 +4004,23 @@
       "mission_confidence": 0.5,
       "mission_evidence": "The Company is a global manufacturer of a diversified range of industrial products and equipment with 86 divisions in 51 countries.",
       "source_filename": "cleaned_10-K_0000049826-25-000007.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "y Reference Portions of the 2025 Proxy Statement for Annual Meeting of Stockholders to be held on May 2, 2025. Part III [TABLE REMOVED] PART I ITEM 1. Business General Illinois Tool Works Inc. (the \"C"
+      "verification_context": "y Reference Portions of the 2025 Proxy Statement for Annual Meeting of Stockholders to be held on May 2, 2025. Part III [TABLE REMOVED] PART I ITEM 1. Business General Illinois Tool Works Inc. (the \"C",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement describes what the company does (operations) rather than why it exists or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 90,
+      "llm_issues": [
+        "describes operational scope",
+        "lacks purpose or beneficiary"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Illinois Tool Works Inc. manufactures and supplies a wide range of industrial products and equipment to various sectors including automotive, food service, electronics, and construction across 51 countries.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3285,7 +4045,7 @@
     "filing_date": "2025-03-07",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000039311&type=10-K",
     "overview": {
-      "mission": "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating a.",
+      "mission": "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating agency) and by conducting due diligence on the issuer.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -3306,10 +4066,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We seek to limit credit losses in our securities portfolios by principally purchasing highly rated securities (generally rated \"AA\" or higher by a major debt rating a",
       "source_filename": "cleaned_10-K_0000039311-25-000044.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "sk in our securities portfolio. We maintain diversified securities portfolios, which include obligations of the Treasury and government-sponsored agencies as well as securities issued by states and po"
+      "verification_context": "sk in our securities portfolio. We maintain diversified securities portfolios, which include obligations of the Treasury and government-sponsored agencies as well as securities issued by states and po",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a strategy for managing credit risk in the securities portfolio, not the company's mission or purpose.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence",
+        "focuses on operational detail"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Independent Bank Corp, operating in the sector of State Commercial Banks, provides a range of banking services including loans, deposits, and financial solutions to individuals and businesses primarily in Michigan.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3334,7 +4108,7 @@
     "filing_date": "2025-01-31",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000050863&type=10-K",
     "overview": {
-      "mission": "our mission to deliver cutting-edge technology solutions to our customers.",
+      "mission": "to deliver cutting-edge technology solutions to our customers",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [],
@@ -3357,10 +4131,23 @@
       "source_filename": "cleaned_10-K_0000050863-25-000009.txt",
       "mission_tier": 2,
       "mission_confidence": 0.78,
-      "mission_quality": 1,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "ly, as we build out our external foundry services, we expect to receive customer pre-payments to secure capacity and other benefits. Customer pre-payments are a standard practice for semiconductor man"
+      "verification_context": "ly, as we build out our external foundry services, we expect to receive customer pre-payments to secure capacity and other benefits. Customer pre-payments are a standard practice for semiconductor man",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement is part of a broader operational context and not directly labeled as a mission.",
+      "llm_corrected_mission": "to deliver cutting-edge technology solutions to our customers",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "embedded in operational context",
+        "not directly labeled as mission"
+      ],
+      "mission_quality_prev": 1,
+      "mission_before_improvement": "our mission to deliver cutting-edge technology solutions to our customers.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3385,7 +4172,7 @@
     "filing_date": "2025-02-25",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000051143&type=10-K",
     "overview": {
-      "mission": "Competition IBM is a globally in.",
+      "mission": "Competition IBM is a globally integrated enterprise that participates in a highly competitive environment.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [],
@@ -3403,10 +4190,24 @@
       "mission_confidence": 0.5,
       "mission_evidence": "Competition IBM is a globally in",
       "source_filename": "cleaned_10-K_0000051143-25-000015.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "partial",
-      "verification_context": "challenges while accelerating growth. Our strategic partners include: Adobe, Amazon Web Services (AWS), Microsoft, Oracle, Palo Alto Networks, Salesforce, Samsung Electronics and SAP, among others. Co"
+      "verification_context": "challenges while accelerating growth. Our strategic partners include: Adobe, Amazon Web Services (AWS), Microsoft, Oracle, Palo Alto Networks, Salesforce, Samsung Electronics and SAP, among others. Co",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 0,
+      "llm_quality_reason": "The extracted text is not a coherent statement and does not declare the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "truncated sentence",
+        "lacks clarity",
+        "not a complete thought"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "International Business Machines Corporation (IBM) provides a wide range of technology and consulting services, including cloud computing, artificial intelligence, and enterprise software solutions, serving businesses and governments globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3453,10 +4254,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "Supply Chain We strive to provide our customers with consistent and quality products on a timely and cost-effecti",
       "source_filename": "cleaned_10-K_0000051253-25-000013.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "r improve functionality of their formulations. This often results in creating a better value proposition for our customers. Most of our formulas are treated as trade secrets and remain our proprietary"
+      "verification_context": "r improve functionality of their formulations. This often results in creating a better value proposition for our customers. Most of our formulas are treated as trade secrets and remain our proprietary",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes operational processes rather than the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "truncated sentence",
+        "describes operational activities",
+        "not a clear statement of purpose or values"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "International Flavors & Fragrances Inc. creates and manufactures flavors and fragrances for use in consumer products, serving industries such as food and beverage, personal care, and household products.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3497,10 +4312,24 @@
       "mission_confidence": 0.78,
       "mission_evidence": "Results of the survey will be analyzed in 2025 with the goal of learning, growing and aspiring to achieve our Vision 2030 goal to create a 100% injury-free workplace for our t",
       "source_filename": "cleaned_10-K_0000051434-25-000013.txt",
-      "mission_quality": 1,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": "e engaged an independent safety consultant firm to help the Company improve workplace safety performance through risk assessments, safety culture development and programs designed to reduce accidents "
+      "verification_context": "e engaged an independent safety consultant firm to help the Company improve workplace safety performance through risk assessments, safety culture development and programs designed to reduce accidents ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a specific strategy and goal related to workplace safety, not the overarching purpose or mission of the company.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence",
+        "focuses on operational aspect"
+      ],
+      "mission_quality_prev": 1,
+      "business_purpose": "International Paper Company, operating in the Paper Mills sector, produces and distributes a wide range of paper and packaging products to customers globally, serving industries such as consumer goods, food, and industrial sectors.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3525,7 +4354,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000051644&type=10-K",
     "overview": {
-      "mission": "INTERPUBLIC GROUP OF COMPANIES, INC. — Mission; Digital commerce, retail media, AI, audience resolution, production.",
+      "mission": "We provide marketing, communications and business transformation services that help marketers and brands succeed in today’s digital economy.",
       "mission_source": "kg",
       "objectives": [
         "Digital commerce, retail media, AI, audience resolution, production"
@@ -3555,7 +4384,19 @@
       "mission_quality": 2,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "partial",
-      "verification_context": "ISSION Washington, D.C. 20549 Form 10-K ☒ ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the fiscal year ended December 31, 2024 or ☐ TRANSITION REPORT PURSUA"
+      "verification_context": "ISSION Washington, D.C. 20549 Form 10-K ☒ ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the fiscal year ended December 31, 2024 or ☐ TRANSITION REPORT PURSUA",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement clearly indicates the purpose of the company (to help marketers and brands succeed) and the beneficiaries (marketers and brands), but it requires some inference to understand the broader context of their services.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "INTERPUBLIC GROUP OF COMPANIES, INC. — Mission; Digital commerce, retail media, AI, audience resolution, production.",
+      "mission_improvement_phase": "phase2_reextract_PURPOSE",
+      "reextract_confidence": 85,
+      "reextract_source_type": "PURPOSE"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3596,10 +4437,25 @@
       "mission_confidence": 0.5,
       "mission_evidence": "(“JPMorganChase” or the “Firm”, NYSE: JPM), a financial holding company incorporated under Delaware law in 1968, is a leading financial services firm based in the United States of America (“U.",
       "source_filename": "cleaned_10-K_0000019617-25-000270.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "tions of the registrant’s Proxy Statement for the annual meeting of stockholders to be held on May 20, 2025, are incorporated by reference in this Form 10-K in response to Items 10, 11, 12, 13 and 14 "
+      "verification_context": "tions of the registrant’s Proxy Statement for the annual meeting of stockholders to be held on May 20, 2025, are incorporated by reference in this Form 10-K in response to Items 10, 11, 12, 13 and 14 ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes the company's legal structure, operations, and financial status, not its mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains operational details",
+        "financial metrics",
+        "legal information",
+        "truncated sentence"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "JPMorgan Chase & Co., a national commercial bank, provides a wide range of financial services including investment banking, asset management, and consumer and commercial lending to individuals, businesses, and governments globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3624,7 +4480,7 @@
     "filing_date": "2025-02-13",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000055785&type=10-K",
     "overview": {
-      "mission": "KIMBERLY CLARK CORP — Mission; 2024 Transformation Initiative: innovation, margin optimization, organizational agility.",
+      "mission": "We strive to make lives better while also working to help safeguard the earth’s natural ecosystems. We believe we can make meaningful contributions through our business activities and operations to clean water and sanitation, climate action and responsible consumption and production.",
       "mission_source": "kg",
       "objectives": [
         "2024 Transformation Initiative: innovation, margin optimization, organizational agility"
@@ -3651,10 +4507,24 @@
       "source_filename": "cleaned_10-K_0000055785-25-000013.txt",
       "mission_tier": 3,
       "mission_confidence": 0.4,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_WITH_CONTEXT",
       "verification_match": "keyword",
-      "verification_context": "Sweety, Softex, Viva and WypAll, encompass five global daily-need product categories: Baby & Child Care, Adult Care, Feminine Care, Family Care, and Professional. We strive to use sustainable practice"
+      "verification_context": "Sweety, Softex, Viva and WypAll, encompass five global daily-need product categories: Baby & Child Care, Adult Care, Feminine Care, Family Care, and Professional. We strive to use sustainable practice",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes a strategic initiative rather than the company's mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on operational changes",
+        "truncated sentence"
+      ],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "KIMBERLY CLARK CORP — Mission; 2024 Transformation Initiative: innovation, margin optimization, organizational agility.",
+      "mission_improvement_phase": "phase2_reextract_COMMITMENT"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3679,7 +4549,7 @@
     "filing_date": "2025-03-18",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000033992&type=10-K",
     "overview": {
-      "mission": "Be the preferred multi-line P&C insurer for selected producers in geographic markets; Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base; KINGSTONE COMPANIES, INC. — Mission.",
+      "mission": "To be the preferred multi-line property and casualty insurance company for selected producers in the geographic markets in which we operate.",
       "mission_source": "kg",
       "objectives": [
         "Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base"
@@ -3705,7 +4575,19 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_WITH_CONTEXT",
       "verification_match": "keyword",
-      "verification_context": "commissions to these agencies. We seek to deliver an attractive return on capital and to provide consistent earnings growth through underwriting profits and income from our investment portfolio. Our g"
+      "verification_context": "commissions to these agencies. We seek to deliver an attractive return on capital and to provide consistent earnings growth through underwriting profits and income from our investment portfolio. Our g",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The provided text includes elements of strategy and operational goals rather than a clear mission statement.",
+      "llm_corrected_mission": "To be the preferred multi-line property and casualty insurance company for selected producers in the geographic markets in which we operate.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "contains strategic metrics",
+        "focuses on how to achieve rather than why the company exists"
+      ],
+      "mission_before_improvement": "Be the preferred multi-line P&C insurer for selected producers in geographic markets; Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base; KINGSTONE COMPANIES, INC. — Mission.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3755,10 +4637,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "Succession Development We are committed to having strong managers and leadership in critical roles across the Company.",
       "source_filename": "cleaned_10-K_0000058492-25-000136.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ve new hire and annual refresher safety training, weekly “tool box” talks regarding safety and training, job-specific safety training based on the job hazards analysis developed from our SafeGuard pro"
+      "verification_context": "ve new hire and annual refresher safety training, weekly “tool box” talks regarding safety and training, job-specific safety training based on the job hazards analysis developed from our SafeGuard pro",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "HR",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text focuses on internal HR practices and succession planning, not the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "HR language",
+        "truncated sentence",
+        "not a mission statement"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Leggett & Platt, Inc. designs, manufactures, and supplies a wide range of engineered components and products for the household furniture industry, serving both consumers and furniture manufacturers.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3783,7 +4679,7 @@
     "filing_date": "2025-02-26",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000059527&type=10-K",
     "overview": {
-      "mission": "Our goal is to proactively manage risks in a structured approach an.",
+      "mission": "Our goal is to proactively manage risks in a structured approach and in conjunction with the strategic planning process, with the intent to preserve and enhance shareholder value.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -3810,10 +4706,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "Our goal is to proactively manage risks in a structured approach an",
       "source_filename": "cleaned_10-K_0000059527-25-000006.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "to monitor and mitigate risks, where possible. Our Board of Directors (“Board”) provides oversight of the ERM process and systematically reviews identified critical risks. The Audit Committee also rev"
+      "verification_context": "to monitor and mitigate risks, where possible. Our Board of Directors (“Board”) provides oversight of the ERM process and systematically reviews identified critical risks. The Audit Committee also rev",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement focuses on how the company manages risks, which is more aligned with strategy and operations rather than declaring the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "truncated sentence",
+        "focuses on operational strategy",
+        "lacks clear purpose or beneficiary"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Lincoln Electric Holdings, Inc. designs, develops, and manufactures arc welding solutions, automated joining and cutting systems, and brazing and soldering alloys for a wide range of industries globally.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3861,10 +4771,18 @@
       "source_filename": "cleaned_10-K_0000059558-25-000023.txt",
       "mission_tier": 1,
       "mission_confidence": 0.63,
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "VERIFIED_M2",
       "verification_match": "partial",
-      "verification_context": "ect to continued use and registration requirements. We regard our trademarks as valuable assets in marketing our products and services and intend to protect them against infringement and dilution. HUM"
+      "verification_context": "ect to continued use and registration requirements. We regard our trademarks as valuable assets in marketing our products and services and intend to protect them against infringement and dilution. HUM",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Directly states the purpose and who it serves",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3907,10 +4825,24 @@
       "mission_confidence": 0.5,
       "mission_evidence": "We also own approximately 53% of Altium Packaging LLC, an unconsolidated subsidiary, which is engaged in the manufacture of rigid plastic packaging solutions.",
       "source_filename": "cleaned_10-K_0000060086-25-000036.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "e (CNA Financial Corporation, an approximately 92% owned subsidiary); • transportation and storage of natural gas and natural gas liquids (Boardwalk Pipeline Partners, LP, a wholly owned subsidiary); "
+      "verification_context": "e (CNA Financial Corporation, an approximately 92% owned subsidiary); • transportation and storage of natural gas and natural gas liquids (Boardwalk Pipeline Partners, LP, a wholly owned subsidiary); ",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes an operational detail about ownership and business activity, not the company's purpose or mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "describes ownership stake",
+        "details business activity",
+        "not a statement of purpose or mission"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Loews Corporation, through its subsidiaries, provides commercial property and casualty insurance, natural gas and natural gas liquids transportation and storage, hotel operations, and rigid plastic packaging solutions to a diverse range of customers including businesses, associations, and professionals.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3935,7 +4867,7 @@
     "filing_date": "2025-02-19",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000060519&type=10-K",
     "overview": {
-      "mission": "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such.",
+      "mission": "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such matters.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -3954,10 +4886,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such",
       "source_filename": "cleaned_10-K_0000060519-25-000005.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ufacturing operations depend on significant amounts of energy and raw materials, these initiatives could have an adverse impact on our operations and profitability. Future legislation or regulatory ac"
+      "verification_context": "ufacturing operations depend on significant amounts of energy and raw materials, these initiatives could have an adverse impact on our operations and profitability. Future legislation or regulatory ac",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 4,
+      "llm_quality_reason": "The statement focuses on operational compliance and management attention rather than declaring the company's purpose or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "operational focus",
+        "lacks purpose and beneficiary",
+        "vague and generic"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Louisiana-Pacific Corporation provides high-performance building solutions, including engineered wood siding and oriented strand board, to builders, remodelers, and homeowners in North America and South America.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4008,10 +4954,24 @@
       "source_filename": "cleaned_10-K_0000060667-25-000049.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 0,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "ute on our Total Home strategy that was introduced in fiscal 2020, by focusing on serving the professional customer (Pro customer), accelerating our online business, expanding installation services, i"
+      "verification_context": "ute on our Total Home strategy that was introduced in fiscal 2020, by focusing on serving the professional customer (Pro customer), accelerating our online business, expanding installation services, i",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 0,
+      "llm_quality_reason": "The extracted text outlines specific strategic initiatives rather than a clear mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "contains strategic metrics",
+        "truncated sentence",
+        "focuses on operational and strategic goals"
+      ],
+      "mission_quality_prev": 3,
+      "business_purpose": "Lowe's Companies, Inc. operates as a home improvement retailer, serving both DIY consumers and professional customers through its extensive network of stores and online platforms.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4036,7 +4996,7 @@
     "filing_date": "2025-02-20",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000018926&type=10-K",
     "overview": {
-      "mission": "Unleashing the world's digital potential through integrated products and services.",
+      "mission": "We are unleashing the world's digital potential by providing a broad array of integrated products and services to our domestic and global Business customers and our domestic Mass Markets customers.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [
@@ -4059,10 +5019,20 @@
       "source_filename": "cleaned_10-K_0000018926-25-000010.txt",
       "mission_tier": 1,
       "mission_confidence": 0.5,
-      "mission_quality": 2,
+      "mission_quality": 1,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "partial",
-      "verification_context": "cluding our capital allocation plans) at any time and without notice, based upon any changes in such factors or otherwise. ITEM 1. BUSINESS Business Overview and Purpose We are a networking company wi"
+      "verification_context": "cluding our capital allocation plans) at any time and without notice, based upon any changes in such factors or otherwise. ITEM 1. BUSINESS Business Overview and Purpose We are a networking company wi",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose and target audience of the company",
+      "llm_corrected_mission": "We are unleashing the world's digital potential by providing a broad array of integrated products and services to our domestic and global Business customers and our domestic Mass Markets customers.",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Unleashing the world's digital potential through integrated products and services.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4087,7 +5057,7 @@
     "filing_date": "2025-02-28",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000062234&type=10-K",
     "overview": {
-      "mission": "Developing a committed team dedicated to service; fostering diverse and inclusive culture; MARCUS CORP — Mission.",
+      "mission": "Our focus on ‘People Pleasing People’ is at the heart of how we care for our guests, customers and employees.",
       "mission_source": "kg",
       "objectives": [
         "Developing a committed team dedicated to service",
@@ -4115,10 +5085,20 @@
       "source_filename": "cleaned_10-K_0000062234-25-000006.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "terial respects, with all federal, state, and local environmental laws and ordinances. However, additional operating costs and capital expenditures could be incurred if additional or more stringent re"
+      "verification_context": "terial respects, with all federal, state, and local environmental laws and ordinances. However, additional operating costs and capital expenditures could be incurred if additional or more stringent re",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the company's focus on customer and employee satisfaction, which aligns with the purpose of the business.",
+      "llm_corrected_mission": "Our focus on ‘People Pleasing People’ is at the heart of how we care for our guests, customers and employees.",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "Developing a committed team dedicated to service; fostering diverse and inclusive culture; MARCUS CORP — Mission.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4143,7 +5123,7 @@
     "filing_date": "2025-02-28",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000015615&type=10-K",
     "overview": {
-      "mission": "Achieve customer expectations safely, profitably and in an environmentally responsible manner.",
+      "mission": "We strive to be recognized as a company that achieves customer expectations safely, profitably and in a manner that is environmentally responsible, socially aware and rewarding for all our stakeholders.",
       "mission_source": "kg",
       "objectives": [
         "Focus on nation's transition to low-carbon energy sources",
@@ -4175,7 +5155,17 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "our operations. Our executive management team, business unit presidents and project management teams have broad industry experience and a deep understanding of our customers and their requirements. Ke"
+      "verification_context": "our operations. Our executive management team, business unit presidents and project management teams have broad industry experience and a deep understanding of our customers and their requirements. Ke",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement aligns with the company's values and objectives but is derived from the context provided.",
+      "llm_corrected_mission": "We strive to be recognized as a company that achieves customer expectations safely, profitably and in a manner that is environmentally responsible, socially aware and rewarding for all our stakeholders.",
+      "llm_confidence": 85,
+      "llm_issues": [],
+      "mission_quality_prev": 3,
+      "mission_before_improvement": "Achieve customer expectations safely, profitably and in an environmentally responsible manner.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4200,7 +5190,7 @@
     "filing_date": "2025-02-18",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000024545&type=10-K",
     "overview": {
-      "mission": "Scale and expand in beyond beer; MOLSON COORS BEVERAGE CO — Mission; Consistently grow core power brand net sales; Aggressively premiumize portfolio; Invest in capabilities and support people, communities and planet.",
+      "mission": "For more than two centuries, we have brewed beverages that unite people to celebrate all life’s moments.",
       "mission_source": "kg",
       "objectives": [
         "Invest in capabilities and support people, communities and planet"
@@ -4227,10 +5217,25 @@
       "source_filename": "cleaned_10-K_0000024545-25-000007.txt",
       "mission_tier": 3,
       "mission_confidence": 0.63,
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "partial",
-      "verification_context": "r Acceleration Plan, building off the successes achieved under the Revitalization Plan, which was announced in October 2019. The Acceleration Plan focuses on the execution of the following principal s"
+      "verification_context": "r Acceleration Plan, building off the successes achieved under the Revitalization Plan, which was announced in October 2019. The Acceleration Plan focuses on the execution of the following principal s",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement partially captures the essence of why the company exists (to brew beverages) and who it serves (people celebrating moments), but it is derived from a broader context that includes historical and operational details.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "The statement is embedded within a larger paragraph that includes operational and financial information.",
+        "It does not explicitly state the company's purpose or its target audience in a clear, standalone manner."
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "Scale and expand in beyond beer; MOLSON COORS BEVERAGE CO — Mission; Consistently grow core power brand net sales; Aggressively premiumize portfolio; Invest in capabilities and support people, communities and planet.",
+      "mission_improvement_phase": "phase2_reextract_PURPOSE",
+      "reextract_confidence": 85,
+      "reextract_source_type": "PURPOSE"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4255,7 +5260,7 @@
     "filing_date": "2025-02-05",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000029989&type=10-K",
     "overview": {
-      "mission": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio.",
+      "mission": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perception and reputational concerns, intellectual property protection, regulatory compliance, privacy and data security concerns and our ability to effectively adopt this new emerging technology.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -4279,10 +5284,24 @@
       "mission_confidence": 0.63,
       "mission_evidence": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio",
       "source_filename": "cleaned_10-K_0000029989-25-000009.txt",
-      "mission_quality": 2,
+      "mission_quality": 3,
       "verification_status": "VERIFIED_M2",
       "verification_match": "exact",
-      "verification_context": "ct on how we provide services to our clients and how we enhance the productivity of our people. As with any new technology, we are working closely with our clients and technology partners to take adva"
+      "verification_context": "ct on how we provide services to our clients and how we enhance the productivity of our people. As with any new technology, we are working closely with our clients and technology partners to take adva",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement focuses on how the company will approach AI technology, which is more strategic than a mission statement.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Does not clearly state the company's purpose or who it serves."
+      ],
+      "mission_quality_prev": 2,
+      "mission_before_improvement": "We are committed to responsible AI practices and collaboration to harness AI's potential, while evaluating related risks, such as ethical considerations, public perceptio.",
+      "mission_improvement_phase": "phase2_reextract_COMMITMENT",
+      "reextract_confidence": 85,
+      "reextract_source_type": "COMMITMENT"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4307,7 +5326,7 @@
     "filing_date": "2025-02-21",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000052827&type=10-K",
     "overview": {
-      "mission": "RAYONIER INC — Mission; Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions.",
+      "mission": "Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions.",
       "mission_source": "kg",
       "objectives": [
         "Active portfolio management through selective acquisitions and dispositions"
@@ -4337,7 +5356,18 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "balance among biological timber growth, cash flow generation from harvesting activities, and responsible environmental stewardship. Our timber harvesting strategy is designed to produce a long-term, s"
+      "verification_context": "balance among biological timber growth, cash flow generation from harvesting activities, and responsible environmental stewardship. Our timber harvesting strategy is designed to produce a long-term, s",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement describes the company's approach to managing its assets but does not clearly state the purpose or who it serves.",
+      "llm_corrected_mission": "Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions.",
+      "llm_confidence": 85,
+      "llm_issues": [
+        "Lacks a clear statement of purpose or beneficiaries"
+      ],
+      "mission_before_improvement": "RAYONIER INC — Mission; Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4362,7 +5392,7 @@
     "filing_date": "2025-02-25",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000031791&type=10-K",
     "overview": {
-      "mission": "REVVITY, INC. — Mission; Innovation via R&D and acquisitions; operational excellence; expand global offerings.",
+      "mission": "Utilize our knowledge and expertise to address customers’ critical needs and drive scientific breakthroughs.",
       "mission_source": "kg",
       "objectives": [
         "Innovation via R&D and acquisitions",
@@ -4394,7 +5424,18 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "is to develop and deliver innovative products, services and solutions in high-growth markets that utilize our knowledge and expertise to address customers’ critical needs and drive scientific breakthr"
+      "verification_context": "is to develop and deliver innovative products, services and solutions in high-growth markets that utilize our knowledge and expertise to address customers’ critical needs and drive scientific breakthr",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "STRATEGY",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement is derived from the strategic context and partially aligns with mission elements but is not directly stated as a mission.",
+      "llm_corrected_mission": "Utilize our knowledge and expertise to address customers’ critical needs and drive scientific breakthroughs.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "The statement is more aligned with the company's strategy rather than a clear mission declaration."
+      ],
+      "mission_before_improvement": "REVVITY, INC. — Mission; Innovation via R&D and acquisitions; operational excellence; expand global offerings.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4437,10 +5478,24 @@
       "mission_confidence": 0.5,
       "mission_evidence": "We provide commercial and consumer banking in addition to a full suite of specialized products and services including wealth services, treasury management, mortgage services, premium finance, asset-based lendin",
       "source_filename": "cleaned_10-K_0000018349-25-000049.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "tatement is made or to reflect the occurrence of new information or unanticipated events, except as may otherwise be required by law. 2 ITEM 1. BUSINESS Overview General Synovus Financial Corp. is a f"
+      "verification_context": "tatement is made or to reflect the occurrence of new information or unanticipated events, except as may otherwise be required by law. 2 ITEM 1. BUSINESS Overview General Synovus Financial Corp. is a f",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 4,
+      "llm_quality_reason": "The text describes what the company does rather than why it exists or who it serves.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "describes operations",
+        "truncated sentence",
+        "lacks purpose or beneficiary"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "Synovus Financial Corp. provides a wide range of commercial and consumer banking services, as well as specialized financial products, to individuals and businesses across Alabama, Florida, Georgia, South Carolina, and Tennessee.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4465,7 +5520,7 @@
     "filing_date": "2025-03-12",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000027419&type=10-K",
     "overview": {
-      "mission": "TARGET CORP — Mission; Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value.",
+      "mission": "Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value.",
       "mission_source": "kg",
       "objectives": [
         "Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value"
@@ -4491,7 +5546,19 @@
       "mission_quality": 3,
       "verification_status": "KEYWORD_WITH_CONTEXT",
       "verification_match": "keyword",
-      "verification_context": "rategy Target delivers on our purpose of helping all families discover the joy of everyday life through our curated, multi-category assortment, outstanding value, and a team that’s centered on care fo"
+      "verification_context": "rategy Target delivers on our purpose of helping all families discover the joy of everyday life through our curated, multi-category assortment, outstanding value, and a team that’s centered on care fo",
+      "llm_is_mission": "PARTIAL",
+      "llm_actual_type": "MIXED",
+      "llm_quality": 3,
+      "llm_quality_reason": "The statement includes elements of strategy and operations, but also touches on the company's purpose and values.",
+      "llm_corrected_mission": "Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value.",
+      "llm_confidence": 75,
+      "llm_issues": [
+        "Lacks a clear declaration of why the company exists and who it serves",
+        "Includes operational and strategic elements"
+      ],
+      "mission_before_improvement": "TARGET CORP — Mission; Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4516,7 +5583,7 @@
     "filing_date": "2025-02-04",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000100790&type=10-K",
     "overview": {
-      "mission": "To produce and supply industrial chemicals and polymers that serve as essential materials for a wide range of industries worldwide.",
+      "mission": "To serve as a global supplier of essential industrial chemicals and polymers, enabling innovation and sustainability across diverse industries.",
       "mission_source": "inferred",
       "objectives": [],
       "capabilities": [
@@ -4535,10 +5602,19 @@
       "mission_confidence": 0.25,
       "mission_evidence": "Union Carbide Corporation is a wholly owned subsidiary of The Dow Chemical Company, producing industrial chemicals and polymers.",
       "source_filename": "N/A",
-      "mission_quality": 3,
+      "mission_quality": 1,
       "verification_status": "NO_FILE",
       "verification_match": "none",
-      "verification_context": ""
+      "verification_context": "",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "Clearly states the purpose of the company and its target audience.",
+      "llm_corrected_mission": "To serve as a global supplier of essential industrial chemicals and polymers, enabling innovation and sustainability across diverse industries.",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_before_improvement": "To produce and supply industrial chemicals and polymers that serve as essential materials for a wide range of industries worldwide.",
+      "mission_improvement_phase": "phase1_partial_correction"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -4581,10 +5657,24 @@
       "mission_confidence": 0.5,
       "mission_evidence": "USBNA provides a wide range of products and services to individua",
       "source_filename": "cleaned_10-K_0000036104-25-000016.txt",
-      "mission_quality": 2,
+      "mission_quality": 0,
       "verification_status": "TEXT_MATCH_NO_CONTEXT",
       "verification_match": "exact",
-      "verification_context": "vices, merchant and ATM processing, mortgage banking, insurance, brokerage and leasing. U.S. Bancorp’s banking subsidiary, USBNA, is engaged in the general banking business, principally in domestic ma"
+      "verification_context": "vices, merchant and ATM processing, mortgage banking, insurance, brokerage and leasing. U.S. Bancorp’s banking subsidiary, USBNA, is engaged in the general banking business, principally in domestic ma",
+      "llm_is_mission": "NO",
+      "llm_actual_type": "OPERATIONS",
+      "llm_quality": 0,
+      "llm_quality_reason": "The text describes operational activities rather than the company's purpose or mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [
+        "truncated sentence",
+        "describes operational activities",
+        "lacks clear purpose or beneficiary"
+      ],
+      "mission_quality_prev": 2,
+      "business_purpose": "U.S. Bancorp provides a wide range of financial services, including commercial and retail banking, trust and investment management, and payment solutions to individuals, businesses, and institutions.",
+      "mission_improvement_phase": "phase3_business_purpose"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4609,7 +5699,7 @@
     "filing_date": "2025-02-27",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000005513&type=10-K",
     "overview": {
-      "mission": "our mission and meeting our customers’ needs, we regularly conduct confidential employee surveys to obtain feedback and gain insights from our employees.",
+      "mission": "The benefits we provide help the working world thrive throughout life's moments and protect people from the financial hardship of illness, injury, or loss of life.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [],
@@ -4634,7 +5724,19 @@
       "mission_quality": 1,
       "verification_status": "VERIFIED_M1",
       "verification_match": "exact",
-      "verification_context": ", tools and workshops, dedicated learning time and on-demand skill building resources. We also offer tuition reimbursement benefits, in role leadership development programs, and multi-year rotational "
+      "verification_context": ", tools and workshops, dedicated learning time and on-demand skill building resources. We also offer tuition reimbursement benefits, in role leadership development programs, and multi-year rotational ",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 1,
+      "llm_quality_reason": "The statement clearly articulates the purpose of the company and the beneficiaries of its services.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 95,
+      "llm_issues": [],
+      "mission_quality_prev": 1,
+      "mission_before_improvement": "our mission and meeting our customers’ needs, we regularly conduct confidential employee surveys to obtain feedback and gain insights from our employees.",
+      "mission_improvement_phase": "phase2_reextract_PURPOSE",
+      "reextract_confidence": 90,
+      "reextract_source_type": "PURPOSE"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -4688,10 +5790,20 @@
       "source_filename": "cleaned_10-K_0000030697-25-000003.txt",
       "mission_tier": 3,
       "mission_confidence": 0.3,
-      "mission_quality": 3,
+      "mission_quality": 2,
       "verification_status": "KEYWORD_ONLY",
       "verification_match": "keyword",
-      "verification_context": "Quebec, for which there is no national advertising contribution rate and the local and regional advertising contribution rate is 4% of sales. Non-traditional locations, including delivery kitchens, ma"
+      "verification_context": "Quebec, for which there is no national advertising contribution rate and the local and regional advertising contribution rate is 4% of sales. Non-traditional locations, including delivery kitchens, ma",
+      "llm_is_mission": "YES",
+      "llm_actual_type": "MISSION",
+      "llm_quality": 2,
+      "llm_quality_reason": "The statement is presented as a brand promise which aligns closely with the company's mission.",
+      "llm_corrected_mission": "NONE",
+      "llm_confidence": 90,
+      "llm_issues": [
+        "labeled as brand promise rather than mission"
+      ],
+      "mission_quality_prev": 3
     },
     "scores": {
       "Mission Clarity": 3,
