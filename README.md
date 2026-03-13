@@ -2,7 +2,7 @@
 
 **Mission-Strategy-Goals Knowledge Graph (MSG-KG)** is a financial intelligence platform that extracts, evaluates, and compares corporate mission statements from **91 S&P company SEC 10-K filings** using a hybrid **RAG + Knowledge Graph** pipeline with **FIBO ontology alignment**.
 
-Built for **PhD Finance Research**, this system provides evidence-based mission statement analysis with interactive visualizations, multi-schema knowledge graphs, and portfolio-level comparative analytics.
+Built for **Finance Research**, this system provides evidence-based mission statement analysis with interactive visualizations, multi-schema knowledge graphs, and portfolio-level comparative analytics.
 
 ---
 
