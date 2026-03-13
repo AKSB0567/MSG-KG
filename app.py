@@ -523,69 +523,45 @@ if not COMPANIES:
 col_filters, col_content = st.columns([1, 4])
 
 with col_filters:
-    st.markdown("### Company")
-    st.markdown("---")
-
     all_sorted = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
 
-    # Company dropdown
-    company = st.selectbox("Select Company", ["-- None --"] + all_sorted,
-                           format_func=lambda c: c if c == "-- None --" else f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
+    # Company dropdown — default to first company
+    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:0 0 4px 0;">Select Company</p>', unsafe_allow_html=True)
+    company = st.selectbox("company_main", all_sorted,
+                           format_func=lambda c: f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
                            label_visibility="collapsed")
 
-    st.markdown("---")
-
     # Mission Quality filter
-    MQ_FILTER_OPTIONS = {
-        "All": None,
-        "M1 — Direct": 1,
-        "M2 — Implied": 2,
-        "M3 — Inferred": 3,
-        "M4 — Vague": 4,
-        "M0 — Not Found": 0,
-    }
-    mq_filter = st.selectbox("Filter by Mission Quality", list(MQ_FILTER_OPTIONS.keys()))
-    mq_val = MQ_FILTER_OPTIONS[mq_filter]
+    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Mission Quality</p>', unsafe_allow_html=True)
+    MQ_OPTIONS = ["All", "M1 — Direct", "M2 — Implied", "M3 — Inferred", "M4 — Vague", "M0 — Not Found"]
+    MQ_MAP = {"All": None, "M1 — Direct": 1, "M2 — Implied": 2, "M3 — Inferred": 3, "M4 — Vague": 4, "M0 — Not Found": 0}
+    mq_filter = st.selectbox("mq_filter", MQ_OPTIONS, label_visibility="collapsed")
+    mq_val = MQ_MAP[mq_filter]
 
     if mq_val is not None:
         filtered = [c for c in all_sorted
                     if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("mission_quality", 0) == mq_val]
-        st.caption(f"{len(filtered)} companies")
-        for c in filtered:
-            st.markdown(f"- {COMPANIES[c]['name']}")
-
-        # If a company from the filtered list is clicked, use it
+        st.markdown(f'<p style="font-size:0.75rem; color:#666; margin:2px 0;">{len(filtered)} companies</p>', unsafe_allow_html=True)
         if filtered:
-            company = st.selectbox("Select from filtered", filtered,
+            company = st.selectbox("filtered_company", filtered,
                                    format_func=lambda c: COMPANIES[c]["name"],
                                    label_visibility="collapsed")
 
-    # Handle "-- None --" selection
-    if company == "-- None --":
-        if mq_val is not None and filtered:
-            company = filtered[0]
-        else:
-            company = all_sorted[0]
-
-    st.markdown("---")
-
+    # Company details — compact
     meta = COMPANIES[company]
-    st.caption(f"Sector: {meta['sector']}")
-    st.info(f"{meta['fiscal_year']}")
-
-    # All SEC dates
-    st.markdown("#### Filing Dates")
-    date_fields = [
-        ("Filed", meta.get("filing_date", "")),
-        ("Period of Report", meta.get("period_of_report", "")),
-        ("Accepted", meta.get("accepted_date", "")),
-        ("Date of Change", meta.get("date_of_change", "")),
-    ]
-    for label, val in date_fields:
-        if val:
-            st.caption(f"{label}: {val}")
-
-    st.markdown("---")
+    st.markdown(f"""
+    <div style="background:#F0F4FF; border:1px solid #B3D4FC; border-radius:6px; padding:8px 10px; margin:8px 0; font-size:0.75rem;">
+        <div style="font-weight:700; color:#1A237E; font-size:0.85rem; margin-bottom:4px;">{meta['name']}</div>
+        <div style="color:#555;">{meta['sector']}</div>
+        <div style="color:#555; margin-top:4px;">{meta['fiscal_year']}</div>
+        <div style="margin-top:6px; border-top:1px solid #D0D8E8; padding-top:4px;">
+            <span style="color:#888;">Filed:</span> {meta.get('filing_date','')}<br>
+            <span style="color:#888;">Period:</span> {meta.get('period_of_report','')}<br>
+            <span style="color:#888;">Accepted:</span> {meta.get('accepted_date','')}<br>
+            <span style="color:#888;">Changed:</span> {meta.get('date_of_change','')}
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     st.caption(f"{len(COMPANIES)} companies loaded")
 
 
