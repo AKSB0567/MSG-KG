@@ -621,7 +621,7 @@ with tab1:
 
     t_label = tier_labels.get(mission_tier, "N/A")
     t_color = tier_colors.get(mission_tier, "#999")
-    source_name = txt_file.name if txt_file else overview.get("filing_id", "Registry")
+    source_name = txt_file.name if txt_file else overview.get("source_filename", overview.get("filing_id", "Registry"))
     st.markdown(f"""
     <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:8px;
          padding:10px 14px; margin-bottom:12px; display:flex; gap:20px; align-items:center;
