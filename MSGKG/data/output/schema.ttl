@@ -1,0 +1,565 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+sec:SEC10KOntology a owl:Ontology ;
+    rdfs:label "SEC 10-K Knowledge Graph Ontology v2" ;
+    rdfs:comment "Ontology for mission and human capital semantics extracted from SEC 10-K filings with category hierarchy." .
+
+sec:belongsToCategory a owl:AnnotationProperty ;
+    rdfs:label "Belongs To Category" ;
+    rdfs:comment "Links a property to its semantic category class." .
+
+sec:competesWith a owl:DatatypeProperty ;
+    rdfs:label "Competes With" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Competitor or competitive landscape." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:foundedInYear a owl:DatatypeProperty ;
+    rdfs:label "Year Founded" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Year the company was founded." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:gYear .
+
+sec:hasAccessionNumber a owl:DatatypeProperty ;
+    rdfs:label "Accession Number" ;
+    rdfs:comment "SEC accession number." ;
+    rdfs:domain sec:Filing ;
+    rdfs:range xsd:string .
+
+sec:hasBrand a owl:DatatypeProperty ;
+    rdfs:label "Brand" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A brand owned by the company." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasBusinessRelationship a owl:DatatypeProperty ;
+    rdfs:label "Business Relationship" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Key business partnership or relationship." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasBusinessSegment a owl:DatatypeProperty ;
+    rdfs:label "Business Segment" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A reportable business segment." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasCarbonCapture a owl:DatatypeProperty ;
+    rdfs:label "Carbon Capture" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Carbon capture or emissions initiative." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasCodeOfConduct a owl:DatatypeProperty ;
+    rdfs:label "Code of Conduct" ;
+    sec:belongsToCategory sec:CultureAndValues ;
+    rdfs:comment "Employee code of conduct or ethics policy." ;
+    rdfs:domain sec:CultureAndValues ;
+    rdfs:range xsd:string .
+
+sec:hasCompensationPhilosophy a owl:DatatypeProperty ;
+    rdfs:label "Compensation Philosophy" ;
+    sec:belongsToCategory sec:CompensationAndBenefits ;
+    rdfs:comment "Compensation and pay philosophy." ;
+    rdfs:domain sec:CompensationAndBenefits ;
+    rdfs:range xsd:string .
+
+sec:hasCompetitiveDifferentiator a owl:DatatypeProperty ;
+    rdfs:label "Competitive Differentiator" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Strategic differentiator." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasCompetitiveRisk a owl:DatatypeProperty ;
+    rdfs:label "Competitive Risk" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Competitive risk or challenge." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasContractorCount a owl:DatatypeProperty ;
+    rdfs:label "Contractor Count" ;
+    sec:belongsToCategory sec:WorkforceComposition ;
+    rdfs:comment "Number of contract or temporary workers." ;
+    rdfs:domain sec:WorkforceComposition ;
+    rdfs:range xsd:string .
+
+sec:hasCoreValue a owl:DatatypeProperty ;
+    rdfs:label "Core Value" ;
+    sec:belongsToCategory sec:CultureAndValues ;
+    rdfs:comment "A stated core value of the company." ;
+    rdfs:domain sec:CultureAndValues ;
+    rdfs:range xsd:string .
+
+sec:hasCulturalPillar a owl:DatatypeProperty ;
+    rdfs:label "Cultural Pillar" ;
+    sec:belongsToCategory sec:CultureAndValues ;
+    rdfs:comment "A cultural pillar or guiding principle." ;
+    rdfs:domain sec:CultureAndValues ;
+    rdfs:range xsd:string .
+
+sec:hasDEIMetric a owl:DatatypeProperty ;
+    rdfs:label "DEI Metric" ;
+    sec:belongsToCategory sec:DiversityEquityInclusion ;
+    rdfs:comment "Quantitative DEI metric (e.g. % women, % minority)." ;
+    rdfs:domain sec:DiversityEquityInclusion ;
+    rdfs:range xsd:string .
+
+sec:hasDEIProgram a owl:DatatypeProperty ;
+    rdfs:label "DEI Program" ;
+    sec:belongsToCategory sec:DiversityEquityInclusion ;
+    rdfs:comment "Diversity, equity, and inclusion program." ;
+    rdfs:domain sec:DiversityEquityInclusion ;
+    rdfs:range xsd:string .
+
+sec:hasDisclosure a owl:ObjectProperty ;
+    rdfs:label "Has Disclosure" ;
+    rdfs:comment "Links a company to a category-typed disclosure section extracted from its 10-K filing." ;
+    rdfs:domain sec:Company .
+
+sec:hasDistributionChannel a owl:DatatypeProperty ;
+    rdfs:label "Distribution Channel" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "How products/services reach customers." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasEmployeeCount a owl:DatatypeProperty ;
+    rdfs:label "Employee Count" ;
+    sec:belongsToCategory sec:WorkforceComposition ;
+    rdfs:comment "Total number of employees." ;
+    rdfs:domain sec:WorkforceComposition ;
+    rdfs:range xsd:string .
+
+sec:hasEmployeeResourceGroup a owl:DatatypeProperty ;
+    rdfs:label "Employee Resource Group" ;
+    sec:belongsToCategory sec:DiversityEquityInclusion ;
+    rdfs:comment "An employee resource group (ERG)." ;
+    rdfs:domain sec:DiversityEquityInclusion ;
+    rdfs:range xsd:string .
+
+sec:hasEngagementScore a owl:DatatypeProperty ;
+    rdfs:label "Engagement Score" ;
+    sec:belongsToCategory sec:EngagementAndRetention ;
+    rdfs:comment "Employee engagement survey result or metric." ;
+    rdfs:domain sec:EngagementAndRetention ;
+    rdfs:range xsd:string .
+
+sec:hasEnvironmentalLiability a owl:DatatypeProperty ;
+    rdfs:label "Environmental Liability" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Environmental liability or remediation." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasFacility a owl:DatatypeProperty ;
+    rdfs:label "Facility" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A major facility or plant location." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasFiling a owl:ObjectProperty ;
+    rdfs:label "Has Filing" ;
+    rdfs:comment "Links a company to its SEC 10-K filing." ;
+    rdfs:domain sec:Company ;
+    rdfs:range sec:Filing .
+
+sec:hasFilingDate a owl:DatatypeProperty ;
+    rdfs:label "Filing Date" ;
+    rdfs:comment "Date filed with the SEC." ;
+    rdfs:domain sec:Filing ;
+    rdfs:range xsd:date .
+
+sec:hasFilingPeriod a owl:DatatypeProperty ;
+    rdfs:label "Filing Period" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Fiscal period covered by the filing." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasFleetSize a owl:DatatypeProperty ;
+    rdfs:label "Fleet Size" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Size of vehicle/aircraft/vessel fleet." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasGovernanceStructure a owl:DatatypeProperty ;
+    rdfs:label "Governance Structure" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Corporate governance structure." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasHealthProgram a owl:DatatypeProperty ;
+    rdfs:label "Health Program" ;
+    sec:belongsToCategory sec:SafetyAndHealth ;
+    rdfs:comment "Employee health and wellness program." ;
+    rdfs:domain sec:SafetyAndHealth ;
+    rdfs:range xsd:string .
+
+sec:hasHub a owl:DatatypeProperty ;
+    rdfs:label "Hub" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Key operational hub or gateway." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasIntellectualProperty a owl:DatatypeProperty ;
+    rdfs:label "Intellectual Property" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Patents, trademarks, or IP portfolio." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasKeyFinancialMetric a owl:DatatypeProperty ;
+    rdfs:label "Key Financial Metric" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A significant financial metric." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasKeyMetric a owl:DatatypeProperty ;
+    rdfs:label "Key Metric" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A key operational or financial metric." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasLeadershipProgram a owl:DatatypeProperty ;
+    rdfs:label "Leadership Program" ;
+    sec:belongsToCategory sec:TrainingAndDevelopment ;
+    rdfs:comment "Leadership development program." ;
+    rdfs:domain sec:TrainingAndDevelopment ;
+    rdfs:range xsd:string .
+
+sec:hasLogisticsNetwork a owl:DatatypeProperty ;
+    rdfs:label "Logistics Network" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Logistics and supply chain infrastructure." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasMarketPosition a owl:DatatypeProperty ;
+    rdfs:label "Market Position" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Company's market position or ranking." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasMission a owl:DatatypeProperty ;
+    rdfs:label "Mission" ;
+    sec:belongsToCategory sec:Mission ;
+    rdfs:comment "The company's mission statement." ;
+    rdfs:domain sec:Mission ;
+    rdfs:range xsd:string .
+
+sec:hasPartnerGateway a owl:DatatypeProperty ;
+    rdfs:label "Partner Gateway" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Partner gateway location." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasPayEquityMetric a owl:DatatypeProperty ;
+    rdfs:label "Pay Equity Metric" ;
+    sec:belongsToCategory sec:CompensationAndBenefits ;
+    rdfs:comment "Pay equity analysis result or commitment." ;
+    rdfs:domain sec:CompensationAndBenefits ;
+    rdfs:range xsd:string .
+
+sec:hasPurpose a owl:DatatypeProperty ;
+    rdfs:label "Purpose" ;
+    sec:belongsToCategory sec:Mission ;
+    rdfs:comment "The company's stated purpose or vision." ;
+    rdfs:domain sec:Mission ;
+    rdfs:range xsd:string .
+
+sec:hasRetentionProgram a owl:DatatypeProperty ;
+    rdfs:label "Retention Program" ;
+    sec:belongsToCategory sec:EngagementAndRetention ;
+    rdfs:comment "Employee retention program or initiative." ;
+    rdfs:domain sec:EngagementAndRetention ;
+    rdfs:range xsd:string .
+
+sec:hasRevenue a owl:DatatypeProperty ;
+    rdfs:label "Revenue" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Reported revenue or net sales." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasSECCIK a owl:DatatypeProperty ;
+    rdfs:label "SEC CIK" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "SEC Central Index Key." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasSICCode a owl:DatatypeProperty ;
+    rdfs:label "SIC Code" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Standard Industrial Classification code." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasSafetyMetric a owl:DatatypeProperty ;
+    rdfs:label "Safety Metric" ;
+    sec:belongsToCategory sec:SafetyAndHealth ;
+    rdfs:comment "Quantitative safety metric (e.g. TRIR, DART)." ;
+    rdfs:domain sec:SafetyAndHealth ;
+    rdfs:range xsd:string .
+
+sec:hasSafetyProgram a owl:DatatypeProperty ;
+    rdfs:label "Safety Program" ;
+    sec:belongsToCategory sec:SafetyAndHealth ;
+    rdfs:comment "Workplace health and safety program." ;
+    rdfs:domain sec:SafetyAndHealth ;
+    rdfs:range xsd:string .
+
+sec:hasStrategicPriority a owl:DatatypeProperty ;
+    rdfs:label "Strategic Priority" ;
+    sec:belongsToCategory sec:Mission ;
+    rdfs:comment "A key strategic priority or pillar." ;
+    rdfs:domain sec:Mission ;
+    rdfs:range xsd:string .
+
+sec:hasSubsidiary a owl:DatatypeProperty ;
+    rdfs:label "Subsidiary" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A subsidiary company." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasSustainabilityGoal a owl:DatatypeProperty ;
+    rdfs:label "Sustainability Goal" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "A specific sustainability target." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasSustainabilityProgram a owl:DatatypeProperty ;
+    rdfs:label "Sustainability Program" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Environmental or sustainability initiative." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasTechnologyPlatform a owl:DatatypeProperty ;
+    rdfs:label "Technology Platform" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Key technology platform or system." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:hasTrainingMetric a owl:DatatypeProperty ;
+    rdfs:label "Training Metric" ;
+    sec:belongsToCategory sec:TrainingAndDevelopment ;
+    rdfs:comment "Quantitative training metric (hours, spend, etc.)." ;
+    rdfs:domain sec:TrainingAndDevelopment ;
+    rdfs:range xsd:string .
+
+sec:hasTrainingProgram a owl:DatatypeProperty ;
+    rdfs:label "Training Program" ;
+    sec:belongsToCategory sec:TrainingAndDevelopment ;
+    rdfs:comment "Employee training or development program." ;
+    rdfs:domain sec:TrainingAndDevelopment ;
+    rdfs:range xsd:string .
+
+sec:hasTurnoverRate a owl:DatatypeProperty ;
+    rdfs:label "Turnover Rate" ;
+    sec:belongsToCategory sec:EngagementAndRetention ;
+    rdfs:comment "Employee turnover or retention rate." ;
+    rdfs:domain sec:EngagementAndRetention ;
+    rdfs:range xsd:string .
+
+sec:hasUnionRepresentation a owl:DatatypeProperty ;
+    rdfs:label "Union Representation" ;
+    sec:belongsToCategory sec:WorkforceComposition ;
+    rdfs:comment "Union or collective bargaining coverage." ;
+    rdfs:domain sec:WorkforceComposition ;
+    rdfs:range xsd:string .
+
+sec:hasVision a owl:DatatypeProperty ;
+    rdfs:label "Vision" ;
+    sec:belongsToCategory sec:Mission ;
+    rdfs:comment "The company's vision statement." ;
+    rdfs:domain sec:Mission ;
+    rdfs:range xsd:string .
+
+sec:hasWorkforceDiversityMetric a owl:DatatypeProperty ;
+    rdfs:label "Workforce Diversity Metric" ;
+    sec:belongsToCategory sec:WorkforceComposition ;
+    rdfs:comment "Quantitative diversity metric." ;
+    rdfs:domain sec:WorkforceComposition ;
+    rdfs:range xsd:string .
+
+sec:hasWorkforceLocation a owl:DatatypeProperty ;
+    rdfs:label "Workforce Location" ;
+    sec:belongsToCategory sec:WorkforceComposition ;
+    rdfs:comment "Geographic distribution of workforce." ;
+    rdfs:domain sec:WorkforceComposition ;
+    rdfs:range xsd:string .
+
+sec:headquarteredIn a owl:ObjectProperty ;
+    rdfs:label "Headquartered In" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Primary headquarters location." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range sec:Location .
+
+sec:incorporatedIn a owl:ObjectProperty ;
+    rdfs:label "Incorporated In" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Jurisdiction of incorporation." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range sec:Jurisdiction .
+
+sec:investsInEmployeeDevelopment a owl:DatatypeProperty ;
+    rdfs:label "Employee Development Investment" ;
+    sec:belongsToCategory sec:TrainingAndDevelopment ;
+    rdfs:comment "Investment in employee development." ;
+    rdfs:domain sec:TrainingAndDevelopment ;
+    rdfs:range xsd:string .
+
+sec:isAffectedBy a owl:DatatypeProperty ;
+    rdfs:label "Affected By" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "External factor affecting the company." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:isSubjectToRegulation a owl:DatatypeProperty ;
+    rdfs:label "Subject to Regulation" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Regulatory framework or body." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:launchedRoutes a owl:DatatypeProperty ;
+    rdfs:label "Routes Launched" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "New routes or expansion." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:manufacturesProduct a owl:DatatypeProperty ;
+    rdfs:label "Product Manufactured" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Product the company manufactures." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:offersBenefit a owl:DatatypeProperty ;
+    rdfs:label "Employee Benefit" ;
+    sec:belongsToCategory sec:CompensationAndBenefits ;
+    rdfs:comment "Specific employee benefit offered." ;
+    rdfs:domain sec:CompensationAndBenefits ;
+    rdfs:range xsd:string .
+
+sec:operatesInIndustry a owl:ObjectProperty ;
+    rdfs:label "Industry" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Industry or sector the company operates in." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range sec:Industry .
+
+sec:operatesInRegion a owl:DatatypeProperty ;
+    rdfs:label "Region of Operation" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Geographic region of operations." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:providesService a owl:DatatypeProperty ;
+    rdfs:label "Service Provided" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Service the company provides." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:servesCustomerSegment a owl:DatatypeProperty ;
+    rdfs:label "Customer Segment" ;
+    sec:belongsToCategory sec:BusinessOperations ;
+    rdfs:comment "Customer segment or target market." ;
+    rdfs:domain sec:BusinessOperations ;
+    rdfs:range xsd:string .
+
+sec:Industry a owl:Class ;
+    rdfs:label "Industry" ;
+    rdfs:comment "An industry or sector." .
+
+sec:Jurisdiction a owl:Class ;
+    rdfs:label "Jurisdiction" ;
+    rdfs:comment "A jurisdiction of incorporation." .
+
+sec:Location a owl:Class ;
+    rdfs:label "Location" ;
+    rdfs:comment "A geographic location." .
+
+sec:Company a owl:Class ;
+    rdfs:label "Company" ;
+    rdfs:comment "A publicly traded company filing SEC 10-K reports." .
+
+sec:Filing a owl:Class ;
+    rdfs:label "Filing" ;
+    rdfs:comment "A specific SEC 10-K filing." .
+
+sec:CompensationAndBenefits a owl:Class ;
+    rdfs:label "CompensationAndBenefits" ;
+    rdfs:comment "Compensation philosophy, pay equity, and benefits." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:CultureAndValues a owl:Class ;
+    rdfs:label "CultureAndValues" ;
+    rdfs:comment "Company culture, core values, ethics, and code of conduct." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:DiversityEquityInclusion a owl:Class ;
+    rdfs:label "DiversityEquityInclusion" ;
+    rdfs:comment "Diversity, equity, inclusion, and belonging programs." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:EngagementAndRetention a owl:Class ;
+    rdfs:label "EngagementAndRetention" ;
+    rdfs:comment "Employee engagement, retention, and turnover." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:SafetyAndHealth a owl:Class ;
+    rdfs:label "SafetyAndHealth" ;
+    rdfs:comment "Workplace safety, health programs, and safety metrics." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:HumanCapitalManagement a owl:Class ;
+    rdfs:label "HumanCapitalManagement" ;
+    rdfs:comment "Human capital management disclosures." .
+
+sec:Mission a owl:Class ;
+    rdfs:label "Mission" ;
+    rdfs:comment "Mission, purpose, and vision statements." .
+
+sec:TrainingAndDevelopment a owl:Class ;
+    rdfs:label "TrainingAndDevelopment" ;
+    rdfs:comment "Training, learning, and professional development." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:WorkforceComposition a owl:Class ;
+    rdfs:label "WorkforceComposition" ;
+    rdfs:comment "Employee count, demographics, and workforce structure." ;
+    rdfs:subClassOf sec:HumanCapitalManagement .
+
+sec:BusinessOperations a owl:Class ;
+    rdfs:label "BusinessOperations" ;
+    rdfs:comment "Core business operations, segments, and strategy." .
+

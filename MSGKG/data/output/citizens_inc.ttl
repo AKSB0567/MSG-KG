@@ -1,0 +1,65 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000024090 a sec:Company ;
+    rdfs:label "CITIZENS, INC." ;
+    sec:hasDisclosure inst:0000024090_BusinessOperations,
+        inst:0000024090_DiversityEquityInclusion,
+        inst:0000024090_Mission,
+        inst:0000024090_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000024090_25_000018 .
+
+inst:0000024090_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "CITIZENS, INC. — BusinessOperations" ;
+    sec:foundedInYear "1969"^^xsd:gYear ;
+    sec:hasBusinessSegment "Home Service Insurance (affordable life insurance to lower-income households in LA, MS, AR)",
+        "Life Insurance (international USD whole life, endowment, critical illness; domestic whole life final expense)" ;
+    sec:hasDistributionChannel "Over 1,000 independent consultants internationally and over 5,000 independent agencies/agents domestically" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Approximately $1.7 billion of assets and over $5.2 billion of direct insurance in force at December 31, 2024" ;
+    sec:hasSECCIK "0000024090" ;
+    sec:hasSICCode "6311 - Life Insurance" ;
+    sec:hasSubsidiary "CICA Life Insurance Company of America (CICA Domestic)",
+        "CICA Life, A.I. (CICA International) - Puerto Rico company for international Life Insurance",
+        "Magnolia Guaranty Life Insurance Company - Home Service Insurance",
+        "Security Plan Life Insurance Company (SPLIC) - Home Service Insurance" ;
+    sec:headquarteredIn inst:location_Austin_Texas ;
+    sec:incorporatedIn inst:jurisdiction_Colorado ;
+    sec:manufacturesProduct "U.S. dollar-denominated whole life insurance, endowment policies, critical illness policies, final expense insurance" ;
+    sec:operatesInIndustry inst:industry_Insurance_holding_company_serving_life_insurance_needs_in_U_S_and_international ;
+    sec:operatesInRegion "Licensed in 43 U.S. states; international insurance in almost 80 countries, principally Latin America and Pacific Rim" ;
+    sec:servesCustomerSegment "Non-U.S. residents in Latin America and Pacific Rim (intl); lower-income households in LA, MS, AR (home service)" .
+
+inst:0000024090_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "CITIZENS, INC. — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Fostering equitable and inclusive workplace with diverse teams for creative solutions and innovative products" .
+
+inst:0000024090_Mission a sec:Mission ;
+    rdfs:label "CITIZENS, INC. — Mission" ;
+    sec:hasStrategicPriority "Grow first year sales to reverse decline in total revenue through new products and expanding distribution",
+        "Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts",
+        "Slow decline of premiums through policyholder retention efforts and improved customer experience" .
+
+inst:0000024090_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "CITIZENS, INC. — WorkforceComposition" ;
+    sec:hasContractorCount "Over 1,000 independent consultants internationally and over 5,000 independent agencies/agents domestically" ;
+    sec:hasEmployeeCount "247 full-time employees and 3 part-time employees as of December 31, 2024" ;
+    sec:hasUnionRepresentation "None of the employees are subject to a collective bargaining agreement" ;
+    sec:hasWorkforceDiversityMetric "Workforce demographics tracked by gender, racial/ethnic composition, and generational composition" .
+
+inst:filing_0000024090_25_000018 a sec:Filing ;
+    rdfs:label "Filing 0000024090-25-000018" ;
+    sec:hasAccessionNumber "0000024090-25-000018" ;
+    sec:hasFilingDate "2025-03-13"^^xsd:date .
+
+inst:industry_Insurance_holding_company_serving_life_insurance_needs_in_U_S_and_international a sec:Industry ;
+    rdfs:label "Insurance holding company serving life insurance needs in U.S. and internationally" .
+
+inst:jurisdiction_Colorado a sec:Jurisdiction ;
+    rdfs:label "Colorado" .
+
+inst:location_Austin_Texas a sec:Location ;
+    rdfs:label "Austin, Texas" .
+

@@ -1,0 +1,91 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000047111 a sec:Company ;
+    rdfs:label "HERSHEY CO" ;
+    sec:hasDisclosure inst:0000047111_BusinessOperations,
+        inst:0000047111_CompensationAndBenefits,
+        inst:0000047111_CultureAndValues,
+        inst:0000047111_DiversityEquityInclusion,
+        inst:0000047111_EngagementAndRetention,
+        inst:0000047111_Mission,
+        inst:0000047111_SafetyAndHealth,
+        inst:0000047111_TrainingAndDevelopment,
+        inst:0000047111_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000047111_25_000014 .
+
+inst:0000047111_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HERSHEY CO — BusinessOperations" ;
+    sec:foundedInYear "1894"^^xsd:gYear ;
+    sec:hasBrand "Hershey's, Reese's, Kisses, Jolly Rancher, Kit Kat, Twizzlers, York, Almond Joy",
+        "SkinnyPop, Dot's Homestyle Pretzels, Pirates Booty (salty snacks)",
+        "Sour Strips (acquired November 8, 2024)" ;
+    sec:hasBusinessSegment "International",
+        "North America Confectionery",
+        "North America Salty Snacks" ;
+    sec:hasDistributionChannel "Wholesale distributors, chain grocery, mass merchandisers, drug stores, vending, convenience stores" ;
+    sec:hasFacility "Hershey's Chocolate World stores in Hershey PA, New York, Las Vegas, Niagara Falls, Singapore",
+        "Manufacturing operations in Mexico, Brazil, India and Malaysia" ;
+    sec:hasKeyFinancialMetric "12.8% of 2024 net sales from businesses outside the United States",
+        "27% of 2024 consolidated net sales from McLane Company, Inc." ;
+    sec:hasMarketPosition "Largest producer of quality chocolate in North America and a leading snack maker in the United States" ;
+    sec:hasSECCIK "0000047111" ;
+    sec:hasSICCode "2060" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Sugar_and_confectionery_products ;
+    sec:operatesInRegion "Products marketed under 90+ brand names in approximately 70 countries worldwide" ;
+    sec:servesCustomerSegment "Wholesale distributors, chain grocery stores, mass merchandisers, convenience stores, dollar stores" .
+
+inst:0000047111_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "HERSHEY CO — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive, fair and transparent compensation with incentives tied to business and individual performance" ;
+    sec:hasPayEquityMetric "Maintained aggregate US gender pay equity and aggregate US salary people of color pay equity in 2024" ;
+    sec:offersBenefit "Best of Both flexible work model allowing remote, in-office, or hybrid work for corporate employees",
+        "Health, retirement, parental leave, adoption benefits, employee stock purchase plan, SmartFlex work policies" .
+
+inst:0000047111_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "HERSHEY CO — CultureAndValues" ;
+    sec:hasCoreValue "Togetherness - advancing innovation, business growth and strong company culture" .
+
+inst:0000047111_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "HERSHEY CO — DiversityEquityInclusion" ;
+    sec:hasEmployeeResourceGroup "8 BRGs: Abilities First, Black Heritage, Asian and Pacific Islander, GenH, Latino, Prism, Veterans, Women's" .
+
+inst:0000047111_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "HERSHEY CO — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Continuous listening surveys distributed globally throughout the year; quarterly enterprise summits and AMA meetings" .
+
+inst:0000047111_Mission a sec:Mission ;
+    rdfs:label "HERSHEY CO — Mission" ;
+    sec:hasPurpose "Making more moments of goodness through chocolate, sweets, mints and other great tasting snacks" ;
+    sec:hasStrategicPriority "Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions" .
+
+inst:0000047111_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "HERSHEY CO — SafetyAndHealth" ;
+    sec:hasHealthProgram "Ergonomic workspaces, state-of-the-art fitness center at Hershey PA campus, wellness break rooms" ;
+    sec:hasSafetyProgram "Investment in training, workplace resources and leading systems for responsible facility management" .
+
+inst:0000047111_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HERSHEY CO — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Partnered with leading online content experts; expanded catalog of online and classroom courses" ;
+    sec:investsInEmployeeDevelopment "Individual development plans, learning opportunities, feedback and coaching for career building" .
+
+inst:0000047111_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HERSHEY CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 18,540 full-time and 1,490 part-time employees worldwide as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Approximately 6,525 employees (33%) covered by collective bargaining agreements" ;
+    sec:hasWorkforceDiversityMetric "Women occupy approximately 50% representation across the Company; 4 of 10 Board members are women (40%)" .
+
+inst:filing_0000047111_25_000014 a sec:Filing ;
+    rdfs:label "Filing 0000047111-25-000014" ;
+    sec:hasAccessionNumber "0000047111-25-000014" ;
+    sec:hasFilingDate "2025-02-18"^^xsd:date .
+
+inst:industry_Sugar_and_confectionery_products a sec:Industry ;
+    rdfs:label "Sugar and confectionery products" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

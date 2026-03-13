@@ -1,0 +1,67 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000012208 a sec:Company ;
+    rdfs:label "BIO-RAD LABORATORIES, INC." ;
+    sec:hasDisclosure inst:0000012208_BusinessOperations,
+        inst:0000012208_CompensationAndBenefits,
+        inst:0000012208_SafetyAndHealth,
+        inst:0000012208_TrainingAndDevelopment,
+        inst:0000012208_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000012208_25_000007 .
+
+inst:0000012208_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "BIO-RAD LABORATORIES, INC. — BusinessOperations" ;
+    sec:hasBusinessRelationship "Owns ~38% ordinary shares and ~28% preference shares of Sartorius AG (fair value $4.47B)" ;
+    sec:hasBusinessSegment "Clinical Diagnostics segment - 60% of consolidated net sales in 2024",
+        "Life Science segment - 40% of consolidated net sales in 2024" ;
+    sec:hasDistributionChannel "Direct distribution in over 36 countries; supplemented by distributors and agents" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasIntellectualProperty "Over 2,150 U.S. and international patents and numerous trademarks" ;
+    sec:hasKeyMetric "Approx. 41% of net sales from U.S., 59% international (Europe largest region) in 2024",
+        "Approximately 800 direct sales and sales management personnel worldwide",
+        "Clinical diagnostics addressable market estimated at approx. $16 billion worldwide",
+        "Life science addressable market estimated at approx. $19 billion worldwide" ;
+    sec:hasSECCIK "0000012208" ;
+    sec:hasSICCode "3826 - Laboratory Analytical Instruments" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:manufacturesProduct "IVD test systems, informatics systems, test kits and quality controls for clinical labs",
+        "Instruments, systems, reagents, consumables for separating/purifying biological materials" ;
+    sec:operatesInIndustry inst:industry_Life_science_research_and_clinical_diagnostics_products ;
+    sec:servesCustomerSegment "Universities, medical schools, pharma manufacturers, biotech researchers, hospital labs" .
+
+inst:0000012208_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "BIO-RAD LABORATORIES, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive total rewards: salary, bonus plans, annual stock grants to senior employees" ;
+    sec:hasPayEquityMetric "Pay equity integral to compensation strategy with processes regardless of race/gender" ;
+    sec:offersBenefit "Medical, dental, vision, life insurance, 401(k), ESPP, pensions, profit sharing, fertility benefit" .
+
+inst:0000012208_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "BIO-RAD LABORATORIES, INC. — SafetyAndHealth" ;
+    sec:hasHealthProgram "Upgraded mental health/EAP program in 2023; added fertility benefit including IVF" ;
+    sec:hasSafetyProgram "Worksite hazard evaluations, safety surveys, chemical exposure monitoring, safety training" .
+
+inst:0000012208_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "BIO-RAD LABORATORIES, INC. — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Management series courses for leadership learning; employee effectiveness courses" ;
+    sec:investsInEmployeeDevelopment "Tuition reimbursement program for qualified educational expenses" .
+
+inst:0000012208_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "BIO-RAD LABORATORIES, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 7,700 employees as of December 31, 2024, overwhelmingly full-time" ;
+    sec:hasWorkforceDiversityMetric "Diverse organization fostering work culture that embraces diverse experience and knowledge" ;
+    sec:hasWorkforceLocation "48% Americas, 35% Europe/Middle East/Africa, 17% Asia Pacific; 37 countries" .
+
+inst:filing_0000012208_25_000007 a sec:Filing ;
+    rdfs:label "Filing 0000012208-25-000007" ;
+    sec:hasAccessionNumber "0000012208-25-000007" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_Life_science_research_and_clinical_diagnostics_products a sec:Industry ;
+    rdfs:label "Life science research and clinical diagnostics products" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

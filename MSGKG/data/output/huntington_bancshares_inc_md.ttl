@@ -1,0 +1,53 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000049196 a sec:Company ;
+    rdfs:label "HUNTINGTON BANCSHARES INC /MD/" ;
+    sec:hasDisclosure inst:0000049196_BusinessOperations,
+        inst:0000049196_TrainingAndDevelopment,
+        inst:0000049196_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000049196_25_000020 .
+
+inst:0000049196_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HUNTINGTON BANCSHARES INC /MD/ — BusinessOperations" ;
+    sec:hasBusinessSegment "Consumer & Regional Banking (net income $1.5B in 2024, up 15% YoY)" ;
+    sec:hasCompetitiveDifferentiator "Disciplined portfolio management with aggregate moderate-to-low risk appetite" ;
+    sec:hasKeyFinancialMetric "Commercial loans $73.3B (56% of portfolio); Consumer loans $56.7B (44%) at Dec 31, 2024",
+        "Net interest margin of 3.63% in 2024, up from 3.45% in 2023",
+        "Total assets under management $34.0B at end of 2024, up 17% from $29.0B",
+        "Total average deposits $110.2B in 2024; total average loans/leases $69.2B",
+        "Total loans and leases of $130.0 billion at December 31, 2024, up 7% from $122.0 billion in 2023",
+        "Total trust assets $198.7B at end of 2024, up 15% from $172.2B" ;
+    sec:hasSECCIK "0000049196" ;
+    sec:hasSICCode "6021" ;
+    sec:hasTechnologyPlatform "Defense-in-depth cybersecurity strategies with threat analytic capabilities for rapid detection and response" ;
+    sec:incorporatedIn inst:jurisdiction_MD ;
+    sec:isSubjectToRegulation "Anti-money laundering, lending limits, client privacy, fair lending, UDAAP, community reinvestment laws",
+        "Basel III capital requirements including standardized approach for risk-weighted assets" ;
+    sec:operatesInIndustry inst:industry_National_commercial_banks ;
+    sec:operatesInRegion "RV and marine loans originated through dealerships across 35 states; 39% within core footprint states" ;
+    sec:providesService "Commercial and industrial lending, commercial real estate, lease financing",
+        "Consumer lending: residential mortgage, automobile, home equity, RV and marine loans" .
+
+inst:0000049196_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HUNTINGTON BANCSHARES INC /MD/ — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Mandatory cybersecurity training; anti-money laundering and customer privacy training for all colleagues",
+        "Specialized lending compliance training: flood disaster protection, equal credit opportunity, fair lending" .
+
+inst:0000049196_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HUNTINGTON BANCSHARES INC /MD/ — WorkforceComposition" ;
+    sec:hasEmployeeCount "11,191 average full-time equivalent employees in 2024, down from 11,536 in 2023" .
+
+inst:filing_0000049196_25_000020 a sec:Filing ;
+    rdfs:label "Filing 0000049196-25-000020" ;
+    sec:hasAccessionNumber "0000049196-25-000020" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_National_commercial_banks a sec:Industry ;
+    rdfs:label "National commercial banks" .
+
+inst:jurisdiction_MD a sec:Jurisdiction ;
+    rdfs:label "MD" .
+

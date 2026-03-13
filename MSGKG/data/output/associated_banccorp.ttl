@@ -1,0 +1,46 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000007789 a sec:Company ;
+    rdfs:label "ASSOCIATED BANC-CORP" ;
+    sec:hasDisclosure inst:0000007789_BusinessOperations,
+        inst:0000007789_Mission ;
+    sec:hasFiling inst:filing_0000007789_25_000013 .
+
+inst:0000007789_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "ASSOCIATED BANC-CORP — BusinessOperations" ;
+    sec:competesWith "Nonbanks and largest technology firms offering financial services via joint ventures" ;
+    sec:hasCompetitiveDifferentiator "Long-term customer relationships based on top quality service and high ethical standards" ;
+    sec:hasCompetitiveRisk "Anti-ESG/DEI policies and potential federal civil compliance investigations",
+        "Larger competitors with fewer regulatory constraints and lower cost structures" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasSECCIK "0000007789" ;
+    sec:hasSICCode "6022 - State Commercial Banks" ;
+    sec:hasTechnologyPlatform "AI and machine learning for automated decision-making and customer services" ;
+    sec:incorporatedIn inst:jurisdiction_WI ;
+    sec:isAffectedBy "ESG/DEI regulatory uncertainty including Jan 2025 Executive Order on DEI",
+        "Evolving regulatory framework around development and use of AI",
+        "Fiscal and monetary policies of the Federal Reserve" ;
+    sec:isSubjectToRegulation "Basel III standards proposed by federal banking agencies including OCC",
+        "FDIC resolution planning rule for banks with $50B+ in assets",
+        "Federal banking agencies including OCC and FDIC",
+        "TCPA, CAN-SPAM Act, FCRA, and state consumer protection laws" ;
+    sec:operatesInIndustry inst:industry_State_commercial_banking .
+
+inst:0000007789_Mission a sec:Mission ;
+    rdfs:label "ASSOCIATED BANC-CORP — Mission" ;
+    sec:hasStrategicPriority "Profitable growth strategy including managing loan/deposit growth and retaining employees" .
+
+inst:filing_0000007789_25_000013 a sec:Filing ;
+    rdfs:label "Filing 0000007789-25-000013" ;
+    sec:hasAccessionNumber "0000007789-25-000013" ;
+    sec:hasFilingDate "2025-02-12"^^xsd:date .
+
+inst:industry_State_commercial_banking a sec:Industry ;
+    rdfs:label "State commercial banking" .
+
+inst:jurisdiction_WI a sec:Jurisdiction ;
+    rdfs:label "WI" .
+

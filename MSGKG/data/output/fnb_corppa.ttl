@@ -1,0 +1,81 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000037808 a sec:Company ;
+    rdfs:label "FNB CORP/PA/" ;
+    sec:hasDisclosure inst:0000037808_BusinessOperations,
+        inst:0000037808_CompensationAndBenefits,
+        inst:0000037808_DiversityEquityInclusion,
+        inst:0000037808_EngagementAndRetention,
+        inst:0000037808_SafetyAndHealth,
+        inst:0000037808_TrainingAndDevelopment,
+        inst:0000037808_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000037808_25_000071 .
+
+inst:0000037808_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FNB CORP/PA/ — BusinessOperations" ;
+    sec:foundedInYear "1864"^^xsd:gYear ;
+    sec:hasBusinessSegment "Community Banking",
+        "Insurance",
+        "Wealth Management" ;
+    sec:hasFacility "349 Community Banking branches across 7 states and Washington D.C.",
+        "New headquarters building certified LEED Gold by U.S. Green Building Council" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Code of Conduct, Code of Ethics, and Corporate Governance Guidelines" ;
+    sec:hasKeyFinancialMetric "Deposits of $37 billion as of December 31, 2024",
+        "Loans of $34 billion as of December 31, 2024",
+        "Total assets of nearly $49 billion as of December 31, 2024" ;
+    sec:hasKeyMetric "Received more than 80 awards in 2024 for culture, leadership, and technology" ;
+    sec:hasSECCIK "0000037808" ;
+    sec:hasSICCode "6021 - National Commercial Banks" ;
+    sec:hasSubsidiary "FNBPA (largest subsidiary)" ;
+    sec:headquarteredIn inst:location_626_Washington_Place_Pittsburgh_Pennsylvania_15219 ;
+    sec:incorporatedIn inst:jurisdiction_Pennsylvania ;
+    sec:operatesInIndustry inst:industry_Diversified_financial_services ;
+    sec:operatesInRegion "Pennsylvania, Ohio, Maryland, West Virginia, North Carolina, South Carolina, Washington D.C. and Virginia" ;
+    sec:servesCustomerSegment "Consumers, corporations, governments and small- to medium-sized businesses" .
+
+inst:0000037808_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "FNB CORP/PA/ — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive base salary, short-term incentive plans, and long-term incentive plans" ;
+    sec:offersBenefit "Tuition reimbursement for post-secondary education including college and graduate school" .
+
+inst:0000037808_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "FNB CORP/PA/ — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Named to JUST Capital's annual list for just business behavior",
+        "Named to Newsweek's lists for Diversity, LGBTQ+, Veterans and Parents and Families",
+        "Partnerships with job/recruiting centers, colleges and universities for diverse recruitment" .
+
+inst:0000037808_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "FNB CORP/PA/ — EngagementAndRetention" ;
+    sec:hasEngagementScore "Participated in regional Top Workplace surveys in 2024 with outstanding scores" .
+
+inst:0000037808_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "FNB CORP/PA/ — SafetyAndHealth" ;
+    sec:hasHealthProgram "HVAC systems designed to mitigate airborne pathogen risks with filtration and ionization" .
+
+inst:0000037808_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "FNB CORP/PA/ — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Internship program to funnel high potential talent into Development Programs",
+        "Mentoring and coaching programs, succession planning reviews, and leadership development programs" .
+
+inst:0000037808_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "FNB CORP/PA/ — WorkforceComposition" ;
+    sec:hasEmployeeCount "4,104 full-time and 176 part-time employees as of December 31, 2024" .
+
+inst:filing_0000037808_25_000071 a sec:Filing ;
+    rdfs:label "Filing 0000037808-25-000071" ;
+    sec:hasAccessionNumber "0000037808-25-000071" ;
+    sec:hasFilingDate "2025-02-27"^^xsd:date .
+
+inst:industry_Diversified_financial_services a sec:Industry ;
+    rdfs:label "Diversified financial services" .
+
+inst:jurisdiction_Pennsylvania a sec:Jurisdiction ;
+    rdfs:label "Pennsylvania" .
+
+inst:location_626_Washington_Place_Pittsburgh_Pennsylvania_15219 a sec:Location ;
+    rdfs:label "626 Washington Place, Pittsburgh, Pennsylvania 15219" .
+

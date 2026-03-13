@@ -1,0 +1,54 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000033213 a sec:Company ;
+    rdfs:label "EQT Corp" ;
+    sec:hasDisclosure inst:0000033213_BusinessOperations,
+        inst:0000033213_Mission,
+        inst:0000033213_SafetyAndHealth ;
+    sec:hasFiling inst:filing_0000033213_25_000011 .
+
+inst:0000033213_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "EQT Corp — BusinessOperations" ;
+    sec:hasBusinessRelationship "Completed Equitrans Midstream Merger in 2024" ;
+    sec:hasCompetitiveDifferentiator "Combo-development reduces trucks on road, fuel usage, noise pollution and environmental impact",
+        "Only large-scale, integrated natural gas producer in the United States" ;
+    sec:hasFacility "Mountain Valley Pipeline (MVP) - 303-mile pipeline from Wetzel County, WV to Pittsylvania County, VA" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Generated $2.8 billion of net cash provided by operating activities in 2024" ;
+    sec:hasKeyMetric "26.3 Tcfe of proved natural gas, NGLs and oil reserves as of December 31, 2024",
+        "Approximately 2,925 miles of pipeline infrastructure",
+        "Approximately 2.1 million gross acres" ;
+    sec:hasLogisticsNetwork "Vast midstream infrastructure spanning the Appalachian Basin" ;
+    sec:hasSECCIK "0000033213" ;
+    sec:hasSICCode "1311 - Crude Petroleum & Natural Gas" ;
+    sec:hasSustainabilityProgram "Integrated ESG program interplaying with combo-development operational strategy" ;
+    sec:hasTechnologyPlatform "Proprietary digital work environment for cloud-based operations" ;
+    sec:incorporatedIn inst:jurisdiction_PA ;
+    sec:manufacturesProduct "Natural gas and natural gas liquids (NGLs)" ;
+    sec:operatesInIndustry inst:industry_Vertically_integrated_natural_gas_production_gathering_and_transmission ;
+    sec:operatesInRegion "Appalachian Basin" .
+
+inst:0000033213_Mission a sec:Mission ;
+    rdfs:label "EQT Corp — Mission" ;
+    sec:hasMission "To be the operator of choice for all stakeholders while addressing energy security and affordability" ;
+    sec:hasStrategicPriority "Creating value through M&A, divestitures, joint ventures and energy transition investments",
+        "Lowest-cost producer of natural gas through combo-development projects" .
+
+inst:0000033213_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "EQT Corp — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Culture prioritizing operational efficiency, technology, sustainability and safety" .
+
+inst:filing_0000033213_25_000011 a sec:Filing ;
+    rdfs:label "Filing 0000033213-25-000011" ;
+    sec:hasAccessionNumber "0000033213-25-000011" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Vertically_integrated_natural_gas_production_gathering_and_transmission a sec:Industry ;
+    rdfs:label "Vertically integrated natural gas production, gathering and transmission" .
+
+inst:jurisdiction_PA a sec:Jurisdiction ;
+    rdfs:label "PA" .
+

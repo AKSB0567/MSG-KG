@@ -1,0 +1,42 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000100790 a sec:Company ;
+    rdfs:label "UNION CARBIDE CORP /NEW/" ;
+    sec:hasDisclosure inst:0000100790_BusinessOperations ;
+    sec:hasFiling inst:filing_0000029915_25_000003 .
+
+inst:0000100790_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "UNION CARBIDE CORP /NEW/ — BusinessOperations" ;
+    sec:hasBrand "CARBOWAX, SENTRY, TERGITOL, TRITON, UCAR, UCARTHERM, UCON",
+        "REDI-LINK, SI-LINK, UNIGARD, UNIPURGE wire and cable compound brands" ;
+    sec:hasBusinessRelationship "Sells substantially all products to TDCC under intercompany agreement",
+        "Wholly owned subsidiary of The Dow Chemical Company (TDCC) since 2001" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000100790" ;
+    sec:hasSICCode "2860 - Industrial Organic Chemicals" ;
+    sec:incorporatedIn inst:jurisdiction_NY ;
+    sec:isAffectedBy "Hydrocarbon-based raw materials (ethane, propane, butane) as major feedstocks" ;
+    sec:manufacturesProduct "Ethylene Oxide/Ethylene Glycol (EO/EG) for polyester, antifreeze, deicing fluids",
+        "Hydrocarbons - ethylene and propylene as internal feedstocks",
+        "Industrial Chemicals and Polymers including ethyleneamines, surfactants, deicing fluids",
+        "Polyethylene resins including FLEXOMER, TUFLIN, and UNIVAL brands",
+        "Solvents and Intermediates - oxo aldehydes, acids, alcohols, esters",
+        "Vinyl Acetate Monomer for paints, adhesives, paper coatings, textiles, safety glass",
+        "Wire and Cable polyolefin-based compounds for power distribution and telecom" ;
+    sec:operatesInIndustry inst:industry_Chemicals_and_polymers ;
+    sec:providesService "Technology Licensing and Catalysts including METEOR Process and LP OXO process" .
+
+inst:filing_0000029915_25_000003 a sec:Filing ;
+    rdfs:label "Filing 0000029915-25-000003" ;
+    sec:hasAccessionNumber "0000029915-25-000003" ;
+    sec:hasFilingDate "2025-02-04"^^xsd:date .
+
+inst:industry_Chemicals_and_polymers a sec:Industry ;
+    rdfs:label "Chemicals and polymers" .
+
+inst:jurisdiction_NY a sec:Jurisdiction ;
+    rdfs:label "NY" .
+

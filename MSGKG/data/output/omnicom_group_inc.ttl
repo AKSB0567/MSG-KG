@@ -1,0 +1,64 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000029989 a sec:Company ;
+    rdfs:label "OMNICOM GROUP INC." ;
+    sec:hasDisclosure inst:0000029989_BusinessOperations,
+        inst:0000029989_CompensationAndBenefits,
+        inst:0000029989_CultureAndValues,
+        inst:0000029989_TrainingAndDevelopment,
+        inst:0000029989_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000029989_25_000008 .
+
+inst:0000029989_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "OMNICOM GROUP INC. — BusinessOperations" ;
+    sec:hasBrand "Omnicom Advertising Group (OAG) formed August 2024, began operations January 2025",
+        "Omnicom Health Group, Omnicom Precision Marketing Group, Flywheel Digital" ;
+    sec:hasBusinessRelationship "Entered Agreement to Acquire IPG on December 8, 2024 via all-stock merger" ;
+    sec:hasBusinessSegment "BBDO, DDB, TBWA global creative networks",
+        "Communications Consultancy Network",
+        "DAS Group of Companies",
+        "Omnicom Media Group" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000029989" ;
+    sec:hasSICCode "7311 - Services-Advertising Agencies" ;
+    sec:hasSustainabilityGoal "Emissions reduction strategy approved by SBTi, aligned with 1.5 degree Celsius scenario" ;
+    sec:hasSustainabilityProgram "Signatory to UN Global Compact; supports UN Sustainable Development Goals" ;
+    sec:incorporatedIn inst:jurisdiction_NY ;
+    sec:operatesInIndustry inst:industry_Marketing_and_advertising_services ;
+    sec:operatesInRegion "Americas (North America and Latin America), EMEA, and Asia-Pacific" ;
+    sec:providesService "Experiential marketing, Execution & Support, field marketing, merchandising",
+        "Media & Advertising, Precision Marketing, Public Relations, Healthcare, Branding & Retail Commerce" .
+
+inst:0000029989_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "OMNICOM GROUP INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive wages and benefits with comprehensive training programs and succession planning" .
+
+inst:0000029989_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "OMNICOM GROUP INC. — CultureAndValues" ;
+    sec:hasCodeOfConduct "Codes of conduct and business ethics adopted across workforce" .
+
+inst:0000029989_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "OMNICOM GROUP INC. — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Training and development programs that build leadership and professional skills" .
+
+inst:0000029989_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "OMNICOM GROUP INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 74,900 employees worldwide as of December 31, 2024" ;
+    sec:hasUnionRepresentation "No US employees in labor unions; some European employees represented by work councils" ;
+    sec:hasWorkforceLocation "31,200 in Americas, 26,800 in EMEA, 16,900 in Asia-Pacific",
+        "Approximately 21,900 employees in the United States (largest employee base)" .
+
+inst:filing_0000029989_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000029989-25-000008" ;
+    sec:hasAccessionNumber "0000029989-25-000008" ;
+    sec:hasFilingDate "2025-02-10"^^xsd:date .
+
+inst:industry_Marketing_and_advertising_services a sec:Industry ;
+    rdfs:label "Marketing and advertising services" .
+
+inst:jurisdiction_NY a sec:Jurisdiction ;
+    rdfs:label "NY" .
+

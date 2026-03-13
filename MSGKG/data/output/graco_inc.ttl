@@ -1,0 +1,70 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000042888 a sec:Company ;
+    rdfs:label "GRACO INC" ;
+    sec:hasDisclosure inst:0000042888_BusinessOperations,
+        inst:0000042888_CompensationAndBenefits,
+        inst:0000042888_CultureAndValues,
+        inst:0000042888_SafetyAndHealth,
+        inst:0000042888_TrainingAndDevelopment,
+        inst:0000042888_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000042888_25_000011 .
+
+inst:0000042888_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "GRACO INC — BusinessOperations" ;
+    sec:foundedInYear "1926"^^xsd:gYear ;
+    sec:hasBusinessSegment "Contractor segment",
+        "Industrial segment",
+        "Process segment" ;
+    sec:hasCompetitiveDifferentiator "Strong manufacturing, engineering and customer service capabilities; product innovation" ;
+    sec:hasDistributionChannel "Third-party distributors worldwide and selected retailers" ;
+    sec:hasFacility "Manufacturing in U.S., Switzerland, Italy, China, India, Belgium, and Romania" ;
+    sec:hasKeyMetric "Executive officers averaged nearly 23 years of tenure; all employees averaged nearly 10 years" ;
+    sec:hasSECCIK "0000042888" ;
+    sec:hasSICCode "3561 - Pumps & Pumping Equipment" ;
+    sec:incorporatedIn inst:jurisdiction_Minnesota ;
+    sec:manufacturesProduct "Systems and equipment to move, measure, mix, control, dispense and spray fluid and powder materials" ;
+    sec:operatesInIndustry inst:industry_Manufacturing_of_fluid_and_coating_management_systems_and_equipment ;
+    sec:operatesInRegion "Americas (63% of sales), EMEA (21%), Asia Pacific (16%)" ;
+    sec:servesCustomerSegment "Manufacturing, processing, construction and maintenance industries" .
+
+inst:0000042888_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "GRACO INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market competitive, fair and equitable; designed to attract and retain top talent and drive performance" ;
+    sec:offersBenefit "Base pay, variable pay, equity-based compensation for all employees, health/welfare/retirement benefits" .
+
+inst:0000042888_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "GRACO INC — CultureAndValues" ;
+    sec:hasCoreValue "Growth, product innovation, premium customer service, quality and continuous improvement" .
+
+inst:0000042888_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "GRACO INC — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Prevention of occupationally induced injuries given precedence over operating productivity" ;
+    sec:hasSafetyProgram "Health, Wellness and Safety program to increase engagement, reduce absenteeism, healthier lifestyle choices" .
+
+inst:0000042888_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "GRACO INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Biennial employee survey to assess culture and benchmark against industry leaders",
+        "Continuous improvement program with financial incentives for employee ideas",
+        "New employee orientation and regular ethics training required for all employees" .
+
+inst:0000042888_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "GRACO INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 4,300 employees as of December 27, 2024" ;
+    sec:hasUnionRepresentation "No U.S. employees covered by collective bargaining; national agreements apply outside U.S." ;
+    sec:hasWorkforceLocation "Approximately 1,900 employees outside U.S.; 1,200 hourly factory workers in U.S." .
+
+inst:filing_0000042888_25_000011 a sec:Filing ;
+    rdfs:label "Filing 0000042888-25-000011" ;
+    sec:hasAccessionNumber "0000042888-25-000011" ;
+    sec:hasFilingDate "2025-02-18"^^xsd:date .
+
+inst:industry_Manufacturing_of_fluid_and_coating_management_systems_and_equipment a sec:Industry ;
+    rdfs:label "Manufacturing of fluid and coating management systems and equipment" .
+
+inst:jurisdiction_Minnesota a sec:Jurisdiction ;
+    rdfs:label "Minnesota" .
+

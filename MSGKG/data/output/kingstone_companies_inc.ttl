@@ -1,0 +1,56 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000033992 a sec:Company ;
+    rdfs:label "KINGSTONE COMPANIES, INC." ;
+    sec:hasDisclosure inst:0000033992_BusinessOperations,
+        inst:0000033992_Mission,
+        inst:0000033992_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000033992_25_000007 .
+
+inst:0000033992_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "KINGSTONE COMPANIES, INC. — BusinessOperations" ;
+    sec:hasCompetitiveDifferentiator "Excellent service, broad underwriting appetite, competitive rate and commission structures" ;
+    sec:hasDistributionChannel "Retail and wholesale agents and brokers" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Gross written premiums of $242.0 million for year ended December 31, 2024 (up 20.9% YoY)" ;
+    sec:hasKeyMetric "96.0% of KICO direct written premiums from New York policies in 2024",
+        "Personal lines accounted for 94.1% of gross written premiums for year ended December 31, 2024" ;
+    sec:hasMarketPosition "12th largest writer of homeowners insurance in New York in 2024" ;
+    sec:hasSECCIK "0000033992" ;
+    sec:hasSICCode "6331 - Fire, Marine & Casualty Insurance" ;
+    sec:hasSubsidiary "Cosi Agency, Inc. - multi-state licensed general agency for alternative distribution",
+        "Kingstone Insurance Company (KICO) - New York domiciled property and casualty carrier" ;
+    sec:headquarteredIn inst:location_Kingston_New_York ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:isSubjectToRegulation "Catastrophe reinsurance coverage with top limit of $280 million effective July 1, 2024" ;
+    sec:operatesInIndustry inst:industry_Property_and_casualty_insurance ;
+    sec:operatesInRegion "New York (Core); licensed in NJ, RI, MA, CT, PA, NH and ME" ;
+    sec:providesService "Commercial auto insurance in New York",
+        "Personal lines: homeowners, dwelling fire, cooperative/condominium, renters, personal umbrella" .
+
+inst:0000033992_Mission a sec:Mission ;
+    rdfs:label "KINGSTONE COMPANIES, INC. — Mission" ;
+    sec:hasStrategicPriority "Be the preferred multi-line P&C insurer for selected producers in geographic markets",
+        "Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base" .
+
+inst:0000033992_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "KINGSTONE COMPANIES, INC. — WorkforceComposition" ;
+    sec:hasUnionRepresentation "No employees covered by a collective bargaining agreement" .
+
+inst:filing_0000033992_25_000007 a sec:Filing ;
+    rdfs:label "Filing 0000033992-25-000007" ;
+    sec:hasAccessionNumber "0000033992-25-000007" ;
+    sec:hasFilingDate "2025-03-18"^^xsd:date .
+
+inst:industry_Property_and_casualty_insurance a sec:Industry ;
+    rdfs:label "Property and casualty insurance" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+
+inst:location_Kingston_New_York a sec:Location ;
+    rdfs:label "Kingston, New York" .
+

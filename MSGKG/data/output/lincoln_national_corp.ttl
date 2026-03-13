@@ -1,0 +1,73 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000059558 a sec:Company ;
+    rdfs:label "LINCOLN NATIONAL CORP" ;
+    sec:hasDisclosure inst:0000059558_BusinessOperations,
+        inst:0000059558_CompensationAndBenefits,
+        inst:0000059558_EngagementAndRetention,
+        inst:0000059558_Mission,
+        inst:0000059558_SafetyAndHealth,
+        inst:0000059558_TrainingAndDevelopment,
+        inst:0000059558_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000059558_25_000023 .
+
+inst:0000059558_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "LINCOLN NATIONAL CORP — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000059558" ;
+    sec:hasSICCode "6311" ;
+    sec:hasTechnologyPlatform "Learner Experience Platform as front door to all learning content, courses and programs" ;
+    sec:incorporatedIn inst:jurisdiction_IN ;
+    sec:isAffectedBy "NAIC modifications to economic scenario generator for annuity and life reserves (VM-20, VM-21)",
+        "NAIC temporary guidance allowing admission of portion of net negative IMR as asset (sunsets Dec 31, 2025)" ;
+    sec:isSubjectToRegulation "NAIC insurance regulation; state and federal insurance laws; privacy and cybersecurity regulations" ;
+    sec:operatesInIndustry inst:industry_Life_insurance ;
+    sec:providesService "Financial protection and security products across four core businesses" .
+
+inst:0000059558_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "LINCOLN NATIONAL CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-competitive compensation with broad range of health, wellness, retirement savings and financial protection plans" ;
+    sec:offersBenefit "401(k) with non-discretionary core company contribution and company matching contribution",
+        "Fertility, pregnancy and parenting support, paid parental leave and adoption assistance",
+        "Homework Connection providing one-on-one on-demand homework help to students at no cost",
+        "Hybrid work model informed by direct feedback from workforce; paid time off and flexible work arrangements",
+        "Personalized Your Total Rewards statement showing comprehensive direct and indirect compensation",
+        "Subsidized medical plan with domestic partner eligibility, dental, vision, HSA with company contribution" .
+
+inst:0000059558_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "LINCOLN NATIONAL CORP — EngagementAndRetention" ;
+    sec:hasEngagementScore "Company-wide engagement survey every two years; department-specific pulse surveys in alternate years" .
+
+inst:0000059558_Mission a sec:Mission ;
+    rdfs:label "LINCOLN NATIONAL CORP — Mission" ;
+    sec:hasMission "Provide financial protection and security to customers and families through products and services across four core businesses" .
+
+inst:0000059558_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "LINCOLN NATIONAL CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Well-being program with personal health coaches, health screenings, flu shots, discounts for health programs" .
+
+inst:0000059558_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "LINCOLN NATIONAL CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Manager development programs with tools, resources to foster employee development and strengthen voices" ;
+    sec:hasTrainingProgram "Access to TED@Work and Harvard Business Publishing open online courses for all employees",
+        "Get CAREER FIT enterprise-wide boot-camp style development planning program for all employees",
+        "Partnership with Harvard Business Publishing for mid-level and senior level leader courses" .
+
+inst:0000059558_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "LINCOLN NATIONAL CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "9,783 employees as of December 31, 2024" .
+
+inst:filing_0000059558_25_000023 a sec:Filing ;
+    rdfs:label "Filing 0000059558-25-000023" ;
+    sec:hasAccessionNumber "0000059558-25-000023" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_Life_insurance a sec:Industry ;
+    rdfs:label "Life insurance" .
+
+inst:jurisdiction_IN a sec:Jurisdiction ;
+    rdfs:label "IN" .
+

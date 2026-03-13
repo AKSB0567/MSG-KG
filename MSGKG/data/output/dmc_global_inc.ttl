@@ -1,0 +1,79 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000034067 a sec:Company ;
+    rdfs:label "DMC Global Inc." ;
+    sec:hasDisclosure inst:0000034067_BusinessOperations,
+        inst:0000034067_CompensationAndBenefits,
+        inst:0000034067_CultureAndValues,
+        inst:0000034067_DiversityEquityInclusion,
+        inst:0000034067_Mission,
+        inst:0000034067_SafetyAndHealth,
+        inst:0000034067_TrainingAndDevelopment,
+        inst:0000034067_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000034067_25_000028 .
+
+inst:0000034067_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "DMC Global Inc. — BusinessOperations" ;
+    sec:hasBusinessSegment "Arcadia Products - architectural building products for U.S. construction industry",
+        "DynaEnergetics - engineered products for oil and gas well perforation",
+        "NobelClad - explosion-welded clad metal plates for industrial processing equipment" ;
+    sec:hasFacility "Hub manufacturing in Vernon, California with satellite service centers in western/southwestern U.S." ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000034067" ;
+    sec:hasSICCode "3390 - Miscellaneous Primary Metal Products" ;
+    sec:hasSubsidiary "Arcadia - commercial exteriors (~75% of Arcadia Products net sales in 2024)",
+        "Wilson Partitions - commercial interior framing and partitions" ;
+    sec:incorporatedIn inst:jurisdiction_CO ;
+    sec:manufacturesProduct "Aluminum framing systems, windows, curtain walls, storefronts, doors, partitions",
+        "Explosion-welded clad metal plates and specialized transition joints for rail, ships and LNG" ;
+    sec:operatesInIndustry inst:industry_Asset_light_manufacturing_for_construction_energy_industrial_processing_and_tr ;
+    sec:operatesInRegion "United States (Arcadia Products); global operations (DynaEnergetics and NobelClad)" .
+
+inst:0000034067_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "DMC Global Inc. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Fair policies supporting business goals, competitiveness, and shared fiscal responsibility" ;
+    sec:offersBenefit "401(k) with matching, health benefits, life/disability insurance, tuition reimbursement, parental leave" .
+
+inst:0000034067_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "DMC Global Inc. — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Ethics and Business Conduct with Compliance Hotline for anonymous reporting" ;
+    sec:hasCoreValue "Integrity, Courage, Teamwork, and Humility" ;
+    sec:hasCulturalPillar "Institutionalizing entrepreneurship and celebrating ingenuity" .
+
+inst:0000034067_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "DMC Global Inc. — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "Commitment to diversity starts at top with highly skilled and diverse Board of Directors" ;
+    sec:hasDEIProgram "Formal diversity and inclusion policy adopted in May 2021" .
+
+inst:0000034067_Mission a sec:Mission ;
+    rdfs:label "DMC Global Inc. — Mission" ;
+    sec:hasStrategicPriority "Maximize company value by capitalizing on unique strengths of three businesses" .
+
+inst:0000034067_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "DMC Global Inc. — SafetyAndHealth" ;
+    sec:hasSafetyProgram "OH&S management system fostering robust safety culture, risk management and effective leadership" .
+
+inst:0000034067_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "DMC Global Inc. — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Employee development through combination of training and experience to maximize potential" .
+
+inst:0000034067_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "DMC Global Inc. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 1,600 employees as of December 31, 2024" ;
+    sec:hasUnionRepresentation "None of manufacturing employees are unionized" ;
+    sec:hasWorkforceLocation "Approximately 1,360 employees in the U.S., majority in manufacturing operations" .
+
+inst:filing_0000034067_25_000028 a sec:Filing ;
+    rdfs:label "Filing 0000034067-25-000028" ;
+    sec:hasAccessionNumber "0000034067-25-000028" ;
+    sec:hasFilingDate "2025-02-24"^^xsd:date .
+
+inst:industry_Asset_light_manufacturing_for_construction_energy_industrial_processing_and_tr a sec:Industry ;
+    rdfs:label "Asset-light manufacturing for construction, energy, industrial processing and transportation" .
+
+inst:jurisdiction_CO a sec:Jurisdiction ;
+    rdfs:label "CO" .
+

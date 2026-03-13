@@ -1,0 +1,73 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000004281 a sec:Company ;
+    rdfs:label "Howmet Aerospace Inc." ;
+    sec:hasDisclosure inst:0000004281_BusinessOperations,
+        inst:0000004281_CompensationAndBenefits,
+        inst:0000004281_CultureAndValues,
+        inst:0000004281_SafetyAndHealth,
+        inst:0000004281_TrainingAndDevelopment,
+        inst:0000004281_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000004281_25_000011 .
+
+inst:0000004281_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Howmet Aerospace Inc. — BusinessOperations" ;
+    sec:hasBusinessSegment "Engine Products, Fastening Systems, Engineered Structures, and Forged Wheels" ;
+    sec:hasCompetitiveDifferentiator "Can produce more than 90% of all structural and rotating aero engine components",
+        "Technologies enable lighter, more fuel-efficient aircraft and trucks with lower carbon footprint" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasGovernanceStructure "Talent review and succession planning led by CEO with Board of Directors oversight" ;
+    sec:hasKeyFinancialMetric "North America generated 71% and Europe generated 23% of sales in 2024" ;
+    sec:hasSECCIK "0000004281" ;
+    sec:hasSICCode "ROLLING DRAWING & EXTRUDING OF NONFERROUS METALS [3350]" ;
+    sec:headquarteredIn inst:location_Pittsburgh_Pennsylvania ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Investment castings, seamless rolled rings, fastening systems, forged jet engine components, forged aluminum wheels" ;
+    sec:operatesInIndustry inst:industry_Advanced_engineered_solutions_for_aerospace_and_transportation_industries ;
+    sec:operatesInRegion "Global company operating in 19 countries" ;
+    sec:servesCustomerSegment "Aerospace market representing approximately 68% of revenue in 2024" .
+
+inst:0000004281_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "Howmet Aerospace Inc. — CompensationAndBenefits" ;
+    sec:offersBenefit "Competitive wages, benefits and terms of employment" .
+
+inst:0000004281_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "Howmet Aerospace Inc. — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Conduct describing how to lead with integrity and work with one another" .
+
+inst:0000004281_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "Howmet Aerospace Inc. — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Risk identification, assessment, and control processes prioritizing prevention of fatality and serious injury",
+        "Strong health and safety culture with goal of zero incidents" .
+
+inst:0000004281_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Howmet Aerospace Inc. — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Mentoring program that builds readiness for future leaders" ;
+    sec:hasTrainingProgram "Human capital management platform for employee career profiles, skills development, and succession planning",
+        "Onboarding program to develop sense of belonging, teamwork, and productivity",
+        "Training development programs for salaried employees; extending access to hourly employees via technology in 2024" .
+
+inst:0000004281_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Howmet Aerospace Inc. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 23,930 employees in 22 countries at end of 2024" ;
+    sec:hasUnionRepresentation "Approximately 3,500 employees (25% of U.S. workforce) represented by labor unions",
+        "Largest CBA with UAW at Whitehall, MI covering ~1,450 employees, expires April 1, 2028",
+        "Second largest CBA with UAW at Cleveland, OH covering ~700 employees, expires February 2029" .
+
+inst:filing_0000004281_25_000011 a sec:Filing ;
+    rdfs:label "Filing 0000004281-25-000011" ;
+    sec:hasAccessionNumber "0000004281-25-000011" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_Advanced_engineered_solutions_for_aerospace_and_transportation_industries a sec:Industry ;
+    rdfs:label "Advanced engineered solutions for aerospace and transportation industries" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+
+inst:location_Pittsburgh_Pennsylvania a sec:Location ;
+    rdfs:label "Pittsburgh, Pennsylvania" .
+

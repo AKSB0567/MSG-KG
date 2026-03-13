@@ -1,0 +1,89 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000052827 a sec:Company ;
+    rdfs:label "RAYONIER INC" ;
+    sec:hasDisclosure inst:0000052827_BusinessOperations,
+        inst:0000052827_CompensationAndBenefits,
+        inst:0000052827_CultureAndValues,
+        inst:0000052827_EngagementAndRetention,
+        inst:0000052827_Mission,
+        inst:0000052827_SafetyAndHealth,
+        inst:0000052827_TrainingAndDevelopment,
+        inst:0000052827_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000052827_25_000018 .
+
+inst:0000052827_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "RAYONIER INC — BusinessOperations" ;
+    sec:foundedInYear "1926"^^xsd:gYear ;
+    sec:hasBusinessSegment "New Zealand Timber",
+        "Pacific Northwest Timber",
+        "Real Estate",
+        "Southern Timber",
+        "Trading" ;
+    sec:hasCarbonCapture "Carbon sequestration through tree growth; positioned for carbon offset market" ;
+    sec:hasCompetitiveDifferentiator "Only publicly traded pure-play timberland REIT with no manufacturing assets" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyMetric "Approximately 2.5 million acres of timberland owned, leased or managed" ;
+    sec:hasMarketPosition "Strategic location in core softwood producing regions with favorable supply-demand" ;
+    sec:hasSECCIK "0000052827" ;
+    sec:hasSICCode "6798 - Real Estate Investment Trusts" ;
+    sec:hasSustainabilityProgram "Land-based solutions for solar farms, wind farms, carbon capture and storage" ;
+    sec:headquarteredIn inst:location_1_Rayonier_Way_Wildlight_Florida_32097 ;
+    sec:incorporatedIn inst:jurisdiction_North_Carolina ;
+    sec:operatesInIndustry inst:industry_Timberland_real_estate_investment_trust_REIT ;
+    sec:operatesInRegion "U.S. South (1.75M acres), Pacific Northwest (308K acres), New Zealand (412K gross acres)" .
+
+inst:0000052827_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "RAYONIER INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive compensation with base salary, annual bonus, and equity grants" ;
+    sec:offersBenefit "401(k) with company matching and enhanced retirement contributions",
+        "Medical, dental, vision, life, accident, disability, paid parental and caregiver leave" .
+
+inst:0000052827_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "RAYONIER INC — CultureAndValues" ;
+    sec:hasCoreValue "Culture as an asset; goal of being preferred employer in forestry industry" .
+
+inst:0000052827_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "RAYONIER INC — EngagementAndRetention" ;
+    sec:hasEngagementScore "Biennial company-wide anonymous employee survey benchmarked against global database" .
+
+inst:0000052827_Mission a sec:Mission ;
+    rdfs:label "RAYONIER INC — Mission" ;
+    sec:hasStrategicPriority "Active portfolio management through selective acquisitions and dispositions",
+        "Own high-quality timberlands managed with long-term sustainable yield strategy" .
+
+inst:0000052827_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "RAYONIER INC — SafetyAndHealth" ;
+    sec:hasHealthProgram "Stay Strong wellness program focusing on health, financial, work-life, emotional health" ;
+    sec:hasSafetyMetric "1,364 contractor safety meetings conducted in 2024",
+        "720 safety near miss reports submitted in 2024",
+        "Zero fatalities or significant incidents achieved in 2024" ;
+    sec:hasSafetyProgram "Four-pronged approach: set goals, communicate, identify prevention, provide tools/training" .
+
+inst:0000052827_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "RAYONIER INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Cross-functional assignments and job rotation for early career foresters",
+        "Micro/on-demand learning, classroom programs, coaching and mentoring" ;
+    sec:investsInEmployeeDevelopment "Tuition reimbursement covering 80% of degreed program costs" .
+
+inst:0000052827_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "RAYONIER INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "424 employees (332 U.S., 92 New Zealand) as of December 31, 2024" .
+
+inst:filing_0000052827_25_000018 a sec:Filing ;
+    rdfs:label "Filing 0000052827-25-000018" ;
+    sec:hasAccessionNumber "0000052827-25-000018" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_Timberland_real_estate_investment_trust_REIT a sec:Industry ;
+    rdfs:label "Timberland real estate investment trust (REIT)" .
+
+inst:jurisdiction_North_Carolina a sec:Jurisdiction ;
+    rdfs:label "North Carolina" .
+
+inst:location_1_Rayonier_Way_Wildlight_Florida_32097 a sec:Location ;
+    rdfs:label "1 Rayonier Way, Wildlight, Florida 32097" .
+

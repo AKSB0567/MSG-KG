@@ -1,0 +1,78 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000008063 a sec:Company ;
+    rdfs:label "ASTRONICS CORP" ;
+    sec:hasDisclosure inst:0000008063_BusinessOperations,
+        inst:0000008063_CompensationAndBenefits,
+        inst:0000008063_CultureAndValues,
+        inst:0000008063_DiversityEquityInclusion,
+        inst:0000008063_EngagementAndRetention,
+        inst:0000008063_Mission,
+        inst:0000008063_SafetyAndHealth,
+        inst:0000008063_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000008063_25_000017 .
+
+inst:0000008063_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "ASTRONICS CORP — BusinessOperations" ;
+    sec:hasBusinessRelationship "Significant concentration of business with The Boeing Company" ;
+    sec:hasBusinessSegment "Aerospace segment (74% commercial transport, 12% military, 11% general aviation in 2024)",
+        "Test Systems segment - automated test systems for aerospace, defense, communications, mass transit" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasKeyFinancialMetric "ABL Revolving Credit Facility of $220M; $165M Convertible Senior Notes at 5.500% due 2030" ;
+    sec:hasKeyMetric "Approximately 15% of 2024 consolidated sales from U.S. government-related markets" ;
+    sec:hasSECCIK "0000008063" ;
+    sec:hasSICCode "3728 - Aircraft Part & Auxiliary Equipment, NEC" ;
+    sec:incorporatedIn inst:jurisdiction_NY ;
+    sec:isSubjectToRegulation "FAA regulates manufacture, repair and operation of all aircraft and aircraft parts" ;
+    sec:manufacturesProduct "Avionics products, aircraft structures and automated test systems",
+        "Electrical power generation, distribution and motion systems, lighting and safety systems" ;
+    sec:operatesInIndustry inst:industry_Advanced_technologies_for_global_aerospace_defense_and_electronics_industries ;
+    sec:operatesInRegion "United States, Canada, France, with engineering offices in Ukraine and India" ;
+    sec:servesCustomerSegment "Airframe OEMs, airlines, U.S. Department of Defense, prime government contractors" .
+
+inst:0000008063_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "ASTRONICS CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive salaries, bonuses, equity ownership opportunities, and development programs" ;
+    sec:offersBenefit "Health/dental insurance, 401K, profit sharing, bonus, ESPP, disability, life insurance, tuition" .
+
+inst:0000008063_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "ASTRONICS CORP — CultureAndValues" ;
+    sec:hasCoreValue "Conducting business with integrity and responsibility for the greater good" .
+
+inst:0000008063_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "ASTRONICS CORP — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Equal Employment Opportunity Policy with affirmative action plans regardless of protected status" .
+
+inst:0000008063_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "ASTRONICS CORP — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Regularly earns best employer awards; gathers feedback via Town Halls and surveys" .
+
+inst:0000008063_Mission a sec:Mission ;
+    rdfs:label "ASTRONICS CORP — Mission" ;
+    sec:hasStrategicPriority "Increase value by developing technologies internally or through acquisition for targeted markets" .
+
+inst:0000008063_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "ASTRONICS CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Confidential employee assistance program; fitness/wellness programs; green space for breaks" ;
+    sec:hasSafetyProgram "Each operation maintains environmental, health and safety policies and practices" .
+
+inst:0000008063_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "ASTRONICS CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 2,500 full-time employees as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Approximately 120 non-exempt production employees at PECO under collective bargaining" ;
+    sec:hasWorkforceLocation "Approximately 2,000 in the U.S. and 500 outside the U.S." .
+
+inst:filing_0000008063_25_000017 a sec:Filing ;
+    rdfs:label "Filing 0000008063-25-000017" ;
+    sec:hasAccessionNumber "0000008063-25-000017" ;
+    sec:hasFilingDate "2025-03-05"^^xsd:date .
+
+inst:industry_Advanced_technologies_for_global_aerospace_defense_and_electronics_industries a sec:Industry ;
+    rdfs:label "Advanced technologies for global aerospace, defense and electronics industries" .
+
+inst:jurisdiction_NY a sec:Jurisdiction ;
+    rdfs:label "NY" .
+

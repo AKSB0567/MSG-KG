@@ -1,0 +1,38 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000003570 a sec:Company ;
+    rdfs:label "Cheniere Energy, Inc." ;
+    sec:hasDisclosure inst:0000003570_BusinessOperations ;
+    sec:hasFiling inst:filing_0000003570_25_000033 .
+
+inst:0000003570_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Cheniere Energy, Inc. — BusinessOperations" ;
+    sec:hasBusinessRelationship "Co-founded Energy Emissions Modeling and Data Lab (EEMDL) with UT Austin, CSU, Colorado School of Mines",
+        "Collaborated with midstream companies, technology providers and academic institutions on LCA models",
+        "Works with academics and scientists to publish methodologies in peer-reviewed journals" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasKeyFinancialMetric "Climate initiative expenditures not material to Consolidated Financial Statements (2024, 2023, 2022)" ;
+    sec:hasSECCIK "0000003570" ;
+    sec:hasSICCode "NATURAL GAS DISTRIBUTION [4924]" ;
+    sec:hasSustainabilityGoal "Position LNG supplies to remain competitive in a lower carbon future" ;
+    sec:hasSustainabilityProgram "Climate strategy to measure and mitigate emissions across LNG supply chain",
+        "Joined Oil and Gas Methane Partnership (OGMP) 2.0, UNEP methane reporting initiative, in October 2022",
+        "Provides Cargo Emissions Tags (CE Tags) to long-term customers since June 2022" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:isAffectedBy "Physical impacts from climate change including exposure to severe weather events" ;
+    sec:operatesInIndustry inst:industry_Natural_gas_distribution_and_LNG_production .
+
+inst:filing_0000003570_25_000033 a sec:Filing ;
+    rdfs:label "Filing 0000003570-25-000033" ;
+    sec:hasAccessionNumber "0000003570-25-000033" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Natural_gas_distribution_and_LNG_production a sec:Industry ;
+    rdfs:label "Natural gas distribution and LNG production" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

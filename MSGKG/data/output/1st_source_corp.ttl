@@ -1,0 +1,78 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000034782 a sec:Company ;
+    rdfs:label "1ST SOURCE CORP" ;
+    sec:hasDisclosure inst:0000034782_BusinessOperations,
+        inst:0000034782_CompensationAndBenefits,
+        inst:0000034782_DiversityEquityInclusion,
+        inst:0000034782_Mission,
+        inst:0000034782_TrainingAndDevelopment,
+        inst:0000034782_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000034782_25_000025 .
+
+inst:0000034782_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "1ST SOURCE CORP — BusinessOperations" ;
+    sec:foundedInYear "1971"^^xsd:gYear ;
+    sec:hasBusinessSegment "Specialty Finance Group with 18 locations nationwide" ;
+    sec:hasFacility "77 banking center locations in 18 counties in Indiana, Michigan, and Sarasota County, Florida" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Consolidated total assets of $8.93 billion as of Dec 31, 2024",
+        "Total deposits of $7.23 billion as of Dec 31, 2024",
+        "Total loans and leases of $6.85 billion as of Dec 31, 2024",
+        "Total shareholders equity of $1.11 billion as of Dec 31, 2024" ;
+    sec:hasMarketPosition "Forbes Americas Best Banks; Forbes Best-In-State Bank for 3rd consecutive year (2024)" ;
+    sec:hasSECCIK "0000034782" ;
+    sec:hasSICCode "6022" ;
+    sec:hasSubsidiary "1st Source Bank" ;
+    sec:headquarteredIn inst:location_South_Bend_Indiana ;
+    sec:incorporatedIn inst:jurisdiction_IN ;
+    sec:operatesInIndustry inst:industry_Bank_holding_company_providing_financial_products_and_services ;
+    sec:operatesInRegion "Indiana, Michigan, Florida, and nationwide (Specialty Finance)" ;
+    sec:providesService "Commercial and consumer banking, trust and wealth advisory, and insurance services",
+        "Renewable energy financing for commercial solar projects across contiguous US",
+        "Specialized financing for construction equipment, aircraft, and fleet vehicles",
+        "Trust, investment, agency, and custodial services for individuals, estates, and corporates" .
+
+inst:0000034782_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "1ST SOURCE CORP — CompensationAndBenefits" ;
+    sec:offersBenefit "Tuition Reimbursement Program: over $132,500 reimbursed in 2024, avg ~$3,900 per colleague" .
+
+inst:0000034782_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "1ST SOURCE CORP — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "42% of Board Members (5 of 12) are women or minority",
+        "More than 21% of new hires were diverse colleagues for 8th consecutive year" ;
+    sec:hasDEIProgram "Cultivates diversity in all forms as part of building a strong culture of inclusion and belonging" .
+
+inst:0000034782_Mission a sec:Mission ;
+    rdfs:label "1ST SOURCE CORP — Mission" ;
+    sec:hasMission "Help clients achieve security, build wealth, and realize their dreams" .
+
+inst:0000034782_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "1ST SOURCE CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "1st Source L.E.A.D. program: 12-month immersive leadership development" ;
+    sec:hasTrainingMetric "Over 43,500 training modules completed across 985+ courses in 2024" ;
+    sec:hasTrainingProgram "1st Source University for building skills and knowledge in multiple business facets",
+        "Commercial Banker Development Program for recent college graduates",
+        "Unconscious bias training for all new employees within 6 months of hire, 3rd consecutive year" .
+
+inst:0000034782_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "1ST SOURCE CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 1,205 full-time equivalent colleagues as of Dec 31, 2024" .
+
+inst:filing_0000034782_25_000025 a sec:Filing ;
+    rdfs:label "Filing 0000034782-25-000025" ;
+    sec:hasAccessionNumber "0000034782-25-000025" ;
+    sec:hasFilingDate "2025-02-18"^^xsd:date .
+
+inst:industry_Bank_holding_company_providing_financial_products_and_services a sec:Industry ;
+    rdfs:label "Bank holding company providing financial products and services" .
+
+inst:jurisdiction_IN a sec:Jurisdiction ;
+    rdfs:label "IN" .
+
+inst:location_South_Bend_Indiana a sec:Location ;
+    rdfs:label "South Bend, Indiana" .
+

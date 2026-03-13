@@ -1,0 +1,92 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000030697 a sec:Company ;
+    rdfs:label "Wendy's Co" ;
+    sec:hasDisclosure inst:0000030697_BusinessOperations,
+        inst:0000030697_CompensationAndBenefits,
+        inst:0000030697_CultureAndValues,
+        inst:0000030697_DiversityEquityInclusion,
+        inst:0000030697_EngagementAndRetention,
+        inst:0000030697_Mission,
+        inst:0000030697_SafetyAndHealth,
+        inst:0000030697_TrainingAndDevelopment,
+        inst:0000030697_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000030697_25_000009 .
+
+inst:0000030697_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Wendy's Co — BusinessOperations" ;
+    sec:foundedInYear "1969"^^xsd:gYear ;
+    sec:hasBusinessSegment "Global Real Estate & Development (owned/leased sites, TimWen JV, Franchise Flips)",
+        "Wendy's International (operation and franchising outside US)",
+        "Wendy's U.S. (operation and franchising of US restaurants)" ;
+    sec:hasDistributionChannel "Dine-in, carryout, drive-thru, delivery, non-traditional locations (fuel centers, food courts)" ;
+    sec:hasFilingPeriod "20241229" ;
+    sec:hasKeyMetric "381 Company-operated and 5,552 franchisee-operated US restaurants",
+        "7,240 total restaurants as of December 29, 2024 (5,933 US + 1,307 international)" ;
+    sec:hasMarketPosition "2nd largest QSR in hamburger segment in US by traffic/dollar share; 3rd largest globally" ;
+    sec:hasSECCIK "0000030697" ;
+    sec:hasSICCode "5810 - Retail-Eating & Drinking Places" ;
+    sec:headquarteredIn inst:location_One_Dave_Thomas_Blvd_Dublin_Ohio_43017 ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Quick_service_restaurants_hamburger_sandwich_segment ;
+    sec:operatesInRegion "United States and 31 foreign countries and U.S. territories" .
+
+inst:0000030697_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "Wendy's Co — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-competitive pay and benefits; benchmarking externally and internally" ;
+    sec:hasPayEquityMetric "Committed to pay equity for all employees regardless of gender or ethnicity" ;
+    sec:offersBenefit "Medical, dental, vision, Rx insurance, telehealth, 401(k), HSA, EAP, paid sick leave, bonding leave" .
+
+inst:0000030697_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "Wendy's Co — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Business Conduct and Ethics for employees and directors; Supplier Code of Conduct" ;
+    sec:hasCoreValue "Doing the Right Thing, Treating People with Respect, Giving Something Back (Dave Thomas values)" .
+
+inst:0000030697_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "Wendy's Co — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "Over 100 wide-ranging programs facilitated by ERGs in 2024" ;
+    sec:hasEmployeeResourceGroup "WeBERG (Black), WenGEN (Young Professionals), GiveCare (Care Givers) - 7 ERGs total",
+        "Women of Wendy's, WeQual (LGBTQ+), WeVets (Military), WCD (Culturally Diverse)" .
+
+inst:0000030697_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "Wendy's Co — EngagementAndRetention" ;
+    sec:hasEngagementScore "Administers employee engagement survey annually; tracks turnover vs. restaurant industry" .
+
+inst:0000030697_Mission a sec:Mission ;
+    rdfs:label "Wendy's Co — Mission" ;
+    sec:hasMission "Fresh Famous Food...Made Right...For You - delivered every time, every restaurant, every customer" ;
+    sec:hasStrategicPriority "Same-restaurant sales growth, digital growth, restaurant profitability, global unit growth" .
+
+inst:0000030697_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "Wendy's Co — SafetyAndHealth" ;
+    sec:hasHealthProgram "EAP at no cost to employees and household members; paid sick time at all restaurant levels" ;
+    sec:hasSafetyProgram "Annual food safety recertification for restaurant crew and managers",
+        "Culture of people safety awareness, responsibility and accident prevention in restaurants" .
+
+inst:0000030697_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Wendy's Co — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "WeLead - cohort learning for emerging leaders over six-month curriculum" ;
+    sec:hasTrainingProgram "Online learning curriculum and hands-on training led by crew trainers, managers, field staff",
+        "Wendy's University - targeted training for management and leadership skills at all levels" .
+
+inst:0000030697_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Wendy's Co — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 14,500 employees; ~1/3 full-time, ~2/3 part-time as of Dec 29, 2024" .
+
+inst:filing_0000030697_25_000009 a sec:Filing ;
+    rdfs:label "Filing 0000030697-25-000009" ;
+    sec:hasAccessionNumber "0000030697-25-000009" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Quick_service_restaurants_hamburger_sandwich_segment a sec:Industry ;
+    rdfs:label "Quick-service restaurants (hamburger sandwich segment)" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+
+inst:location_One_Dave_Thomas_Blvd_Dublin_Ohio_43017 a sec:Location ;
+    rdfs:label "One Dave Thomas Blvd., Dublin, Ohio 43017" .
+

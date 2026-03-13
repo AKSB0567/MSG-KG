@@ -1,0 +1,79 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000055785 a sec:Company ;
+    rdfs:label "KIMBERLY CLARK CORP" ;
+    sec:hasDisclosure inst:0000055785_BusinessOperations,
+        inst:0000055785_CompensationAndBenefits,
+        inst:0000055785_DiversityEquityInclusion,
+        inst:0000055785_EngagementAndRetention,
+        inst:0000055785_Mission,
+        inst:0000055785_SafetyAndHealth,
+        inst:0000055785_TrainingAndDevelopment,
+        inst:0000055785_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000055785_25_000013 .
+
+inst:0000055785_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "KIMBERLY CLARK CORP — BusinessOperations" ;
+    sec:foundedInYear "1872"^^xsd:gYear ;
+    sec:hasBrand "Andrex, Pull-Ups, GoodNites, Intimus, Plenitud, Sweety, Softex, Viva, WypAll",
+        "Huggies, Kleenex, Scott, Kotex, Cottonelle, Poise, Depend" ;
+    sec:hasBusinessRelationship "Walmart Inc. represented approx 14% of consolidated net sales in 2024" ;
+    sec:hasBusinessSegment "International Family Care and Professional (IFP)",
+        "International Personal Care (IPC)",
+        "North America (NA)" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Environmental capex expected ~$60M annually for 2025-2026" ;
+    sec:hasSECCIK "0000055785" ;
+    sec:hasSICCode "2670 - Converted Paper & Paperboard Products" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:isSubjectToRegulation "Product safety, environmental protection, data privacy, anti-corruption laws" ;
+    sec:operatesInIndustry inst:industry_Manufacturing_and_marketing_of_fiber_based_consumer_products ;
+    sec:providesService "Baby & Child Care, Adult Care, Feminine Care, Family Care, Professional products" ;
+    sec:servesCustomerSegment "Supermarkets, mass merchandisers, drugstores, warehouse clubs, e-commerce" .
+
+inst:0000055785_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "KIMBERLY CLARK CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-based competitive salary, annual incentive, long-term equity incentives" ;
+    sec:offersBenefit "Short-term cash incentives, long-term equity incentives, retirement planning resources" .
+
+inst:0000055785_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "KIMBERLY CLARK CORP — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Inclusion, equity and diversity as fundamental business strategy overseen by MDC" ;
+    sec:hasEmployeeResourceGroup "ERGs for African, Hispanic/Latino, Asian ancestry, women, LGBTQ+, parents, veterans, etc." .
+
+inst:0000055785_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "KIMBERLY CLARK CORP — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Continuous listening via global surveys for employee feedback and engagement" .
+
+inst:0000055785_Mission a sec:Mission ;
+    rdfs:label "KIMBERLY CLARK CORP — Mission" ;
+    sec:hasStrategicPriority "2024 Transformation Initiative: innovation, margin optimization, organizational agility" .
+
+inst:0000055785_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "KIMBERLY CLARK CORP — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Company-wide health and safety policies with regular training and continuous improvement" .
+
+inst:0000055785_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "KIMBERLY CLARK CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Talent and succession planning with leadership and management development programs" .
+
+inst:0000055785_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "KIMBERLY CLARK CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 38,000 employees as of December 31, 2024" ;
+    sec:hasWorkforceDiversityMetric "55% of workforce directly involved in manufacturing and distribution" ;
+    sec:hasWorkforceLocation "35% in North America; remainder in approximately 60 countries" .
+
+inst:filing_0000055785_25_000013 a sec:Filing ;
+    rdfs:label "Filing 0000055785-25-000013" ;
+    sec:hasAccessionNumber "0000055785-25-000013" ;
+    sec:hasFilingDate "2025-02-13"^^xsd:date .
+
+inst:industry_Manufacturing_and_marketing_of_fiber_based_consumer_products a sec:Industry ;
+    rdfs:label "Manufacturing and marketing of fiber-based consumer products" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

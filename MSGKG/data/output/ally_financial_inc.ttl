@@ -1,0 +1,62 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000040729 a sec:Company ;
+    rdfs:label "Ally Financial Inc." ;
+    sec:hasDisclosure inst:0000040729_BusinessOperations,
+        inst:0000040729_CultureAndValues,
+        inst:0000040729_EngagementAndRetention,
+        inst:0000040729_Mission,
+        inst:0000040729_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000040729_25_000006 .
+
+inst:0000040729_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Ally Financial Inc. — BusinessOperations" ;
+    sec:hasBusinessSegment "Corporate Finance - capital for equity sponsors and middle-market companies",
+        "Dealer Financial Services (Automotive Finance and Insurance)" ;
+    sec:hasCompetitiveRisk "Competes with banks, credit unions, captive auto finance cos, independent finance cos" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasGovernanceStructure "Compensation, Nominating, and Governance Committee oversees HCM" ;
+    sec:hasKeyFinancialMetric "$191.8 billion in total assets as of December 31, 2024" ;
+    sec:hasMarketPosition "Nations largest all-digital bank and industry-leading auto financing business" ;
+    sec:hasSECCIK "0000040729" ;
+    sec:hasSICCode "6022 - State Commercial Banks" ;
+    sec:hasSubsidiary "Ally Bank - $181.4B assets, $151.6B nonaffiliate deposits as of Dec 31, 2024" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:isSubjectToRegulation "Registered as BHC under BHC Act and FHC under GLB Act" ;
+    sec:operatesInIndustry inst:industry_Financial_services_all_digital_banking_automotive_financing_and_insurance ;
+    sec:providesService "Deposits, securities brokerage, investment advisory, auto financing, insurance" .
+
+inst:0000040729_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "Ally Financial Inc. — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Conduct and Ethics reviewed/approved annually by the Board" .
+
+inst:0000040729_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "Ally Financial Inc. — EngagementAndRetention" ;
+    sec:hasEngagementScore "2024 engagement score 83/100; top 10% globally for 5th consecutive year",
+        "7 points above financial services industry benchmark of 76 in 2024",
+        "80% employee survey participation rate in 2024 (benchmark: 75%)" ;
+    sec:hasRetentionProgram "Employee retention rate ~87% in 2024, up from ~84% in 2023" .
+
+inst:0000040729_Mission a sec:Mission ;
+    rdfs:label "Ally Financial Inc. — Mission" ;
+    sec:hasMission "Do It Right - be a relentless ally for customers and communities" ;
+    sec:hasStrategicPriority "Investing in market-leading franchises with differentiated value proposition" .
+
+inst:0000040729_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Ally Financial Inc. — WorkforceComposition" ;
+    sec:hasEmployeeCount "~10,700 employees as of December 31, 2024 (primarily full-time, U.S.-based)" .
+
+inst:filing_0000040729_25_000006 a sec:Filing ;
+    rdfs:label "Filing 0000040729-25-000006" ;
+    sec:hasAccessionNumber "0000040729-25-000006" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Financial_services_all_digital_banking_automotive_financing_and_insurance a sec:Industry ;
+    rdfs:label "Financial services - all-digital banking, automotive financing and insurance" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

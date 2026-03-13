@@ -1,0 +1,65 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000028917 a sec:Company ;
+    rdfs:label "DILLARD'S, INC." ;
+    sec:hasDisclosure inst:0000028917_BusinessOperations,
+        inst:0000028917_CompensationAndBenefits,
+        inst:0000028917_EngagementAndRetention,
+        inst:0000028917_TrainingAndDevelopment,
+        inst:0000028917_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000028917_25_000004 .
+
+inst:0000028917_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "DILLARD'S, INC. — BusinessOperations" ;
+    sec:foundedInYear "1938"^^xsd:gYear ;
+    sec:hasBrand "Antonio Melani, Gianni Bini, GB, Roundtree & Yorke, Daniel Cremieux (exclusive brands)" ;
+    sec:hasBusinessRelationship "Citibank N.A. private label credit card program (10-year agreement from August 2024)" ;
+    sec:hasBusinessSegment "Construction segment - CDI Contractors, LLC (4% of net sales)",
+        "Retail operations segment (96% of net sales)" ;
+    sec:hasCompetitiveRisk "Numerous competitors including specialty, off-price, discount and Internet retailers" ;
+    sec:hasDistributionChannel "Internet store at dillards.com with company-wide access across 30 states" ;
+    sec:hasFacility "272 Dillard stores including 28 clearance centers as of February 1, 2025" ;
+    sec:hasFilingPeriod "20250201" ;
+    sec:hasKeyFinancialMetric "Cosmetics 16%, Ladies apparel 20%, Mens apparel 19%, Shoes 14% of net sales (FY2024)" ;
+    sec:hasMarketPosition "Among the nation's largest fashion apparel, cosmetics and home furnishing retailers" ;
+    sec:hasSECCIK "0000028917" ;
+    sec:hasSICCode "5311 - Retail Department Stores" ;
+    sec:hasSubsidiary "CDI Contractors, LLC - general contracting construction company" ;
+    sec:incorporatedIn inst:jurisdiction_AR ;
+    sec:operatesInIndustry inst:industry_Fashion_apparel_cosmetics_and_home_furnishing_retail ;
+    sec:operatesInRegion "Southwest, southeast and midwest regions of the United States" .
+
+inst:0000028917_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "DILLARD'S, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive compensation and benefits packages within the applicable market" .
+
+inst:0000028917_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "DILLARD'S, INC. — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Promote from within philosophy to develop talent and provide career paths" .
+
+inst:0000028917_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "DILLARD'S, INC. — TrainingAndDevelopment" ;
+    sec:hasTrainingMetric "Approximately 75% of salaried store managers promoted from hourly store positions" ;
+    sec:hasTrainingProgram "Formalized classroom training, specialized sales management training, and mentorship programs" .
+
+inst:0000028917_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "DILLARD'S, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 28,800 associates as of December 23, 2024" ;
+    sec:hasUnionRepresentation "None of our associates are represented by a union" ;
+    sec:hasWorkforceDiversityMetric "~20,100 full-time, ~6,300 part-time, ~2,400 limited status associates" ;
+    sec:hasWorkforceLocation "Approximately 87% of full-time associates work in retail stores" .
+
+inst:filing_0000028917_25_000004 a sec:Filing ;
+    rdfs:label "Filing 0000028917-25-000004" ;
+    sec:hasAccessionNumber "0000028917-25-000004" ;
+    sec:hasFilingDate "2025-03-28"^^xsd:date .
+
+inst:industry_Fashion_apparel_cosmetics_and_home_furnishing_retail a sec:Industry ;
+    rdfs:label "Fashion apparel, cosmetics, and home furnishing retail" .
+
+inst:jurisdiction_AR a sec:Jurisdiction ;
+    rdfs:label "AR" .
+

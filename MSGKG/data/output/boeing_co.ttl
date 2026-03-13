@@ -1,0 +1,48 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000012927 a sec:Company ;
+    rdfs:label "BOEING CO" ;
+    sec:hasDisclosure inst:0000012927_BusinessOperations,
+        inst:0000012927_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000012927_25_000015 .
+
+inst:0000012927_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "BOEING CO — BusinessOperations" ;
+    sec:hasBusinessSegment "Commercial Airplanes (BCA)",
+        "Defense, Space & Security (BDS)",
+        "Global Services (BGS)" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasIntellectualProperty "Numerous patents and licenses; U.S. government has licenses for government-funded inventions" ;
+    sec:hasMarketPosition "One of the world's major aerospace firms and leading producer of commercial aircraft" ;
+    sec:hasSECCIK "0000012927" ;
+    sec:hasSICCode "3721 - Aircraft" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:isAffectedBy "IAM 751 strike from Sep 12 to Nov 4, 2024; paused commercial aircraft production" ;
+    sec:manufacturesProduct "737 narrow-body, 767, 777 and 787 wide-body commercial jet aircraft",
+        "Manned and unmanned military aircraft and weapons systems for strike, surveillance and mobility" ;
+    sec:operatesInIndustry inst:industry_Aerospace ;
+    sec:providesService "Supply chain and logistics management, engineering, maintenance, spare parts, pilot training" ;
+    sec:servesCustomerSegment "Commercial airline industry worldwide and defense customers" .
+
+inst:0000012927_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "BOEING CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 172,000 as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Approximately 58,000 union members",
+        "IAM represents 21% of workforce; SPEEA represents 10%; UAW represents 1%" ;
+    sec:hasWorkforceDiversityMetric "24% women globally; 39% racial/ethnic minorities and 14% U.S. veterans in U.S. workforce" ;
+    sec:hasWorkforceLocation "85% located in the U.S.; 15% located outside the U.S." .
+
+inst:filing_0000012927_25_000015 a sec:Filing ;
+    rdfs:label "Filing 0000012927-25-000015" ;
+    sec:hasAccessionNumber "0000012927-25-000015" ;
+    sec:hasFilingDate "2025-02-03"^^xsd:date .
+
+inst:industry_Aerospace a sec:Industry ;
+    rdfs:label "Aerospace" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

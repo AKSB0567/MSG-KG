@@ -1,0 +1,80 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000026324 a sec:Company ;
+    rdfs:label "CURTISS WRIGHT CORP" ;
+    sec:hasDisclosure inst:0000026324_BusinessOperations,
+        inst:0000026324_CompensationAndBenefits,
+        inst:0000026324_CultureAndValues,
+        inst:0000026324_DiversityEquityInclusion,
+        inst:0000026324_Mission,
+        inst:0000026324_SafetyAndHealth,
+        inst:0000026324_TrainingAndDevelopment,
+        inst:0000026324_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000026324_25_000015 .
+
+inst:0000026324_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "CURTISS WRIGHT CORP — BusinessOperations" ;
+    sec:hasBusinessSegment "Aerospace & Industrial",
+        "Defense Electronics",
+        "Naval & Power" ;
+    sec:hasCompetitiveDifferentiator "Mission-critical, safety-critical products with decades of engineering expertise and knowledge transfer" ;
+    sec:hasFacility "Domestic manufacturing in AZ, CA, NY, NC, OH, PA, SC; international in Canada, Mexico, UK" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000026324" ;
+    sec:hasSICCode "3590 - Misc Industrial & Commercial Machinery & Equipment" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Highly_engineered_products_and_services_for_Aerospace_Defense_and_critical_com ;
+    sec:servesCustomerSegment "Defense prime contractors, commercial aerospace OEMs, energy and manufacturing companies" .
+
+inst:0000026324_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "CURTISS WRIGHT CORP — CompensationAndBenefits" ;
+    sec:offersBenefit "401(k) matching, Employee Stock Purchase Plan, employer-sponsored health insurance",
+        "Equity-based incentive plans: performance share units, restricted stock units, cash-based performance units",
+        "Tuition reimbursement, annual and local incentive compensation plans" .
+
+inst:0000026324_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "CURTISS WRIGHT CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Conduct, anti-harassment policy, equal employment opportunity policy with annual training" ;
+    sec:hasCoreValue "Inclusive workforce where various backgrounds are represented, engaged and empowered to inspire and innovate" .
+
+inst:0000026324_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "CURTISS WRIGHT CORP — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Partnerships with diversity organizations and military organizations for diverse talent pipeline" .
+
+inst:0000026324_Mission a sec:Mission ;
+    rdfs:label "CURTISS WRIGHT CORP — Mission" ;
+    sec:hasStrategicPriority "Disciplined capital allocation: acquisitions, share repurchases and dividends",
+        "Operational Growth Platform for margin expansion and steady R&D investment for innovation",
+        "Pivot to Growth strategy: maximize revenue, operating income, and free cash flow growth" .
+
+inst:0000026324_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "CURTISS WRIGHT CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Free biometric screening, flu shot clinics, tobacco cessation, weight management, employee assistance program" ;
+    sec:hasSafetyMetric "Tracks total recordable rate (TRR) and days away, restriction, and transfer rate (DART) worldwide" .
+
+inst:0000026324_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "CURTISS WRIGHT CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "New Business Leaders Program and Engineering Leadership Development Program" ;
+    sec:hasTrainingProgram "Learning Management System with online career-specific tools, training and resources",
+        "Technical Fellows program and Innovation Council program for domain expertise and thought leadership" ;
+    sec:investsInEmployeeDevelopment "Tuition Assistance Program and early-in-career rotation program for new business leaders" .
+
+inst:0000026324_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "CURTISS WRIGHT CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 8,800 employees in more than 20 countries as of end of 2024" ;
+    sec:hasUnionRepresentation "6% of employees represented by labor unions and covered by collective bargaining agreements" .
+
+inst:filing_0000026324_25_000015 a sec:Filing ;
+    rdfs:label "Filing 0000026324-25-000015" ;
+    sec:hasAccessionNumber "0000026324-25-000015" ;
+    sec:hasFilingDate "2025-02-13"^^xsd:date .
+
+inst:industry_Highly_engineered_products_and_services_for_Aerospace_Defense_and_critical_com a sec:Industry ;
+    rdfs:label "Highly engineered products and services for Aerospace & Defense and critical commercial markets" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

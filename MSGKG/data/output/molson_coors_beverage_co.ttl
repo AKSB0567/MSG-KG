@@ -1,0 +1,74 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000024545 a sec:Company ;
+    rdfs:label "MOLSON COORS BEVERAGE CO" ;
+    sec:hasDisclosure inst:0000024545_BusinessOperations,
+        inst:0000024545_CultureAndValues,
+        inst:0000024545_EngagementAndRetention,
+        inst:0000024545_Mission,
+        inst:0000024545_TrainingAndDevelopment,
+        inst:0000024545_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000024545_25_000007 .
+
+inst:0000024545_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "MOLSON COORS BEVERAGE CO — BusinessOperations" ;
+    sec:competesWith "Anheuser-Busch InBev (ABI) and Constellation Brands (U.S. and Canada)",
+        "Heineken, Asahi, Carlsberg and ABI (European markets)" ;
+    sec:hasBrand "Coors Light, Miller Lite, Coors Banquet, Molson Canadian, Carling, Ozujsko (core power brands)",
+        "Madri Excepcional, Staropramen, Blue Moon Belgian White, Leinenkugel's Summer Shandy (above premium)",
+        "Miller High Life, Keystone Light (economy and value brands)" ;
+    sec:hasBusinessRelationship "Simply Spiked, ZOA Energy (partner brands via license, distribution, partnership, JV agreements)" ;
+    sec:hasBusinessSegment "Americas",
+        "EMEA&APAC" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "EMEA&APAC excise taxes approximately $46 per hectoliter in 2024" ;
+    sec:hasMarketPosition "Fourth largest global brewer in the world" ;
+    sec:hasSECCIK "0000024545" ;
+    sec:hasSICCode "2082 - Malt Beverages" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:isSubjectToRegulation "EU and U.K. health, safety, employment, data protection and labeling regulations" ;
+    sec:manufacturesProduct "Beer, flavored beverages (Vizzy Hard Seltzer), spirits (Five Trail whiskey), non-alcoholic beverages" ;
+    sec:operatesInIndustry inst:industry_Malt_beverages_and_alcoholic_beverage_manufacturing .
+
+inst:0000024545_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "MOLSON COORS BEVERAGE CO — CultureAndValues" ;
+    sec:hasCoreValue "People are the heart of the Company; culture encouraging unique perspectives and experiences" .
+
+inst:0000024545_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "MOLSON COORS BEVERAGE CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "Employee Experience surveys conducted 3x/year in Americas and yearly in EMEA&APAC" .
+
+inst:0000024545_Mission a sec:Mission ;
+    rdfs:label "MOLSON COORS BEVERAGE CO — Mission" ;
+    sec:hasPurpose "To be the first choice for our people, consumers and customers" ;
+    sec:hasStrategicPriority "Aggressively premiumize portfolio",
+        "Consistently grow core power brand net sales",
+        "Invest in capabilities and support people, communities and planet",
+        "Scale and expand in beyond beer" .
+
+inst:0000024545_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "MOLSON COORS BEVERAGE CO — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Targeted development programs to accelerate readiness of high-potential employees for greater scope roles" ;
+    sec:hasTrainingProgram "First Choice Learning - global development resource platform with in-person and online training" .
+
+inst:0000024545_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "MOLSON COORS BEVERAGE CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 16,800 employees globally as of December 31, 2024" ;
+    sec:hasUnionRepresentation "~28% Americas and ~24% EMEA&APAC workforce represented by trade unions" ;
+    sec:hasWorkforceLocation "Global Business Services Centers in Milwaukee, WI and Bucharest, Romania (~700 employees)",
+        "~10,300 employees in Americas segment; ~6,500 in EMEA&APAC segment" .
+
+inst:filing_0000024545_25_000007 a sec:Filing ;
+    rdfs:label "Filing 0000024545-25-000007" ;
+    sec:hasAccessionNumber "0000024545-25-000007" ;
+    sec:hasFilingDate "2025-02-18"^^xsd:date .
+
+inst:industry_Malt_beverages_and_alcoholic_beverage_manufacturing a sec:Industry ;
+    rdfs:label "Malt beverages and alcoholic beverage manufacturing" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

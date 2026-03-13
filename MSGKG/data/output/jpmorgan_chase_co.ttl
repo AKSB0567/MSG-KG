@@ -1,0 +1,29 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000019617 a sec:Company ;
+    rdfs:label "JPMORGAN CHASE & CO" ;
+    sec:hasDisclosure inst:0000019617_BusinessOperations ;
+    sec:hasFiling inst:filing_0000019617_25_000270 .
+
+inst:0000019617_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "JPMORGAN CHASE & CO — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000019617" ;
+    sec:hasSICCode "6021 - National Commercial Banks" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_National_Commercial_Banks .
+
+inst:filing_0000019617_25_000270 a sec:Filing ;
+    rdfs:label "Filing 0000019617-25-000270" ;
+    sec:hasAccessionNumber "0000019617-25-000270" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_National_Commercial_Banks a sec:Industry ;
+    rdfs:label "National Commercial Banks" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

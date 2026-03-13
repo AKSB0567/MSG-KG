@@ -1,0 +1,85 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000049071 a sec:Company ;
+    rdfs:label "HUMANA INC" ;
+    sec:hasDisclosure inst:0000049071_BusinessOperations,
+        inst:0000049071_CompensationAndBenefits,
+        inst:0000049071_CultureAndValues,
+        inst:0000049071_EngagementAndRetention,
+        inst:0000049071_Mission,
+        inst:0000049071_SafetyAndHealth,
+        inst:0000049071_TrainingAndDevelopment,
+        inst:0000049071_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000049071_25_000007 .
+
+inst:0000049071_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HUMANA INC — BusinessOperations" ;
+    sec:foundedInYear "1964"^^xsd:gYear ;
+    sec:hasBusinessSegment "CenterWell",
+        "Insurance" ;
+    sec:hasKeyFinancialMetric "14% of total premiums from individual Medicare Advantage contracts in Florida (~924,800 members)",
+        "85% of total premiums and services revenue from federal government contracts in 2024" ;
+    sec:hasKeyMetric "Approximately 16 million medical benefit plan members as of December 31, 2024",
+        "Approximately 5 million specialty product members as of December 31, 2024" ;
+    sec:hasSECCIK "0000049071" ;
+    sec:hasSICCode "6324" ;
+    sec:hasSubsidiary "CenterWell health care services" ;
+    sec:headquarteredIn inst:location_Louisville_Kentucky ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Hospital_and_medical_service_plans ;
+    sec:providesService "HMO, PPO, and POS health insurance plans",
+        "Pharmacy solutions, primary care, home solutions, and population health services" ;
+    sec:servesCustomerSegment "Medicare, Medicaid, families, individuals, military service personnel, and communities" .
+
+inst:0000049071_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "HUMANA INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-based pay recognizing associate contributions; annual comprehensive pay equity/gap analysis" ;
+    sec:offersBenefit "Competitive base pay, short/long-term disability, 401(k) with match, tuition assistance, HSA/FSA, life insurance",
+        "Employer-sponsored personal emergency savings account with matching funds from the Company",
+        "Medical, dental, vision, on-site health/fitness centers, paid parental leave (6 weeks), paid caregiver time (2 weeks)" .
+
+inst:0000049071_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "HUMANA INC — CultureAndValues" ;
+    sec:hasCulturalPillar "Members experience linked to associates experience; engaged associates key to building healthy company" .
+
+inst:0000049071_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "HUMANA INC — EngagementAndRetention" ;
+    sec:hasEngagementScore "Annual Engagement Survey (AES) covering 18 dimensions, third-party administered, with continuous listening pulse surveys" ;
+    sec:hasRetentionProgram "Average associate tenure of 7 years" ;
+    sec:hasTurnoverRate "Voluntary turnover rate (VTR) was 14.4% in 2024, up from 13.4% in 2023" .
+
+inst:0000049071_Mission a sec:Mission ;
+    rdfs:label "HUMANA INC — Mission" ;
+    sec:hasPurpose "Putting health first for teammates, customers, and the company" ;
+    sec:hasStrategicPriority "Integrated care delivery model uniting quality care, high member engagement, and sophisticated data analytics" .
+
+inst:0000049071_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "HUMANA INC — SafetyAndHealth" ;
+    sec:hasHealthProgram "On-site health screenings, vaccinations, whole-person well-being platform, on-demand fitness, digital coaching apps" .
+
+inst:0000049071_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HUMANA INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Internal and external learning events; access to degree and certification programs with tuition assistance" ;
+    sec:investsInEmployeeDevelopment "Professional development with tools, mentorship, and opportunities for current role and future growth" .
+
+inst:0000049071_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HUMANA INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 65,680 associates as of December 31, 2024" .
+
+inst:filing_0000049071_25_000007 a sec:Filing ;
+    rdfs:label "Filing 0000049071-25-000007" ;
+    sec:hasAccessionNumber "0000049071-25-000007" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Hospital_and_medical_service_plans a sec:Industry ;
+    rdfs:label "Hospital and medical service plans" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+
+inst:location_Louisville_Kentucky a sec:Location ;
+    rdfs:label "Louisville, Kentucky" .
+

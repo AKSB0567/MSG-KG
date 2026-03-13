@@ -1,0 +1,53 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000014272 a sec:Company ;
+    rdfs:label "BRISTOL MYERS SQUIBB CO" ;
+    sec:hasDisclosure inst:0000014272_BusinessOperations,
+        inst:0000014272_CultureAndValues,
+        inst:0000014272_Mission ;
+    sec:hasFiling inst:filing_0000014272_25_000039 .
+
+inst:0000014272_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "BRISTOL MYERS SQUIBB CO — BusinessOperations" ;
+    sec:competesWith "Global research-based biopharmaceutical companies, smaller research companies, generic manufacturers" ;
+    sec:foundedInYear "1887"^^xsd:gYear ;
+    sec:hasBrand "Opdivo (nivolumab) - PD-1 inhibitor approved for multiple anti-cancer indications",
+        "Opdivo Qvantig (nivolumab and hyaluronidase-nvhy) - subcutaneous PD-1 inhibitor",
+        "Orencia (abatacept) - biologic for RA, PsA, JIA and aGVHD" ;
+    sec:hasBusinessRelationship "Acquisitions of Karuna, RayzeBio and Mirati in 2024; collaboration with SystImmune" ;
+    sec:hasDistributionChannel "Products sold to wholesalers, distributors, specialty pharmacies, retailers, hospitals, clinics" ;
+    sec:hasFacility "Significant manufacturing in U.S., Puerto Rico, Switzerland, Ireland and Netherlands" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasKeyFinancialMetric "U.S. revenues 71%, International 27%, Other 2% of total revenues in 2024" ;
+    sec:hasRevenue "Total revenues of $48,300 million for year ended December 31, 2024" ;
+    sec:hasSECCIK "0000014272" ;
+    sec:hasSICCode "2834 - Pharmaceutical Preparations" ;
+    sec:hasSustainabilityProgram "ESG strategy to positively impact communities where they live, work and serve" ;
+    sec:hasTechnologyPlatform "Small molecule drugs incl. protein degraders, biologics, ADCs, CAR-T, radiopharmaceuticals" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Biopharmaceuticals .
+
+inst:0000014272_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "BRISTOL MYERS SQUIBB CO — CultureAndValues" ;
+    sec:hasCoreValue "Effective governance, uncompromising quality and compliance, and highest ethical standards" .
+
+inst:0000014272_Mission a sec:Mission ;
+    rdfs:label "BRISTOL MYERS SQUIBB CO — Mission" ;
+    sec:hasPurpose "Transform patients' lives through science" ;
+    sec:hasStrategicPriority "Expand in neuroscience and oncology through acquisitions to strengthen core therapeutic areas",
+        "Oncology, hematology, immunology, cardiovascular and neuroscience therapeutic areas" .
+
+inst:filing_0000014272_25_000039 a sec:Filing ;
+    rdfs:label "Filing 0000014272-25-000039" ;
+    sec:hasAccessionNumber "0000014272-25-000039" ;
+    sec:hasFilingDate "2025-02-12"^^xsd:date .
+
+inst:industry_Biopharmaceuticals a sec:Industry ;
+    rdfs:label "Biopharmaceuticals" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

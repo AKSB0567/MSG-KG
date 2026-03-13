@@ -1,0 +1,29 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000051434 a sec:Company ;
+    rdfs:label "INTERNATIONAL PAPER CO /NEW/" ;
+    sec:hasDisclosure inst:0000051434_BusinessOperations ;
+    sec:hasFiling inst:filing_0000051434_25_000013 .
+
+inst:0000051434_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "INTERNATIONAL PAPER CO /NEW/ — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000051434" ;
+    sec:hasSICCode "2621 - Paper Mills" ;
+    sec:incorporatedIn inst:jurisdiction_New_York ;
+    sec:operatesInIndustry inst:industry_Paper_mills .
+
+inst:filing_0000051434_25_000013 a sec:Filing ;
+    rdfs:label "Filing 0000051434-25-000013" ;
+    sec:hasAccessionNumber "0000051434-25-000013" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_Paper_mills a sec:Industry ;
+    rdfs:label "Paper mills" .
+
+inst:jurisdiction_New_York a sec:Jurisdiction ;
+    rdfs:label "New York" .
+

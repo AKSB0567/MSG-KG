@@ -1,0 +1,71 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000049826 a sec:Company ;
+    rdfs:label "ILLINOIS TOOL WORKS INC" ;
+    sec:hasDisclosure inst:0000049826_BusinessOperations,
+        inst:0000049826_CompensationAndBenefits,
+        inst:0000049826_CultureAndValues,
+        inst:0000049826_SafetyAndHealth,
+        inst:0000049826_TrainingAndDevelopment,
+        inst:0000049826_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000049826_25_000007 .
+
+inst:0000049826_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "ILLINOIS TOOL WORKS INC — BusinessOperations" ;
+    sec:foundedInYear "1912"^^xsd:gYear ;
+    sec:hasBusinessSegment "Automotive OEM",
+        "Construction Products",
+        "Food Equipment",
+        "Polymers & Fluids",
+        "Specialty Products",
+        "Test & Measurement and Electronics",
+        "Welding" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000049826" ;
+    sec:hasSICCode "3560 - General Industrial Machinery & Equipment" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Arc welding equipment, consumables and accessories",
+        "Commercial food equipment including warewashing, cooking, refrigeration and food processing equipment",
+        "Engineered adhesives, sealants, lubrication and cutting fluids, and polymers for auto aftermarket",
+        "Fastening systems and solutions for residential and commercial construction",
+        "Plastic and metal components, fasteners and assemblies for automotive applications" ;
+    sec:operatesInIndustry inst:industry_Global_manufacturer_of_diversified_industrial_products_and_equipment ;
+    sec:operatesInRegion "86 divisions in 51 countries globally" .
+
+inst:0000049826_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "ILLINOIS TOOL WORKS INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-competitive compensation and benefits supporting physical, mental, and financial well-being" .
+
+inst:0000049826_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "ILLINOIS TOOL WORKS INC — CultureAndValues" ;
+    sec:hasCoreValue "Integrity, Respect, Trust, Shared Risk and Simplicity" ;
+    sec:hasCulturalPillar "Decentralized, entrepreneurial culture empowering colleagues to think and act like business owners" .
+
+inst:0000049826_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "ILLINOIS TOOL WORKS INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Enterprise Safety Strategy with goal of zero accidents and proactive safety culture" .
+
+inst:0000049826_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "ILLINOIS TOOL WORKS INC — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Great ITW Leader Framework defining leadership capabilities and attributes" .
+
+inst:0000049826_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "ILLINOIS TOOL WORKS INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 44,000 as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Less than 3% of U.S. employees represented by a labor union" ;
+    sec:hasWorkforceLocation "Approximately 16,000 in the United States; remainder in multiple other countries" .
+
+inst:filing_0000049826_25_000007 a sec:Filing ;
+    rdfs:label "Filing 0000049826-25-000007" ;
+    sec:hasAccessionNumber "0000049826-25-000007" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_Global_manufacturer_of_diversified_industrial_products_and_equipment a sec:Industry ;
+    rdfs:label "Global manufacturer of diversified industrial products and equipment" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

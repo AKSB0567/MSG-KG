@@ -1,0 +1,60 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000051253 a sec:Company ;
+    rdfs:label "INTERNATIONAL FLAVORS & FRAGRANCES INC" ;
+    sec:hasDisclosure inst:0000051253_BusinessOperations,
+        inst:0000051253_SafetyAndHealth,
+        inst:0000051253_TrainingAndDevelopment ;
+    sec:hasFiling inst:filing_0000051253_25_000013 .
+
+inst:0000051253_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "INTERNATIONAL FLAVORS & FRAGRANCES INC — BusinessOperations" ;
+    sec:hasBusinessSegment "Health & Biosciences",
+        "Nourish",
+        "Pharma Solutions",
+        "Scent" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Corporate governance with Audit, Human Capital & Compensation, Governance & CR, Innovation Committees" ;
+    sec:hasMarketPosition "Global leadership positions in Food & Beverage, Home & Personal Care and Health & Wellness markets" ;
+    sec:hasRevenue "$11.484 billion in 2024" ;
+    sec:hasSECCIK "0000051253" ;
+    sec:hasSICCode "2860 - Industrial Organic Chemicals" ;
+    sec:hasSustainabilityProgram "CDP submissions for Climate Change, Water Security and Forests; listed in FTSE4Good Index series",
+        "Dow Jones Sustainability Indices constituent for fifth consecutive year; EcoVadis Platinum rating 4th year" ;
+    sec:headquarteredIn inst:location_521_West_57th_Street_New_York_NY_10019_and_200_Powder_Mill_Road_Wilmington_D ;
+    sec:incorporatedIn inst:jurisdiction_New_York ;
+    sec:manufacturesProduct "Enzymes for laundry and dishwashing detergents and patented biodegradable enzymatic polymers",
+        "Enzymes, food cultures, probiotics and specialty ingredients via biotechnology",
+        "Flavor compounds and natural taste solutions for savory, beverages, sweets and dairy products",
+        "Fragrance compounds and fragrance ingredients for perfumes and household/personal care products",
+        "Natural-based food ingredients including texturizing solutions, food protection, soy and pea protein" ;
+    sec:operatesInIndustry inst:industry_Leading_creator_and_manufacturer_of_food_beverage_health_biosciences_scent ;
+    sec:operatesInRegion "U.S. sales approximately 28% of total 2024 sales; geographically diverse globally" ;
+    sec:servesCustomerSegment "Manufacturers of dairy, meat, beverages, snacks, personal care, cleaning products, pharmaceuticals" .
+
+inst:0000051253_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "INTERNATIONAL FLAVORS & FRAGRANCES INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Occupational health and safety management system based on OSHA standards applied globally",
+        "Three safety focus areas: safety governance, safety training, and safety culture with awareness" .
+
+inst:0000051253_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "INTERNATIONAL FLAVORS & FRAGRANCES INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Digitalized learning plans on human capital platform captured in employee profiles" .
+
+inst:filing_0000051253_25_000013 a sec:Filing ;
+    rdfs:label "Filing 0000051253-25-000013" ;
+    sec:hasAccessionNumber "0000051253-25-000013" ;
+    sec:hasFilingDate "2025-02-28"^^xsd:date .
+
+inst:industry_Leading_creator_and_manufacturer_of_food_beverage_health_biosciences_scent a sec:Industry ;
+    rdfs:label "Leading creator and manufacturer of food, beverage, health & biosciences, scent and pharma solutions" .
+
+inst:jurisdiction_New_York a sec:Jurisdiction ;
+    rdfs:label "New York" .
+
+inst:location_521_West_57th_Street_New_York_NY_10019_and_200_Powder_Mill_Road_Wilmington_D a sec:Location ;
+    rdfs:label "521 West 57th Street, New York, NY 10019 and 200 Powder Mill Road, Wilmington, DE 19803" .
+

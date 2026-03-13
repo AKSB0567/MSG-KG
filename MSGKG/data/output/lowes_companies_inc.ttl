@@ -1,0 +1,83 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000060667 a sec:Company ;
+    rdfs:label "LOWES COMPANIES INC" ;
+    sec:hasDisclosure inst:0000060667_BusinessOperations,
+        inst:0000060667_CompensationAndBenefits,
+        inst:0000060667_DiversityEquityInclusion,
+        inst:0000060667_EngagementAndRetention,
+        inst:0000060667_Mission,
+        inst:0000060667_SafetyAndHealth,
+        inst:0000060667_TrainingAndDevelopment,
+        inst:0000060667_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000060667_25_000049 .
+
+inst:0000060667_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "LOWES COMPANIES INC — BusinessOperations" ;
+    sec:foundedInYear "1921"^^xsd:gYear ;
+    sec:hasFilingPeriod "20250131" ;
+    sec:hasKeyMetric "1,748 home improvement stores and outlets in the United States as of January 31, 2025",
+        "Approximately 195 million square feet of retail selling space" ;
+    sec:hasMarketPosition "Fortune 50 company and world's second largest home improvement retailer" ;
+    sec:hasSECCIK "0000060667" ;
+    sec:hasSICCode "5211" ;
+    sec:hasTechnologyPlatform "Omnichannel network providing single view of customer across in-store, online, on-site and contact center" ;
+    sec:incorporatedIn inst:jurisdiction_NC ;
+    sec:operatesInIndustry inst:industry_Retail_home_improvement ;
+    sec:servesCustomerSegment "Pro customers (tradespeople, repair/remodelers, property managers), individual homeowners, and renters" .
+
+inst:0000060667_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "LOWES COMPANIES INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Minimum wage starts at $15 per hour; locally competitive salaries and wages" ;
+    sec:offersBenefit "Health care, insurance, retirement plans, employee stock purchase plan, paid time off, and leave programs",
+        "Spanish language capabilities to promote bilingual hiring",
+        "Workforce management tools for scheduling: shortened workweek, consistent shifts, consecutive days off" .
+
+inst:0000060667_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "LOWES COMPANIES INC — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Evolved 8 Business Resource Groups into one unified umbrella associate engagement organization",
+        "Four community pillars: safe/affordable housing, community improvements, skilled trades education, disaster response" .
+
+inst:0000060667_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "LOWES COMPANIES INC — EngagementAndRetention" ;
+    sec:hasEngagementScore "More than 90% of associates participated in annual engagement survey in fiscal 2024" .
+
+inst:0000060667_Mission a sec:Mission ;
+    rdfs:label "LOWES COMPANIES INC — Mission" ;
+    sec:hasPurpose "Helping customers solve problems and fulfill dreams for their homes with excellent customer experience" ;
+    sec:hasStrategicPriority "Accelerate online sales",
+        "Create a loyalty ecosystem (MyLowe's Rewards)",
+        "Drive Pro penetration",
+        "Expand home services",
+        "Increase space productivity" .
+
+inst:0000060667_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "LOWES COMPANIES INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Culture of safety embedded in onboarding, developmental e-learning, and on-the-job training" .
+
+inst:0000060667_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "LOWES COMPANIES INC — TrainingAndDevelopment" ;
+    sec:hasTrainingMetric "More than 85% of store leadership positions filled internally in the last year" ;
+    sec:hasTrainingProgram "Lowe's University with District Manager and Store Manager immersive week-long leadership programs",
+        "Track to the Trades program offering apprentice certifications in electrical, plumbing, HVAC, appliance repair",
+        "Tuition-free education program for associates" .
+
+inst:0000060667_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "LOWES COMPANIES INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 161,000 full-time and 109,000 part-time associates as of January 31, 2025" ;
+    sec:hasWorkforceLocation "Primarily in the United States and India" .
+
+inst:filing_0000060667_25_000049 a sec:Filing ;
+    rdfs:label "Filing 0000060667-25-000049" ;
+    sec:hasAccessionNumber "0000060667-25-000049" ;
+    sec:hasFilingDate "2025-03-24"^^xsd:date .
+
+inst:industry_Retail_home_improvement a sec:Industry ;
+    rdfs:label "Retail home improvement" .
+
+inst:jurisdiction_NC a sec:Jurisdiction ;
+    rdfs:label "NC" .
+

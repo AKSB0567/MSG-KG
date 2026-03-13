@@ -1,0 +1,86 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000028823 a sec:Company ;
+    rdfs:label "DIEBOLD NIXDORF, Inc" ;
+    sec:hasDisclosure inst:0000028823_BusinessOperations,
+        inst:0000028823_CompensationAndBenefits,
+        inst:0000028823_CultureAndValues,
+        inst:0000028823_DiversityEquityInclusion,
+        inst:0000028823_EngagementAndRetention,
+        inst:0000028823_Mission,
+        inst:0000028823_SafetyAndHealth,
+        inst:0000028823_TrainingAndDevelopment,
+        inst:0000028823_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000028823_25_000022 .
+
+inst:0000028823_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — BusinessOperations" ;
+    sec:hasBusinessSegment "Banking segment",
+        "Retail segment" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Product backlog approximately $800M as of December 31, 2024 (vs $1,100M in 2023)" ;
+    sec:hasKeyMetric "Over 50% of revenues derived from service business" ;
+    sec:hasMarketPosition "Global market leader in mission-critical hardware, software, and services for banking and retail" ;
+    sec:hasSECCIK "0000028823" ;
+    sec:hasSICCode "3578 - Calculating & Accounting Machines (No Electronic Computers)" ;
+    sec:hasTechnologyPlatform "DN Series innovation for banking and retail automation",
+        "The Exchange - internal intranet for employee communications" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Banking_and_retail_automation_digitization_and_transformation ;
+    sec:operatesInRegion "Presence in more than 100 countries" ;
+    sec:providesService "Mission-critical hardware, software, and services for banking and retail clients" ;
+    sec:servesCustomerSegment "Majority of world top 100 financial institutions",
+        "Top 10 global Fortune 500 petroleum companies and top 25 global retailers" .
+
+inst:0000028823_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Pay for performance culture aligning long-term pay and performance" .
+
+inst:0000028823_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — CultureAndValues" ;
+    sec:hasCoreValue "Accountability, Collaboration, Decisiveness, Sense of Urgency, Willingness to Change" .
+
+inst:0000028823_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — DiversityEquityInclusion" ;
+    sec:hasEmployeeResourceGroup "Women @ DN, Veterans @ DN, Pride @ DN, Parents @ DN, Multi-Cultural Connections" .
+
+inst:0000028823_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — EngagementAndRetention" ;
+    sec:hasEngagementScore "Global employee experience survey conducted in 2024 to monitor engagement" ;
+    sec:hasRetentionProgram "Talent review, succession planning, and individual development plan capabilities globally" .
+
+inst:0000028823_Mission a sec:Mission ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — Mission" ;
+    sec:hasPurpose "Automates, digitizes and transforms the way people bank and shop" ;
+    sec:hasStrategicPriority "Free Cash Flow Conversion improvement",
+        "Margin Expansion through continuous improvement and lean journey",
+        "Profitable Revenue Growth through new customers and increased wallet share" .
+
+inst:0000028823_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — SafetyAndHealth" ;
+    sec:hasHealthProgram "Continuous evaluation of programs and health care offerings for employee well-being" ;
+    sec:hasSafetyProgram "Design-For-Quality approach covering R&D, Manufacturing and Supplier Quality",
+        "Frequent job-based safety training to avoid injury" .
+
+inst:0000028823_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Learning and development offerings with well-defined performance management process" .
+
+inst:0000028823_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "DIEBOLD NIXDORF, Inc — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 21,000 employees worldwide as of December 31, 2024" .
+
+inst:filing_0000028823_25_000022 a sec:Filing ;
+    rdfs:label "Filing 0000028823-25-000022" ;
+    sec:hasAccessionNumber "0000028823-25-000022" ;
+    sec:hasFilingDate "2025-02-25"^^xsd:date .
+
+inst:industry_Banking_and_retail_automation_digitization_and_transformation a sec:Industry ;
+    rdfs:label "Banking and retail automation, digitization and transformation" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

@@ -1,0 +1,70 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000021175 a sec:Company ;
+    rdfs:label "CNA FINANCIAL CORP" ;
+    sec:hasDisclosure inst:0000021175_BusinessOperations,
+        inst:0000021175_CompensationAndBenefits,
+        inst:0000021175_CultureAndValues,
+        inst:0000021175_EngagementAndRetention,
+        inst:0000021175_SafetyAndHealth,
+        inst:0000021175_TrainingAndDevelopment,
+        inst:0000021175_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000021175_25_000008 .
+
+inst:0000021175_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "CNA FINANCIAL CORP — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000021175" ;
+    sec:hasSICCode "6331 - Fire, Marine & Casualty Insurance" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Fire_Marine_Casualty_Insurance .
+
+inst:0000021175_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "CNA FINANCIAL CORP — CompensationAndBenefits" ;
+    sec:offersBenefit "401(k) plan",
+        "Health savings and flexible spending accounts",
+        "Healthcare and insurance benefits",
+        "Paid time off and family assistance programs" .
+
+inst:0000021175_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "CNA FINANCIAL CORP — CultureAndValues" ;
+    sec:hasCulturalPillar "Culture of inclusion engaging employees with opportunities to learn, grow and achieve career goals" .
+
+inst:0000021175_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "CNA FINANCIAL CORP — EngagementAndRetention" ;
+    sec:hasEngagementScore "Pulse surveys and routine dialogue with ERGs used for employee feedback" ;
+    sec:hasRetentionProgram "Annual talent and succession planning process with leadership review" .
+
+inst:0000021175_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "CNA FINANCIAL CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Employee mental health assistance programs",
+        "Holistic well-being incentive program for employees and families",
+        "Stress management and resilience programs" .
+
+inst:0000021175_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "CNA FINANCIAL CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Specialized leadership development programs" ;
+    sec:hasTrainingProgram "Apprenticeship and sponsorship programs",
+        "Mentorship and reverse mentorship programs",
+        "Technical training programs",
+        "Trainee and internship programs at entry levels with college partnerships" ;
+    sec:investsInEmployeeDevelopment "Tuition reimbursement program" .
+
+inst:0000021175_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "CNA FINANCIAL CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 6,500 employees as of December 31, 2024" .
+
+inst:filing_0000021175_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000021175-25-000008" ;
+    sec:hasAccessionNumber "0000021175-25-000008" ;
+    sec:hasFilingDate "2025-02-11"^^xsd:date .
+
+inst:industry_Fire_Marine_Casualty_Insurance a sec:Industry ;
+    rdfs:label "Fire, Marine & Casualty Insurance" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

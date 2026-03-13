@@ -1,0 +1,91 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000022356 a sec:Company ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/" ;
+    sec:hasDisclosure inst:0000022356_BusinessOperations,
+        inst:0000022356_CompensationAndBenefits,
+        inst:0000022356_CultureAndValues,
+        inst:0000022356_DiversityEquityInclusion,
+        inst:0000022356_EngagementAndRetention,
+        inst:0000022356_TrainingAndDevelopment,
+        inst:0000022356_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000022356_25_000016 .
+
+inst:0000022356_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — BusinessOperations" ;
+    sec:competesWith "Banks, credit unions, brokerage companies, mortgage companies, insurance companies, fintech, e-commerce companies" ;
+    sec:foundedInYear "1966"^^xsd:gYear ;
+    sec:hasBusinessSegment "Commercial",
+        "Consumer",
+        "Wealth" ;
+    sec:hasCompetitiveDifferentiator "Super-community banking format with large bank products and deep local market knowledge" ;
+    sec:hasFacility "142 branch facilities across Missouri, Kansas, central Illinois, Oklahoma, and Colorado" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasHub "St. Louis and Kansas City serve as central hubs" ;
+    sec:hasKeyFinancialMetric "Consolidated assets $32.0B, loans $17.2B, deposits $25.3B, equity $3.3B at Dec 31, 2024" ;
+    sec:hasKeyMetric "Approximately 10% deposit market share in Kansas City and 7% in St. Louis" ;
+    sec:hasMarketPosition "One of the nation's top 50 bank holding companies based on asset size" ;
+    sec:hasSECCIK "0000022356" ;
+    sec:hasSICCode "6022 - State Commercial Banks" ;
+    sec:hasSubsidiary "Commerce Bank, wholly-owned through second tier bank holding company" ;
+    sec:headquarteredIn inst:location_Missouri ;
+    sec:incorporatedIn inst:jurisdiction_Missouri ;
+    sec:operatesInIndustry inst:industry_Bank_holding_company_providing_retail_mortgage_corporate_investment_trust_a ;
+    sec:operatesInRegion "MO, KS, central IL, Tulsa, OKC, Denver; offices in Dallas, Houston, Cincinnati, Nashville, Des Moines, Indianapolis, Grand Rapids, Naples" ;
+    sec:providesService "General banking, retail, mortgage, corporate, investment, trust, asset management, securities brokerage, specialty lending, leasing" .
+
+inst:0000022356_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Comprehensive Total Rewards approach supporting physical, financial, emotional well-being and career development" ;
+    sec:offersBenefit "Company-matching 401(k) plan and health savings accounts",
+        "Educational and adoption assistance programs",
+        "Health, dental, vision, life insurance and wellness program incentivizing healthy lifestyle",
+        "Paid time off, employee assistance program (EAP) and company-paid Care.com membership" .
+
+inst:0000022356_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — CultureAndValues" ;
+    sec:hasCulturalPillar "Longstanding approach of doing what's right guiding focus on team members and communities" .
+
+inst:0000022356_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "More than 40% of team members belong to one of the ERGs" ;
+    sec:hasDEIProgram "Inclusion efforts focused on four key pillars: workforce, suppliers, community, and customers" ;
+    sec:hasEmployeeResourceGroup "EMERGE (connecting young professionals)",
+        "ENABLE (supporting team members with disabilities and their caregivers)",
+        "PRIDE (engaging the LGBTQIA+ community)",
+        "RISE (empowering women)",
+        "SALUTE (supporting veterans)",
+        "VIBE (valuing multicultural perspectives)" .
+
+inst:0000022356_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — EngagementAndRetention" ;
+    sec:hasEngagementScore "Engagement recognized by Korn Ferry as best-in-class; recognized by Forbes as one of best mid-sized employers" ;
+    sec:hasRetentionProgram "Robust listening strategy with surveys, focus groups, and one-on-one conversations tracking trends by demographics" .
+
+inst:0000022356_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership development programs, Aspiring Managers program, Managing at Commerce" ;
+    sec:hasTrainingProgram "Job shadowing, competency assessments and education assistance programs" .
+
+inst:0000022356_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "COMMERCE BANCSHARES INC /MO/ — WorkforceComposition" ;
+    sec:hasEmployeeCount "4,537 full-time and 150 part-time employees at December 31, 2024" ;
+    sec:hasUnionRepresentation "None of the Company's employees are represented by collective bargaining agreements" .
+
+inst:filing_0000022356_25_000016 a sec:Filing ;
+    rdfs:label "Filing 0000022356-25-000016" ;
+    sec:hasAccessionNumber "0000022356-25-000016" ;
+    sec:hasFilingDate "2025-02-25"^^xsd:date .
+
+inst:industry_Bank_holding_company_providing_retail_mortgage_corporate_investment_trust_a a sec:Industry ;
+    rdfs:label "Bank holding company providing retail, mortgage, corporate, investment, trust, and asset management services" .
+
+inst:jurisdiction_Missouri a sec:Jurisdiction ;
+    rdfs:label "Missouri" .
+
+inst:location_Missouri a sec:Location ;
+    rdfs:label "Missouri" .
+

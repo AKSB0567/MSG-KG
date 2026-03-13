@@ -1,0 +1,53 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000060519 a sec:Company ;
+    rdfs:label "LOUISIANA-PACIFIC CORP" ;
+    sec:hasDisclosure inst:0000060519_BusinessOperations,
+        inst:0000060519_SafetyAndHealth ;
+    sec:hasFiling inst:filing_0000060519_25_000005 .
+
+inst:0000060519_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "LOUISIANA-PACIFIC CORP — BusinessOperations" ;
+    sec:foundedInYear "1972"^^xsd:gYear ;
+    sec:hasBrand "LP SmartSide Trim & Siding, LP SmartSide ExpertFinish, LP BuilderSeries Lap Siding, LP Outdoor Building Solutions",
+        "LP TechShield, LP WeatherLogic, LP Legacy, LP NovaCore, LP FlameBlock, LP TopNotch 350 (LP Structural Solutions)" ;
+    sec:hasBusinessSegment "LP South America (LPSA) ($190 million net sales, 6% of 2024 revenue)",
+        "Oriented Strand Board (OSB) ($1,184 million net sales, 40% of 2024 revenue)",
+        "Siding ($1,558 million net sales, 53% of 2024 revenue)" ;
+    sec:hasCompetitiveDifferentiator "LP SmartSide is carbon-negative exterior siding (stores more carbon than released during lifecycle)" ;
+    sec:hasFacility "22 plants across the U.S., Canada, Chile, and Brazil as of December 31, 2024" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasMarketPosition "Largest manufacturer of engineered wood siding in North America",
+        "Leading producer of OSB and siding products in South America" ;
+    sec:hasRevenue "$2,941 million net sales in 2024" ;
+    sec:hasSECCIK "0000060519" ;
+    sec:hasSICCode "2400" ;
+    sec:headquarteredIn inst:location_Nashville_Tennessee ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Lumber_and_wood_products_high_performance_building_solutions ;
+    sec:operatesInRegion "U.S., Canada, Chile, Brazil; sales offices in Argentina, Colombia, Mexico, Paraguay, Peru" ;
+    sec:servesCustomerSegment "Retailers, wholesalers, home building and industrial businesses in North and South America" .
+
+inst:0000060519_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "LOUISIANA-PACIFIC CORP — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Tracks Total Incident Rate (TIR), recordable incidents per 100 employees, with annual internal targets" ;
+    sec:hasSafetyProgram "Ongoing safety training for employees, contractors, and guests on safety policies and procedures",
+        "Safety culture striving to eliminate workplace incidents; safety message at every meeting and mill tour" .
+
+inst:filing_0000060519_25_000005 a sec:Filing ;
+    rdfs:label "Filing 0000060519-25-000005" ;
+    sec:hasAccessionNumber "0000060519-25-000005" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Lumber_and_wood_products_high_performance_building_solutions a sec:Industry ;
+    rdfs:label "Lumber and wood products; high-performance building solutions" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+
+inst:location_Nashville_Tennessee a sec:Location ;
+    rdfs:label "Nashville, Tennessee" .
+

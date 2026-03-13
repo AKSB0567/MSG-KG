@@ -1,0 +1,83 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000045876 a sec:Company ;
+    rdfs:label "ENVIRI Corp" ;
+    sec:hasDisclosure inst:0000045876_BusinessOperations,
+        inst:0000045876_CompensationAndBenefits,
+        inst:0000045876_CultureAndValues,
+        inst:0000045876_DiversityEquityInclusion,
+        inst:0000045876_Mission,
+        inst:0000045876_SafetyAndHealth,
+        inst:0000045876_TrainingAndDevelopment,
+        inst:0000045876_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000045876_25_000018 .
+
+inst:0000045876_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "ENVIRI Corp — BusinessOperations" ;
+    sec:foundedInYear "1956"^^xsd:gYear ;
+    sec:hasBusinessSegment "Clean Earth - environmental solutions segment",
+        "Harsco Environmental - onsite environmental services and material processing for global metals industry",
+        "Harsco Rail - equipment and technology for rail sector" ;
+    sec:hasKeyFinancialMetric "88% of revenues generated from two environmental segments in 2024" ;
+    sec:hasSECCIK "0000045876" ;
+    sec:hasSICCode "8900 - Services, NEC" ;
+    sec:hasSubsidiary "Clean Earth (acquired); ESOL (acquired)" ;
+    sec:headquarteredIn inst:location_Two_Logan_Square_Philadelphia_PA ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Ecoproducts portfolio including road materials, agricultural products and aggregates" ;
+    sec:operatesInIndustry inst:industry_Environmental_solutions_for_industrial_and_specialty_waste_streams_rail_equipme ;
+    sec:operatesInRegion "Approximately 30 countries globally" ;
+    sec:servesCustomerSegment "70 mill services customers at approximately 130 sites in approximately 30 countries (Harsco Environmental)" .
+
+inst:0000045876_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "ENVIRI Corp — CompensationAndBenefits" ;
+    sec:offersBenefit "Bonuses, stock awards, retirement programs, HSA/FSA, paid-time off, paid parental leave, tuition assistance" .
+
+inst:0000045876_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "ENVIRI Corp — CultureAndValues" ;
+    sec:hasCoreValue "Be Environmental, Be Performance Driven, Be Customer Focused, Be Caring, Be Inclusive, Be Respectful" .
+
+inst:0000045876_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "ENVIRI Corp — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Belonging Program fostering collaborative and inclusive workplace for all employees",
+        "Global Belonging and Inclusion Council chaired by SVP & CHRO with 16 cross-functional leaders" ;
+    sec:hasEmployeeResourceGroup "CultureLink - established 2024, celebrates diverse cultures of countries where Enviri operates",
+        "Enviri Women - promotes awareness and advancement through mentorship and empowerment" .
+
+inst:0000045876_Mission a sec:Mission ;
+    rdfs:label "ENVIRI Corp — Mission" ;
+    sec:hasStrategicPriority "Viewing every customer need through a sustainability lens; helping customers build better businesses" ;
+    sec:hasVision "To continue building a leading, global environmental solutions company" .
+
+inst:0000045876_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "ENVIRI Corp — SafetyAndHealth" ;
+    sec:hasHealthProgram "Access to a variety of health and wellness programs globally for employees and families" ;
+    sec:hasSafetyProgram "Culture of ownership and accountability for safety; continuous improvement of safety performance" .
+
+inst:0000045876_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "ENVIRI Corp — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Annual talent review process to assess organizational capabilities and create tailored development plans",
+        "Global Competency Model introduced in 2024 for talent development and succession planning" .
+
+inst:0000045876_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "ENVIRI Corp — WorkforceComposition" ;
+    sec:hasEmployeeCount "Almost 12,000 employees in over 30 countries as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Majority of employees represented by labor unions through almost 100 collective bargaining agreements" .
+
+inst:filing_0000045876_25_000018 a sec:Filing ;
+    rdfs:label "Filing 0000045876-25-000018" ;
+    sec:hasAccessionNumber "0000045876-25-000018" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Environmental_solutions_for_industrial_and_specialty_waste_streams_rail_equipme a sec:Industry ;
+    rdfs:label "Environmental solutions for industrial and specialty waste streams; rail equipment and technology" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+
+inst:location_Two_Logan_Square_Philadelphia_PA a sec:Location ;
+    rdfs:label "Two Logan Square, Philadelphia, PA" .
+

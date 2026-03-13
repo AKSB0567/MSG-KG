@@ -1,0 +1,91 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000027996 a sec:Company ;
+    rdfs:label "DELUXE CORP" ;
+    sec:hasDisclosure inst:0000027996_BusinessOperations,
+        inst:0000027996_CompensationAndBenefits,
+        inst:0000027996_CultureAndValues,
+        inst:0000027996_DiversityEquityInclusion,
+        inst:0000027996_Mission,
+        inst:0000027996_SafetyAndHealth,
+        inst:0000027996_TrainingAndDevelopment,
+        inst:0000027996_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000027996_25_000051 .
+
+inst:0000027996_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "DELUXE CORP — BusinessOperations" ;
+    sec:foundedInYear "1915"^^xsd:gYear ;
+    sec:hasBusinessSegment "B2B Payments (13.6% of 2024 revenue)",
+        "Data Solutions (11.0% of 2024 revenue)",
+        "Merchant Services (18.1% of 2024 revenue)",
+        "Print (56.8% of 2024 revenue)" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "CHRO reports directly to President and CEO" ;
+    sec:hasSECCIK "0000027996" ;
+    sec:hasSICCode "2780 - Blankbooks, Looseleaf Binders & Bookbinding & Related Work" ;
+    sec:incorporatedIn inst:jurisdiction_MN ;
+    sec:manufacturesProduct "Branded promotional, print, apparel, and digital storefront solutions (12.4% of revenue)",
+        "Printed business and personal checks (33.1% of revenue)" ;
+    sec:operatesInIndustry inst:industry_Payments_and_Data ;
+    sec:operatesInRegion "North America" ;
+    sec:providesService "Data-driven marketing solutions for B2B and B2C marketing",
+        "Merchant in-store, online, and mobile payment solutions for electronic payments",
+        "Treasury management including remittance, lockbox processing, and remote deposit capture" ;
+    sec:servesCustomerSegment "Small and medium-sized businesses, financial institutions, and large consumer brands" .
+
+inst:0000027996_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "DELUXE CORP — CompensationAndBenefits" ;
+    sec:hasPayEquityMetric "Periodic independent pay equity audits conducted" ;
+    sec:offersBenefit "Care.com partnership for tutors, nannies, childcare, and eldercare",
+        "Medical, dental, life, and disability insurance",
+        "Paid parental leave, infertility, adoption, and surrogacy assistance",
+        "Tuition assistance and 401(k) with company match",
+        "Unlimited flexible time off for salaried employees and sabbatical for long-term employees" .
+
+inst:0000027996_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "DELUXE CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Ethics applying to directors, employees, contractors, agents" .
+
+inst:0000027996_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "DELUXE CORP — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Culture of Inclusion embracing workforce, customer, and partner differences" .
+
+inst:0000027996_Mission a sec:Mission ;
+    rdfs:label "DELUXE CORP — Mission" ;
+    sec:hasPurpose "Trusted Payments and Data company serving businesses and financial institutions" ;
+    sec:hasStrategicPriority "Cross-selling through One Deluxe go-to-market model",
+        "Disciplined capital allocation aligned with growth objectives",
+        "Operational efficiency and cost management" .
+
+inst:0000027996_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "DELUXE CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Programs addressing mental, physical, financial, and social well-being" ;
+    sec:hasSafetyProgram "Monthly site safety committee meetings with employee participation" .
+
+inst:0000027996_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "DELUXE CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership development courses to nurture next generation of leaders" ;
+    sec:hasTrainingProgram "Learning and development opportunities covering leadership, skill development, and mentoring" .
+
+inst:0000027996_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "DELUXE CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "4,981 total employees as of December 31, 2024" ;
+    sec:hasUnionRepresentation "None of our employees are represented by labor unions" ;
+    sec:hasWorkforceLocation "244 employees in Canada",
+        "4,729 employees in the United States",
+        "8 employees in India" .
+
+inst:filing_0000027996_25_000051 a sec:Filing ;
+    rdfs:label "Filing 0000027996-25-000051" ;
+    sec:hasAccessionNumber "0000027996-25-000051" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_Payments_and_Data a sec:Industry ;
+    rdfs:label "Payments and Data" .
+
+inst:jurisdiction_MN a sec:Jurisdiction ;
+    rdfs:label "MN" .
+

@@ -1,0 +1,59 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000038725 a sec:Company ;
+    rdfs:label "FRANKLIN ELECTRIC CO INC" ;
+    sec:hasDisclosure inst:0000038725_BusinessOperations,
+        inst:0000038725_CultureAndValues,
+        inst:0000038725_SafetyAndHealth,
+        inst:0000038725_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000038725_25_000026 .
+
+inst:0000038725_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FRANKLIN ELECTRIC CO INC — BusinessOperations" ;
+    sec:competesWith "Grundfos Management A/S, Pentair Inc. and Xylem Inc." ;
+    sec:foundedInYear "1944"^^xsd:gYear ;
+    sec:hasBusinessSegment "Distribution",
+        "Energy Systems (formerly Fueling Systems)",
+        "Water Systems (about 60% of total revenue in 2024)" ;
+    sec:hasCompetitiveDifferentiator "Quality, availability, service, innovation, and cost; lean principles and safety culture" ;
+    sec:hasDistributionChannel "Employee sales force and independent manufacturing representatives globally",
+        "Specialty distributors, OEMs, industrial and petroleum equipment distributors, major oil/utility companies" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasIntellectualProperty "Manufactured first water-lubricated submersible motor and first submersible motor for fueling systems" ;
+    sec:hasKeyMetric "6 to 9 percent compounded annual sales growth in developing regions in recent years",
+        "Water Systems generates approx 25-30% of revenue in developing markets" ;
+    sec:hasRevenue "Approximately $2.0 billion in 2024" ;
+    sec:hasSECCIK "0000038725" ;
+    sec:hasSICCode "3621 - Motors & Generators" ;
+    sec:incorporatedIn inst:jurisdiction_Indiana ;
+    sec:manufacturesProduct "Submersible fueling systems for gas stations including pumps, pipes, controls and monitoring devices",
+        "Submersible motors, pumps, electronic controls, water treatment systems, and related parts" ;
+    sec:operatesInIndustry inst:industry_Water_and_fuel_pumping_systems_design_manufacturing_and_distribution ;
+    sec:servesCustomerSegment "Residential, agricultural, municipal and industrial water applications" .
+
+inst:0000038725_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "FRANKLIN ELECTRIC CO INC — CultureAndValues" ;
+    sec:hasCodeOfConduct "Requires ethical compliance with established policies" .
+
+inst:0000038725_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "FRANKLIN ELECTRIC CO INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Committed to safe work environments, prioritizing wellness, health and safety best practices" .
+
+inst:0000038725_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "FRANKLIN ELECTRIC CO INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 6,300 employees as of December 31, 2024" .
+
+inst:filing_0000038725_25_000026 a sec:Filing ;
+    rdfs:label "Filing 0000038725-25-000026" ;
+    sec:hasAccessionNumber "0000038725-25-000026" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_Water_and_fuel_pumping_systems_design_manufacturing_and_distribution a sec:Industry ;
+    rdfs:label "Water and fuel pumping systems design, manufacturing and distribution" .
+
+inst:jurisdiction_Indiana a sec:Jurisdiction ;
+    rdfs:label "Indiana" .
+

@@ -1,0 +1,35 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000018349 a sec:Company ;
+    rdfs:label "SYNOVUS FINANCIAL CORP" ;
+    sec:hasDisclosure inst:0000018349_BusinessOperations,
+        inst:0000018349_CompensationAndBenefits ;
+    sec:hasFiling inst:filing_0000018349_25_000049 .
+
+inst:0000018349_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "SYNOVUS FINANCIAL CORP — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Human Capital Committee of the Board of Directors oversees share-based awards" ;
+    sec:hasSECCIK "0000018349" ;
+    sec:hasSICCode "6021 - National Commercial Banks" ;
+    sec:operatesInIndustry inst:industry_National_Commercial_Banks .
+
+inst:0000018349_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "SYNOVUS FINANCIAL CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Share-based compensation including stock options, restricted share units, and performance share units" ;
+    sec:offersBenefit "Dividend equivalents paid on outstanding restricted and performance share units",
+        "Performance share units with market and performance target levels",
+        "Restricted share units, primarily equity-based with some cash settled",
+        "Stock options with service-based vesting period of three years" .
+
+inst:filing_0000018349_25_000049 a sec:Filing ;
+    rdfs:label "Filing 0000018349-25-000049" ;
+    sec:hasAccessionNumber "0000018349-25-000049" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_National_Commercial_Banks a sec:Industry ;
+    rdfs:label "National Commercial Banks" .
+

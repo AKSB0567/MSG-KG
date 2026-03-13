@@ -1,0 +1,75 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000008818 a sec:Company ;
+    rdfs:label "Avery Dennison Corp" ;
+    sec:hasDisclosure inst:0000008818_BusinessOperations,
+        inst:0000008818_CompensationAndBenefits,
+        inst:0000008818_DiversityEquityInclusion,
+        inst:0000008818_EngagementAndRetention,
+        inst:0000008818_Mission,
+        inst:0000008818_SafetyAndHealth,
+        inst:0000008818_TrainingAndDevelopment ;
+    sec:hasFiling inst:filing_0000008818_25_000003 .
+
+inst:0000008818_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Avery Dennison Corp — BusinessOperations" ;
+    sec:foundedInYear "1977"^^xsd:gYear ;
+    sec:hasBrand "Fasson, JAC, Avery Dennison, Mactac" ;
+    sec:hasBusinessSegment "Materials Group - approx. 69% of total net sales in 2024",
+        "Solutions Group - approx. 31% of total net sales in 2024" ;
+    sec:hasFacility "Over 200 manufacturing and distribution facilities in more than 50 countries" ;
+    sec:hasFilingPeriod "2024-12-28" ;
+    sec:hasKeyMetric "International operations represent approximately 70% of net sales in 2024" ;
+    sec:hasSECCIK "0000008818" ;
+    sec:hasSICCode "2670 - Converted Paper & Paperboard Products" ;
+    sec:hasSubsidiary "Dennison Manufacturing Company (acquired 1990)" ;
+    sec:hasSustainabilityProgram "Minimizing volatile organic compound emissions using water-based and hot-melt adhesives" ;
+    sec:hasTechnologyPlatform "RFID-based Intelligent Labels and software connecting physical and digital worlds" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:manufacturesProduct "Label materials, RFID inlays and tags, graphics and reflective materials, functional tapes" ;
+    sec:operatesInIndustry inst:industry_Global_materials_science_and_digital_identification_solutions ;
+    sec:servesCustomerSegment "Home/personal care, apparel, retail, e-commerce, logistics, food/grocery, pharma, automotive" .
+
+inst:0000008818_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "Avery Dennison Corp — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-based competitive wages; pay around market median with pay-for-performance philosophy" ;
+    sec:hasPayEquityMetric "Annual independent third-party pay equity evaluation with merit-based adjustments",
+        "Over 99% of employees paid above applicable legal minimum wage at year-end 2024" ;
+    sec:offersBenefit "Short-term/long-term incentives, healthcare, retirement, flexible work arrangements" .
+
+inst:0000008818_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "Avery Dennison Corp — DiversityEquityInclusion" ;
+    sec:hasEmployeeResourceGroup "Employee resource groups open to all team members for improving employee experience" .
+
+inst:0000008818_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "Avery Dennison Corp — EngagementAndRetention" ;
+    sec:hasEngagementScore "Annual global employee engagement survey on advanced platform since 2023 with year-over-year data" .
+
+inst:0000008818_Mission a sec:Mission ;
+    rdfs:label "Avery Dennison Corp — Mission" ;
+    sec:hasStrategicPriority "Innovation to accelerate growth, expand margins via material re-engineering, sustainability" ;
+    sec:hasVision "Lead at intersection of physical and digital worlds leveraging Materials and Solutions groups" .
+
+inst:0000008818_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "Avery Dennison Corp — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Global Recordable Incident Rate of 0.21 in 2024 vs. OSHA manufacturing avg of 2.8 in 2023" .
+
+inst:0000008818_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Avery Dennison Corp — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Robust talent review and succession planning with individually targeted development" ;
+    sec:hasTrainingProgram "Enterprise-wide competency model introduced in 2024 for talent development and succession" .
+
+inst:filing_0000008818_25_000003 a sec:Filing ;
+    rdfs:label "Filing 0000008818-25-000003" ;
+    sec:hasAccessionNumber "0000008818-25-000003" ;
+    sec:hasFilingDate "2025-02-26"^^xsd:date .
+
+inst:industry_Global_materials_science_and_digital_identification_solutions a sec:Industry ;
+    rdfs:label "Global materials science and digital identification solutions" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

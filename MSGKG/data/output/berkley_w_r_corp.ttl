@@ -1,0 +1,59 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000011544 a sec:Company ;
+    rdfs:label "BERKLEY W R CORP" ;
+    sec:hasDisclosure inst:0000011544_BusinessOperations,
+        inst:0000011544_CompensationAndBenefits,
+        inst:0000011544_CultureAndValues,
+        inst:0000011544_TrainingAndDevelopment ;
+    sec:hasFiling inst:filing_0000011544_25_000005 .
+
+inst:0000011544_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "BERKLEY W R CORP — BusinessOperations" ;
+    sec:foundedInYear "1970"^^xsd:gYear ;
+    sec:hasBusinessSegment "Insurance - commercial insurance including E&S, admitted and specialty personal lines",
+        "Reinsurance & Monoline Excess - facultative/treaty reinsurance and excess risk retention" ;
+    sec:hasCompetitiveDifferentiator "Decentralized operations close to customer base in niche markets with specialized knowledge" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasGovernanceStructure "58 distinct businesses overseen by senior corporate business and functional managers" ;
+    sec:hasKeyFinancialMetric "Insurance segment 88.1% of net premiums written; Reinsurance 11.9% in 2024" ;
+    sec:hasKeyMetric "58 businesses total; 51 developed internally, 7 acquired" ;
+    sec:hasMarketPosition "33 insurance subsidiaries rated A+ (Superior) by A.M. Best; 23 rated A+ by S&P",
+        "Moody's A1 rating for Berkley Insurance Co, Berkley Regional, Admiral Insurance Co" ;
+    sec:hasRevenue "Total net premiums written $11.97B in 2024 (Insurance $10.55B, Reinsurance $1.42B)" ;
+    sec:hasSECCIK "0000011544" ;
+    sec:hasSICCode "6331 - Fire, Marine & Casualty Insurance" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:isSubjectToRegulation "UK PRA and FCA regulation; Lloyd's supervision; FMA of Liechtenstein oversight" ;
+    sec:operatesInIndustry inst:industry_Property_casualty_insurance_among_largest_commercial_lines_writers_in_the_U_S ;
+    sec:operatesInRegion "U.S., Asia, Australia, Canada, Europe, Mexico, Scandinavia, South America, U.K." .
+
+inst:0000011544_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "BERKLEY W R CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Pay-for-performance philosophy connecting individual, business and company results" ;
+    sec:offersBenefit "Health/wellness, financial, educational, life management benefits; community service support" .
+
+inst:0000011544_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "BERKLEY W R CORP — CultureAndValues" ;
+    sec:hasCoreValue "Accountability, People Oriented Strategy, Responsible Financial Practices, Transparency" ;
+    sec:hasCulturalPillar "Specialized knowledge, customer-centric focus, integrity, entrepreneurship, innovation" .
+
+inst:0000011544_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "BERKLEY W R CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership programs cultivating high-potential, strong-performing employees" ;
+    sec:hasTrainingProgram "Formal and informal programs to build skills and thought leadership in business facets" .
+
+inst:filing_0000011544_25_000005 a sec:Filing ;
+    rdfs:label "Filing 0000011544-25-000005" ;
+    sec:hasAccessionNumber "0000011544-25-000005" ;
+    sec:hasFilingDate "2025-02-24"^^xsd:date .
+
+inst:industry_Property_casualty_insurance_among_largest_commercial_lines_writers_in_the_U_S a sec:Industry ;
+    rdfs:label "Property casualty insurance; among largest commercial lines writers in the U.S." .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

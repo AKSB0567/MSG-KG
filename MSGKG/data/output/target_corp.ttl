@@ -1,0 +1,77 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000027419 a sec:Company ;
+    rdfs:label "TARGET CORP" ;
+    sec:hasDisclosure inst:0000027419_BusinessOperations,
+        inst:0000027419_CompensationAndBenefits,
+        inst:0000027419_CultureAndValues,
+        inst:0000027419_EngagementAndRetention,
+        inst:0000027419_Mission,
+        inst:0000027419_SafetyAndHealth,
+        inst:0000027419_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000027419_25_000018 .
+
+inst:0000027419_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "TARGET CORP — BusinessOperations" ;
+    sec:competesWith "Department stores, off-price retailers, wholesale clubs, drug stores, supermarkets, DTC brands" ;
+    sec:foundedInYear "1902"^^xsd:gYear ;
+    sec:hasDistributionChannel "Stores and digital channels (website, mobile app); operates as single segment" ;
+    sec:hasFilingPeriod "20250201" ;
+    sec:hasGovernanceStructure "Board oversees HCM through Compensation and Human Capital Management Committee" ;
+    sec:hasIntellectualProperty "Principal trademarks: Target, 'Expect More. Pay Less.', Bullseye Design" ;
+    sec:hasKeyMetric "Approximately one-third of Merchandise Sales from owned and exclusive brands",
+        "Stores fulfill more than 96% of total Merchandise Sales in each of the last 3 years" ;
+    sec:hasRevenue "Net Sales of $106.6 billion in 2024 (52 weeks)" ;
+    sec:hasSECCIK "0000027419" ;
+    sec:hasSICCode "5331 - Retail-Variety Stores" ;
+    sec:hasSubsidiary "Shipt subsidiary (independent contractor delivery service)" ;
+    sec:hasSustainabilityProgram "Since 1946, given 5% of profit to communities" ;
+    sec:hasTechnologyPlatform "Roundel advertising business and Target Plus third-party digital marketplace",
+        "Target Circle loyalty ecosystem" ;
+    sec:incorporatedIn inst:jurisdiction_Minnesota ;
+    sec:operatesInIndustry inst:industry_Retail_variety_stores_general_merchandise_and_food_at_discounted_prices .
+
+inst:0000027419_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "TARGET CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Support financial, mental and physical well-being of team members and their families" ;
+    sec:hasPayEquityMetric "Regularly reviews pay data of U.S. team members to confirm equitable pay" ;
+    sec:offersBenefit "401(k) with dollar-for-dollar matching up to 5% of eligible earnings",
+        "Starting wage range of $15-$24/hour for U.S. hourly team members in stores and supply chain",
+        "Tuition-free education assistance, free mental health services, free virtual health care visits" .
+
+inst:0000027419_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "TARGET CORP — CultureAndValues" ;
+    sec:hasCulturalPillar "Creating a sense of belonging for all team members as essential to team and culture" .
+
+inst:0000027419_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "TARGET CORP — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Talent and succession planning process for strong pipeline for leadership and critical roles" .
+
+inst:0000027419_Mission a sec:Mission ;
+    rdfs:label "TARGET CORP — Mission" ;
+    sec:hasPurpose "To help all families discover the joy of everyday life" ;
+    sec:hasStrategicPriority "Delight with newness, style and value; strengthen owned brands and curate leading national brands",
+        "Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value" .
+
+inst:0000027419_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "TARGET CORP — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Comprehensive occupational injury- and illness-prevention program with team member training" .
+
+inst:0000027419_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "TARGET CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 440,000 full-time, part-time, and seasonal team members as of February 1, 2025" .
+
+inst:filing_0000027419_25_000018 a sec:Filing ;
+    rdfs:label "Filing 0000027419-25-000018" ;
+    sec:hasAccessionNumber "0000027419-25-000018" ;
+    sec:hasFilingDate "2025-03-12"^^xsd:date .
+
+inst:industry_Retail_variety_stores_general_merchandise_and_food_at_discounted_prices a sec:Industry ;
+    rdfs:label "Retail variety stores - general merchandise and food at discounted prices" .
+
+inst:jurisdiction_Minnesota a sec:Jurisdiction ;
+    rdfs:label "Minnesota" .
+

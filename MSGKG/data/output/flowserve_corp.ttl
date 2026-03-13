@@ -1,0 +1,75 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000030625 a sec:Company ;
+    rdfs:label "FLOWSERVE CORP" ;
+    sec:hasDisclosure inst:0000030625_BusinessOperations,
+        inst:0000030625_CompensationAndBenefits,
+        inst:0000030625_CultureAndValues,
+        inst:0000030625_Mission,
+        inst:0000030625_SafetyAndHealth,
+        inst:0000030625_TrainingAndDevelopment,
+        inst:0000030625_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000030625_25_000008 .
+
+inst:0000030625_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FLOWSERVE CORP — BusinessOperations" ;
+    sec:foundedInYear "1997"^^xsd:gYear ;
+    sec:hasBusinessSegment "Flow Control Division (FCD) - approximately 4,000 associates",
+        "Flowserve Pump Division (FPD) - approximately 9,000 associates" ;
+    sec:hasFacility "Global network of Quick Response Centers (QRCs) in approximately 50 countries" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasMarketPosition "World-leading manufacturer and aftermarket service provider of flow control systems" ;
+    sec:hasSECCIK "0000030625" ;
+    sec:hasSICCode "3561 - Pumps & Pumping Equipment" ;
+    sec:hasSustainabilityProgram "ESG program centered on three pillars: climate, culture and core responsibility",
+        "Flowserve Energy Advantage Program for carbon reduction and energy efficiency" ;
+    sec:hasTechnologyPlatform "RedRaven proprietary IIoT solution for equipment monitoring and predictive maintenance" ;
+    sec:incorporatedIn inst:jurisdiction_NY ;
+    sec:manufacturesProduct "Pumps, valves, seals, automation and aftermarket services" ;
+    sec:operatesInIndustry inst:industry_Flow_control_systems_manufacturing_and_aftermarket_services ;
+    sec:servesCustomerSegment "Oil and gas, chemical, power generation, nuclear, water management, general industrial" .
+
+inst:0000030625_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "FLOWSERVE CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-based compensation strategy providing competitive total target compensation" .
+
+inst:0000030625_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "FLOWSERVE CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "All associates and Board of Directors governed by Code of Conduct" ;
+    sec:hasCoreValue "People Excellence as core category of Flowserve Business System" .
+
+inst:0000030625_Mission a sec:Mission ;
+    rdfs:label "FLOWSERVE CORP — Mission" ;
+    sec:hasPurpose "Create extraordinary flow control solutions to make the world better for everyone" ;
+    sec:hasStrategicPriority "3D Strategy: Diversification, Decarbonization, and Digitization" .
+
+inst:0000030625_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "FLOWSERVE CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Global employee wellness program at no cost supporting health, job performance, well-being" ;
+    sec:hasSafetyMetric "Monitors incident rates, lost time rates, observations reported and training completions" ;
+    sec:hasSafetyProgram "Safety embedded as corporate value; employees empowered to identify and report concerns" .
+
+inst:0000030625_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "FLOWSERVE CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership in Motion (LIM) program focused on foundational leadership capabilities" ;
+    sec:hasTrainingProgram "On-the-job training, online learning, rotational programs, language learning, leadership development" .
+
+inst:0000030625_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "FLOWSERVE CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 16,000 associates globally as of December 31, 2024" ;
+    sec:hasWorkforceLocation "~5,000 North America, ~1,600 Latin America, ~5,600 EMEA, ~3,800 Asia Pacific" .
+
+inst:filing_0000030625_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000030625-25-000008" ;
+    sec:hasAccessionNumber "0000030625-25-000008" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Flow_control_systems_manufacturing_and_aftermarket_services a sec:Industry ;
+    rdfs:label "Flow control systems manufacturing and aftermarket services" .
+
+inst:jurisdiction_NY a sec:Jurisdiction ;
+    rdfs:label "NY" .
+

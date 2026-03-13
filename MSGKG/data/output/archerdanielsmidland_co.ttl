@@ -1,0 +1,97 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000007084 a sec:Company ;
+    rdfs:label "Archer-Daniels-Midland Co" ;
+    sec:hasDisclosure inst:0000007084_BusinessOperations,
+        inst:0000007084_CompensationAndBenefits,
+        inst:0000007084_CultureAndValues,
+        inst:0000007084_DiversityEquityInclusion,
+        inst:0000007084_EngagementAndRetention,
+        inst:0000007084_Mission,
+        inst:0000007084_SafetyAndHealth,
+        inst:0000007084_TrainingAndDevelopment,
+        inst:0000007084_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000007084_25_000011 .
+
+inst:0000007084_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Archer-Daniels-Midland Co — BusinessOperations" ;
+    sec:hasBusinessSegment "Ag Services and Oilseeds",
+        "Carbohydrate Solutions",
+        "Nutrition" ;
+    sec:hasCarbonCapture "Onsite carbon capture and storage facility" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Board-level Sustainability and Technology Committee; CSO reports to CEO and Board Chair" ;
+    sec:hasLogisticsNetwork "Integrated global network of elevators, trucks, railcars, barges, and ships" ;
+    sec:hasSECCIK "0000007084" ;
+    sec:hasSICCode "FATS & OILS [2070]" ;
+    sec:hasSustainabilityGoal "Goal to enroll 5 million regenerative agriculture acres by end of 2025",
+        "Increase low-carbon energy to 25% of total; reduce water withdrawal 10%; 90% landfill diversion by 2035",
+        "Strive 35: Reduce absolute Scope 1&2 GHG emissions by 25% by 2035 from 2019 baseline",
+        "Strive 35: Reduce absolute Scope 3 GHG emissions by 25% by 2035 from 2021 baseline" ;
+    sec:hasTechnologyPlatform "Precision fermentation expertise for lubricants, adhesives, home and personal care products" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:manufacturesProduct "Flour, oils, sweeteners, plant-based meat/dairy, probiotics, enzymes, supplements" ;
+    sec:operatesInIndustry inst:industry_Global_agricultural_supply_chain_management_processing_and_nutrition ;
+    sec:providesService "Human and animal nutrition with broadest portfolio of ingredients and solutions from nature" .
+
+inst:0000007084_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "Archer-Daniels-Midland Co — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-competitive pay with global rewards including base pay, STI, LTI equity, and PTO" ;
+    sec:offersBenefit "Global bonus plan with uniform enterprise metrics for all eligible employees" .
+
+inst:0000007084_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "Archer-Daniels-Midland Co — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Conduct establishing high standards of honesty and integrity for all colleagues" ;
+    sec:hasCoreValue "Integrity, respect, excellence, resourcefulness, teamwork, and responsibility" ;
+    sec:hasCulturalPillar "Inclusive culture with opportunities for all; global assignments for high-potential talent" .
+
+inst:0000007084_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "Archer-Daniels-Midland Co — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Annual Global Week of Understanding with keynotes, training, roundtables, and onsite activities" ;
+    sec:hasEmployeeResourceGroup "Voluntary employee-led ERGs for shared experiences, community building, and development" .
+
+inst:0000007084_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "Archer-Daniels-Midland Co — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Leadership Essentials for first-time/front-line leaders; early career programs for talent pipeline" .
+
+inst:0000007084_Mission a sec:Mission ;
+    rdfs:label "Archer-Daniels-Midland Co — Mission" ;
+    sec:hasMission "Essential global agricultural supply chain manager and processor providing food security" ;
+    sec:hasPurpose "Unlocks the power of nature to enrich the quality of life" .
+
+inst:0000007084_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "Archer-Daniels-Midland Co — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Approx. 76% of sites completed 2024 with zero injuries; 89% with no lost workday injuries",
+        "Lost Workday Incident Rate of 0.23 per 200,000 work hours in 2024",
+        "One colleague fatality and nine serious injuries in 2024; Decatur IL complex zero fatalities",
+        "Total Recordable Incident Rate of 0.68 per 200,000 work hours in 2024" ;
+    sec:hasSafetyProgram "Committed to safe and reliable culture; goal of zero fatalities" .
+
+inst:0000007084_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Archer-Daniels-Midland Co — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Ability to Lead program focusing on innovation, productivity, talent development, and coaching" ;
+    sec:hasTrainingMetric "All employees participate annually in required training and development" ;
+    sec:hasTrainingProgram "Ability to Connect Program cultivating business language skills for collaboration",
+        "LinkedIn Learning Platform with access to over 16,000 courses in 7 languages" .
+
+inst:0000007084_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Archer-Daniels-Midland Co — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 44,000 employees globally as of December 31, 2024 (44,043 total)" ;
+    sec:hasWorkforceDiversityMetric "74% male, 26% female overall; Executive Council: 69% male, 31% female",
+        "Full-time: 75% male, 25% female; Part-time: 40% male, 60% female" ;
+    sec:hasWorkforceLocation "NA: 21,420; EMEA: 11,183; South America: 8,288; Asia Pacific: 2,648; Central America/Caribbean: 504" .
+
+inst:filing_0000007084_25_000011 a sec:Filing ;
+    rdfs:label "Filing 0000007084-25-000011" ;
+    sec:hasAccessionNumber "0000007084-25-000011" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Global_agricultural_supply_chain_management_processing_and_nutrition a sec:Industry ;
+    rdfs:label "Global agricultural supply chain management, processing, and nutrition" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

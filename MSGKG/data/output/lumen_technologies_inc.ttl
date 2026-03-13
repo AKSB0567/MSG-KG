@@ -1,0 +1,83 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000018926 a sec:Company ;
+    rdfs:label "Lumen Technologies, Inc." ;
+    sec:hasDisclosure inst:0000018926_BusinessOperations,
+        inst:0000018926_CultureAndValues,
+        inst:0000018926_EngagementAndRetention,
+        inst:0000018926_Mission,
+        inst:0000018926_SafetyAndHealth,
+        inst:0000018926_TrainingAndDevelopment,
+        inst:0000018926_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000018926_25_000010 .
+
+inst:0000018926_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Lumen Technologies, Inc. — BusinessOperations" ;
+    sec:foundedInYear "1968"^^xsd:gYear ;
+    sec:hasBrand "Black Lotus Labs - cyberthreat research and intelligence arm",
+        "CenturyLink - mass-marketed copper-based communications services",
+        "Lumen - flagship brand for enterprise and wholesale markets",
+        "Quantum Fiber - fiber-based broadband for residential and small business customers" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Approximately 2.8% of 2024 consolidated revenue derived outside the U.S.",
+        "Received approx. $500 million annually through FCC Connect America Fund Phase II (2015-2021)",
+        "Total assets $33,496 million; total long-term debt $17,906 million as of Dec 31, 2024" ;
+    sec:hasKeyMetric "340,000 route miles of fiber optic cable globally",
+        "Approximately 163,000 fiber on-net buildings globally" ;
+    sec:hasRevenue "Operating revenue $13,108 million (2024); $14,557 million (2023)" ;
+    sec:hasSECCIK "0000018926" ;
+    sec:hasSICCode "4813 - Telephone Communications (No Radio Telephone)" ;
+    sec:hasSubsidiary "Level 3 Parent, LLC (indirect wholly-owned subsidiary)" ;
+    sec:hasTechnologyPlatform "Private Connectivity Fabric (PCF) network architecture" ;
+    sec:incorporatedIn inst:jurisdiction_Louisiana ;
+    sec:isSubjectToRegulation "FCC regulates interstate access charges, privacy, public safety and network infrastructure" ;
+    sec:operatesInIndustry inst:industry_Telecommunications_and_networking_services ;
+    sec:operatesInRegion "North America and Asia Pacific via terrestrial fiber optic long-haul network" ;
+    sec:providesService "Edge, Network-as-a-Service and cybersecurity services" ;
+    sec:servesCustomerSegment "Domestic and global Business customers and domestic Mass Markets customers" .
+
+inst:0000018926_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "Lumen Technologies, Inc. — CultureAndValues" ;
+    sec:hasCodeOfConduct "Lumen adheres to principles set forth in its Code of Conduct" ;
+    sec:hasCulturalPillar "Teamwork, trust, and transparency" .
+
+inst:0000018926_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "Lumen Technologies, Inc. — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Fostering internal mobility and career advancement opportunities" .
+
+inst:0000018926_Mission a sec:Mission ;
+    rdfs:label "Lumen Technologies, Inc. — Mission" ;
+    sec:hasMission "Unleashing the world's digital potential through integrated products and services" ;
+    sec:hasPurpose "Connecting people, data, and applications quickly, securely and effortlessly" .
+
+inst:0000018926_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "Lumen Technologies, Inc. — SafetyAndHealth" ;
+    sec:hasHealthProgram "Comprehensive suite of benefits for physical, mental, and emotional well-being" ;
+    sec:hasSafetyProgram "Investments in programs and training to support health and safety; strives to outperform industry average" .
+
+inst:0000018926_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Lumen Technologies, Inc. — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Suite of leadership development courses; developing strong leaders is a priority" ;
+    sec:hasTrainingProgram "Approximately 8,900 courses in learning management system, mostly Lumen-specific content" ;
+    sec:investsInEmployeeDevelopment "Over 150,000 resources on learning platform",
+        "Tuition reimbursement and tailored intern and mentoring programs" .
+
+inst:0000018926_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Lumen Technologies, Inc. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 25,000 employees world-wide, including approximately 3,400 outside the U.S." ;
+    sec:hasUnionRepresentation "Approximately 21% of U.S. workforce represented by CWA or IBEW unions" .
+
+inst:filing_0000018926_25_000010 a sec:Filing ;
+    rdfs:label "Filing 0000018926-25-000010" ;
+    sec:hasAccessionNumber "0000018926-25-000010" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Telecommunications_and_networking_services a sec:Industry ;
+    rdfs:label "Telecommunications and networking services" .
+
+inst:jurisdiction_Louisiana a sec:Jurisdiction ;
+    rdfs:label "Louisiana" .
+
