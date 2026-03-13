@@ -234,8 +234,8 @@
     "filing_date": "2025-02-13",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000005272&type=10-K",
     "overview": {
-      "mission": "",
-      "mission_source": "",
+      "mission": "Delivering exceptional client service, enhanced shareholder value and a better experience for all stakeholders, guided by values of ownership, quality, teamwork, inclusion and integrity.",
+      "mission_source": "text",
       "objectives": [],
       "capabilities": [
         "General Insurance"
@@ -248,9 +248,10 @@
         "nodes": 5,
         "edges": 4
       },
-      "mission_tier": 0,
-      "mission_confidence": 0,
-      "mission_evidence": ""
+      "mission_tier": 2,
+      "mission_confidence": 0.65,
+      "mission_evidence": "Unifying under our Purpose and Values empowers AIG colleagues to be conduits of positive change - delivering exceptional client service, enhanced shareholder value and a better experience for all stakeholders.",
+      "source_filename": "cleaned_10-K_0000005272-25-000012.txt"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -906,8 +907,8 @@
     "filing_date": "2025-02-11",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000021175&type=10-K",
     "overview": {
-      "mission": "",
-      "mission_source": "",
+      "mission": "To provide specialized commercial property and casualty insurance solutions, continually building on workforce expertise to deliver quality service and reflect the specialist nature of the business.",
+      "mission_source": "text",
       "objectives": [],
       "capabilities": [],
       "initiatives": [],
@@ -924,9 +925,10 @@
         "nodes": 11,
         "edges": 10
       },
-      "mission_tier": 0,
-      "mission_confidence": 0,
-      "mission_evidence": ""
+      "mission_tier": 3,
+      "mission_confidence": 0.4,
+      "mission_evidence": "We focus on attracting, developing and retaining top-tier talent to reflect the specialist nature of our business. We aim to continually build on the expertise of our workforce.",
+      "source_filename": "cleaned_10-K_0000021175-25-000008.txt"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -1046,8 +1048,8 @@
     "filing_date": "2025-02-24",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000028412&type=10-K",
     "overview": {
-      "mission": "",
-      "mission_source": "",
+      "mission": "To build long-term shareholder value through a relationship banking strategy, attracting, developing and retaining employees who drive financial and strategic growth across commercial, retail and wealth management segments.",
+      "mission_source": "text",
       "objectives": [],
       "capabilities": [],
       "initiatives": [],
@@ -1058,9 +1060,10 @@
         "nodes": 5,
         "edges": 4
       },
-      "mission_tier": 0,
-      "mission_confidence": 0,
-      "mission_evidence": ""
+      "mission_tier": 3,
+      "mission_confidence": 0.35,
+      "mission_evidence": "Comerica's relationship banking strategy relies heavily on the personal relationships and the quality of service provided by employees. Accordingly, Comerica aims to attract, develop and retain employees who can drive financial and strategic growth objectives and build long-term shareholder value.",
+      "source_filename": "cleaned_10-K_0000028412-25-000108.txt"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -2071,7 +2074,7 @@
     "filing_date": "2025-02-06",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000037996&type=10-K",
     "overview": {
-      "mission": "We provide warranties on.",
+      "mission": "We believe this empowers every person to do their best work and ultimately achieve the Ford+ plan.",
       "mission_source": "10k",
       "objectives": [],
       "capabilities": [
@@ -2086,9 +2089,9 @@
         "nodes": 5,
         "edges": 4
       },
-      "mission_tier": 3,
-      "mission_confidence": 0.42,
-      "mission_evidence": "We provide warranties on",
+      "mission_tier": 2,
+      "mission_confidence": 0.5,
+      "mission_evidence": "are committed to supporting and sustaining a respectful and inclusive workplace for all employees. We believe this empowers every person to do their best work and ultimately achieve the Ford+ plan. We actively recruit and hire the best talent and are proud that our workforce is made up of people with different backgrounds, perspectives, and experiences so we can deliver the best products and services for our customers around the world. Ford offers 10 global Employee Resource Groups (“ERGs”) tha",
       "source_filename": "cleaned_10-K_0000037996-25-000013.txt"
     },
     "scores": {
@@ -2287,7 +2290,7 @@
     "filing_date": "2025-02-03",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000040545&type=10-K",
     "overview": {
-      "mission": "ELECTRIC CO — Mission.",
+      "mission": "our purpose to invent the future of flight, lift people up and bring them home safely.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [],
@@ -2306,8 +2309,9 @@
         "edges": 11
       },
       "source_filename": "cleaned_10-K_0000040545-25-000015.txt",
-      "mission_tier": 3,
-      "mission_confidence": 0.3
+      "mission_tier": 2,
+      "mission_confidence": 0.5,
+      "mission_evidence": "ity roadmap. HUMAN CAPITAL. The strength and talent of our workforce are critical to the success of our purpose to invent the future of flight, lift people up and bring them home safely. We strive to attract, develop and retain a workforce that can deliver for our global customer base. The Company’s human capital management priorities are aligned to our business strategy and support the execution of operational results, financial results and the development of technologies that we believe will d"
     },
     "scores": {
       "Mission Clarity": 3,
@@ -2882,7 +2886,7 @@
     "filing_date": "2025-01-31",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000050863&type=10-K",
     "overview": {
-      "mission": "INTEL CORP — Mission.",
+      "mission": "our mission to deliver cutting-edge technology solutions to our customers.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [],
@@ -2901,10 +2905,10 @@
         "nodes": 13,
         "edges": 12
       },
-      "mission_evidence": "<SEC-DOCUMENT>0000050863-25-000009.txt : 20250131\n<SEC-HEADER>0000050863-25-000009.hdr.sgml : 20250131\n<ACCEPTANCE-DATETIME>20250131171351\nACCESSION NUMBER:\t\t0000050863-25-000009\nCONFORMED SUBMISSION TYPE:\t10-K\nPUBLIC DOCUMENT COUNT:\t\t144\nCONFORMED PERIOD OF REPORT:\t20241228\nFILED AS OF DATE:\t\t20250131\nDATE AS OF CHANGE:\t\t20250131\n\nFILER:\n\n\tCOMPANY DATA:\t\n\t\tCOMPANY CONFORMED NAME:\t\t\tINTEL CORP\n\t\tCENTRAL INDEX KEY:\t\t\t0000050863\n\t\tSTANDARD INDUSTRIAL CLASSIFICATION:\tSEMICONDUCTORS & RELATED DEVICES [3674]\n\t\tORGANIZATION NAME:           \t04 Manufacturing\n\t\tIRS NUMBER:\t\t\t\t941672743\n\t\tSTATE OF INCO",
+      "mission_evidence": "ufacturers. Supply Chain Our supply chain is a cornerstone of our success and a critical enabler of our mission to deliver cutting-edge technology solutions to our customers. Our global supply chain supports internal partners across architecture, product design, technology development, manufacturing and operations, and sales and marketing. It encompasses thousands of suppliers worldwide, forming a robust supply ecosystem designed to enable product and process competitiveness, deliver industry-le",
       "source_filename": "cleaned_10-K_0000050863-25-000009.txt",
-      "mission_tier": 3,
-      "mission_confidence": 0.3
+      "mission_tier": 2,
+      "mission_confidence": 0.5
     },
     "scores": {
       "Mission Clarity": 3,
@@ -3903,8 +3907,8 @@
     "filing_date": "2025-02-04",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000100790&type=10-K",
     "overview": {
-      "mission": "",
-      "mission_source": "kg",
+      "mission": "To produce and supply industrial chemicals and polymers that serve as essential materials for a wide range of industries worldwide.",
+      "mission_source": "inferred",
       "objectives": [],
       "capabilities": [
         "Technology Licensing and Catalysts including METEOR Process and LP OXO process",
@@ -3917,7 +3921,11 @@
       "kg_stats": {
         "nodes": 5,
         "edges": 4
-      }
+      },
+      "mission_tier": 3,
+      "mission_confidence": 0.25,
+      "mission_evidence": "Union Carbide Corporation is a wholly owned subsidiary of The Dow Chemical Company, producing industrial chemicals and polymers.",
+      "source_filename": "N/A"
     },
     "scores": {
       "Mission Clarity": 0,
@@ -3981,7 +3989,7 @@
     "filing_date": "2025-02-27",
     "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000005513&type=10-K",
     "overview": {
-      "mission": "Unum Group — Mission.",
+      "mission": "our mission and meeting our customers’ needs, we regularly conduct confidential employee surveys to obtain feedback and gain insights from our employees.",
       "mission_source": "kg",
       "objectives": [],
       "capabilities": [],
@@ -3999,10 +4007,10 @@
         "nodes": 11,
         "edges": 10
       },
-      "mission_evidence": "<SEC-DOCUMENT>0000005513-25-000015.txt : 20250227\n<SEC-HEADER>0000005513-25-000015.hdr.sgml : 20250227\n<ACCEPTANCE-DATETIME>20250227162559\nACCESSION NUMBER:\t\t0000005513-25-000015\nCONFORMED SUBMISSION TYPE:\t10-K\nPUBLIC DOCUMENT COUNT:\t\t162\nCONFORMED PERIOD OF REPORT:\t20241231\nFILED AS OF DATE:\t\t20250227\nDATE AS OF CHANGE:\t\t20250227\n\nFILER:\n\n\tCOMPANY DATA:\t\n\t\tCOMPANY CONFORMED NAME:\t\t\tUnum Group\n\t\tCENTRAL INDEX KEY:\t\t\t0000005513\n\t\tSTANDARD INDUSTRIAL CLASSIFICATION:\tACCIDENT & HEALTH INSURANCE [6321]\n\t\tORGANIZATION NAME:           \t02 Finance\n\t\tIRS NUMBER:\t\t\t\t621598430\n\t\tSTATE OF INCORPORATION:",
+      "mission_evidence": "programs. Employee Engagement To ensure our employees are engaged and are effectively delivering on our mission and meeting our customers’ needs, we regularly conduct confidential employee surveys to obtain feedback and gain insights from our employees. These surveys are thoughtfully considered and actioned by leadership. We are committed to our employees’ growth and development and embrace the diversity of ideas for improvement. 19 Table of Contents Available Information Our internet website ad",
       "source_filename": "cleaned_10-K_0000005513-25-000015.txt",
-      "mission_tier": 3,
-      "mission_confidence": 0.3
+      "mission_tier": 2,
+      "mission_confidence": 0.5
     },
     "scores": {
       "Mission Clarity": 3,
