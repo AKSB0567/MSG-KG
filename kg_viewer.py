@@ -17,16 +17,46 @@ def render_kg_viewer(company, load_kg_graph_fn, clean_display_text_fn,
 
     G = load_kg_graph_fn()
 
-    # Find company node using multiple naming patterns (TTL + CSV)
+    # Find company node using multiple naming patterns (TTL + CSV + registry name)
     company_node = None
-    candidates = [f"Company_{company}", f"Company:{company}", company.upper(), company]
+    candidates = [
+        f"company_{company}", f"Company_{company}", f"Company:{company}",
+        company.upper(), company.lower(), company,
+    ]
+
+    # Also try looking up the company name from the registry JSON
+    try:
+        import json, pathlib
+        reg_path = pathlib.Path(__file__).parent / "companies_registry.json"
+        if reg_path.exists():
+            with open(reg_path, encoding="utf-8") as f:
+                reg = json.load(f)
+            if company in reg:
+                name = reg[company].get("name", "")
+                if name:
+                    candidates.extend([
+                        f"Company_{name}", f"Company:{name}",
+                        name.upper(), name,
+                        f"Company_{name.upper()}", f"Company:{name.upper()}",
+                    ])
+    except Exception:
+        pass
+
     for c in candidates:
         if c in G:
             if company_node is None or G.out_degree(c) > G.out_degree(company_node):
                 company_node = c
 
     if company_node is None:
-        st.warning(f"No KG data found for {company}. Run `python kg_builder.py` first.")
+        # Last resort: search all nodes for partial match
+        for node in G.nodes():
+            node_str = str(node)
+            if company in node_str and "Company" in node_str:
+                company_node = node
+                break
+
+    if company_node is None:
+        st.warning(f"No KG data found for {company}. Try a different company or run `python kg_builder.py`.")
         return
 
     # Also find secondary company nodes to merge subgraphs
@@ -44,14 +74,36 @@ def render_kg_viewer(company, load_kg_graph_fn, clean_display_text_fn,
 
     # All circles, different colors only
     node_colors = {
-        "Company":            "#2962a8",
-        "Mission":            "#e74c3c",
-        "StrategicObjective": "#27ae60",
-        "Capability":         "#f39c12",
-        "Initiative":         "#8e44ad",
-        "RiskTheme":          "#e67e22",
-        "FinancialMetric":    "#3498db",
-        "HumanCapitalMetric": "#1abc9c",
+        "Company":                "#e74c3c",   # Red
+        "Mission":                "#2ecc71",   # Green
+        "Vision":                 "#27ae60",   # Dark green
+        "StrategicObjective":     "#27ae60",   # Green
+        "Capability":             "#f39c12",   # Orange
+        "Initiative":             "#8e44ad",   # Purple
+        "RiskTheme":              "#e67e22",   # Dark orange
+        "FinancialMetric":        "#3498db",   # Blue
+        "HumanCapitalMetric":     "#1abc9c",   # Teal
+        "WorkforceComposition":   "#16a085",   # Dark teal
+        "CompensationAndBenefits":"#2980b9",   # Strong blue
+        "TrainingAndDevelopment": "#8e44ad",   # Purple
+        "CultureAndValues":      "#e91e63",   # Pink
+        "SafetyAndHealth":        "#ff5722",   # Deep orange
+        "EngagementAndRetention": "#9c27b0",   # Deep purple
+        "DiversityEquityInclusion":"#00bcd4",  # Cyan
+        "BusinessOperations":     "#ff9800",   # Amber
+        "Filing":                 "#607d8b",   # Blue grey
+        "Industry":               "#795548",   # Brown
+        "BusinessSegment":        "#ff6f00",   # Amber dark
+        "GeographicRegion":       "#4caf50",   # Light green
+        "Location":               "#009688",   # Teal
+        "Jurisdiction":           "#5c6bc0",   # Indigo
+        "Product":                "#ef5350",   # Red light
+        "ExecutiveOfficer":       "#ab47bc",   # Purple light
+        "Subsidiary":             "#ec407a",   # Pink
+        "Regulation":             "#42a5f5",   # Blue light
+        "Class":                  "#78909c",   # Blue grey light
+        "Property":               "#90a4ae",   # Blue grey lighter
+        "Ontology":               "#b0bec5",   # Grey
     }
 
     node_sizes = {

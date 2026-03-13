@@ -263,9 +263,22 @@ def _build_kg_from_ttl(G: nx.DiGraph, filepath: pathlib.Path, source: str = ""):
             if pred_name in ("companyName", "description", "label", "comment",
                             "riskDescription", "initiativeDescription",
                             "objectiveDescription", "metricDescription",
-                            "metricName", "riskName", "initiativeName"):
-                G.nodes[subj_name]["text"] = val
-                G.nodes[subj_name]["name"] = val
+                            "metricName", "riskName", "initiativeName",
+                            # sec: ontology descriptive predicates
+                            "hasMission", "hasVision", "hasStrategicPriority",
+                            "hasCoreValue", "hasCompensationPhilosophy",
+                            "hasDEIProgram", "hasEmployeeResourceGroup",
+                            "hasEngagementScore", "hasTrainingProgram",
+                            "investsInEmployeeDevelopment", "hasEmployeeCount",
+                            "offersBenefit", "hasMarketPosition",
+                            "hasBusinessSegment", "providesService",
+                            "manufacturesProduct"):
+                if not G.nodes[subj_name].get("text"):
+                    G.nodes[subj_name]["text"] = val
+                    G.nodes[subj_name]["name"] = val
+                else:
+                    # Append for multi-valued properties
+                    G.nodes[subj_name]["text"] += "; " + val
         else:
             # Object property: add directed edge
             obj_name = _local_name(obj)
@@ -286,10 +299,47 @@ def load_kg() -> nx.DiGraph:
     if _kg_graph is not None:
         return _kg_graph
 
+    import pickle, time
+    cache_path = KG_DIR / "_kg_cache.pkl"
+
+    # Check if cache is valid (newer than all TTL files)
+    cache_valid = False
+    if cache_path.exists():
+        cache_mtime = cache_path.stat().st_mtime
+        cache_valid = True
+        # Check msg: ontology TTLs
+        for fname in ["kg1.ttl", "AMD.ttl", "ALX.ttl", "LNG.ttl"]:
+            fpath = KG_DIR / fname
+            if fpath.exists() and fpath.stat().st_mtime > cache_mtime:
+                cache_valid = False
+                break
+        # Check output TTLs
+        output_dir = KG_DIR / "data" / "output"
+        if cache_valid and output_dir.exists():
+            for ttl_file in output_dir.glob("*.ttl"):
+                if ttl_file.stat().st_mtime > cache_mtime:
+                    cache_valid = False
+                    break
+
+    # Fast path: load from cache
+    if cache_valid:
+        try:
+            t0 = time.time()
+            with open(cache_path, "rb") as f:
+                G = pickle.load(f)
+            _kg_graph = G
+            print(f"[OK] KG loaded from cache: {G.number_of_nodes()} nodes, "
+                  f"{G.number_of_edges()} edges ({time.time()-t0:.1f}s)")
+            return G
+        except Exception:
+            pass  # Fall through to full parse
+
+    # Slow path: parse all TTL files
+    t0 = time.time()
     G = nx.DiGraph()
     loaded_ttl = False
 
-    # Primary: Load from TTL files
+    # Primary: Load from TTL files (msg: ontology)
     ttl_files = [
         ("kg1.ttl", "kg1"),
         ("AMD.ttl", "AMD"),
@@ -305,6 +355,31 @@ def load_kg() -> nx.DiGraph:
                 loaded_ttl = True
             except Exception as e:
                 print(f"[WARN] Failed to parse {fname}: {e}")
+
+    # Also load sec: ontology output TTLs (richer HCM data, business operations)
+    output_dir = KG_DIR / "data" / "output"
+    if output_dir.exists():
+        sec_ttl_map = {
+            "advanced_micro_devices_inc.ttl": "AMD_sec",
+            "alexanders_inc.ttl": "ALX_sec",
+            "cheniere_energy_inc.ttl": "LNG_sec",
+        }
+        for ttl_file in sorted(output_dir.glob("*.ttl")):
+            source_name = sec_ttl_map.get(ttl_file.name, ttl_file.stem)
+            try:
+                _build_kg_from_ttl(G, ttl_file, source=source_name)
+                loaded_ttl = True
+            except Exception as e:
+                print(f"[WARN] Failed to parse output/{ttl_file.name}: {e}")
+
+    # Save cache for fast reload
+    if loaded_ttl:
+        try:
+            with open(cache_path, "wb") as f:
+                pickle.dump(G, f)
+            print(f"[OK] KG cache saved ({time.time()-t0:.1f}s)")
+        except Exception as e:
+            print(f"[WARN] Failed to save KG cache: {e}")
 
     # Fallback: Load from CSV if no TTL files worked
     if not loaded_ttl:
@@ -329,6 +404,54 @@ def load_kg() -> nx.DiGraph:
     _kg_graph = G
     print(f"[OK] KG loaded: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
     return G
+
+
+# ── Company Discovery ──────────────────────────────────────────────────
+
+def discover_companies() -> dict:
+    """
+    Auto-discover all companies from the loaded KG.
+    Returns dict keyed by CIK: {name, cik, industry, filing_id, ttl_file, ...}
+    """
+    G = load_kg()
+    companies = {}
+
+    for node in G.nodes():
+        node_str = str(node)
+        data = G.nodes[node]
+
+        # Look for sec:Company nodes (from output TTLs): company_0000002488
+        if data.get(":LABEL") == "Company" and node_str.startswith("company_"):
+            cik = node_str.replace("company_", "")
+            name = data.get("label", data.get("text", node_str))
+
+            # Get business ops node for industry info
+            industry = ""
+            filing_id = ""
+            filing_date = ""
+            for nb in G.neighbors(node_str):
+                nb_label = G.nodes[nb].get(":LABEL", "")
+                if nb_label == "BusinessOperations":
+                    sic = G.nodes[nb].get("hasSICCode", "")
+                    industry = sic.split("[")[0].strip() if "[" in sic else sic
+                    if not industry:
+                        industry = G.nodes[nb].get("operatesInIndustry", "")
+                elif nb_label == "Filing":
+                    filing_id = G.nodes[nb].get("hasAccessionNumber", "")
+                    filing_date = G.nodes[nb].get("hasFilingDate", "")
+
+            if name and name != node_str:
+                companies[cik] = {
+                    "name": name,
+                    "cik": cik,
+                    "industry": industry or "Unknown",
+                    "filing_id": filing_id,
+                    "filing_date": filing_date,
+                    "fiscal_year": "2024",
+                    "sec_link": f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={cik}&type=10-K",
+                }
+
+    return dict(sorted(companies.items(), key=lambda x: x[1]["name"]))
 
 
 # ── Graph RAG: Entity Linking + Subgraph Extraction ────────────────────
@@ -373,14 +496,25 @@ def _extract_query_entities(query: str) -> list[str]:
 
 
 def _find_company_nodes(G: nx.DiGraph, company: str) -> list[str]:
-    """Find all KG nodes representing a company, sorted by connectivity (most edges first)."""
+    """Find all KG nodes representing a company, sorted by connectivity (most edges first).
+    
+    Args:
+        company: Can be a ticker (AMD), CIK (0000002488), or company name.
+    """
+    # If company looks like a CIK (all digits potentially with leading zeros)
+    is_cik = company.replace("0", "").isdigit() and len(company) >= 7
+
     candidates = [
-        f"Company_{company}",          # TTL: inst:Company_AMD -> Company_AMD
-        f"Company:{company}",           # Legacy CSV format
-        company.upper(),                # Direct ticker
-        company,                        # As-is
+        f"Company_{company}",             # msg: ontology (Company_AMD)
+        f"Company:{company}",              # Legacy CSV format
+        company.upper(),                   # Direct ticker (AMD)
+        company,                           # As-is
     ]
     
+    # If it's a CIK, add the sec: ontology pattern
+    if is_cik:
+        candidates.append(f"company_{company}")   # sec: ontology (company_0000002488)
+
     found = []
     for node in G.nodes():
         node_str = str(node)
@@ -388,7 +522,17 @@ def _find_company_nodes(G: nx.DiGraph, company: str) -> list[str]:
             found.append(node_str)
         elif node_str.endswith(f"_{company}") and G.nodes[node].get(":LABEL") == "Company":
             found.append(node_str)
-    
+        # Match CIK-based company node
+        elif is_cik and company in node_str and G.nodes[node].get(":LABEL") == "Company":
+            found.append(node_str)
+        # Match by rdfs:label text (case-insensitive)
+        elif G.nodes[node].get(":LABEL") == "Company":
+            label = G.nodes[node].get("label", "")
+            if label and company.lower() in label.lower():
+                found.append(node_str)
+
+    # Deduplicate
+    found = list(dict.fromkeys(found))
     # Sort by out_degree descending so richest node (from company TTL) comes first
     found.sort(key=lambda n: G.out_degree(n), reverse=True)
     return found
@@ -800,18 +944,50 @@ def get_company_overview(company: str) -> dict:
             # usesEngagementTool, supportsGroup as HCM predicates
             rel_lower = relation.lower()
             node_lower = str(neighbor).lower()
+            label_lower = label.lower()
             is_hcm = (
                 "humancapital" in rel_lower or
                 "talent" in rel_lower or
                 "workforce" in rel_lower or
                 "engagement" in rel_lower or
-                "compensation" in rel_lower and "philosophy" in rel_lower
+                ("compensation" in rel_lower and "philosophy" in rel_lower)
+            )
+            # sec: ontology HCM types
+            is_sec_hcm = label_lower in (
+                "compensationandbenefits", "cultureandvalues",
+                "diversityequityinclusion", "engagementandretention",
+                "traininganddevelopment", "workforcecomposition",
+                "healthandsafety", "laborrelations",
             )
 
-            if is_hcm:
+            if is_hcm or is_sec_hcm:
                 overview["hcm_metrics"].append(text)
-            elif "Mission" in label:
+            elif label_lower in ("mission",) or relation == "hasMission":
+                # sec: Mission node — extract mission text from attributes
+                mission_text = G.nodes[neighbor].get("hasMission", "") or text
+                if mission_text:
+                    overview["mission"] = mission_text
+                # Also check for vision
+                vision = G.nodes[neighbor].get("hasVision", "")
+                if vision:
+                    overview["objectives"].append(f"Vision: {vision}")
+                # Strategic priorities from Mission node
+                priorities = G.nodes[neighbor].get("hasStrategicPriority", "")
+                if priorities:
+                    for p in priorities.split("; "):
+                        if p.strip():
+                            overview["objectives"].append(p.strip())
+            elif "Mission" in label and "Mission" not in label_lower.replace("mission", ""):
                 overview["mission"] = text
+            elif label_lower == "businessoperations":
+                # sec: BusinessOperations → extract capabilities from attributes
+                for attr in ("hasBusinessSegment", "providesService",
+                            "manufacturesProduct", "hasMarketPosition"):
+                    val = G.nodes[neighbor].get(attr, "")
+                    if val:
+                        for part in val.split("; "):
+                            if part.strip():
+                                overview["capabilities"].append(part.strip())
             elif "StrategicObjective" in label or "Strategy" in label:
                 overview["objectives"].append(text)
             elif "Capability" in label:
@@ -822,8 +998,9 @@ def get_company_overview(company: str) -> dict:
                 overview["risks"].append(text)
             elif "HumanCapital" in label:
                 overview["hcm_metrics"].append(text)
-            elif "Financial" in label:
-                overview["financial_metrics"].append(text)
+            elif "Financial" in label or label_lower == "filing":
+                if label_lower != "filing":  # Skip Filing metadata
+                    overview["financial_metrics"].append(text)
 
             # 2nd hop
             for n2 in G.neighbors(neighbor):
