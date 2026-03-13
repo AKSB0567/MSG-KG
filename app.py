@@ -868,43 +868,52 @@ with tab3:
         # Heatmap
         st.markdown("#### Heatmap: Mission Statement Quality")
 
-        dims = EVAL_DIMENSIONS
+        dims = [d for d in EVAL_DIMENSIONS if d in df.columns]
 
         try:
             import plotly.graph_objects as go
 
-            heatmap_data = df[dims].values
-            company_labels = [n[:30] for n in df["name"]]
+            if dims:
+                heatmap_data = df[dims].values.tolist()
+                company_labels = [str(n)[:30] for n in df["name"]]
 
-            fig = go.Figure(data=go.Heatmap(
-                z=heatmap_data,
-                x=dims,
-                y=company_labels,
-                colorscale=[
-                    [0.0, "#B71C1C"],   # Missing (red)
-                    [0.2, "#E65100"],    # Weak (orange)
-                    [0.4, "#F57F17"],    # Adequate (yellow)
-                    [0.6, "#F57F17"],
-                    [0.8, "#2E7D32"],    # Strong (green)
-                    [1.0, "#1B5E20"],    # Outstanding (dark green)
-                ],
-                zmin=0, zmax=4,
-                text=heatmap_data,
-                texttemplate="%{text:.0f}",
-                textfont={"size": 10},
-                hovertemplate="<b>%{y}</b><br>%{x}: %{z}/4<extra></extra>",
-            ))
+                fig = go.Figure(data=go.Heatmap(
+                    z=heatmap_data,
+                    x=dims,
+                    y=company_labels,
+                    colorscale=[
+                        [0.0, "#B71C1C"],   # Missing (red)
+                        [0.2, "#E65100"],    # Weak (orange)
+                        [0.4, "#F57F17"],    # Adequate (yellow)
+                        [0.6, "#F57F17"],
+                        [0.8, "#2E7D32"],    # Strong (green)
+                        [1.0, "#1B5E20"],    # Outstanding (dark green)
+                    ],
+                    zmin=0, zmax=4,
+                    text=heatmap_data,
+                    texttemplate="%{text:.0f}",
+                    textfont={"size": 10},
+                    hovertemplate="<b>%{y}</b><br>%{x}: %{z}/4<extra></extra>",
+                ))
 
-            fig.update_layout(
-                height=max(400, len(df) * 28 + 100),
-                margin=dict(l=200, r=30, t=40, b=80),
-                xaxis=dict(side="top", tickangle=-35, tickfont=dict(size=11)),
-                yaxis=dict(autorange="reversed", tickfont=dict(size=10)),
-                font=dict(family="Segoe UI, sans-serif"),
-            )
-            st.plotly_chart(fig, use_container_width=True)
+                fig.update_layout(
+                    height=max(400, len(df) * 28 + 100),
+                    margin=dict(l=200, r=30, t=40, b=80),
+                    xaxis=dict(side="top", tickangle=-35, tickfont=dict(size=11)),
+                    yaxis=dict(autorange="reversed", tickfont=dict(size=10)),
+                    font=dict(family="Arial, sans-serif"),
+                )
+                st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.warning("Dimension columns not found in evaluation data.")
         except ImportError:
-            st.warning("Plotly not available. Showing table instead.")
+            st.warning("Plotly not available.")
+
+        # Table fallback
+        display_cols = ["name", "overall", "overall_label"] + dims
+        display_cols = [c for c in display_cols if c in df.columns]
+        with st.expander("View as Table"):
+            st.dataframe(df[display_cols], use_container_width=True, hide_index=True)
 
         # Summary statistics
         st.markdown("#### Portfolio Distribution")
