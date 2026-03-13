@@ -526,26 +526,14 @@ with col_filters:
     st.markdown("### Company")
     st.markdown("---")
 
-    # Company dropdown first — numbered list
     all_sorted = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
     company = st.selectbox("Company", all_sorted,
                            format_func=lambda c: f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
                            label_visibility="collapsed")
 
-    # Sector filter below
-    sectors = sorted(set(COMPANIES[c]["sector"] for c in COMPANIES))
-    sel_sector = st.selectbox("Filter by Sector", ["All Sectors"] + sectors,
-                              label_visibility="visible")
-    if sel_sector != "All Sectors":
-        available = sorted(
-            [c for c in COMPANIES if COMPANIES[c]["sector"] == sel_sector],
-            key=lambda c: COMPANIES[c]["name"])
-        company = st.selectbox("Filtered Company", available,
-                               format_func=lambda c: f"{available.index(c)+1} - {COMPANIES[c]['name']}",
-                               label_visibility="collapsed")
-
     meta = COMPANIES[company]
-    st.info(f"{meta['fiscal_year']}  |  {meta['sector'][:30]}")
+    st.caption(f"Sector: {meta['sector']}")
+    st.info(f"{meta['fiscal_year']}")
 
     # All SEC dates
     st.markdown("#### Filing Dates")
