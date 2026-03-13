@@ -619,21 +619,21 @@ with tab1:
     tier_labels = {1: "Tier 1 — Explicit", 2: "Tier 2 — Implied", 3: "Tier 3 — Inferred", 0: "N/A"}
     tier_colors = {1: "#2E7D32", 2: "#E65100", 3: "#F57F17", 0: "#999"}
 
-    if txt_file:
-        t_label = tier_labels.get(mission_tier, "N/A")
-        t_color = tier_colors.get(mission_tier, "#999")
-        st.markdown(f"""
-        <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:8px;
-             padding:10px 14px; margin-bottom:12px; display:flex; gap:20px; align-items:center;
-             flex-wrap:wrap;">
-            <span style="font-size:0.82rem; color:#555;">
-                <strong>Source:</strong> {txt_file.name}</span>
-            <span style="background:{t_color}; color:white; padding:2px 10px;
-                  border-radius:10px; font-size:0.78rem; font-weight:600;">{t_label}</span>
-            <span style="font-size:0.82rem; color:#555;">
-                <strong>Confidence:</strong> {mission_conf:.0%}</span>
-        </div>
-        """, unsafe_allow_html=True)
+    t_label = tier_labels.get(mission_tier, "N/A")
+    t_color = tier_colors.get(mission_tier, "#999")
+    source_name = txt_file.name if txt_file else overview.get("filing_id", "Registry")
+    st.markdown(f"""
+    <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:8px;
+         padding:10px 14px; margin-bottom:12px; display:flex; gap:20px; align-items:center;
+         flex-wrap:wrap;">
+        <span style="font-size:0.82rem; color:#555;">
+            <strong>Source:</strong> {source_name}</span>
+        <span style="background:{t_color}; color:white; padding:2px 10px;
+              border-radius:10px; font-size:0.78rem; font-weight:600;">{t_label}</span>
+        <span style="font-size:0.82rem; color:#555;">
+            <strong>Confidence:</strong> {mission_conf:.0%}</span>
+    </div>
+    """, unsafe_allow_html=True)
 
     # ── Find mission text in 10-K regardless of source ──
     # For KG-sourced missions, we still search the 10-K for supporting evidence
@@ -698,24 +698,24 @@ with tab1:
     elif mission:
         st.info("Could not locate mission evidence in the 10-K text file.")
 
-    # Additional supporting evidence from filing
-    st.markdown("##### Additional Supporting Passages")
-
-    evidence = find_mission_evidence(company, mission)
-    if evidence:
-        for i, ev in enumerate(evidence[:5]):
-            highlighted = highlight_mission_in_text(ev["text"][:600], mission)
-            relevance_pct = int(ev["relevance"] * 100)
-            st.markdown(f"""
-            <div style="background:#FAFAFA; border:1px solid #E0E0E0; border-radius:8px;
-                 padding:12px; margin-bottom:8px;">
-                <div style="font-size:0.75rem; color:#888; margin-bottom:6px;">
-                    {ev['section']} | Relevance: {relevance_pct}% | {ev['chunk_id']}</div>
-                <div style="font-size:0.88rem; line-height:1.6;">{highlighted}</div>
-            </div>
-            """, unsafe_allow_html=True)
-    else:
-        st.caption("No additional supporting passages found in the filing.")
+    # Additional supporting evidence from filing (only when 10-K files available)
+    if txt_file:
+        st.markdown("##### Additional Supporting Passages")
+        evidence = find_mission_evidence(company, mission)
+        if evidence:
+            for i, ev in enumerate(evidence[:5]):
+                highlighted = highlight_mission_in_text(ev["text"][:600], mission)
+                relevance_pct = int(ev["relevance"] * 100)
+                st.markdown(f"""
+                <div style="background:#FAFAFA; border:1px solid #E0E0E0; border-radius:8px;
+                     padding:12px; margin-bottom:8px;">
+                    <div style="font-size:0.75rem; color:#888; margin-bottom:6px;">
+                        {ev['section']} | Relevance: {relevance_pct}% | {ev['chunk_id']}</div>
+                    <div style="font-size:0.88rem; line-height:1.6;">{highlighted}</div>
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            st.caption("No additional supporting passages found in the filing.")
 
     # Raw source text expander
     if txt_file and mission:
