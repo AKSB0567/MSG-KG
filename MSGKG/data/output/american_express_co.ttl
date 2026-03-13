@@ -1,0 +1,64 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000004962 a sec:Company ;
+    rdfs:label "AMERICAN EXPRESS CO" ;
+    sec:hasDisclosure inst:0000004962_BusinessOperations,
+        inst:0000004962_CompensationAndBenefits,
+        inst:0000004962_EngagementAndRetention,
+        inst:0000004962_SafetyAndHealth,
+        inst:0000004962_TrainingAndDevelopment ;
+    sec:hasFiling inst:filing_0000004962_25_000016 .
+
+inst:0000004962_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "AMERICAN EXPRESS CO — BusinessOperations" ;
+    sec:foundedInYear "1850"^^xsd:gYear ;
+    sec:hasBrand "Membership Rewards and Amex Offers loyalty programs" ;
+    sec:hasBusinessSegment "U.S. Consumer Services (USCS), Commercial Services (CS), International Card Services (ICS), GMNS" ;
+    sec:hasCompetitiveDifferentiator "End-to-end integrated payments platform with direct relationships with Card Members and merchants" ;
+    sec:hasCompetitiveRisk "Dynamic growth of alternative payment mechanisms including digital wallets, BNPL, fintech, digital currencies" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasMarketPosition "Leader in providing general purpose credit and charge cards to consumers and businesses" ;
+    sec:hasSECCIK "0000004962" ;
+    sec:hasSICCode "FINANCE SERVICES [6199]" ;
+    sec:hasSubsidiary "American Express Travel Related Services Company, Inc. (TRS), principal operating subsidiary" ;
+    sec:hasTechnologyPlatform "Integrated payments platform providing data analytics, fraud reduction, and risk underwriting" ;
+    sec:incorporatedIn inst:jurisdiction_New_York ;
+    sec:isSubjectToRegulation "AENB subject to OCC recovery planning guidelines for banks with $100B+ total consolidated assets",
+        "Bank holding company subject to supervision by Federal Reserve under BHC Act" ;
+    sec:operatesInIndustry inst:industry_Globally_integrated_payments_company_with_card_issuing_merchant_acquiring_and_c ;
+    sec:providesService "Credit card, charge card, banking, payment, merchant acquisition, travel and lifestyle services" ;
+    sec:servesCustomerSegment "Premium consumers, small businesses, mid-sized companies and large corporations globally" .
+
+inst:0000004962_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "AMERICAN EXPRESS CO — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Annual pay equity review conducted since 2017 assessing pay on statistical basis",
+        "Competitive compensation with holistic approach to physical, financial and mental well-being" ;
+    sec:hasPayEquityMetric "Maintained 100% pay equity in 2024 across genders globally and races/ethnicities in U.S." ;
+    sec:offersBenefit "Career coaching, mentoring, professional networking, rotation opportunities, on-demand and classroom courses" .
+
+inst:0000004962_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "AMERICAN EXPRESS CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "90% of colleagues in 2024 survey said they would recommend American Express as great place to work" .
+
+inst:0000004962_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "AMERICAN EXPRESS CO — SafetyAndHealth" ;
+    sec:hasHealthProgram "Smart Saving financial well-being, Healthy Living wellness, Healthy Minds mental health programs" .
+
+inst:0000004962_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "AMERICAN EXPRESS CO — TrainingAndDevelopment" ;
+    sec:investsInEmployeeDevelopment "Wide range of learning and development opportunities with competitive benefits" .
+
+inst:filing_0000004962_25_000016 a sec:Filing ;
+    rdfs:label "Filing 0000004962-25-000016" ;
+    sec:hasAccessionNumber "0000004962-25-000016" ;
+    sec:hasFilingDate "2025-02-07"^^xsd:date .
+
+inst:industry_Globally_integrated_payments_company_with_card_issuing_merchant_acquiring_and_c a sec:Industry ;
+    rdfs:label "Globally integrated payments company with card-issuing, merchant-acquiring and card network businesses" .
+
+inst:jurisdiction_New_York a sec:Jurisdiction ;
+    rdfs:label "New York" .
+

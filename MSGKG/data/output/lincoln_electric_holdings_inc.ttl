@@ -1,0 +1,79 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000059527 a sec:Company ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC" ;
+    sec:hasDisclosure inst:0000059527_BusinessOperations,
+        inst:0000059527_CompensationAndBenefits,
+        inst:0000059527_CultureAndValues,
+        inst:0000059527_DiversityEquityInclusion,
+        inst:0000059527_EngagementAndRetention,
+        inst:0000059527_SafetyAndHealth,
+        inst:0000059527_TrainingAndDevelopment,
+        inst:0000059527_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000059527_25_000006 .
+
+inst:0000059527_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — BusinessOperations" ;
+    sec:foundedInYear "1895"^^xsd:gYear ;
+    sec:hasBusinessSegment "Americas Welding (welding operations in North and South America)",
+        "International Welding (welding operations in Europe, Africa, Asia and Australia)",
+        "The Harris Products Group (global cutting, soldering, brazing, specialty gas equipment, US retail)" ;
+    sec:hasDistributionChannel "Industrial distributors, retailers, and direct sales to OEMs, manufacturers and integrators" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasMarketPosition "Leading global position in brazing and soldering alloys",
+        "World leader in design, development and manufacture of arc welding solutions" ;
+    sec:hasSECCIK "0000059527" ;
+    sec:hasSICCode "3540" ;
+    sec:incorporatedIn inst:jurisdiction_OH ;
+    sec:manufacturesProduct "Arc welding consumables, equipment, plasma and oxyfuel cutting systems, wire feeding systems, fume control equipment",
+        "Automated solutions for joining, cutting, material handling, module assembly, and end of line testing" ;
+    sec:operatesInIndustry inst:industry_Metalworking_machinery_and_equipment_arc_welding_solutions ;
+    sec:operatesInRegion "US, Australia, Austria, Brazil, Canada, China, Colombia, Denmark, France, Germany, India, Italy, Mexico, Poland, Portugal, Romania, South Korea, Spain, Turkey, UK" ;
+    sec:servesCustomerSegment "General fabrication, energy, heavy industries, automotive and transportation, construction and infrastructure" .
+
+inst:0000059527_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Base pay below competitive market; incentive-based cash compensation above competitive market; pay for performance culture" .
+
+inst:0000059527_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — CultureAndValues" ;
+    sec:hasCoreValue "The Golden Rule: Treat Others How You Would Like to Be Treated" .
+
+inst:0000059527_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Longstanding commitment to equal opportunity in employment regardless of gender, race or other personal characteristics" .
+
+inst:0000059527_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Annual talent and succession planning reviews 100% of global professional staff",
+        "Engages employees through individual, small group and town hall meetings, surveys, resource groups, wellness programs" .
+
+inst:0000059527_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Engages in health and safety standard development at American Welding Society, International Institute of Welding, ISO",
+        "Vision of accident-free workplace with zero safety incidents; rigorous health and safety program" .
+
+inst:0000059527_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Early career and internship programs, mentoring, self-guided online courses, rotational assignments",
+        "Formal leadership, management and professional development programs",
+        "Tuition reimbursement for external accredited programs" .
+
+inst:0000059527_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "LINCOLN ELECTRIC HOLDINGS INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 12,000 employees worldwide as of December 31, 2024" .
+
+inst:filing_0000059527_25_000006 a sec:Filing ;
+    rdfs:label "Filing 0000059527-25-000006" ;
+    sec:hasAccessionNumber "0000059527-25-000006" ;
+    sec:hasFilingDate "2025-02-26"^^xsd:date .
+
+inst:industry_Metalworking_machinery_and_equipment_arc_welding_solutions a sec:Industry ;
+    rdfs:label "Metalworking machinery and equipment; arc welding solutions" .
+
+inst:jurisdiction_OH a sec:Jurisdiction ;
+    rdfs:label "OH" .
+

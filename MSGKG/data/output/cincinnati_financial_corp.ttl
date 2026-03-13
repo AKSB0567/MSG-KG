@@ -1,0 +1,81 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000020286 a sec:Company ;
+    rdfs:label "CINCINNATI FINANCIAL CORP" ;
+    sec:hasDisclosure inst:0000020286_BusinessOperations,
+        inst:0000020286_CompensationAndBenefits,
+        inst:0000020286_CultureAndValues,
+        inst:0000020286_EngagementAndRetention,
+        inst:0000020286_SafetyAndHealth,
+        inst:0000020286_TrainingAndDevelopment,
+        inst:0000020286_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000020286_25_000009 .
+
+inst:0000020286_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — BusinessOperations" ;
+    sec:foundedInYear "1968"^^xsd:gYear ;
+    sec:hasBrand "Cincinnati Re - reinsurance assumed operations" ;
+    sec:hasDistributionChannel "Independent insurance agencies in 46 states" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyMetric "Insurance solutions for approximately 75% of typical insurable risks of agency clients" ;
+    sec:hasSECCIK "0000020286" ;
+    sec:hasSICCode "6331 - Fire, Marine & Casualty Insurance" ;
+    sec:hasSubsidiary "CFC Investment Company - commercial leasing and financing services",
+        "CSU Producer Resources Inc. - insurance brokerage services for excess and surplus lines",
+        "Cincinnati Global Underwriting Ltd. - London-based global specialty underwriter for Lloyd's Syndicate 318",
+        "The Cincinnati Casualty Company and The Cincinnati Indemnity Company - standard market property casualty",
+        "The Cincinnati Insurance Company - lead subsidiary for property casualty insurance",
+        "The Cincinnati Life Insurance Company - life insurance policies and fixed annuities",
+        "The Cincinnati Specialty Underwriters Insurance Company - excess and surplus lines insurance" ;
+    sec:headquarteredIn inst:location_Fairfield_Ohio ;
+    sec:incorporatedIn inst:jurisdiction_Ohio ;
+    sec:operatesInIndustry inst:industry_Property_casualty_insurance ;
+    sec:providesService "Broad range of business, homeowner and auto policies" .
+
+inst:0000020286_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive, market-based base pay re-evaluated on a recurring basis",
+        "Stock ownership at all levels to drive good decision making and encourage long-term view" ;
+    sec:hasPayEquityMetric "Independent gender and ethnic minority pay equity studies using multivariate regression in 2024" ;
+    sec:offersBenefit "Annual stock-based compensation (stock options and RSUs) for all full-time salaried associates",
+        "Health, prescription, vision and dental insurance for all full-time associates",
+        "Holiday Stock Plan: one share per full calendar year of service, up to 10 shares for all regular FT associates",
+        "Matching 401(k) program, annual cash bonus, stock ownership opportunities, healthcare benefits" .
+
+inst:0000020286_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — CultureAndValues" ;
+    sec:hasCoreValue "Equal opportunity for all associates; work environment free from unlawful discrimination and harassment" .
+
+inst:0000020286_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — EngagementAndRetention" ;
+    sec:hasTurnoverRate "Voluntary turnover rate: 4% in 2024, 6% in 2023, 8% in 2022" .
+
+inst:0000020286_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "Free biometric screening onsite or with personal physician; Health Savings Account contributions" .
+
+inst:0000020286_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Partnering with career services, faculty and staff at local and regional colleges and universities" .
+
+inst:0000020286_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "CINCINNATI FINANCIAL CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "5,624 associates at end of 2024: 3,426 HQ, 2,095 field, 103 at Cincinnati Global" .
+
+inst:filing_0000020286_25_000009 a sec:Filing ;
+    rdfs:label "Filing 0000020286-25-000009" ;
+    sec:hasAccessionNumber "0000020286-25-000009" ;
+    sec:hasFilingDate "2025-02-24"^^xsd:date .
+
+inst:industry_Property_casualty_insurance a sec:Industry ;
+    rdfs:label "Property casualty insurance" .
+
+inst:jurisdiction_Ohio a sec:Jurisdiction ;
+    rdfs:label "Ohio" .
+
+inst:location_Fairfield_Ohio a sec:Location ;
+    rdfs:label "Fairfield, Ohio" .
+

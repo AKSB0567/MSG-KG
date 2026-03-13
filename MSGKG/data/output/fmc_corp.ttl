@@ -1,0 +1,83 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000037785 a sec:Company ;
+    rdfs:label "FMC CORP" ;
+    sec:hasDisclosure inst:0000037785_BusinessOperations,
+        inst:0000037785_CompensationAndBenefits,
+        inst:0000037785_CultureAndValues,
+        inst:0000037785_DiversityEquityInclusion,
+        inst:0000037785_Mission,
+        inst:0000037785_SafetyAndHealth,
+        inst:0000037785_TrainingAndDevelopment,
+        inst:0000037785_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000037785_25_000030 .
+
+inst:0000037785_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FMC CORP — BusinessOperations" ;
+    sec:hasBusinessRelationship "Sold Global Specialty Solutions (GSS) business to Envu for ~$340 million in Nov 2024" ;
+    sec:hasCompetitiveDifferentiator "Industry-leading development pipeline, technology and innovation, geographic balance, crop diversity" ;
+    sec:hasFacility "Establishing global technology and innovation center in Switzerland" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "2024 restructuring generated $165 million in cost benefits" ;
+    sec:hasMarketPosition "Tier-one leader and 5th largest global innovator in agrochemicals/crop protection market" ;
+    sec:hasSECCIK "0000037785" ;
+    sec:hasSICCode "2800" ;
+    sec:hasSubsidiary "FMC Ventures, venture capital arm for strategic investments in agricultural start-ups" ;
+    sec:hasSustainabilityGoal "Aligned with UN SDGs #2 (Zero Hunger), #8 (Decent Work), #13 (Climate Action), #15 (Life on Land)",
+        "Established 2025 and 2035 sustainability goals" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:manufacturesProduct "Insecticides, herbicides, and fungicides for crop protection",
+        "Plant health biologicals including pheromones platform" ;
+    sec:operatesInIndustry inst:industry_Global_agricultural_sciences_company_providing_crop_protection_solutions ;
+    sec:servesCustomerSegment "Farmers growing soybean, corn, fruits and vegetables, cotton, sugarcane, rice, and cereals" .
+
+inst:0000037785_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "FMC CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Performance-based pay with competitive base pay, short-term and long-term incentives" ;
+    sec:offersBenefit "Comprehensive global benefit packages supporting health and well-being of employees and families" .
+
+inst:0000037785_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "FMC CORP — CultureAndValues" ;
+    sec:hasCoreValue "Safety, inclusion, and sustainability define FMC and guide how it does business" .
+
+inst:0000037785_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "FMC CORP — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "All-employee engagement survey to capture voice and sustain inclusive environment",
+        "Culture of belonging where every employee can bring full authentic selves to work" .
+
+inst:0000037785_Mission a sec:Mission ;
+    rdfs:label "FMC CORP — Mission" ;
+    sec:hasPurpose "Innovation for agriculture; Solutions for the planet" ;
+    sec:hasStrategicPriority "Transform grower relationship to become trusted source for technical expertise and solutions" .
+
+inst:0000037785_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "FMC CORP — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Total Recordable Incident Rate of 0.0995, among lowest in the chemical industry globally" ;
+    sec:hasSafetyProgram "Culture of open reporting to learn from mistakes and drive continuous improvement" .
+
+inst:0000037785_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "FMC CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership development programs and executive coaching for leaders" ;
+    sec:hasTrainingProgram "Best-in-class on-demand learning platform with vast course library for all employees" ;
+    sec:investsInEmployeeDevelopment "Individual development plans, stretch projects, and rotational assignments" .
+
+inst:0000037785_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "FMC CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 5,700 employees globally as of December 31, 2024" ;
+    sec:hasUnionRepresentation "One collective-bargaining agreement in US; several in foreign locations, none material" ;
+    sec:hasWorkforceLocation "21% North America, 12% Latin America, 26% EMEA, 41% Asia" .
+
+inst:filing_0000037785_25_000030 a sec:Filing ;
+    rdfs:label "Filing 0000037785-25-000030" ;
+    sec:hasAccessionNumber "0000037785-25-000030" ;
+    sec:hasFilingDate "2025-02-28"^^xsd:date .
+
+inst:industry_Global_agricultural_sciences_company_providing_crop_protection_solutions a sec:Industry ;
+    rdfs:label "Global agricultural sciences company providing crop protection solutions" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

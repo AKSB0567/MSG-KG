@@ -1,0 +1,80 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000002488 a sec:Company ;
+    rdfs:label "ADVANCED MICRO DEVICES INC" ;
+    sec:hasDisclosure inst:0000002488_BusinessOperations,
+        inst:0000002488_CompensationAndBenefits,
+        inst:0000002488_CultureAndValues,
+        inst:0000002488_DiversityEquityInclusion,
+        inst:0000002488_EngagementAndRetention,
+        inst:0000002488_Mission,
+        inst:0000002488_TrainingAndDevelopment,
+        inst:0000002488_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000002488_25_000012 .
+
+inst:0000002488_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — BusinessOperations" ;
+    sec:foundedInYear "1969"^^xsd:gYear ;
+    sec:hasBusinessRelationship "Anticipated acquisition of ZT Group Int'l, Inc. (ZT Systems)" ;
+    sec:hasBusinessSegment "Data Center segment with AI accelerator products including AMD Instinct MI300X GPUs" ;
+    sec:hasFilingPeriod "Fiscal year ended December 28, 2024" ;
+    sec:hasMarketPosition "Self-described high performance and adaptive computing leader" ;
+    sec:hasSECCIK "0000002488" ;
+    sec:hasSICCode "SEMICONDUCTORS & RELATED DEVICES [3674]" ;
+    sec:hasSubsidiary "Silo AI Oy (acquired)" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Semi-custom SoCs, Adaptive SoCs, APUs, and accelerated processing units" ;
+    sec:operatesInIndustry inst:industry_Semiconductors_and_high_performance_computing ;
+    sec:providesService "High-performance computing solutions for data centers, cloud, edge, and AI" .
+
+inst:0000002488_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Strong pay-for-performance culture with short-term and long-term incentive programs" ;
+    sec:offersBenefit "Hybrid and remote work options, global parental and bereavement leave, adoption/surrogacy assistance" .
+
+inst:0000002488_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — CultureAndValues" ;
+    sec:hasCoreValue "Culture described as inclusive, innovative, open, and respectful by employees" .
+
+inst:0000002488_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Advancing Women in Technology program supporting career development of women in technical careers",
+        "Diversity, Belonging and Inclusion (DB&I) program" ;
+    sec:hasEmployeeResourceGroup "ERGs open to all employees; more than 85% of new hires join at least one ERG" .
+
+inst:0000002488_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — EngagementAndRetention" ;
+    sec:hasEngagementScore "2024 annual survey scores in top 10% of high-performing technology industry peers" .
+
+inst:0000002488_Mission a sec:Mission ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — Mission" ;
+    sec:hasMission "Build great products that accelerate next-generation computing experiences" ;
+    sec:hasStrategicPriority "Delivering broad portfolio of high-performance adaptive AI hardware and software solutions",
+        "Expanding deep collaborative partnerships across ecosystem to accelerate AMD AI deployments at scale",
+        "Providing compelling user experiences on open and proven AI software platform" ;
+    sec:hasVision "High performance and adaptive computing is transforming our lives" .
+
+inst:0000002488_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Enterprise-wide mentoring program for skills development and professional networking",
+        "Manager and leadership development programs, highly rated" ;
+    sec:investsInEmployeeDevelopment "Educational assistance via tuition reimbursement for university education and advanced certifications" .
+
+inst:0000002488_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "ADVANCED MICRO DEVICES INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 28,000 employees globally as of December 28, 2024" .
+
+inst:filing_0000002488_25_000012 a sec:Filing ;
+    rdfs:label "Filing 0000002488-25-000012" ;
+    sec:hasAccessionNumber "0000002488-25-000012" ;
+    sec:hasFilingDate "2025-02-05"^^xsd:date .
+
+inst:industry_Semiconductors_and_high_performance_computing a sec:Industry ;
+    rdfs:label "Semiconductors and high-performance computing" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

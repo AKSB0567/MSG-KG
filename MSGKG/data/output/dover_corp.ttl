@@ -1,0 +1,78 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000029905 a sec:Company ;
+    rdfs:label "DOVER Corp" ;
+    sec:hasDisclosure inst:0000029905_BusinessOperations,
+        inst:0000029905_CultureAndValues,
+        inst:0000029905_DiversityEquityInclusion,
+        inst:0000029905_Mission,
+        inst:0000029905_SafetyAndHealth,
+        inst:0000029905_TrainingAndDevelopment,
+        inst:0000029905_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000029905_25_000006 .
+
+inst:0000029905_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "DOVER Corp — BusinessOperations" ;
+    sec:foundedInYear "1947"^^xsd:gYear ;
+    sec:hasBusinessSegment "Clean Energy & Fueling - storage, transport, dispensing of traditional and clean fuels",
+        "Climate & Sustainability Technologies - commercial refrigeration, heating, cooling, beverage can-making",
+        "Engineered Products - vehicle aftermarket, aerospace and defense, industrial equipment",
+        "Imaging & Identification - precision marking, coding, product traceability, digital textile printing",
+        "Pumps & Process Solutions - specialty pumps, flow meters, polymer processing equipment" ;
+    sec:hasCompetitiveDifferentiator "Superior engineering, manufacturing precision, total solution development and supply chain" ;
+    sec:hasFacility "India Innovation Center for shared services" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Sold Environmental Solutions Group (ESG) for $2.0 billion net in October 2024" ;
+    sec:hasSECCIK "0000029905" ;
+    sec:hasSICCode "3530 - Construction, Mining & Materials Handling Machinery & Equipment" ;
+    sec:hasTechnologyPlatform "Dover Digital Labs - software developers, data scientists driving digital transformation" ;
+    sec:headquarteredIn inst:location_Downers_Grove_Illinois ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Diversified_global_manufacturing_and_solutions .
+
+inst:0000029905_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "DOVER Corp — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Conduct laying out guidelines for fair and safe workplace" ;
+    sec:hasCoreValue "Proactive, dedicated, ownership mindset, commitment to operational excellence" ;
+    sec:hasCulturalPillar "High ethical and performance standards valuing accountability, rigor, trust, inclusion, respect" .
+
+inst:0000029905_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "DOVER Corp — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Equal opportunity hiring regardless of race, color, religion, disability, national origin, gender",
+        "Talent outreach action plans to recruit qualified candidates with diverse backgrounds" .
+
+inst:0000029905_Mission a sec:Mission ;
+    rdfs:label "DOVER Corp — Mission" ;
+    sec:hasStrategicPriority "Sustained profitable growth, operational excellence, superior free cash flow generation" ;
+    sec:hasVision "Zero-harm workplace with priority on health and safety compliance and risk mitigation" .
+
+inst:0000029905_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "DOVER Corp — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Total recordable injury rate reduced substantially since 2019" ;
+    sec:hasSafetyProgram "Global EHS information management system to measure and track health and safety metrics" .
+
+inst:0000029905_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "DOVER Corp — TrainingAndDevelopment" ;
+    sec:investsInEmployeeDevelopment "Significant investments in talent development; growth of employees essential for success" .
+
+inst:0000029905_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "DOVER Corp — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 24,000 employees worldwide as of December 31, 2024" .
+
+inst:filing_0000029905_25_000006 a sec:Filing ;
+    rdfs:label "Filing 0000029905-25-000006" ;
+    sec:hasAccessionNumber "0000029905-25-000006" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_Diversified_global_manufacturing_and_solutions a sec:Industry ;
+    rdfs:label "Diversified global manufacturing and solutions" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+
+inst:location_Downers_Grove_Illinois a sec:Location ;
+    rdfs:label "Downers Grove, Illinois" .
+

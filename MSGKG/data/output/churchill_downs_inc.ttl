@@ -1,0 +1,75 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000020212 a sec:Company ;
+    rdfs:label "Churchill Downs Inc" ;
+    sec:hasDisclosure inst:0000020212_BusinessOperations,
+        inst:0000020212_CompensationAndBenefits,
+        inst:0000020212_Mission,
+        inst:0000020212_SafetyAndHealth,
+        inst:0000020212_TrainingAndDevelopment,
+        inst:0000020212_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000020212_25_000051 .
+
+inst:0000020212_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Churchill Downs Inc — BusinessOperations" ;
+    sec:hasBusinessSegment "Gaming",
+        "Live and Historical Racing",
+        "Wagering Services and Solutions (formerly TwinSpires)" ;
+    sec:hasCompetitiveDifferentiator "Over 150 years of creating extraordinary entertainment experiences" ;
+    sec:hasFacility "83 acres at auxiliary training facility, five miles from Churchill Downs Racetrack",
+        "Churchill Downs Racetrack - 175 acres in Louisville, KY with one-mile dirt track and 7/8-mile turf track",
+        "Stabling area with barns for 1,400 horses and 114-room dormitory for backside personnel",
+        "State-of-the-art equine medical center and quarantine barns at Churchill Downs Racetrack" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasIntellectualProperty "Kentucky Derby - longest continuously held annual sporting event in the U.S. since 1875" ;
+    sec:hasKeyFinancialMetric "Investing up to $85 million to renovate Starting Gate Pavilion and Courtyard for 151st Kentucky Derby" ;
+    sec:hasKeyMetric "Churchill Downs Racetrack conducts approximately 80 live race days each year",
+        "One of the largest 4K video boards in the world: 171 feet wide by 90 feet tall" ;
+    sec:hasSECCIK "0000020212" ;
+    sec:hasSICCode "7948 - Services-Racing, Including Track Operation" ;
+    sec:headquarteredIn inst:location_Louisville_Kentucky ;
+    sec:incorporatedIn inst:jurisdiction_Kentucky ;
+    sec:isSubjectToRegulation "Interstate Horseracing Act of 1978; state racing commissions in each jurisdiction" ;
+    sec:operatesInIndustry inst:industry_Live_and_historical_racing_wagering_services_and_regional_casino_gaming ;
+    sec:operatesInRegion "Historical racing properties in Kentucky, Virginia, and New Hampshire" .
+
+inst:0000020212_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "Churchill Downs Inc — CompensationAndBenefits" ;
+    sec:offersBenefit "Comprehensive health and retirement benefits; voluntary benefits and paid time-off programs" .
+
+inst:0000020212_Mission a sec:Mission ;
+    rdfs:label "Churchill Downs Inc — Mission" ;
+    sec:hasStrategicPriority "Attracting, developing, and retaining top talent through leadership-led culture of growth" .
+
+inst:0000020212_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "Churchill Downs Inc — SafetyAndHealth" ;
+    sec:hasHealthProgram "Targeted programs to manage or improve common health conditions; physical, emotional, financial well-being" ;
+    sec:hasSafetyProgram "Safety programs across all properties to ensure best practices are continuously implemented" .
+
+inst:0000020212_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Churchill Downs Inc — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Talent reviews and succession planning conducted regularly with CEO and Board of Directors" ;
+    sec:investsInEmployeeDevelopment "Opportunities for skill development across different areas of the Company" .
+
+inst:0000020212_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Churchill Downs Inc — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 8,870 team members including 6,480 full-time as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Approximately 840 full-time team members covered by 12 collective bargaining agreements" .
+
+inst:filing_0000020212_25_000051 a sec:Filing ;
+    rdfs:label "Filing 0000020212-25-000051" ;
+    sec:hasAccessionNumber "0000020212-25-000051" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Live_and_historical_racing_wagering_services_and_regional_casino_gaming a sec:Industry ;
+    rdfs:label "Live and historical racing, wagering services, and regional casino gaming" .
+
+inst:jurisdiction_Kentucky a sec:Jurisdiction ;
+    rdfs:label "Kentucky" .
+
+inst:location_Louisville_Kentucky a sec:Location ;
+    rdfs:label "Louisville, Kentucky" .
+

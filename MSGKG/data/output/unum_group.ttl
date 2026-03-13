@@ -1,0 +1,72 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000005513 a sec:Company ;
+    rdfs:label "Unum Group" ;
+    sec:hasDisclosure inst:0000005513_BusinessOperations,
+        inst:0000005513_CompensationAndBenefits,
+        inst:0000005513_DiversityEquityInclusion,
+        inst:0000005513_EngagementAndRetention,
+        inst:0000005513_Mission,
+        inst:0000005513_TrainingAndDevelopment,
+        inst:0000005513_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000005513_25_000015 .
+
+inst:0000005513_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "Unum Group — BusinessOperations" ;
+    sec:hasCompetitiveRisk "Highly competitive employee benefits market with yearly renewable term products" ;
+    sec:hasDistributionChannel "Independent agents and brokers for product distribution" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000005513" ;
+    sec:hasSICCode "ACCIDENT & HEALTH INSURANCE [6321]" ;
+    sec:hasSubsidiary "Unum Limited (U.K. insurance subsidiary)" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:isSubjectToRegulation "Insurance holding company laws in ME, MA, NY, SC, and TN",
+        "PRA and FCA dual regulation for U.K. operations under U.K. Solvency II",
+        "U.S. Department of Labor regulation for employee benefit plans" ;
+    sec:operatesInIndustry inst:industry_Accident_and_health_insurance_employee_benefits ;
+    sec:operatesInRegion "United States, United Kingdom, and Poland" .
+
+inst:0000005513_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "Unum Group — CompensationAndBenefits" ;
+    sec:offersBenefit "Annual bonus, stock awards, stock purchase plans, life/medical/dental/vision insurance",
+        "Industry-leading emergency savings program, student debt relief, 401(k) plan",
+        "Paid caregiver and parental leave, telehealth, digital behavioral health support" .
+
+inst:0000005513_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "Unum Group — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Culture of inclusivity and belonging; employee networks open to entire workforce" .
+
+inst:0000005513_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "Unum Group — EngagementAndRetention" ;
+    sec:hasEngagementScore "Regular confidential employee surveys conducted to obtain feedback and gain insights" .
+
+inst:0000005513_Mission a sec:Mission ;
+    rdfs:label "Unum Group — Mission" ;
+    sec:hasPurpose "Helping the working world thrive throughout life's moments" .
+
+inst:0000005513_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "Unum Group — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Portfolio of skills and career development offerings including operational training" ;
+    sec:investsInEmployeeDevelopment "Tuition reimbursement, leadership development programs, and multi-year rotational programs" .
+
+inst:0000005513_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "Unum Group — WorkforceComposition" ;
+    sec:hasEmployeeCount "11,063 total employees as of December 31, 2024; approximately 10,833 full-time" ;
+    sec:hasWorkforceDiversityMetric "20% of employees (excluding Poland) identify as ethnic or racially diverse",
+        "65% of employees identify as female" ;
+    sec:hasWorkforceLocation "Approximately 85% of employees in the United States; 15% international" .
+
+inst:filing_0000005513_25_000015 a sec:Filing ;
+    rdfs:label "Filing 0000005513-25-000015" ;
+    sec:hasAccessionNumber "0000005513-25-000015" ;
+    sec:hasFilingDate "2025-02-27"^^xsd:date .
+
+inst:industry_Accident_and_health_insurance_employee_benefits a sec:Industry ;
+    rdfs:label "Accident and health insurance / employee benefits" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

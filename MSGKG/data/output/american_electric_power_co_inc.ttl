@@ -1,0 +1,73 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000004904 a sec:Company ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC" ;
+    sec:hasDisclosure inst:0000004904_BusinessOperations,
+        inst:0000004904_CompensationAndBenefits,
+        inst:0000004904_CultureAndValues,
+        inst:0000004904_EngagementAndRetention,
+        inst:0000004904_SafetyAndHealth,
+        inst:0000004904_TrainingAndDevelopment,
+        inst:0000004904_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000004904_25_000027 .
+
+inst:0000004904_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — BusinessOperations" ;
+    sec:hasBusinessRelationship "Members of PJM and SPP FERC-approved Regional Transmission Organizations",
+        "Transmission Joint Ventures with BHE, Evergy, John Laing for developing transmission assets" ;
+    sec:hasBusinessSegment "Vertically Integrated Utilities, Transmission & Distribution Utilities, AEP Transmission Holdco, Generation & Marketing" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasKeyFinancialMetric "ETT investment in ERCOT projects expected to be $5.0 billion by 2030" ;
+    sec:hasSECCIK "0000004904" ;
+    sec:hasSICCode "ELECTRIC SERVICES [4911]" ;
+    sec:hasSubsidiary "APCo, I&M, KGPCo, KPCo, WPCo, OPCo, PSO, SWEPCo (utility subsidiaries)" ;
+    sec:incorporatedIn inst:jurisdiction_New_York ;
+    sec:isSubjectToRegulation "I&M subject to NRC regulation for Cook Plant nuclear operations",
+        "Retail rates regulated by state utility commissions; wholesale power regulated by FERC" ;
+    sec:operatesInIndustry inst:industry_Electric_services_generation_transmission_and_distribution_of_electricity .
+
+inst:0000004904_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market-competitive compensation; nearly all employees participate in annual incentive program" ;
+    sec:offersBenefit "Medical, dental, life insurance, well-being programs, vacation, holidays, sick time, parental leave" .
+
+inst:0000004904_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — CultureAndValues" ;
+    sec:hasCoreValue "Safety is integral to culture and is one of AEP's core values" .
+
+inst:0000004904_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — EngagementAndRetention" ;
+    sec:hasEngagementScore "Employee Voice Survey conducted for 11th consecutive year in 2024" .
+
+inst:0000004904_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — SafetyAndHealth" ;
+    sec:hasSafetyMetric "DART rate 0.556 in 2024 (up from 0.384 in 2023)",
+        "TRIR 0.913 in 2024 (up from 0.690 in 2023)" ;
+    sec:hasSafetyProgram "Policies, procedures, programs, training and initiatives for safety-conscious work environment" .
+
+inst:0000004904_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Operational skills, professional, leadership development, educational assistance, performance coaching" .
+
+inst:0000004904_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "AMERICAN ELECTRIC POWER CO INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "16,330 total employees as of December 31, 2024" ;
+    sec:hasUnionRepresentation "Approximately 25% of total workforce represented by labor unions" ;
+    sec:hasWorkforceDiversityMetric "Approximately 21% of workforce represented by racially or ethnically diverse employees",
+        "Approximately 42% Millennials, 37% Gen X, 12% Baby Boomers, <9% Gen Z",
+        "Women comprised approximately 20% of total workforce as of December 31, 2024" .
+
+inst:filing_0000004904_25_000027 a sec:Filing ;
+    rdfs:label "Filing 0000004904-25-000027" ;
+    sec:hasAccessionNumber "0000004904-25-000027" ;
+    sec:hasFilingDate "2025-02-13"^^xsd:date .
+
+inst:industry_Electric_services_generation_transmission_and_distribution_of_electricity a sec:Industry ;
+    rdfs:label "Electric services - generation, transmission and distribution of electricity" .
+
+inst:jurisdiction_New_York a sec:Jurisdiction ;
+    rdfs:label "New York" .
+

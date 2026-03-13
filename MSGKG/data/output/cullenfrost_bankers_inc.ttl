@@ -1,0 +1,81 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000039263 a sec:Company ;
+    rdfs:label "CULLEN/FROST BANKERS, INC." ;
+    sec:hasDisclosure inst:0000039263_BusinessOperations,
+        inst:0000039263_CompensationAndBenefits,
+        inst:0000039263_CultureAndValues,
+        inst:0000039263_EngagementAndRetention,
+        inst:0000039263_Mission,
+        inst:0000039263_TrainingAndDevelopment,
+        inst:0000039263_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000039263_25_000017 .
+
+inst:0000039263_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — BusinessOperations" ;
+    sec:foundedInYear "1899"^^xsd:gYear,
+        "1977"^^xsd:gYear ;
+    sec:hasBusinessSegment "Banking",
+        "Frost Wealth Advisors" ;
+    sec:hasFacility "Approximately 194 financial centers across Texas" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Consolidated total assets of $52.5 billion at December 31, 2024",
+        "Total assets of $52.6 billion and total deposits of $43.1 billion at December 31, 2024" ;
+    sec:hasKeyMetric "Approximately 1,766 ATMs throughout the State of Texas",
+        "Average tenure of all full-time employees: approximately 9.3 years",
+        "Average tenure of executive officers: approximately 30.4 years",
+        "Over 24,000 hours of community service performed by employees in 2024" ;
+    sec:hasMarketPosition "One of the largest independent bank holding companies headquartered in Texas" ;
+    sec:hasSECCIK "0000039263" ;
+    sec:hasSICCode "6021 - National Commercial Banks" ;
+    sec:hasSubsidiary "Frost Bank (principal operating subsidiary and sole banking subsidiary)" ;
+    sec:headquarteredIn inst:location_111_W_Houston_Street_San_Antonio_Texas_78205 ;
+    sec:incorporatedIn inst:jurisdiction_Texas ;
+    sec:operatesInIndustry inst:industry_Financial_holding_company_and_bank_holding_company ;
+    sec:operatesInRegion "Austin, Dallas, Fort Worth, Gulf Coast, Houston, Permian Basin, and San Antonio regions of Texas" ;
+    sec:providesService "Commercial and consumer banking, trust, investment management, insurance, brokerage, mutual funds, leasing" ;
+    sec:servesCustomerSegment "Energy, manufacturing, services, construction, retail, telecom, healthcare, military and transportation" .
+
+inst:0000039263_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive compensation and benefits alongside a positive work-life balance" .
+
+inst:0000039263_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — CultureAndValues" ;
+    sec:hasCoreValue "Integrity, caring and excellence" .
+
+inst:0000039263_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Named to Forbes magazine's Best Employers list in 2024" .
+
+inst:0000039263_Mission a sec:Mission ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — Mission" ;
+    sec:hasPurpose "Commitment to making people's lives better" .
+
+inst:0000039263_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Continuing education, on-the-job training and development programs" ;
+    sec:investsInEmployeeDevelopment "Resources dedicated to fostering professional and personal growth" .
+
+inst:0000039263_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "CULLEN/FROST BANKERS, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "5,854 full-time equivalent employees at December 31, 2024" ;
+    sec:hasUnionRepresentation "None - no employees represented by collective bargaining agreements" .
+
+inst:filing_0000039263_25_000017 a sec:Filing ;
+    rdfs:label "Filing 0000039263-25-000017" ;
+    sec:hasAccessionNumber "0000039263-25-000017" ;
+    sec:hasFilingDate "2025-02-06"^^xsd:date .
+
+inst:industry_Financial_holding_company_and_bank_holding_company a sec:Industry ;
+    rdfs:label "Financial holding company and bank holding company" .
+
+inst:jurisdiction_Texas a sec:Jurisdiction ;
+    rdfs:label "Texas" .
+
+inst:location_111_W_Houston_Street_San_Antonio_Texas_78205 a sec:Location ;
+    rdfs:label "111 W. Houston Street, San Antonio, Texas 78205" .
+

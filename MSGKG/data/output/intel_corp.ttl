@@ -1,0 +1,80 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000050863 a sec:Company ;
+    rdfs:label "INTEL CORP" ;
+    sec:hasDisclosure inst:0000050863_BusinessOperations,
+        inst:0000050863_CompensationAndBenefits,
+        inst:0000050863_CultureAndValues,
+        inst:0000050863_DiversityEquityInclusion,
+        inst:0000050863_EngagementAndRetention,
+        inst:0000050863_Mission,
+        inst:0000050863_SafetyAndHealth,
+        inst:0000050863_TrainingAndDevelopment,
+        inst:0000050863_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000050863_25_000009 .
+
+inst:0000050863_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "INTEL CORP — BusinessOperations" ;
+    sec:hasFilingPeriod "20241228" ;
+    sec:hasSECCIK "0000050863" ;
+    sec:hasSICCode "3674 - Semiconductors & Related Devices" ;
+    sec:hasSubsidiary "Mobileye" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Semiconductors_and_related_devices .
+
+inst:0000050863_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "INTEL CORP — CompensationAndBenefits" ;
+    sec:hasPayEquityMetric "Achieved gender pay equity globally and race/ethnicity pay equity in the US since 2019" ;
+    sec:offersBenefit "Market-competitive pay, stock grants, bonuses, ESPP, healthcare, retirement, family leave, sabbaticals" .
+
+inst:0000050863_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "INTEL CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "Intel Code of Conduct and Global Human Rights Principles" ;
+    sec:hasCoreValue "Customer first, fearless innovation, results driven, one Intel, inclusion, quality, and integrity" ;
+    sec:hasCulturalPillar "Culture of continuous improvement with performance management supporting disciplined execution" .
+
+inst:0000050863_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "INTEL CORP — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "Underrepresented minorities held 8.7% of US senior leadership positions in 2024",
+        "Underrepresented minorities represented 17.8% of US employees in 2024",
+        "Women held 18.3% of senior leadership positions in 2024",
+        "Women held 25.3% of technical positions in 2024",
+        "Women represented 27.9% of global employees in 2024" ;
+    sec:hasDEIProgram "Diversity and inclusion metrics linked to executive and employee compensation in 2024" .
+
+inst:0000050863_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "INTEL CORP — EngagementAndRetention" ;
+    sec:hasEngagementScore "Annual employee experience survey with bonus linked to year-over-year survey improvements" ;
+    sec:hasTurnoverRate "Undesired turnover rate of 5.9% in 2024 and 5.6% in 2023" .
+
+inst:0000050863_Mission a sec:Mission ;
+    rdfs:label "INTEL CORP — Mission" ;
+    sec:hasPurpose "Create technology that improves the life of every person on the planet" .
+
+inst:0000050863_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "INTEL CORP — SafetyAndHealth" ;
+    sec:hasHealthProgram "On-site health centers and mental and behavioral health awareness and support programs" ;
+    sec:hasSafetyProgram "Programs to provide safe and injury-free workplace with physical, mental, and social well-being focus" .
+
+inst:0000050863_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "INTEL CORP — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Training programs, rotational assignment opportunities, and custom learning curricula" .
+
+inst:0000050863_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "INTEL CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "108,900 as of December 28, 2024" .
+
+inst:filing_0000050863_25_000009 a sec:Filing ;
+    rdfs:label "Filing 0000050863-25-000009" ;
+    sec:hasAccessionNumber "0000050863-25-000009" ;
+    sec:hasFilingDate "2025-01-31"^^xsd:date .
+
+inst:industry_Semiconductors_and_related_devices a sec:Industry ;
+    rdfs:label "Semiconductors and related devices" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

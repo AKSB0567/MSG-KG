@@ -1,0 +1,75 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000045012 a sec:Company ;
+    rdfs:label "HALLIBURTON CO" ;
+    sec:hasDisclosure inst:0000045012_BusinessOperations,
+        inst:0000045012_CompensationAndBenefits,
+        inst:0000045012_CultureAndValues,
+        inst:0000045012_EngagementAndRetention,
+        inst:0000045012_SafetyAndHealth,
+        inst:0000045012_TrainingAndDevelopment,
+        inst:0000045012_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000045012_25_000010 .
+
+inst:0000045012_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HALLIBURTON CO — BusinessOperations" ;
+    sec:foundedInYear "1919"^^xsd:gYear ;
+    sec:hasBusinessSegment "Completion and Production segment (20% operating margin in 2024)",
+        "Drilling and Evaluation segment (16% operating margin in 2024)" ;
+    sec:hasKeyFinancialMetric "Capital expenditures at 6% of revenue in 2024, matching 5-6% target",
+        "Returned $1.6 billion to shareholders through buybacks and dividends in 2024",
+        "Total revenue flat in 2024; international revenue +6%, North America revenue -8%" ;
+    sec:hasMarketPosition "One of the worlds largest providers of products and services to the energy industry" ;
+    sec:hasSECCIK "0000045012" ;
+    sec:hasSICCode "1389 - Oil, Gas Field Services, NEC" ;
+    sec:hasSustainabilityProgram "Halliburton Labs early-stage company accelerator with 38 participant and alumni organizations" ;
+    sec:hasTechnologyPlatform "Zeus electric fracturing platform; iCruise rotary steerable systems" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Products_and_services_to_the_energy_industry ;
+    sec:providesService "Cementing, stimulation, specialty chemicals, intervention, pressure control, artificial lift, completions" .
+
+inst:0000045012_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "HALLIBURTON CO — CompensationAndBenefits" ;
+    sec:offersBenefit "Comprehensive medical coverage, retirement plans, paid time off, emergency childcare, third-party discounts" .
+
+inst:0000045012_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "HALLIBURTON CO — CultureAndValues" ;
+    sec:hasCoreValue "Safety is a Halliburton core value" .
+
+inst:0000045012_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "HALLIBURTON CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "95% of employees feel work they do matters (Feb 2024 survey, 86% response rate)" ;
+    sec:hasTurnoverRate "Voluntary turnover of 8% in 2024; hired about 6,800 new employees" .
+
+inst:0000045012_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "HALLIBURTON CO — SafetyAndHealth" ;
+    sec:hasHealthProgram "Global Employee Assistance Program (EAP) providing mental health and wellness training" ;
+    sec:hasSafetyMetric "Lost-time incident rate 0.06 per 200,000 hours worked in 2024 (down from 0.07 in 2023)",
+        "Preventable recordable vehicle incident rate 0.06 per million miles in 2024 (down from 0.10 in 2023)",
+        "Total recordable incident rate 0.24 per 200,000 hours worked in 2024 (down from 0.25 in 2023)" ;
+    sec:hasSafetyProgram "Journey to ZERO initiative; Halliburton Management System (HMS)" .
+
+inst:0000045012_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HALLIBURTON CO — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Executive education programs as most significant investment in developing future leaders" ;
+    sec:hasTrainingProgram "Monthly Lessons for Life Web series covering parenting in digital age and combating burnout" .
+
+inst:0000045012_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HALLIBURTON CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "Over 48,000 employees representing 145 nationalities in more than 70 countries" ;
+    sec:hasWorkforceDiversityMetric "91% of workforce and 84% of management local to the countries where they work in 2024" .
+
+inst:filing_0000045012_25_000010 a sec:Filing ;
+    rdfs:label "Filing 0000045012-25-000010" ;
+    sec:hasAccessionNumber "0000045012-25-000010" ;
+    sec:hasFilingDate "2025-02-12"^^xsd:date .
+
+inst:industry_Products_and_services_to_the_energy_industry a sec:Industry ;
+    rdfs:label "Products and services to the energy industry" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

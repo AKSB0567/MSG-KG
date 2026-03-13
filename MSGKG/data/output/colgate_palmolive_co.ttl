@@ -1,0 +1,82 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000021665 a sec:Company ;
+    rdfs:label "COLGATE PALMOLIVE CO" ;
+    sec:hasDisclosure inst:0000021665_BusinessOperations,
+        inst:0000021665_CompensationAndBenefits,
+        inst:0000021665_CultureAndValues,
+        inst:0000021665_DiversityEquityInclusion,
+        inst:0000021665_EngagementAndRetention,
+        inst:0000021665_Mission,
+        inst:0000021665_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000021665_25_000008 .
+
+inst:0000021665_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "COLGATE PALMOLIVE CO — BusinessOperations" ;
+    sec:foundedInYear "1806"^^xsd:gYear ;
+    sec:hasBrand "Ajax, Axion, Fabuloso, Murphy, Suavitel (home care)",
+        "Colgate, Darlie, elmex, hello, meridol, Sorriso, Tom's of Maine (toothpaste)",
+        "EltaMD, Filorga and PCA SKIN (skin health products)",
+        "Hill's Science Diet and Hill's Prescription Diet (pet nutrition)",
+        "Palmolive, Protex, Softsoap, Irish Spring, Sanex (personal care)" ;
+    sec:hasBusinessRelationship "Sales to Walmart Inc. and affiliates represented approximately 11% of Net sales in 2024" ;
+    sec:hasBusinessSegment "Oral, Personal and Home Care",
+        "Pet Nutrition (Hill's)" ;
+    sec:hasDistributionChannel "Retailers, wholesalers, distributors; Pet Nutrition via authorized pet supply retailers, veterinarians, eCommerce" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Oral Care 43%, Personal Care 18%, Home Care 17%, Pet Nutrition 22% of 2024 worldwide Net sales" ;
+    sec:hasMarketPosition "Global leader in Oral Care with leadership in toothpaste and manual toothbrush categories",
+        "Global leader in liquid hand soap category in Personal Care",
+        "Leader in specialty pet nutrition products for dogs and cats via Hill's Pet Nutrition" ;
+    sec:hasSECCIK "0000021665" ;
+    sec:hasSICCode "2844 - Perfumes, Cosmetics & Other Toilet Preparations" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Caring_innovative_growth_company_in_consumer_products ;
+    sec:operatesInRegion "Products marketed in over 200 countries and territories" .
+
+inst:0000021665_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "COLGATE PALMOLIVE CO — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Compensation viewed as important tool to motivate leaders at all levels of the organization" .
+
+inst:0000021665_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "COLGATE PALMOLIVE CO — CultureAndValues" ;
+    sec:hasCodeOfConduct "Commitment to highest ethical standards, ethical leadership and compliance with Code of Conduct" ;
+    sec:hasCoreValue "We are Caring",
+        "We are Courageous",
+        "We are Inclusive" ;
+    sec:hasCulturalPillar "The Power of WE - collaborative spirit across Colgate people" .
+
+inst:0000021665_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "COLGATE PALMOLIVE CO — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "In U.S., approx 33% employees, 45% executives, 39% senior leadership self-identify as racial/ethnic minorities",
+        "Women represented approximately 46% of executives and 35% of senior leadership" .
+
+inst:0000021665_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "COLGATE PALMOLIVE CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "Regular employee engagement surveys to listen to employees and track company evolution" ;
+    sec:hasRetentionProgram "Rigorous succession planning process led by Global Human Resources with Board involvement" .
+
+inst:0000021665_Mission a sec:Mission ;
+    rdfs:label "COLGATE PALMOLIVE CO — Mission" ;
+    sec:hasPurpose "Reimagining a healthier future for all people, their pets and our planet" .
+
+inst:0000021665_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "COLGATE PALMOLIVE CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 34,000 employees based in over 100 countries as of December 31, 2024" ;
+    sec:hasWorkforceDiversityMetric "Global workforce approximately 58% male and 42% female as of December 31, 2024" ;
+    sec:hasWorkforceLocation "Over 80% outside U.S.; 33% Asia Pacific, 30% Latin America, 17% North America, 15% Europe, 5% Africa/Eurasia" .
+
+inst:filing_0000021665_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000021665-25-000008" ;
+    sec:hasAccessionNumber "0000021665-25-000008" ;
+    sec:hasFilingDate "2025-02-13"^^xsd:date .
+
+inst:industry_Caring_innovative_growth_company_in_consumer_products a sec:Industry ;
+    rdfs:label "Caring, innovative growth company in consumer products" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

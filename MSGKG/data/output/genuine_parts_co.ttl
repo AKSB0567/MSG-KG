@@ -1,0 +1,74 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000040987 a sec:Company ;
+    rdfs:label "GENUINE PARTS CO" ;
+    sec:hasDisclosure inst:0000040987_BusinessOperations,
+        inst:0000040987_CultureAndValues,
+        inst:0000040987_DiversityEquityInclusion,
+        inst:0000040987_EngagementAndRetention,
+        inst:0000040987_Mission,
+        inst:0000040987_TrainingAndDevelopment,
+        inst:0000040987_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000040987_25_000026 .
+
+inst:0000040987_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "GENUINE PARTS CO — BusinessOperations" ;
+    sec:foundedInYear "1928"^^xsd:gYear ;
+    sec:hasBrand "NAPA - primary brand in North America, also used in Australasia and Europe" ;
+    sec:hasBusinessSegment "Automotive Parts Group - 63% of total net sales",
+        "Industrial Parts Group" ;
+    sec:hasCompetitiveDifferentiator "Global presence and brand strength; supply chain capabilities; technology solutions" ;
+    sec:hasDistributionChannel "Commercial DIFM (80% of Automotive) and retail DIY (20% of Automotive)" ;
+    sec:hasFacility "More than 10,700 locations worldwide" ;
+    sec:hasKeyMetric "Automotive network consists of over one million customer locations",
+        "Automotive total addressable market of over $200 billion",
+        "U.S. Automotive offers approximately 800,000 different parts and supply items" ;
+    sec:hasRevenue "Net sales of $23.5 billion in 2024" ;
+    sec:hasSECCIK "0000040987" ;
+    sec:hasSICCode "5013 - Wholesale Motor Vehicle Supplies & New Parts" ;
+    sec:incorporatedIn inst:jurisdiction_Georgia ;
+    sec:operatesInIndustry inst:industry_Distribution_of_automotive_and_industrial_replacement_parts ;
+    sec:operatesInRegion "North America (74% of revenue), Europe (16%), Australasia (10%)" ;
+    sec:servesCustomerSegment "Repair shops, auto dealers, service stations (Automotive); manufacturing businesses (Industrial)" .
+
+inst:0000040987_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "GENUINE PARTS CO — CultureAndValues" ;
+    sec:hasCoreValue "Steadfast commitment to equality for teammates, suppliers, customers, communities and stakeholders" .
+
+inst:0000040987_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "GENUINE PARTS CO — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Commitment to inclusive and welcoming culture valuing and respecting all employees with equal opportunities" .
+
+inst:0000040987_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "GENUINE PARTS CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "Most recent global engagement survey results favorable overall; employees proud to work for the company" .
+
+inst:0000040987_Mission a sec:Mission ;
+    rdfs:label "GENUINE PARTS CO — Mission" ;
+    sec:hasMission "Employer of choice, supplier of choice, valued customer, responsible corporate citizen, investment of choice" ;
+    sec:hasStrategicPriority "Revenue growth exceeding market; improving operating margins; strong balance sheet; effective capital allocation" .
+
+inst:0000040987_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "GENUINE PARTS CO — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "High potential employee program with in-person and virtual coursework across global business units" ;
+    sec:hasTrainingProgram "Internship and rotational programs; on-demand and live training courses" .
+
+inst:0000040987_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "GENUINE PARTS CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "More than 63,000 employees worldwide as of December 31, 2024" ;
+    sec:hasWorkforceLocation "Operations within 17 countries" .
+
+inst:filing_0000040987_25_000026 a sec:Filing ;
+    rdfs:label "Filing 0000040987-25-000026" ;
+    sec:hasAccessionNumber "0000040987-25-000026" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_Distribution_of_automotive_and_industrial_replacement_parts a sec:Industry ;
+    rdfs:label "Distribution of automotive and industrial replacement parts" .
+
+inst:jurisdiction_Georgia a sec:Jurisdiction ;
+    rdfs:label "Georgia" .
+

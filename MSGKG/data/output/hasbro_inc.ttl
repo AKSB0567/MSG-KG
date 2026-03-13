@@ -1,0 +1,85 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000046080 a sec:Company ;
+    rdfs:label "HASBRO, INC." ;
+    sec:hasDisclosure inst:0000046080_BusinessOperations,
+        inst:0000046080_CompensationAndBenefits,
+        inst:0000046080_CultureAndValues,
+        inst:0000046080_DiversityEquityInclusion,
+        inst:0000046080_Mission,
+        inst:0000046080_SafetyAndHealth,
+        inst:0000046080_TrainingAndDevelopment,
+        inst:0000046080_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000046080_25_000027 .
+
+inst:0000046080_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HASBRO, INC. — BusinessOperations" ;
+    sec:hasBrand "BEYBLADE",
+        "DUNGEONS & DRAGONS",
+        "MAGIC: THE GATHERING",
+        "MONOPOLY" ;
+    sec:hasBusinessRelationship "Larian Studios (partner for Baldur's Gate 3)",
+        "Paramount (partner for Transformers One animated film)",
+        "Scopely, Inc. (digital licensing partner for Monopoly Go!)" ;
+    sec:hasBusinessSegment "Consumer Products",
+        "Wizards of the Coast and Digital Games" ;
+    sec:hasDistributionChannel "Physical and digital games, video games, toys, licensed consumer products, location-based entertainment, film, TV" ;
+    sec:hasFilingPeriod "20241229" ;
+    sec:hasGovernanceStructure "Governance Committee oversees human capital; Compensation and Talent Committee oversees talent management" ;
+    sec:hasIntellectualProperty "MAGIC: THE GATHERING, DUNGEONS & DRAGONS, MONOPOLY, NERF, TRANSFORMERS, PLAY-DOH, PEPPA PIG" ;
+    sec:hasKeyFinancialMetric "Approx $600M gross cost savings and $320M net cost savings since 2022 Operational Excellence program" ;
+    sec:hasSECCIK "0000046080" ;
+    sec:hasSICCode "3944" ;
+    sec:incorporatedIn inst:jurisdiction_RI ;
+    sec:isSubjectToRegulation "Consumer Product Safety Act (CPSIA), Federal Hazardous Substances Act, Flammable Fabrics Act" ;
+    sec:operatesInIndustry inst:industry_Games_toys_and_children_s_vehicles .
+
+inst:0000046080_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "HASBRO, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Total rewards package including base pay, equity compensation, annual incentives, and recognition program" ;
+    sec:hasPayEquityMetric "Regular review of salary ratios for men and women in similar roles for internal equity" ;
+    sec:offersBenefit "Comprehensive core benefits, voluntary benefits, product discounts, and well-being program" .
+
+inst:0000046080_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "HASBRO, INC. — CultureAndValues" ;
+    sec:hasCulturalPillar "Community where everyone can show up authentically and deliver their best work" .
+
+inst:0000046080_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "HASBRO, INC. — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Inclusion and Belonging initiative to foster inclusive culture reflecting consumers and communities served" .
+
+inst:0000046080_Mission a sec:Mission ;
+    rdfs:label "HASBRO, INC. — Mission" ;
+    sec:hasMission "Create joy and community through the magic of play" ;
+    sec:hasStrategicPriority "Playing to Win strategy focused on play and partnership, launched 2025" ;
+    sec:hasVision "Be one of the most profitable and diverse toy and game companies globally" .
+
+inst:0000046080_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "HASBRO, INC. — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Utilizes independent third-party laboratories for product safety testing and compliance" .
+
+inst:0000046080_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HASBRO, INC. — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Biannual strategic talent assessments and succession planning reviewed by CEO and Chief People Officer" ;
+    sec:hasTrainingProgram "Blended learning, in-house trainings, and third-party programs including specialized and academic pursuits" .
+
+inst:0000046080_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HASBRO, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 4,985 employees worldwide as of year-end 2024" ;
+    sec:hasUnionRepresentation "Approximately 9% of employees globally covered by unions or collective bargaining agreements" ;
+    sec:hasWorkforceLocation "54% North America (47% US, 7% Canada), 20% Europe, 18% Asia Pacific, 8% Latin America" .
+
+inst:filing_0000046080_25_000027 a sec:Filing ;
+    rdfs:label "Filing 0000046080-25-000027" ;
+    sec:hasAccessionNumber "0000046080-25-000027" ;
+    sec:hasFilingDate "2025-02-27"^^xsd:date .
+
+inst:industry_Games_toys_and_children_s_vehicles a sec:Industry ;
+    rdfs:label "Games, toys and children's vehicles" .
+
+inst:jurisdiction_RI a sec:Jurisdiction ;
+    rdfs:label "RI" .
+

@@ -12,7 +12,7 @@ dist/
 .DS_Store
 .idea/
 .vscode/
-.streamlit/config.toml
+# .streamlit/config.toml  # Needed for Streamlit Cloud theme
 # data/item1/
 # Allow chunks and KG for cloud deployment
 # data/chunks/
@@ -27,9 +27,9 @@ _kg_cache.pkl
 _diag.py
 _*.txt
 
-# Large SEC 10-K text files (too big for GitHub)
+# Large SEC 10-K text files (too big for GitHub, 572MB)
 MSGKG/data/data/
-MSGKG/data/output/
+# MSGKG/data/output/ — TTL KGs are small (617KB), keep committed
 
 # Claude project files
 MSGKG/.claude/

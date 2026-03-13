@@ -1,0 +1,48 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000059478 a sec:Company ;
+    rdfs:label "ELI LILLY & Co" ;
+    sec:hasDisclosure inst:0000059478_BusinessOperations,
+        inst:0000059478_CompensationAndBenefits,
+        inst:0000059478_CultureAndValues ;
+    sec:hasFiling inst:filing_0000059478_25_000067 .
+
+inst:0000059478_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "ELI LILLY & Co — BusinessOperations" ;
+    sec:hasBusinessRelationship "Jardiance collaboration with Boehringer Ingelheim" ;
+    sec:hasCompetitiveRisk "IRA reduces attractiveness of small molecule innovation due to 9-year pricing timeline" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "General auditor reports directly to audit committee of board of directors",
+        "Internal auditors monitor worldwide adequacy of internal accounting controls" ;
+    sec:hasSECCIK "0000059478" ;
+    sec:hasSICCode "2834 - Pharmaceutical Preparations" ;
+    sec:incorporatedIn inst:jurisdiction_Indiana ;
+    sec:isAffectedBy "Consolidation of private payers and PBMs increasing price/rebate negotiation pressure",
+        "Jardiance selected for government-set pricing with 66% discount effective 2026",
+        "Litigation related to 340B program, insulin access, pricing, and product safety",
+        "Medicare Part D benefit redesign and manufacturer discount program effective Jan 2025" ;
+    sec:isSubjectToRegulation "Inflation Reduction Act of 2022 requiring Medicare drug price negotiations" ;
+    sec:operatesInIndustry inst:industry_Pharmaceutical_preparations .
+
+inst:0000059478_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "ELI LILLY & Co — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Director and executive compensation overseen by Talent and Compensation Committee" .
+
+inst:0000059478_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "ELI LILLY & Co — CultureAndValues" ;
+    sec:hasCodeOfConduct "Employees operate under code of conduct with highest ethical standards" .
+
+inst:filing_0000059478_25_000067 a sec:Filing ;
+    rdfs:label "Filing 0000059478-25-000067" ;
+    sec:hasAccessionNumber "0000059478-25-000067" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Pharmaceutical_preparations a sec:Industry ;
+    rdfs:label "Pharmaceutical preparations" .
+
+inst:jurisdiction_Indiana a sec:Jurisdiction ;
+    rdfs:label "Indiana" .
+

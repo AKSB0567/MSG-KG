@@ -1,0 +1,85 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000031791 a sec:Company ;
+    rdfs:label "REVVITY, INC." ;
+    sec:hasDisclosure inst:0000031791_BusinessOperations,
+        inst:0000031791_CompensationAndBenefits,
+        inst:0000031791_CultureAndValues,
+        inst:0000031791_EngagementAndRetention,
+        inst:0000031791_Mission,
+        inst:0000031791_SafetyAndHealth,
+        inst:0000031791_TrainingAndDevelopment,
+        inst:0000031791_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000031791_25_000008 .
+
+inst:0000031791_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "REVVITY, INC. — BusinessOperations" ;
+    sec:hasBrand "BioLegend ELISA kits, PhenoVue imaging reagents, PhenoPlate microplates, GrowDex hydrogels" ;
+    sec:hasBusinessSegment "Diagnostics",
+        "Life Sciences - technologies for drug discovery, development, cell/gene/protein research" ;
+    sec:hasFilingPeriod "20241229" ;
+    sec:hasIntellectualProperty "Tri-Carb, Quantulus GCT, Wizard 2, MicroBeta 2 analytical instruments" ;
+    sec:hasSECCIK "0000031791" ;
+    sec:hasSICCode "3826 - Laboratory Analytical Instruments" ;
+    sec:hasSustainabilityProgram "esg.revvity.com for ESG policies; responsible global citizenship and ethical business practices" ;
+    sec:headquarteredIn inst:location_Waltham_Massachusetts ;
+    sec:incorporatedIn inst:jurisdiction_MA ;
+    sec:manufacturesProduct "Dharmacon reagents and gene modulation technologies (RNAi) for drug discovery",
+        "Reagents including radiometric detection, imaging, HTRF, AlphaLISA, AlphaScreen assay technologies" ;
+    sec:operatesInIndustry inst:industry_Health_science_solutions_technologies_expertise_and_services ;
+    sec:operatesInRegion "Markets products and services in more than 160 countries" ;
+    sec:servesCustomerSegment "Pharmaceutical, biotech, contract research organizations, academic and government institutions" .
+
+inst:0000031791_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "REVVITY, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive base pay with attractive incentive opportunities; benefits tailored by country" ;
+    sec:offersBenefit "Benefits benchmarked for market practices; adjusted to remain equitable and competitive" .
+
+inst:0000031791_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "REVVITY, INC. — CultureAndValues" ;
+    sec:hasCulturalPillar "Workplace where everyone feels valued, respected, with opportunity to contribute" .
+
+inst:0000031791_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "REVVITY, INC. — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Internal mobility program for project work, stretch assignments, job rotations, mentoring" ;
+    sec:hasTurnoverRate "Voluntary turnover rate approximately 9% in fiscal year 2024" .
+
+inst:0000031791_Mission a sec:Mission ;
+    rdfs:label "REVVITY, INC. — Mission" ;
+    sec:hasPurpose "Deliver complete workflows from discovery to development, and diagnosis to cure" ;
+    sec:hasStrategicPriority "Innovation via R&D and acquisitions; operational excellence; expand global offerings" .
+
+inst:0000031791_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "REVVITY, INC. — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Many large manufacturing sites ISO 45001 and 14001 certified" ;
+    sec:hasSafetyProgram "Culture focused on safety; identify, eliminate and control risk to prevent injury and illness",
+        "Revvity Global EHS Council for worldwide health and safety collaboration" .
+
+inst:0000031791_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "REVVITY, INC. — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Formal (classroom, blended, digital) and informal on-the-job learning across all levels" ;
+    sec:investsInEmployeeDevelopment "Annual performance review with constructive feedback and development goal creation" .
+
+inst:0000031791_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "REVVITY, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 11,000 employees worldwide as of December 29, 2024" ;
+    sec:hasUnionRepresentation "~4,000 employees influenced by labor unions and workers' councils outside the US" ;
+    sec:hasWorkforceLocation "Roughly 80% of workforce based outside the United States; employees in ~40 countries" .
+
+inst:filing_0000031791_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000031791-25-000008" ;
+    sec:hasAccessionNumber "0000031791-25-000008" ;
+    sec:hasFilingDate "2025-02-25"^^xsd:date .
+
+inst:industry_Health_science_solutions_technologies_expertise_and_services a sec:Industry ;
+    rdfs:label "Health science solutions, technologies, expertise and services" .
+
+inst:jurisdiction_MA a sec:Jurisdiction ;
+    rdfs:label "MA" .
+
+inst:location_Waltham_Massachusetts a sec:Location ;
+    rdfs:label "Waltham, Massachusetts" .
+

@@ -1,0 +1,72 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000039911 a sec:Company ;
+    rdfs:label "GAP INC" ;
+    sec:hasDisclosure inst:0000039911_BusinessOperations,
+        inst:0000039911_CompensationAndBenefits,
+        inst:0000039911_DiversityEquityInclusion,
+        inst:0000039911_SafetyAndHealth,
+        inst:0000039911_TrainingAndDevelopment,
+        inst:0000039911_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000039911_25_000029 .
+
+inst:0000039911_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "GAP INC — BusinessOperations" ;
+    sec:foundedInYear "1969"^^xsd:gYear ;
+    sec:hasBrand "Athleta",
+        "Banana Republic",
+        "Gap",
+        "Old Navy" ;
+    sec:hasBusinessRelationship "Baozun Inc. operates Gap Greater China stores as franchise partner" ;
+    sec:hasDistributionChannel "Specialty, outlet, online, and franchise channels with omni-channel capabilities" ;
+    sec:hasFilingPeriod "Fiscal year ended February 1, 2025" ;
+    sec:hasGovernanceStructure "Board Compensation and Management Development Committee oversees HCM" ;
+    sec:hasKeyMetric "2,506 Company-operated stores and 1,063 franchise store locations at fiscal 2024 end",
+        "More than 1,200 Company-operated stores in the U.S. and Canada" ;
+    sec:hasSECCIK "0000039911" ;
+    sec:hasSICCode "5651 - Retail-Family Clothing Stores" ;
+    sec:hasSustainabilityProgram "Certified as a B Corp since 2018, committed to social and environmental impact" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Omni_channel_retail_apparel_accessories_and_personal_care_products ;
+    sec:operatesInRegion "United States, Canada, Japan, Taiwan (Company-operated stores)" .
+
+inst:0000039911_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "GAP INC — CompensationAndBenefits" ;
+    sec:hasPayEquityMetric "Conducts internal pay equity reviews to ensure fair and competitive pay" ;
+    sec:offersBenefit "Annual tuition reimbursement for full-time U.S. employees with 1 year of service" .
+
+inst:0000039911_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "GAP INC — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Inclusion and belonging culture for employees, customers, and communities" ;
+    sec:hasEmployeeResourceGroup "Employee resource groups and heritage month programming" .
+
+inst:0000039911_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "GAP INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Safe work practices training aligned to industry and occupational health/safety standards" .
+
+inst:0000039911_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "GAP INC — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Rotational Management Program developing leaders across corporate functions" ;
+    sec:hasTrainingProgram "IGNITE leadership training in distribution centers and contact centers",
+        "Retail Academy combining classroom, e-learning, and experiential learning" .
+
+inst:0000039911_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "GAP INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 82,000 employees as of February 1, 2025" ;
+    sec:hasWorkforceLocation "~82% in the U.S., ~18% outside the U.S. (primarily Canada and Japan)",
+        "~84% in retail, ~8% in distribution centers, ~8% in headquarters" .
+
+inst:filing_0000039911_25_000029 a sec:Filing ;
+    rdfs:label "Filing 0000039911-25-000029" ;
+    sec:hasAccessionNumber "0000039911-25-000029" ;
+    sec:hasFilingDate "2025-03-18"^^xsd:date .
+
+inst:industry_Omni_channel_retail_apparel_accessories_and_personal_care_products a sec:Industry ;
+    rdfs:label "Omni-channel retail apparel, accessories, and personal care products" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

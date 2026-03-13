@@ -1,0 +1,74 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000040211 a sec:Company ;
+    rdfs:label "GATX CORP" ;
+    sec:hasDisclosure inst:0000040211_BusinessOperations,
+        inst:0000040211_CompensationAndBenefits,
+        inst:0000040211_CultureAndValues,
+        inst:0000040211_SafetyAndHealth,
+        inst:0000040211_TrainingAndDevelopment,
+        inst:0000040211_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000040211_25_000024 .
+
+inst:0000040211_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "GATX CORP — BusinessOperations" ;
+    sec:competesWith "Union Tank Car, Wells Fargo Rail, CIT Rail, Trinity Industries Leasing, American Industrial Transport" ;
+    sec:foundedInYear "1898"^^xsd:gYear ;
+    sec:hasBusinessRelationship "Rolls-Royce & Partners Finance (RRPF) joint ventures for aircraft spare engine leasing" ;
+    sec:hasBusinessSegment "Engine Leasing (joint ventures with Rolls-Royce and GEL)",
+        "Rail International",
+        "Rail North America" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasFleetSize "Approximately 152,000 railcars worldwide as of December 31, 2024" ;
+    sec:hasKeyFinancialMetric "Total assets of $12.3 billion as of December 31, 2024" ;
+    sec:hasKeyMetric "Average remaining lease term ~41 months as of December 31, 2024",
+        "Railcars ship nearly 550 different commodities" ;
+    sec:hasSECCIK "0000040211" ;
+    sec:hasSICCode "4700 - Transportation Services" ;
+    sec:hasSubsidiary "GATX Engine Leasing (GEL) - aircraft spare engine leasing",
+        "Trifleet - tank container leasing (reported in Other segment)" ;
+    sec:incorporatedIn inst:jurisdiction_New_York ;
+    sec:operatesInIndustry inst:industry_Global_railcar_leasing_and_aircraft_spare_engine_leasing ;
+    sec:operatesInRegion "North America, Europe, and India" ;
+    sec:servesCustomerSegment "Transportation, chemical, petroleum, food/agriculture industries (~830 NA customers)" .
+
+inst:0000040211_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "GATX CORP — CompensationAndBenefits" ;
+    sec:offersBenefit "Annual bonuses, stock awards, matched 401(k), health insurance, pension plans, parental leave",
+        "Tuition reimbursement, adoption assistance, telecommuting flexibility, flexible time off" .
+
+inst:0000040211_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "GATX CORP — CultureAndValues" ;
+    sec:hasCoreValue "Strong corporate citizenship with employee volunteerism and community giving" ;
+    sec:hasCulturalPillar "Inclusive environment fostering innovation, diverse viewpoints, and employee well-being" .
+
+inst:0000040211_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "GATX CORP — SafetyAndHealth" ;
+    sec:hasSafetyMetric "ACC Facility Safety Awards for Terre Haute and Waycross in 2024" ;
+    sec:hasSafetyProgram "Continuous improvement methodology for EHS hazard identification and risk control",
+        "Responsible Care Partner (ACC and CIAC); active TRANSCAER participant" .
+
+inst:0000040211_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "GATX CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Talent development programs for career goals, management skills, leadership pipeline" ;
+    sec:hasTrainingProgram "Multi-tiered learning: manager training, maintenance certification, e-learning" .
+
+inst:0000040211_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "GATX CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "2,150 employees globally as of December 31, 2024" ;
+    sec:hasUnionRepresentation "~39% union workers; U.S. by United Steelworkers, Canada by Unifor" .
+
+inst:filing_0000040211_25_000024 a sec:Filing ;
+    rdfs:label "Filing 0000040211-25-000024" ;
+    sec:hasAccessionNumber "0000040211-25-000024" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Global_railcar_leasing_and_aircraft_spare_engine_leasing a sec:Industry ;
+    rdfs:label "Global railcar leasing and aircraft spare engine leasing" .
+
+inst:jurisdiction_New_York a sec:Jurisdiction ;
+    rdfs:label "New York" .
+

@@ -1,0 +1,60 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000045919 a sec:Company ;
+    rdfs:label "HARTE HANKS INC" ;
+    sec:hasDisclosure inst:0000045919_BusinessOperations,
+        inst:0000045919_CompensationAndBenefits,
+        inst:0000045919_DiversityEquityInclusion,
+        inst:0000045919_TrainingAndDevelopment,
+        inst:0000045919_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000045919_25_000008 .
+
+inst:0000045919_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HARTE HANKS INC — BusinessOperations" ;
+    sec:foundedInYear "1920"^^xsd:gYear ;
+    sec:hasCompetitiveDifferentiator "Alignment of customers and products on behalf of brands along entire lifecycle" ;
+    sec:hasSECCIK "0000045919" ;
+    sec:hasSICCode "7331 - Direct Mail Advertising Services" ;
+    sec:hasTechnologyPlatform "AI-powered approaches and solutions for marketing, sales, fulfillment and customer care" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Customer_and_brand_experience_services ;
+    sec:operatesInRegion "North America, Asia-Pacific and Europe" ;
+    sec:providesService "Data, marketing, sales, customer care, fulfillment and logistics services" ;
+    sec:servesCustomerSegment "B2B Technology, Healthcare, Consumer Products, Financial Services, Automotive, Retail" .
+
+inst:0000045919_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "HARTE HANKS INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive salaries and wages with comprehensive insurance options" ;
+    sec:offersBenefit "401(k) retirement plan with company match; employee and matching contributions vest immediately",
+        "Medical, prescription drug, vision, dental; company-paid life insurance, AD&D, short/long-term disability" .
+
+inst:0000045919_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "HARTE HANKS INC — DiversityEquityInclusion" ;
+    sec:hasDEIMetric "58% of workforce was female as of December 31, 2024" ;
+    sec:hasDEIProgram "Diversity, equity and inclusion program to promote collaboration, innovation, creativity and belonging" .
+
+inst:0000045919_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HARTE HANKS INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Technical skill development, soft skills development, workplace conduct guidance, IT security training" .
+
+inst:0000045919_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HARTE HANKS INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "1,715 full-time and 288 part-time employees as of December 31, 2024" ;
+    sec:hasUnionRepresentation "No workforce represented by labor unions" ;
+    sec:hasWorkforceDiversityMetric "Employed individuals from 6 different countries as of December 31, 2024" ;
+    sec:hasWorkforceLocation "Approximately 1,141 employees based outside U.S., primarily in the Philippines" .
+
+inst:filing_0000045919_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000045919-25-000008" ;
+    sec:hasAccessionNumber "0000045919-25-000008" ;
+    sec:hasFilingDate "2025-03-17"^^xsd:date .
+
+inst:industry_Customer_and_brand_experience_services a sec:Industry ;
+    rdfs:label "Customer and brand experience services" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

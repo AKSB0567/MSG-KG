@@ -1,0 +1,80 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000062234 a sec:Company ;
+    rdfs:label "MARCUS CORP" ;
+    sec:hasDisclosure inst:0000062234_BusinessOperations,
+        inst:0000062234_CompensationAndBenefits,
+        inst:0000062234_CultureAndValues,
+        inst:0000062234_EngagementAndRetention,
+        inst:0000062234_Mission,
+        inst:0000062234_TrainingAndDevelopment,
+        inst:0000062234_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000062234_25_000006 .
+
+inst:0000062234_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "MARCUS CORP — BusinessOperations" ;
+    sec:hasBrand "BistroPlex",
+        "Funset Boulevard (family entertainment center in Appleton, Wisconsin)",
+        "Marcus Theatres",
+        "Movie Tavern by Marcus" ;
+    sec:hasBusinessSegment "Hotels and Resorts",
+        "Movie Theatres" ;
+    sec:hasCompetitiveDifferentiator "DreamLounger recliner seating in ~88% of company-owned screens, believed highest among largest chains" ;
+    sec:hasFilingPeriod "Fiscal year ended December 26, 2024" ;
+    sec:hasKeyMetric "46 megaplex theatres (12+ screens) representing ~71% of total screens",
+        "79 movie theatres with 995 screens across 17 states as of December 26, 2024",
+        "Invested ~$389 million in theatre enhancements over the last ten years (excl. acquisitions)",
+        "Seven wholly-owned hotels/resorts; nine managed properties; ~4,700 hotel and resort rooms" ;
+    sec:hasMarketPosition "4th largest theatre circuit in the United States" ;
+    sec:hasSECCIK "0000062234" ;
+    sec:hasSICCode "7830 - Services-Motion Picture Theaters" ;
+    sec:headquarteredIn inst:location_Milwaukee_Wisconsin_53202_111_East_Kilbourn_Avenue_Suite_1200 ;
+    sec:incorporatedIn inst:jurisdiction_Wisconsin_WI ;
+    sec:isAffectedBy "Labor shortages post-pandemic impacting ability to service increasing customer counts" ;
+    sec:operatesInIndustry inst:industry_Motion_picture_theatres_and_hospitality_hotels_and_resorts ;
+    sec:operatesInRegion "17 states including WI, IL, IA, MN, MO, NE, ND, OH, AR, CO, GA, KY, LA, NY, PA, TX, VA" .
+
+inst:0000062234_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "MARCUS CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Pays employees competitively; offers broad range of company-paid benefits competitive with industry" .
+
+inst:0000062234_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "MARCUS CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "All employees must adhere to code of conduct setting standards for appropriate behavior" ;
+    sec:hasCoreValue "Committed to maintaining an equal opportunity workplace with honest, ethical and respectful conduct" .
+
+inst:0000062234_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "MARCUS CORP — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Management routinely reviews employee turnover rates and engagement/satisfaction surveys" .
+
+inst:0000062234_Mission a sec:Mission ;
+    rdfs:label "MARCUS CORP — Mission" ;
+    sec:hasPurpose "People Pleasing People - at the heart of caring for guests, customers and employees" ;
+    sec:hasStrategicPriority "Developing a committed team dedicated to service; fostering diverse and inclusive culture" .
+
+inst:0000062234_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "MARCUS CORP — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Required annual training on preventing, identifying, reporting and stopping unlawful discrimination" .
+
+inst:0000062234_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "MARCUS CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 8,550 employees as of December 26, 2024; ~66% variable or part-time" ;
+    sec:hasUnionRepresentation "~7% of employees covered by collective bargaining agreements as of end of fiscal 2024" .
+
+inst:filing_0000062234_25_000006 a sec:Filing ;
+    rdfs:label "Filing 0000062234-25-000006" ;
+    sec:hasAccessionNumber "0000062234-25-000006" ;
+    sec:hasFilingDate "2025-02-28"^^xsd:date .
+
+inst:industry_Motion_picture_theatres_and_hospitality_hotels_and_resorts a sec:Industry ;
+    rdfs:label "Motion picture theatres and hospitality (hotels and resorts)" .
+
+inst:jurisdiction_Wisconsin_WI a sec:Jurisdiction ;
+    rdfs:label "Wisconsin (WI)" .
+
+inst:location_Milwaukee_Wisconsin_53202_111_East_Kilbourn_Avenue_Suite_1200 a sec:Location ;
+    rdfs:label "Milwaukee, Wisconsin 53202 (111 East Kilbourn Avenue, Suite 1200)" .
+

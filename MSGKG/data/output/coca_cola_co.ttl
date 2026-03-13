@@ -1,0 +1,92 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000021344 a sec:Company ;
+    rdfs:label "COCA COLA CO" ;
+    sec:hasDisclosure inst:0000021344_BusinessOperations,
+        inst:0000021344_CompensationAndBenefits,
+        inst:0000021344_CultureAndValues,
+        inst:0000021344_DiversityEquityInclusion,
+        inst:0000021344_EngagementAndRetention,
+        inst:0000021344_Mission,
+        inst:0000021344_TrainingAndDevelopment,
+        inst:0000021344_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000021344_25_000011 .
+
+inst:0000021344_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "COCA COLA CO — BusinessOperations" ;
+    sec:foundedInYear "1919"^^xsd:gYear ;
+    sec:hasBrand "Coca-Cola, Sprite, Coca-Cola Zero Sugar, Fanta, Diet Coke/Coca-Cola Light" ;
+    sec:hasBusinessRelationship "Distribution coordination agreements with Monster Beverage Corporation" ;
+    sec:hasBusinessSegment "Asia Pacific",
+        "Bottling Investments",
+        "Europe, Middle East and Africa",
+        "Global Ventures (to be sunset effective January 1, 2025)",
+        "Latin America",
+        "North America" ;
+    sec:hasDistributionChannel "Network of independent bottling partners, distributors, wholesalers and retailers" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Talent and Compensation Committee provides oversight of talent, leadership, culture and compensation" ;
+    sec:hasKeyMetric "Beverages bearing Company trademarks account for 2.2 billion of estimated 65 billion daily servings worldwide" ;
+    sec:hasSECCIK "0000021344" ;
+    sec:hasSICCode "2080 - Beverages" ;
+    sec:hasSubsidiary "Costa Limited",
+        "innocent" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Sparkling flavors; water, sports, coffee and tea; juice, value-added dairy and plant-based beverages; emerging beverages" ;
+    sec:operatesInIndustry inst:industry_Total_beverage_company ;
+    sec:operatesInRegion "Products sold in more than 200 countries and territories" .
+
+inst:0000021344_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "COCA COLA CO — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Compensation designed to reinforce growth agenda, talent strategy and drive connection between contributions and pay" ;
+    sec:hasPayEquityMetric "Regular pay equity analyses conducted to ensure fairness in compensation programs" ;
+    sec:offersBenefit "Annual incentive awards, recognition programs and equity awards for certain job levels based on performance",
+        "Base pay competitive and aligned with position, skill level, experience and geographic location" .
+
+inst:0000021344_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "COCA COLA CO — CultureAndValues" ;
+    sec:hasCulturalPillar "Growth mindset expecting employees to be curious, empowered, inclusive and agile",
+        "Quarterly global town halls with senior leadership including employee Q&A sessions" .
+
+inst:0000021344_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "COCA COLA CO — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Employee-led inclusion networks regionally structured to meet local needs, open to all employees" .
+
+inst:0000021344_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "COCA COLA CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "Performance Enablement and Culture & Engagement Survey platforms for regular employee feedback" .
+
+inst:0000021344_Mission a sec:Mission ;
+    rdfs:label "COCA COLA CO — Mission" ;
+    sec:hasPurpose "To refresh the world and make a difference" ;
+    sec:hasVision "Done Sustainably - grow business achieving positive change and a more sustainable future",
+        "For a Better Shared Future - invest to improve people's lives across the business system",
+        "Loved Brands - craft meaningful brands and drinks that people love and enjoy" .
+
+inst:0000021344_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "COCA COLA CO — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Company-wide onboarding, coaching and mentoring programs at all levels",
+        "Online learning through robust catalog of digital content and experiential learning opportunities",
+        "Thrive Opportunity Marketplace connecting project opportunities to interested employees",
+        "Thrive global career strategy program providing clarity on careers at the Company" .
+
+inst:0000021344_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "COCA COLA CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 69,700 employees as of December 31, 2024 (down from 79,100 in 2023 due to refranchising)" ;
+    sec:hasUnionRepresentation "Approximately 400 employees in North America covered by collective bargaining agreements with 3-5 year terms" ;
+    sec:hasWorkforceLocation "Approximately 8,900 employees in the United States as of December 31, 2024" .
+
+inst:filing_0000021344_25_000011 a sec:Filing ;
+    rdfs:label "Filing 0000021344-25-000011" ;
+    sec:hasAccessionNumber "0000021344-25-000011" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Total_beverage_company a sec:Industry ;
+    rdfs:label "Total beverage company" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

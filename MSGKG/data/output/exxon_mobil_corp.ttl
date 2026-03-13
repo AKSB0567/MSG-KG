@@ -1,0 +1,65 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000034088 a sec:Company ;
+    rdfs:label "EXXON MOBIL CORP" ;
+    sec:hasDisclosure inst:0000034088_BusinessOperations,
+        inst:0000034088_CompensationAndBenefits,
+        inst:0000034088_Mission,
+        inst:0000034088_TrainingAndDevelopment,
+        inst:0000034088_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000034088_25_000010 .
+
+inst:0000034088_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "EXXON MOBIL CORP — BusinessOperations" ;
+    sec:foundedInYear "1882"^^xsd:gYear ;
+    sec:hasBrand "ExxonMobil, Exxon, Esso, Mobil, XTO" ;
+    sec:hasBusinessRelationship "Acquired Pioneer Natural Resources on May 3, 2024 for ~$63B in stock plus $5B assumed debt" ;
+    sec:hasBusinessSegment "Low Carbon Solutions - carbon capture/storage, hydrogen, lower-emission fuels, Proxxima, lithium" ;
+    sec:hasCarbonCapture "Largest owned/operated CO2 pipeline network in U.S. (900+ miles) via Denbury acquisition" ;
+    sec:hasCompetitiveDifferentiator "Pioneer acquisition creates industry-leading U.S. unconventional inventory position" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasIntellectualProperty "Over 8,000 active patents worldwide at end of 2024; ~$102M technology licensing revenue" ;
+    sec:hasKeyMetric "Average length of service of about 30 years for career employees" ;
+    sec:hasSECCIK "0000034088" ;
+    sec:hasSICCode "2911 - Petroleum Refining" ;
+    sec:hasSustainabilityGoal "20-30% reduction in corporate-wide GHG intensity vs 2016 levels by 2030",
+        "70-80% reduction in corporate-wide methane intensity vs 2016 levels by 2030",
+        "Net-zero Scope 1 and 2 GHG emissions in operated assets by 2050",
+        "Net-zero Scope 1 and 2 emissions in heritage Permian Basin unconventional assets by 2030" ;
+    sec:incorporatedIn inst:jurisdiction_NJ ;
+    sec:manufacturesProduct "Crude oil, natural gas, petroleum products, petrochemicals and specialty products" ;
+    sec:operatesInIndustry inst:industry_Exploration_production_of_crude_oil_and_natural_gas_petroleum_refining_petroch ;
+    sec:operatesInRegion "United States and most other countries of the world" ;
+    sec:providesService "Lower-emission opportunities: carbon capture/storage, hydrogen, lower-emission fuels, lithium" .
+
+inst:0000034088_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "EXXON MOBIL CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Market competitive, long-term oriented, highly differentiated by individual performance" .
+
+inst:0000034088_Mission a sec:Mission ;
+    rdfs:label "EXXON MOBIL CORP — Mission" ;
+    sec:hasStrategicPriority "Grow pipeline of emission-reduction opportunities and lower-emission investments" .
+
+inst:0000034088_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "EXXON MOBIL CORP — TrainingAndDevelopment" ;
+    sec:investsInEmployeeDevelopment "Career-oriented talent development with individually planned experiences and training" .
+
+inst:0000034088_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "EXXON MOBIL CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "61,000 regular employees at year end 2024" ;
+    sec:hasWorkforceDiversityMetric "Over 60% of global employees from outside the U.S.; 160 nationalities represented" .
+
+inst:filing_0000034088_25_000010 a sec:Filing ;
+    rdfs:label "Filing 0000034088-25-000010" ;
+    sec:hasAccessionNumber "0000034088-25-000010" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Exploration_production_of_crude_oil_and_natural_gas_petroleum_refining_petroch a sec:Industry ;
+    rdfs:label "Exploration/production of crude oil and natural gas; petroleum refining; petrochemicals" .
+
+inst:jurisdiction_NJ a sec:Jurisdiction ;
+    rdfs:label "NJ" .
+

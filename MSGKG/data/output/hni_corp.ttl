@@ -1,0 +1,64 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000048287 a sec:Company ;
+    rdfs:label "HNI CORP" ;
+    sec:hasDisclosure inst:0000048287_BusinessOperations,
+        inst:0000048287_CompensationAndBenefits,
+        inst:0000048287_CultureAndValues,
+        inst:0000048287_TrainingAndDevelopment,
+        inst:0000048287_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000048287_25_000084 .
+
+inst:0000048287_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "HNI CORP — BusinessOperations" ;
+    sec:foundedInYear "1944"^^xsd:gYear ;
+    sec:hasBusinessSegment "Residential Building Products",
+        "Workplace Furnishings" ;
+    sec:hasDistributionChannel "Independent dealers, office product distributors, eCommerce retailers, wholesalers, direct to end-users, governments" ;
+    sec:hasMarketPosition "Leading global designer and provider of commercial furnishings; leading manufacturer of hearth products" ;
+    sec:hasRevenue "$2.5 billion net sales in fiscal 2024 ($1.9B workplace furnishings, $0.6B residential building products)" ;
+    sec:hasSECCIK "0000048287" ;
+    sec:hasSICCode "2522" ;
+    sec:headquarteredIn inst:location_Muscatine_Iowa ;
+    sec:incorporatedIn inst:jurisdiction_IA ;
+    sec:manufacturesProduct "Furniture systems, seating, storage, tables, architectural products, ancillary and hospitality products",
+        "Gas, wood, electric, pellet-fueled fireplaces, inserts, stoves, outdoor fire pits, fire tables, accessories" ;
+    sec:operatesInIndustry inst:industry_Office_furniture_no_wood ;
+    sec:operatesInRegion "Offices, plants, distribution centers and showrooms primarily in United States, India, and Mexico" .
+
+inst:0000048287_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "HNI CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive and equitable compensation and benefits designed to attract, retain, and motivate members" ;
+    sec:offersBenefit "Stock-based plans and profit sharing allowing most members to benefit from corporate success" .
+
+inst:0000048287_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "HNI CORP — CultureAndValues" ;
+    sec:hasCoreValue "Fair and inclusive treatment - treat all members with fairness and respect, ensuring all voices are heard",
+        "Transparent communication - frequent opportunities for members to raise concerns with company leaders",
+        "Unique perspectives - diverse backgrounds drive innovation and growth" .
+
+inst:0000048287_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "HNI CORP — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Apprenticeships, on-the-job training, performance and talent-management processes, leadership development" .
+
+inst:0000048287_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "HNI CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 7,700 persons including fewer than 100 temporary personnel as of December 28, 2024" .
+
+inst:filing_0000048287_25_000084 a sec:Filing ;
+    rdfs:label "Filing 0000048287-25-000084" ;
+    sec:hasAccessionNumber "0000048287-25-000084" ;
+    sec:hasFilingDate "2025-02-25"^^xsd:date .
+
+inst:industry_Office_furniture_no_wood a sec:Industry ;
+    rdfs:label "Office furniture (no wood)" .
+
+inst:jurisdiction_IA a sec:Jurisdiction ;
+    rdfs:label "IA" .
+
+inst:location_Muscatine_Iowa a sec:Location ;
+    rdfs:label "Muscatine, Iowa" .
+

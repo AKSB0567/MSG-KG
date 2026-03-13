@@ -1,0 +1,80 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000015615 a sec:Company ;
+    rdfs:label "MASTEC INC" ;
+    sec:hasDisclosure inst:0000015615_BusinessOperations,
+        inst:0000015615_CompensationAndBenefits,
+        inst:0000015615_CultureAndValues,
+        inst:0000015615_Mission,
+        inst:0000015615_SafetyAndHealth,
+        inst:0000015615_TrainingAndDevelopment,
+        inst:0000015615_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000015615_25_000021 .
+
+inst:0000015615_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "MASTEC INC — BusinessOperations" ;
+    sec:hasBusinessSegment "Clean Energy and Infrastructure",
+        "Communications",
+        "Other (equity investees and international end-markets)",
+        "Pipeline Infrastructure (renamed from Oil and Gas in Q4 2024)",
+        "Power Delivery" ;
+    sec:hasCarbonCapture "Carbon capture sequestration pipeline construction services" ;
+    sec:hasFacility "Approximately 770 locations as of December 31, 2024" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasMarketPosition "Leading infrastructure construction company; ranked among top 5 in ENR Top 400 Contractors" ;
+    sec:hasSECCIK "0000015615" ;
+    sec:hasSICCode "1623 - Water, Sewer, Pipeline, Comm and Power Line Construction" ;
+    sec:hasSustainabilityProgram "Sustainability governance overseen by Nominating, Sustainability and Corporate Governance Committee" ;
+    sec:incorporatedIn inst:jurisdiction_Florida ;
+    sec:operatesInIndustry inst:industry_Infrastructure_construction ;
+    sec:operatesInRegion "Primarily throughout North America" ;
+    sec:providesService "Construction of clean energy and renewable power generation: wind, solar, biomass, battery storage",
+        "Engineering, building, installation, maintenance of communications infrastructure",
+        "Pipeline infrastructure for natural gas, water and carbon capture sequestration",
+        "Power transmission and distribution infrastructure, grid modernization, emergency restoration" .
+
+inst:0000015615_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "MASTEC INC — CompensationAndBenefits" ;
+    sec:offersBenefit "Medical, dental, vision, prescription insurance, telehealth, 401(k) with match, ESPP, life/disability" .
+
+inst:0000015615_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "MASTEC INC — CultureAndValues" ;
+    sec:hasCoreValue "Safety is a core value; commitment to fairness, respect, teamwork and collaboration" ;
+    sec:hasCulturalPillar "Family-oriented team culture fostering employee engagement, inclusion and merit-based growth" .
+
+inst:0000015615_Mission a sec:Mission ;
+    rdfs:label "MASTEC INC — Mission" ;
+    sec:hasMission "Achieve customer expectations safely, profitably and in an environmentally responsible manner" ;
+    sec:hasStrategicPriority "Focus on nation's transition to low-carbon energy sources; expanded in renewables and power delivery" .
+
+inst:0000015615_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "MASTEC INC — SafetyAndHealth" ;
+    sec:hasHealthProgram "Wellness tools and resources; telehealth for medical and mental health; work-life support" ;
+    sec:hasSafetyProgram "Fleet telematics applications and safety initiatives for staff, subcontractors and suppliers",
+        "Zero Harm culture; proactive safety with continuous monitoring of key safety performance indicators" .
+
+inst:0000015615_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "MASTEC INC — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Safety orientation, OSHA outreach, defensive driving, DOT, operator qualification, electric worker training" ;
+    sec:investsInEmployeeDevelopment "Apprenticeship and leadership programs, tuition reimbursement, employee training centers" .
+
+inst:0000015615_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "MASTEC INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 32,000 as of Dec 31, 2024; average ~33,000 for 12-month period" ;
+    sec:hasUnionRepresentation "Approximately 7,000 employees represented by unions or subject to collective bargaining agreements" ;
+    sec:hasWorkforceLocation "Approximately 98% of employees located in the United States" .
+
+inst:filing_0000015615_25_000021 a sec:Filing ;
+    rdfs:label "Filing 0000015615-25-000021" ;
+    sec:hasAccessionNumber "0000015615-25-000021" ;
+    sec:hasFilingDate "2025-02-28"^^xsd:date .
+
+inst:industry_Infrastructure_construction a sec:Industry ;
+    rdfs:label "Infrastructure construction" .
+
+inst:jurisdiction_Florida a sec:Jurisdiction ;
+    rdfs:label "Florida" .
+

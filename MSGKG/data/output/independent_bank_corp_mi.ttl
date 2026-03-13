@@ -1,0 +1,59 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000039311 a sec:Company ;
+    rdfs:label "INDEPENDENT BANK CORP /MI/" ;
+    sec:hasDisclosure inst:0000039311_BusinessOperations,
+        inst:0000039311_CompensationAndBenefits,
+        inst:0000039311_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000039311_25_000044 .
+
+inst:0000039311_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "INDEPENDENT BANK CORP /MI/ — BusinessOperations" ;
+    sec:competesWith "Other commercial banks, savings banks, credit unions, mortgage banking companies, fintech companies" ;
+    sec:foundedInYear "1973"^^xsd:gYear ;
+    sec:hasFacility "1 loan production facility in Fairlawn, Ohio",
+        "Main office in Grand Rapids plus 56 branches, 1 drive-thru facility, and 4 Michigan loan production offices" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Capital ratios exceeded minimum requirements for well-capitalized category as of December 31, 2024",
+        "Interest and fees on loans: 70.7% of revenue in 2024",
+        "Total deposits of $4.654 billion as of December 31, 2024",
+        "Total loans of $4.039 billion (excluding loans held for sale) as of December 31, 2024" ;
+    sec:hasSECCIK "0000039311" ;
+    sec:hasSICCode "6022 - State Commercial Banks" ;
+    sec:hasSubsidiary "Independent Bank (sole banking subsidiary, organized under Michigan law)" ;
+    sec:hasTechnologyPlatform "Internet and mobile banking capabilities" ;
+    sec:headquarteredIn inst:location_Grand_Rapids_Michigan ;
+    sec:incorporatedIn inst:jurisdiction_Michigan ;
+    sec:isSubjectToRegulation "Federal Reserve, FDIC, Michigan DIFS, IRS, and state taxing authorities" ;
+    sec:operatesInIndustry inst:industry_Commercial_banking ;
+    sec:operatesInRegion "Rural and suburban communities across Lower Michigan" ;
+    sec:providesService "Checking and savings accounts, commercial lending, consumer financing, mortgage lending, safe deposit boxes",
+        "Investment services through third party agreement with Cetera Investment Services LLC",
+        "Title insurance services" .
+
+inst:0000039311_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "INDEPENDENT BANK CORP /MI/ — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive compensation and benefits, strong employee relations through culture, training and growth" ;
+    sec:offersBenefit "Employee stock ownership plan (ESOP) and deferred compensation plans" .
+
+inst:0000039311_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "INDEPENDENT BANK CORP /MI/ — WorkforceComposition" ;
+    sec:hasEmployeeCount "732 full-time and 102 part-time employees as of December 31, 2024" .
+
+inst:filing_0000039311_25_000044 a sec:Filing ;
+    rdfs:label "Filing 0000039311-25-000044" ;
+    sec:hasAccessionNumber "0000039311-25-000044" ;
+    sec:hasFilingDate "2025-03-07"^^xsd:date .
+
+inst:industry_Commercial_banking a sec:Industry ;
+    rdfs:label "Commercial banking" .
+
+inst:jurisdiction_Michigan a sec:Jurisdiction ;
+    rdfs:label "Michigan" .
+
+inst:location_Grand_Rapids_Michigan a sec:Location ;
+    rdfs:label "Grand Rapids, Michigan" .
+

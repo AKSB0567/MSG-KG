@@ -1,0 +1,76 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000040533 a sec:Company ;
+    rdfs:label "GENERAL DYNAMICS CORP" ;
+    sec:hasDisclosure inst:0000040533_BusinessOperations,
+        inst:0000040533_CompensationAndBenefits,
+        inst:0000040533_CultureAndValues,
+        inst:0000040533_DiversityEquityInclusion,
+        inst:0000040533_TrainingAndDevelopment,
+        inst:0000040533_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000040533_25_000008 .
+
+inst:0000040533_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "GENERAL DYNAMICS CORP — BusinessOperations" ;
+    sec:hasBusinessSegment "Aerospace",
+        "Combat Systems",
+        "Marine Systems",
+        "Technologies" ;
+    sec:hasFacility "Savannah, Georgia campus with manufacturing, service, R&D, and distribution" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasKeyMetric "405 city-pair speed records, more than any other business jet manufacturer",
+        "8,000 nautical mile range at Mach 0.85; longest-range Gulfstream aircraft",
+        "FAA certified March 2024; ultra-long-range, ultra-large-cabin business jet",
+        "Hired 23,800+ in 2024; 42% of U.S. hires were people of color",
+        "More than 3,000 Gulfstream aircraft in service worldwide" ;
+    sec:hasSECCIK "0000040533" ;
+    sec:hasSICCode "3730 - Ship & Boat Building & Repairing" ;
+    sec:hasSubsidiary "Gulfstream - leading producer of business jets",
+        "Jet Aviation - global aircraft services and support" ;
+    sec:hasSustainabilityProgram "Industry leader in sustainable aviation fuel (SAF) and energy efficient engines" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Business jets (Gulfstream G700, G800, G400, G500, G600, G280)",
+        "Ships, submarines, land combat vehicles, weapons systems, and munitions" ;
+    sec:operatesInIndustry inst:industry_Global_aerospace_and_defense ;
+    sec:providesService "Technology products and services for defense customers" .
+
+inst:0000040533_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "GENERAL DYNAMICS CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Pay-for-performance with fair, market-based, competitive and equitable compensation" .
+
+inst:0000040533_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "GENERAL DYNAMICS CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "Standards of Business Ethics and Conduct requiring employee acknowledgment" ;
+    sec:hasCoreValue "Ethos of transparency, trust, honesty and alignment" .
+
+inst:0000040533_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "GENERAL DYNAMICS CORP — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Promotes diversity of thought, experience, perspectives, backgrounds for innovation" .
+
+inst:0000040533_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "GENERAL DYNAMICS CORP — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Rigorous succession planning for key positions and leadership pipeline" ;
+    sec:hasTrainingProgram "Critical job skills training and leadership behaviors consistent with Ethos" .
+
+inst:0000040533_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "GENERAL DYNAMICS CORP — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 117,000 employees globally" ;
+    sec:hasUnionRepresentation "~21% of workforce represented by collective bargaining agreements" ;
+    sec:hasWorkforceDiversityMetric "Global: 76% male, 24% female; senior leadership: 75% male, 25% female",
+        "U.S.: 69% white, 31% people of color, 19% veterans, 8% disability" ;
+    sec:hasWorkforceLocation "~84% U.S.-based; ~16% international in 65+ countries" .
+
+inst:filing_0000040533_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000040533-25-000008" ;
+    sec:hasAccessionNumber "0000040533-25-000008" ;
+    sec:hasFilingDate "2025-02-07"^^xsd:date .
+
+inst:industry_Global_aerospace_and_defense a sec:Industry ;
+    rdfs:label "Global aerospace and defense" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

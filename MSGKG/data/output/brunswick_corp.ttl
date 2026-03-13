@@ -1,0 +1,87 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000014930 a sec:Company ;
+    rdfs:label "BRUNSWICK CORP" ;
+    sec:hasDisclosure inst:0000014930_BusinessOperations,
+        inst:0000014930_CompensationAndBenefits,
+        inst:0000014930_CultureAndValues,
+        inst:0000014930_DiversityEquityInclusion,
+        inst:0000014930_EngagementAndRetention,
+        inst:0000014930_Mission,
+        inst:0000014930_SafetyAndHealth,
+        inst:0000014930_TrainingAndDevelopment,
+        inst:0000014930_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000014930_25_000025 .
+
+inst:0000014930_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "BRUNSWICK CORP — BusinessOperations" ;
+    sec:foundedInYear "1907"^^xsd:gYear ;
+    sec:hasBusinessRelationship "Acquired Fliteboard Pty Ltd in 2023 for eFoiling technology and electrification strategy" ;
+    sec:hasBusinessSegment "Engine P&A segment - net sales of $1,160.8 million in 2024",
+        "Navico Group segment - net sales of $800.2 million in 2024",
+        "Propulsion segment - net sales of $2,074.2 million in 2024" ;
+    sec:hasCompetitiveDifferentiator "ACES strategy: Autonomy, Connectivity, Electrification and Shared Access" ;
+    sec:hasDistributionChannel "Over 860 boat builders and more than 8,900 marine dealers and distributors" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasMarketPosition "Global leader in marine recreation; traded on NYSE for 100 years" ;
+    sec:hasSECCIK "0000014930" ;
+    sec:hasSICCode "3510 - Engines & Turbines" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Avator electric propulsion systems ranging from 7.5e to 110e",
+        "Marine electronics: cartography, sonar, radar, fish finders, multifunction displays, trolling motors",
+        "Marine propulsion: outboard engines 2.5-600 HP; inboard/sterndrive 115-1,550 HP" ;
+    sec:operatesInIndustry inst:industry_Marine_recreation .
+
+inst:0000014930_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "BRUNSWICK CORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Pay-for-performance culture; equitable pay regardless of race or gender" ;
+    sec:offersBenefit "Market-competitive salaries, incentive bonuses, equity program, retirement contribution, healthcare, PTO" .
+
+inst:0000014930_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "BRUNSWICK CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "The Integrity Playbook; 98% of active global salaried population completed annual training in 2024" ;
+    sec:hasCulturalPillar "EVP built on five behaviors: Innovative, Driven, Exceptional, Authentic, United" .
+
+inst:0000014930_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "BRUNSWICK CORP — DiversityEquityInclusion" ;
+    sec:hasEmployeeResourceGroup "Women on Water, Black Professionals Network, Asians/Pacific Islanders in Marine, Hispanic/Latino, Veterans" .
+
+inst:0000014930_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "BRUNSWICK CORP — EngagementAndRetention" ;
+    sec:hasEngagementScore "77% employee participation in 2024 global employee engagement survey" .
+
+inst:0000014930_Mission a sec:Mission ;
+    rdfs:label "BRUNSWICK CORP — Mission" ;
+    sec:hasStrategicPriority "Expand boating participation through innovative products and shared-access experiences",
+        "Lead industry in ACES strategies and be acknowledged marine sustainability leader" .
+
+inst:0000014930_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "BRUNSWICK CORP — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Global recordable incident rate lower than U.S. BLS benchmarks; zero occupational fatalities in 2024" ;
+    sec:hasSafetyProgram "Safety Management System (SMS) to address workplace safety risks; goal of zero incidents" .
+
+inst:0000014930_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "BRUNSWICK CORP — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Continuous learning, skill building, mentoring, tuition reimbursement, apprenticeship programs" ;
+    sec:investsInEmployeeDevelopment "Technical career tracks for engineers; inventor recognition award program" .
+
+inst:0000014930_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "BRUNSWICK CORP — WorkforceComposition" ;
+    sec:hasContractorCount "Approximately 1,800 temporary/contingent workers and contractors" ;
+    sec:hasEmployeeCount "Approximately 15,000 employees as of December 31, 2024; 95% full-time" ;
+    sec:hasUnionRepresentation "Approx 1,800 U.S. union members; approx 1,000 international union/work council members" .
+
+inst:filing_0000014930_25_000025 a sec:Filing ;
+    rdfs:label "Filing 0000014930-25-000025" ;
+    sec:hasAccessionNumber "0000014930-25-000025" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_Marine_recreation a sec:Industry ;
+    rdfs:label "Marine recreation" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

@@ -1,0 +1,70 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000040545 a sec:Company ;
+    rdfs:label "GENERAL ELECTRIC CO" ;
+    sec:hasDisclosure inst:0000040545_BusinessOperations,
+        inst:0000040545_CompensationAndBenefits,
+        inst:0000040545_CultureAndValues,
+        inst:0000040545_EngagementAndRetention,
+        inst:0000040545_Mission,
+        inst:0000040545_SafetyAndHealth,
+        inst:0000040545_TrainingAndDevelopment,
+        inst:0000040545_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000040545_25_000015 .
+
+inst:0000040545_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "GENERAL ELECTRIC CO — BusinessOperations" ;
+    sec:hasFilingPeriod "Fiscal year ended December 31, 2024" ;
+    sec:hasSECCIK "0000040545" ;
+    sec:hasSICCode "3600 - Electronic & Other Electrical Equipment" ;
+    sec:hasTechnologyPlatform "FLIGHT DECK - proprietary lean operating model bridging strategy to results" ;
+    sec:incorporatedIn inst:jurisdiction_New_York ;
+    sec:operatesInIndustry inst:industry_Aerospace_and_defense .
+
+inst:0000040545_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "GENERAL ELECTRIC CO — CompensationAndBenefits" ;
+    sec:hasPayEquityMetric "Men and women performing similar work paid within 1% of each other" .
+
+inst:0000040545_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "GENERAL ELECTRIC CO — CultureAndValues" ;
+    sec:hasCodeOfConduct "The Spirit & The Letter - integrity and compliance standards" ;
+    sec:hasCulturalPillar "Respect for People through humility, transparency, focus, unyielding integrity" .
+
+inst:0000040545_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "GENERAL ELECTRIC CO — EngagementAndRetention" ;
+    sec:hasEngagementScore "First enterprise-wide culture survey conducted in 2024 as independent company" .
+
+inst:0000040545_Mission a sec:Mission ;
+    rdfs:label "GENERAL ELECTRIC CO — Mission" ;
+    sec:hasPurpose "Invent the future of flight, lift people up and bring them home safely" .
+
+inst:0000040545_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "GENERAL ELECTRIC CO — SafetyAndHealth" ;
+    sec:hasSafetyMetric "Annual bonus includes safety performance modifier for past 4 years" ;
+    sec:hasSafetyProgram "Robust procedures for high-risk activities to prevent accidents and injuries",
+        "Stringent EHS standards often more rigorous than local regulations" .
+
+inst:0000040545_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "GENERAL ELECTRIC CO — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership development programs to elevate high-potential talent" ;
+    sec:hasTrainingProgram "Annual organization and talent review led by senior management for each business" .
+
+inst:0000040545_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "GENERAL ELECTRIC CO — WorkforceComposition" ;
+    sec:hasEmployeeCount "~53,000 employees; ~28,000 in the U.S. as of December 31, 2024" ;
+    sec:hasUnionRepresentation "~3,700 union-represented employees in U.S. (IUE-CWA, UAW, IAM)" .
+
+inst:filing_0000040545_25_000015 a sec:Filing ;
+    rdfs:label "Filing 0000040545-25-000015" ;
+    sec:hasAccessionNumber "0000040545-25-000015" ;
+    sec:hasFilingDate "2025-02-03"^^xsd:date .
+
+inst:industry_Aerospace_and_defense a sec:Industry ;
+    rdfs:label "Aerospace and defense" .
+
+inst:jurisdiction_New_York a sec:Jurisdiction ;
+    rdfs:label "New York" .
+

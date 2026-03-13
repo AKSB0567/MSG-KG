@@ -1,0 +1,76 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000058492 a sec:Company ;
+    rdfs:label "LEGGETT & PLATT INC" ;
+    sec:hasDisclosure inst:0000058492_BusinessOperations,
+        inst:0000058492_CompensationAndBenefits,
+        inst:0000058492_CultureAndValues,
+        inst:0000058492_EngagementAndRetention,
+        inst:0000058492_SafetyAndHealth,
+        inst:0000058492_TrainingAndDevelopment,
+        inst:0000058492_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000058492_25_000136 .
+
+inst:0000058492_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "LEGGETT & PLATT INC — BusinessOperations" ;
+    sec:foundedInYear "1883"^^xsd:gYear ;
+    sec:hasBusinessSegment "Bedding Products",
+        "Furniture, Flooring & Textile Products",
+        "Specialized Products" ;
+    sec:hasCompetitiveDifferentiator "Vertical integration from raw materials to finished products in bedding" ;
+    sec:hasFacility "U.S. steel rod mill with approximately 500,000 tons annual capacity" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "HR and Compensation Committee oversees HR policies, compensation, succession planning" ;
+    sec:hasSECCIK "0000058492" ;
+    sec:hasSICCode "2510 - Household Furniture" ;
+    sec:incorporatedIn inst:jurisdiction_Missouri ;
+    sec:manufacturesProduct "Aerospace tubing and fabricated assemblies",
+        "Automotive comfort and convenience systems",
+        "Hydraulic cylinders for material handling and heavy construction",
+        "Steel coil bedsprings, innersprings, specialty foam, adjustable beds, mattresses" ;
+    sec:operatesInIndustry inst:industry_International_diversified_manufacturer_of_engineered_components_and_products .
+
+inst:0000058492_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "LEGGETT & PLATT INC — CompensationAndBenefits" ;
+    sec:offersBenefit "Discount stock purchase plan, flexible hours, remote/hybrid work options",
+        "Health, dental, vision, retirement savings, disability, life insurance, well-being programs" .
+
+inst:0000058492_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "LEGGETT & PLATT INC — CultureAndValues" ;
+    sec:hasCodeOfConduct "Ethics Hotline for confidential and anonymous reporting of ethics/policy violations" ;
+    sec:hasCoreValue "Inclusion, respect, and equal opportunity for all employees" .
+
+inst:0000058492_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "LEGGETT & PLATT INC — EngagementAndRetention" ;
+    sec:hasTurnoverRate "2024 U.S. turnover rates comparable to manufacturing industry average" .
+
+inst:0000058492_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "LEGGETT & PLATT INC — SafetyAndHealth" ;
+    sec:hasSafetyProgram "New hire and annual refresher training, weekly tool box talks, job-specific training",
+        "SafeGuard program with job hazard analyses and comprehensive job procedures" .
+
+inst:0000058492_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "LEGGETT & PLATT INC — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "100% internal promotion rate for corporate officer positions over last 3 years" ;
+    sec:hasTrainingProgram "Monthly learning spotlights on career growth, change management, collaboration, etc." .
+
+inst:0000058492_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "LEGGETT & PLATT INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 17,700 employees at year-end 2024" ;
+    sec:hasUnionRepresentation "Approximately 14% of employees represented by labor unions" ;
+    sec:hasWorkforceDiversityMetric "~11,500 production employees; ~10,200 international employees" .
+
+inst:filing_0000058492_25_000136 a sec:Filing ;
+    rdfs:label "Filing 0000058492-25-000136" ;
+    sec:hasAccessionNumber "0000058492-25-000136" ;
+    sec:hasFilingDate "2025-02-26"^^xsd:date .
+
+inst:industry_International_diversified_manufacturer_of_engineered_components_and_products a sec:Industry ;
+    rdfs:label "International diversified manufacturer of engineered components and products" .
+
+inst:jurisdiction_Missouri a sec:Jurisdiction ;
+    rdfs:label "Missouri" .
+

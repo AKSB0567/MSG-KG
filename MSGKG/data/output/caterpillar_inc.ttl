@@ -1,0 +1,86 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000018230 a sec:Company ;
+    rdfs:label "CATERPILLAR INC" ;
+    sec:hasDisclosure inst:0000018230_BusinessOperations,
+        inst:0000018230_CompensationAndBenefits,
+        inst:0000018230_CultureAndValues,
+        inst:0000018230_DiversityEquityInclusion,
+        inst:0000018230_EngagementAndRetention,
+        inst:0000018230_Mission,
+        inst:0000018230_SafetyAndHealth,
+        inst:0000018230_TrainingAndDevelopment,
+        inst:0000018230_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000018230_25_000008 .
+
+inst:0000018230_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "CATERPILLAR INC — BusinessOperations" ;
+    sec:competesWith "CASE, Deere, Doosan Bobcat, Hitachi, Hyundai, Komatsu, Kubota, Sany, Volvo CE and others" ;
+    sec:foundedInYear "1925"^^xsd:gYear ;
+    sec:hasBrand "SEM brand machines for developing economy markets" ;
+    sec:hasBusinessSegment "Construction Industries",
+        "Energy & Transportation",
+        "Financial Products (Cat Financial and Insurance Services)",
+        "Resource Industries" ;
+    sec:hasDistributionChannel "Global network of independent dealers and direct sales" ;
+    sec:hasFilingPeriod "2024-12-31" ;
+    sec:hasMarketPosition "World's leading manufacturer of construction and mining equipment" ;
+    sec:hasRevenue "2024 sales and revenues of $64.809 billion" ;
+    sec:hasSECCIK "0000018230" ;
+    sec:hasSICCode "3531 - Construction Machinery & Equipment" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Construction/mining equipment, off-highway diesel/natural gas engines, gas turbines, locomotives" ;
+    sec:operatesInIndustry inst:industry_Construction_and_mining_equipment_manufacturing .
+
+inst:0000018230_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "CATERPILLAR INC — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Pay-for-performance philosophy aligning individual contributions with rewards" .
+
+inst:0000018230_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "CATERPILLAR INC — CultureAndValues" ;
+    sec:hasCodeOfConduct "Our Values In Action: Integrity, Excellence, Teamwork, Commitment and Sustainability" .
+
+inst:0000018230_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "CATERPILLAR INC — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "14 Employee Resource Groups (ERGs) sponsored and supported by leadership" .
+
+inst:0000018230_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "CATERPILLAR INC — EngagementAndRetention" ;
+    sec:hasEngagementScore "Annual Employee Insights Survey for all employees to share perspectives confidentially" .
+
+inst:0000018230_Mission a sec:Mission ;
+    rdfs:label "CATERPILLAR INC — Mission" ;
+    sec:hasStrategicPriority "Expanded Offerings, Operational Excellence, Services, and Sustainability" ;
+    sec:hasVision "Help customers build a better, more sustainable world" .
+
+inst:0000018230_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "CATERPILLAR INC — SafetyAndHealth" ;
+    sec:hasHealthProgram "Total Health programs: purpose, physical/mental health, emotional/social support, financial wellness" ;
+    sec:hasSafetyMetric "Recordable injury frequency rate of 0.43 in 2024 (vs. 0.40 in 2023)" ;
+    sec:hasSafetyProgram "Safety driven strategy focused on preventing serious injuries and learning from those closest to work" .
+
+inst:0000018230_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "CATERPILLAR INC — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Leadership development programs encouraging variety of experiences; resilient/high-performing teams" ;
+    sec:hasTrainingProgram "Skill-based programs for manufacturing employees; mentoring programs; global internships and co-ops" ;
+    sec:investsInEmployeeDevelopment "Career programs for engineering, marketing and manufacturing; technical/professional capability building" .
+
+inst:0000018230_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "CATERPILLAR INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "About 112,900 full-time employees as of Dec 31, 2024; ~51,500 U.S., ~61,400 outside U.S." ;
+    sec:hasWorkforceLocation "Approximately 51,500 inside U.S.; approximately 61,400 outside U.S." .
+
+inst:filing_0000018230_25_000008 a sec:Filing ;
+    rdfs:label "Filing 0000018230-25-000008" ;
+    sec:hasAccessionNumber "0000018230-25-000008" ;
+    sec:hasFilingDate "2025-02-14"^^xsd:date .
+
+inst:industry_Construction_and_mining_equipment_manufacturing a sec:Industry ;
+    rdfs:label "Construction and mining equipment manufacturing" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

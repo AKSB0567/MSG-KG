@@ -1,0 +1,79 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000051644 a sec:Company ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC." ;
+    sec:hasDisclosure inst:0000051644_BusinessOperations,
+        inst:0000051644_CompensationAndBenefits,
+        inst:0000051644_CultureAndValues,
+        inst:0000051644_DiversityEquityInclusion,
+        inst:0000051644_Mission,
+        inst:0000051644_TrainingAndDevelopment,
+        inst:0000051644_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000051644_25_000024 .
+
+inst:0000051644_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — BusinessOperations" ;
+    sec:foundedInYear "1930"^^xsd:gYear ;
+    sec:hasBrand "FCB, IPG Health, McCann Worldgroup, MullenLowe Group",
+        "IPG Mediabrands, UM, Initiative, KINESSO, Acxiom, MRM",
+        "Weber Shandwick Collective, Golin, Jack Morton, Momentum, Octagon" ;
+    sec:hasBusinessSegment "Integrated Advertising & Creativity Led Solutions (IA&C)",
+        "MD&E: IPG Mediabrands, Acxiom, KINESSO, digital and commerce agencies",
+        "Media, Data & Engagement Solutions (MD&E)",
+        "Specialized Communications & Experiential Solutions (SC&E)" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Revenue primarily from multi-channel advertising, marketing and communications" ;
+    sec:hasSECCIK "0000051644" ;
+    sec:hasSICCode "7311 - Services-Advertising Agencies" ;
+    sec:hasSustainabilityGoal "100% renewable electricity by 2030",
+        "Net-zero carbon emissions by 2040 via The Climate Pledge",
+        "Science-Based Targets validated by SBTi for 1.5C alignment" ;
+    sec:hasSustainabilityProgram "Annual carbon footprint measurement and reporting since 2015" ;
+    sec:hasTechnologyPlatform "Open Architecture agile client resource model" ;
+    sec:headquarteredIn inst:location_New_York_City ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Marketing_communications_and_business_transformation_services ;
+    sec:operatesInRegion "Over 100 countries spanning all major world markets" ;
+    sec:providesService "Insights, data, media, creative, production, digital commerce, healthcare marketing" .
+
+inst:0000051644_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Executive compensation for senior leaders with annual performance assessment" .
+
+inst:0000051644_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — CultureAndValues" ;
+    sec:hasCoreValue "Inclusion, talent potential, growth and social impact as essential priorities" .
+
+inst:0000051644_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Programs for recruitment, retention, advancement, well-being and belonging" .
+
+inst:0000051644_Mission a sec:Mission ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — Mission" ;
+    sec:hasStrategicPriority "Digital commerce, retail media, AI, audience resolution, production" .
+
+inst:0000051644_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — TrainingAndDevelopment" ;
+    sec:hasTrainingProgram "Skills-training, management training, onboarding processes, goal-setting platforms" .
+
+inst:0000051644_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 53,300 employees" .
+
+inst:filing_0000051644_25_000024 a sec:Filing ;
+    rdfs:label "Filing 0000051644-25-000024" ;
+    sec:hasAccessionNumber "0000051644-25-000024" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Marketing_communications_and_business_transformation_services a sec:Industry ;
+    rdfs:label "Marketing, communications and business transformation services" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+
+inst:location_New_York_City a sec:Location ;
+    rdfs:label "New York City" .
+

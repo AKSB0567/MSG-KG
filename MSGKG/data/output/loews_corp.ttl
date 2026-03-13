@@ -1,0 +1,50 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000060086 a sec:Company ;
+    rdfs:label "LOEWS CORP" ;
+    sec:hasDisclosure inst:0000060086_BusinessOperations,
+        inst:0000060086_CultureAndValues,
+        inst:0000060086_SafetyAndHealth ;
+    sec:hasFiling inst:filing_0000060086_25_000036 .
+
+inst:0000060086_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "LOEWS CORP — BusinessOperations" ;
+    sec:hasFacility "Loews Arlington Hotel and Convention Center (opened Q1 2024)" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Open door policy for supervisory and management personnel for ethical concerns" ;
+    sec:hasKeyFinancialMetric "Boardwalk Pipelines 2025 expected maintenance spend: ~$504 million (~$203 million maintenance capital)",
+        "Boardwalk Pipelines EBITDA: $1,086 million in 2024 (up from $929 million in 2023)",
+        "Boardwalk Pipelines net income attributable to Loews: $413 million in 2024 (up from $283 million in 2023)",
+        "Boardwalk Pipelines operating revenues: $2,034 million in 2024 (up from $1,625 million in 2023)",
+        "Loews Hotels & Co operating revenue: $806 million in 2024 (up from $678 million in 2023)",
+        "Loews Hotels net income attributable to Loews: $70 million in 2024" ;
+    sec:hasSECCIK "0000060086" ;
+    sec:hasSICCode "6331" ;
+    sec:hasSubsidiary "Boardwalk Pipelines (midstream natural gas pipelines)",
+        "CNA Financial Corporation (property and casualty insurance)",
+        "Loews Hotels & Co" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_Fire_marine_and_casualty_insurance_diversified_holding_company .
+
+inst:0000060086_CultureAndValues a sec:CultureAndValues ;
+    rdfs:label "LOEWS CORP — CultureAndValues" ;
+    sec:hasCodeOfConduct "Code of Business Conduct and Ethics requiring compliance with law, prohibiting insider trading and conflicts of interest" .
+
+inst:0000060086_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "LOEWS CORP — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Workplace safety and health rules; zero tolerance for violence, threatening behavior, and illegal drugs" .
+
+inst:filing_0000060086_25_000036 a sec:Filing ;
+    rdfs:label "Filing 0000060086-25-000036" ;
+    sec:hasAccessionNumber "0000060086-25-000036" ;
+    sec:hasFilingDate "2025-02-11"^^xsd:date .
+
+inst:industry_Fire_marine_and_casualty_insurance_diversified_holding_company a sec:Industry ;
+    rdfs:label "Fire, marine and casualty insurance; diversified holding company" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

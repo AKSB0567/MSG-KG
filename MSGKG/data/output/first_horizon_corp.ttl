@@ -1,0 +1,36 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000036966 a sec:Company ;
+    rdfs:label "FIRST HORIZON CORP" ;
+    sec:hasDisclosure inst:0000036966_BusinessOperations ;
+    sec:hasFiling inst:filing_0000036966_25_000024 .
+
+inst:0000036966_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FIRST HORIZON CORP — BusinessOperations" ;
+    sec:hasCompetitiveRisk "Rising compensation costs due to high-demand/low-supply labor market in 2021-2022" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000036966" ;
+    sec:hasSICCode "6021" ;
+    sec:incorporatedIn inst:jurisdiction_TN ;
+    sec:isAffectedBy "Geographic risks including hurricanes, earthquakes in Memphis, and natural disasters",
+        "Regulatory compliance expense increase expected when reaching $100 billion in assets" ;
+    sec:isSubjectToRegulation "CECL accounting standards impacting provision for credit losses and regulatory capital" ;
+    sec:operatesInIndustry inst:industry_National_commercial_banking ;
+    sec:operatesInRegion "Major Gulf Coast markets and southern Atlantic seacoast markets",
+        "Southeastern and south-central U.S. states for traditional lending and deposits" ;
+    sec:servesCustomerSegment "Healthcare-industry clients in middle Tennessee" .
+
+inst:filing_0000036966_25_000024 a sec:Filing ;
+    rdfs:label "Filing 0000036966-25-000024" ;
+    sec:hasAccessionNumber "0000036966-25-000024" ;
+    sec:hasFilingDate "2025-02-27"^^xsd:date .
+
+inst:industry_National_commercial_banking a sec:Industry ;
+    rdfs:label "National commercial banking" .
+
+inst:jurisdiction_TN a sec:Jurisdiction ;
+    rdfs:label "TN" .
+

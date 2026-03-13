@@ -1,0 +1,38 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000035527 a sec:Company ;
+    rdfs:label "FIFTH THIRD BANCORP" ;
+    sec:hasDisclosure inst:0000035527_BusinessOperations,
+        inst:0000035527_CompensationAndBenefits ;
+    sec:hasFiling inst:filing_0000035527_25_000079 .
+
+inst:0000035527_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FIFTH THIRD BANCORP — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Human Capital and Compensation Committee of the Board of Directors" ;
+    sec:hasKeyFinancialMetric "SAR weighted-average grant-date fair value of $9.71 per share in 2024",
+        "Stock-based compensation expense of $164 million in 2024" ;
+    sec:hasKeyMetric "4,636 SARs outstanding at December 31, 2024 (in thousands)" ;
+    sec:hasSECCIK "0000035527" ;
+    sec:hasSICCode "6022" ;
+    sec:incorporatedIn inst:jurisdiction_OH ;
+    sec:operatesInIndustry inst:industry_State_commercial_banking .
+
+inst:0000035527_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "FIFTH THIRD BANCORP — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Uses Stock Appreciation Rights (SARs) valued with Black-Scholes option-pricing model" .
+
+inst:filing_0000035527_25_000079 a sec:Filing ;
+    rdfs:label "Filing 0000035527-25-000079" ;
+    sec:hasAccessionNumber "0000035527-25-000079" ;
+    sec:hasFilingDate "2025-02-24"^^xsd:date .
+
+inst:industry_State_commercial_banking a sec:Industry ;
+    rdfs:label "State commercial banking" .
+
+inst:jurisdiction_OH a sec:Jurisdiction ;
+    rdfs:label "OH" .
+

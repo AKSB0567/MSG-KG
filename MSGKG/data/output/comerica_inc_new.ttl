@@ -1,0 +1,29 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000028412 a sec:Company ;
+    rdfs:label "COMERICA INC /NEW/" ;
+    sec:hasDisclosure inst:0000028412_BusinessOperations ;
+    sec:hasFiling inst:filing_0000028412_25_000108 .
+
+inst:0000028412_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "COMERICA INC /NEW/ — BusinessOperations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasSECCIK "0000028412" ;
+    sec:hasSICCode "6021 - National Commercial Banks" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:operatesInIndustry inst:industry_National_Commercial_Banks .
+
+inst:filing_0000028412_25_000108 a sec:Filing ;
+    rdfs:label "Filing 0000028412-25-000108" ;
+    sec:hasAccessionNumber "0000028412-25-000108" ;
+    sec:hasFilingDate "2025-02-24"^^xsd:date .
+
+inst:industry_National_Commercial_Banks a sec:Industry ;
+    rdfs:label "National Commercial Banks" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

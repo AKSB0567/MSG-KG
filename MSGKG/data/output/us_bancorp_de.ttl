@@ -1,0 +1,63 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000036104 a sec:Company ;
+    rdfs:label "US BANCORP \\DE\\" ;
+    sec:hasDisclosure inst:0000036104_BusinessOperations,
+        inst:0000036104_CompensationAndBenefits,
+        inst:0000036104_EngagementAndRetention,
+        inst:0000036104_TrainingAndDevelopment,
+        inst:0000036104_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000036104_25_000016 .
+
+inst:0000036104_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "US BANCORP \\DE\\ — BusinessOperations" ;
+    sec:competesWith "Commercial banks, savings associations, finance companies, credit unions, fintechs, credit card companies" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasGovernanceStructure "Board Compensation and Human Resources Committee oversees human capital management" ;
+    sec:hasSECCIK "0000036104" ;
+    sec:hasSICCode "6021" ;
+    sec:hasSubsidiary "U.S. Bank National Association (USBNA)" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:isAffectedBy "Changes in trade policy including tariff imposition and retaliatory tariffs" ;
+    sec:isSubjectToRegulation "Community Reinvestment Act (CRA) final rule effective Apr 2024, paused by court injunction",
+        "FDIC assessments and Federal Reserve oversight as a large banking organization" ;
+    sec:operatesInIndustry inst:industry_National_commercial_banking_and_financial_services .
+
+inst:0000036104_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "US BANCORP \\DE\\ — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Competitive pay with periodic peer/benchmarking reviews; disclosed compensation ranges for all US roles" ;
+    sec:offersBenefit "Active cash balance pension program for U.S. employees including new hires",
+        "Competitive 401(k) matching program and educational assistance programs",
+        "Comprehensive healthcare, retirement, leave, recognition, wellness, disability, and life insurance" .
+
+inst:0000036104_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "US BANCORP \\DE\\ — EngagementAndRetention" ;
+    sec:hasRetentionProgram "Employee surveying programs for quantitative and qualitative feedback on engagement" .
+
+inst:0000036104_TrainingAndDevelopment a sec:TrainingAndDevelopment ;
+    rdfs:label "US BANCORP \\DE\\ — TrainingAndDevelopment" ;
+    sec:hasLeadershipProgram "Mentorship and leadership development opportunities for key skills and work experiences" ;
+    sec:hasTrainingMetric "Over 1.8 million hours of training completed through enterprise learning programs in 2024" ;
+    sec:hasTrainingProgram "Development Day highlighting importance of self-development and Company commitment to learning",
+        "Development Network providing all employees networking, learning, and leadership opportunities",
+        "Product Academy, Foundational Leadership, Skill of the Month, and Skills Academy programs" .
+
+inst:0000036104_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "US BANCORP \\DE\\ — WorkforceComposition" ;
+    sec:hasEmployeeCount "70,263 employees globally as of December 31, 2024" ;
+    sec:hasWorkforceLocation "More than 20 corporate hub locations, branch network, and business centers" .
+
+inst:filing_0000036104_25_000016 a sec:Filing ;
+    rdfs:label "Filing 0000036104-25-000016" ;
+    sec:hasAccessionNumber "0000036104-25-000016" ;
+    sec:hasFilingDate "2025-02-21"^^xsd:date .
+
+inst:industry_National_commercial_banking_and_financial_services a sec:Industry ;
+    rdfs:label "National commercial banking and financial services" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

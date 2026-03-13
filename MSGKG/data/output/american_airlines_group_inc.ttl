@@ -1,0 +1,54 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000006201 a sec:Company ;
+    rdfs:label "American Airlines Group Inc." ;
+    sec:hasDisclosure inst:0000006201_BusinessOperations,
+        inst:0000006201_SafetyAndHealth ;
+    sec:hasFiling inst:filing_0000006201_25_000010 .
+
+inst:0000006201_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "American Airlines Group Inc. — BusinessOperations" ;
+    sec:foundedInYear "1934"^^xsd:gYear ;
+    sec:hasBrand "American Eagle (regional carrier brand)" ;
+    sec:hasCompetitiveRisk "Prolonged pilot shortage due to increased licensing requirements and reduced military pipeline" ;
+    sec:hasEnvironmentalLiability "Liability for investigation and remediation costs at various domestic sites" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasFleetSize "977 mainline aircraft plus 585 regional aircraft as of December 31, 2024" ;
+    sec:hasHub "Charlotte, Chicago, Dallas/Fort Worth, Los Angeles, Miami, New York, Philadelphia, Phoenix, Washington D.C." ;
+    sec:hasKeyMetric "Over 226 million passengers boarded flights in 2024",
+        "Service to over 350 destinations worldwide" ;
+    sec:hasPartnerGateway "London, Doha, Madrid, Seattle/Tacoma, Sydney, Tokyo" ;
+    sec:hasSECCIK "0000006201" ;
+    sec:hasSICCode "AIR TRANSPORTATION, SCHEDULED [4512]" ;
+    sec:hasSubsidiary "American Airlines, Inc., Envoy Aviation Group Inc., PSA Airlines, Inc., Piedmont Airlines, Inc." ;
+    sec:headquarteredIn inst:location_1_Skyview_Drive_Fort_Worth_Texas_76155 ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:isAffectedBy "Dependency on limited number of suppliers for aircraft, engines, and parts",
+        "FAA regulatory actions including Boeing 737 MAX grounding and Pratt & Whitney GTF engine issues",
+        "PFAS regulations requiring operational and infrastructure changes for firefighting foams" ;
+    sec:isSubjectToRegulation "Environmental laws requiring soil/groundwater investigation and remediation",
+        "Federal, state, local and foreign environmental and noise regulations" ;
+    sec:launchedRoutes "Over 50 new routes in 2024, including NYC-Tokyo, DFW-Brisbane, PHL-Copenhagen, PHL-Nice" ;
+    sec:operatesInIndustry inst:industry_Scheduled_air_transportation_for_passengers_and_cargo .
+
+inst:0000006201_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "American Airlines Group Inc. — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Subject to FAA safety and reliability certification requirements for aircraft operations" .
+
+inst:filing_0000006201_25_000010 a sec:Filing ;
+    rdfs:label "Filing 0000006201-25-000010" ;
+    sec:hasAccessionNumber "0000006201-25-000010" ;
+    sec:hasFilingDate "2025-02-19"^^xsd:date .
+
+inst:industry_Scheduled_air_transportation_for_passengers_and_cargo a sec:Industry ;
+    rdfs:label "Scheduled air transportation for passengers and cargo" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+
+inst:location_1_Skyview_Drive_Fort_Worth_Texas_76155 a sec:Location ;
+    rdfs:label "1 Skyview Drive, Fort Worth, Texas 76155" .
+

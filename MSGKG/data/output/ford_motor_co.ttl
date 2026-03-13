@@ -1,0 +1,39 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000037996 a sec:Company ;
+    rdfs:label "FORD MOTOR CO" ;
+    sec:hasDisclosure inst:0000037996_BusinessOperations ;
+    sec:hasFiling inst:filing_0000037996_25_000013 .
+
+inst:0000037996_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "FORD MOTOR CO — BusinessOperations" ;
+    sec:hasBusinessRelationship "BlueOval SK, LLC (BOSK) - up to $6.6B capital commitment over five-year period ending 2026",
+        "Offtake agreements with raw material suppliers for battery materials" ;
+    sec:hasBusinessSegment "Ford Credit (financial services segment)" ;
+    sec:hasDistributionChannel "Wholesale vehicle sales to dealers, majority financed by Ford Credit" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "$2.4B contributions recognized to BOSK net of returns of capital through January 2025",
+        "Approx $1.8B purchase obligations and $4.9B contingent obligations for battery raw materials through 2035",
+        "Foreign currency remeasurement impact: $(155) million for 2024",
+        "Net carrying amount of goodwill: $658 million at December 31, 2024",
+        "Net carrying amount of intangible assets: $69 million at December 31, 2024" ;
+    sec:hasSECCIK "0000037996" ;
+    sec:hasSICCode "3711 - Motor Vehicles & Passenger Car Bodies" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:manufacturesProduct "Motor vehicles including electric vehicles" ;
+    sec:operatesInIndustry inst:industry_Motor_vehicles_and_passenger_car_bodies_manufacturing .
+
+inst:filing_0000037996_25_000013 a sec:Filing ;
+    rdfs:label "Filing 0000037996-25-000013" ;
+    sec:hasAccessionNumber "0000037996-25-000013" ;
+    sec:hasFilingDate "2025-02-06"^^xsd:date .
+
+inst:industry_Motor_vehicles_and_passenger_car_bodies_manufacturing a sec:Industry ;
+    rdfs:label "Motor vehicles and passenger car bodies manufacturing" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

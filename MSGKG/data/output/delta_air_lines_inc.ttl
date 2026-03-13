@@ -1,0 +1,78 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000027904 a sec:Company ;
+    rdfs:label "DELTA AIR LINES, INC." ;
+    sec:hasDisclosure inst:0000027904_BusinessOperations,
+        inst:0000027904_CompensationAndBenefits,
+        inst:0000027904_DiversityEquityInclusion,
+        inst:0000027904_EngagementAndRetention,
+        inst:0000027904_Mission,
+        inst:0000027904_SafetyAndHealth,
+        inst:0000027904_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000027904_25_000004 .
+
+inst:0000027904_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "DELTA AIR LINES, INC. — BusinessOperations" ;
+    sec:hasBusinessRelationship "Alliance partners: Aeromexico, Air France-KLM, China Eastern, LATAM, Korean Air, Virgin Atlantic" ;
+    sec:hasCompetitiveDifferentiator "Cirium Platinum Award for global operational excellence 4 consecutive years (through Jan 2025)",
+        "WSJ top airline 4 consecutive years; most on-time airline in North America" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasFleetSize "1,292 aircraft as of December 31, 2024" ;
+    sec:hasHub "Coastal hubs: Boston, Los Angeles, New York-LaGuardia, New York-JFK, Seattle",
+        "Core hubs: Atlanta, Detroit, Minneapolis-St. Paul, Salt Lake City" ;
+    sec:hasKeyFinancialMetric "$1.4 billion in profit sharing payments for 2024; $86 million earned under Shared Rewards program" ;
+    sec:hasKeyMetric "Served over 200 million customers in 2024",
+        "Took delivery of 38 aircraft in 2024 including A321neos, A220-300s, A330-900s and A350-900s" ;
+    sec:hasMarketPosition "FORTUNE World's No. 11 Most Admired Company; Glassdoor No. 13 Best Places to Work in U.S." ;
+    sec:hasSECCIK "0000027904" ;
+    sec:hasSICCode "4512 - Air Transportation, Scheduled" ;
+    sec:hasSubsidiary "Monroe Energy, LLC - oil refinery capable of refining ~200,000 barrels of crude oil per day" ;
+    sec:hasSustainabilityGoal "Evaluating pathways for integrating Monroe refinery into Delta's net zero future" ;
+    sec:hasSustainabilityProgram "Monroe replacing steam-driven turbines with electric motors to reduce GHG emissions from boilers" ;
+    sec:incorporatedIn inst:jurisdiction_Delaware ;
+    sec:operatesInIndustry inst:industry_Scheduled_air_transportation_global_airline_based_in_the_United_States ;
+    sec:operatesInRegion "Over 120 countries, 800+ destinations; up to 5,000 peak-day flights to 290+ destinations on 6 continents" .
+
+inst:0000027904_CompensationAndBenefits a sec:CompensationAndBenefits ;
+    rdfs:label "DELTA AIR LINES, INC. — CompensationAndBenefits" ;
+    sec:hasCompensationPhilosophy "Highly competitive total compensation to share Delta's success; profit sharing and Shared Rewards" .
+
+inst:0000027904_DiversityEquityInclusion a sec:DiversityEquityInclusion ;
+    rdfs:label "DELTA AIR LINES, INC. — DiversityEquityInclusion" ;
+    sec:hasDEIProgram "Merit-based hiring seeking diverse talent; expanded candidate slates and diverse interview panels",
+        "Skills-first talent approach creating merit-based access to career opportunities" ;
+    sec:hasEmployeeResourceGroup "4 employee engagement groups and 12 business resource groups; 40,000+ members as of Dec 31, 2024" .
+
+inst:0000027904_EngagementAndRetention a sec:EngagementAndRetention ;
+    rdfs:label "DELTA AIR LINES, INC. — EngagementAndRetention" ;
+    sec:hasEngagementScore "Annual employee surveys on satisfaction, leadership effectiveness, safety culture, wellbeing, DEI" .
+
+inst:0000027904_Mission a sec:Mission ;
+    rdfs:label "DELTA AIR LINES, INC. — Mission" ;
+    sec:hasPurpose "Connect customers across expansive global network; future of travel is connected, personalized, enjoyable" .
+
+inst:0000027904_SafetyAndHealth a sec:SafetyAndHealth ;
+    rdfs:label "DELTA AIR LINES, INC. — SafetyAndHealth" ;
+    sec:hasSafetyProgram "Delta Safety Management System for positive safety culture and proactive safety risk management" .
+
+inst:0000027904_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "DELTA AIR LINES, INC. — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 103,000 full-time employee equivalents as of Dec 31, 2024; ~100,000 U.S.-based" ;
+    sec:hasUnionRepresentation "Delta Pilots: 17,380 represented by ALPA (amendable Dec 31, 2026)",
+        "Endeavor Pilots: 1,540 (ALPA); Endeavor Flight Attendants: 1,700 (AFA)",
+        "~20% of FTE employees represented by unions (ALPA, PAFCA, AFA, United Steel Workers)" .
+
+inst:filing_0000027904_25_000004 a sec:Filing ;
+    rdfs:label "Filing 0000027904-25-000004" ;
+    sec:hasAccessionNumber "0000027904-25-000004" ;
+    sec:hasFilingDate "2025-02-11"^^xsd:date .
+
+inst:industry_Scheduled_air_transportation_global_airline_based_in_the_United_States a sec:Industry ;
+    rdfs:label "Scheduled air transportation - global airline based in the United States" .
+
+inst:jurisdiction_Delaware a sec:Jurisdiction ;
+    rdfs:label "Delaware" .
+

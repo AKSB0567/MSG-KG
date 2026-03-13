@@ -1,0 +1,44 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000005272 a sec:Company ;
+    rdfs:label "AMERICAN INTERNATIONAL GROUP, INC." ;
+    sec:hasDisclosure inst:0000005272_BusinessOperations ;
+    sec:hasFiling inst:filing_0000005272_25_000012 .
+
+inst:0000005272_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "AMERICAN INTERNATIONAL GROUP, INC. — BusinessOperations" ;
+    sec:hasBusinessSegment "General Insurance" ;
+    sec:hasCompetitiveDifferentiator "Combination of risk acceptance criteria, product pricing, and terms and conditions" ;
+    sec:hasCompetitiveRisk "Intense competition in property and casualty insurance from other P&C organizations" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyFinancialMetric "Book value per share of $70.16 as of December 31, 2024",
+        "Net loss attributable to AIG common shareholders of $1,426 million in 2024",
+        "Premiums of $23,537 million in 2024",
+        "Return on equity of -3.2% in 2024; adjusted return on equity of 6.6%",
+        "Total assets of $161,322 million as of December 31, 2024",
+        "Total net investment income of $4,255 million in 2024" ;
+    sec:hasRevenue "Total revenues of $27,251 million in 2024" ;
+    sec:hasSECCIK "0000005272" ;
+    sec:hasSICCode "FIRE, MARINE & CASUALTY INSURANCE [6331]" ;
+    sec:hasSubsidiary "Fortitude Re (funds withheld assets relationship)" ;
+    sec:hasTechnologyPlatform "Investing in AI, data analytics, automated underwriting, and digitization of insurance" ;
+    sec:incorporatedIn inst:jurisdiction_DE ;
+    sec:isAffectedBy "Currency volatility in EUR, GBP, and JPY affecting international operations",
+        "Interest rate fluctuations impacting net investment income and asset-liability management" ;
+    sec:operatesInIndustry inst:industry_Fire_marine_and_casualty_insurance ;
+    sec:operatesInRegion "Global operations with substantial international presence" .
+
+inst:filing_0000005272_25_000012 a sec:Filing ;
+    rdfs:label "Filing 0000005272-25-000012" ;
+    sec:hasAccessionNumber "0000005272-25-000012" ;
+    sec:hasFilingDate "2025-02-13"^^xsd:date .
+
+inst:industry_Fire_marine_and_casualty_insurance a sec:Industry ;
+    rdfs:label "Fire, marine and casualty insurance" .
+
+inst:jurisdiction_DE a sec:Jurisdiction ;
+    rdfs:label "DE" .
+

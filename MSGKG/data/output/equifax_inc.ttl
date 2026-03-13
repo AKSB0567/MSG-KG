@@ -1,0 +1,55 @@
+@prefix inst: <http://example.org/sec10k/instance/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sec: <http://example.org/sec10k/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:company_0000033185 a sec:Company ;
+    rdfs:label "EQUIFAX INC" ;
+    sec:hasDisclosure inst:0000033185_BusinessOperations,
+        inst:0000033185_Mission,
+        inst:0000033185_WorkforceComposition ;
+    sec:hasFiling inst:filing_0000033185_25_000025 .
+
+inst:0000033185_BusinessOperations a sec:BusinessOperations ;
+    rdfs:label "EQUIFAX INC — BusinessOperations" ;
+    sec:foundedInYear "1899"^^xsd:gYear ;
+    sec:hasBusinessSegment "International - products and services across global regions",
+        "U.S. Information Solutions (USIS) - consumer and commercial information solutions",
+        "Workforce Solutions - verification services, employer services" ;
+    sec:hasCompetitiveDifferentiator "Proprietary machine learning and AI analytical platforms leveraging unique data assets" ;
+    sec:hasFacility "Support operations in Chile, Costa Rica, India and Ireland" ;
+    sec:hasFilingPeriod "20241231" ;
+    sec:hasKeyMetric "Hired ~2,200 new employees and promoted ~1,900 employees in 2024" ;
+    sec:hasSECCIK "0000033185" ;
+    sec:hasSICCode "7320 - Services-Consumer Credit Reporting, Collection Agencies" ;
+    sec:hasTechnologyPlatform "Equifax Cloud - cloud-native platform with single data fabric for data products" ;
+    sec:incorporatedIn inst:jurisdiction_GA ;
+    sec:operatesInIndustry inst:industry_Global_data_analytics_and_technology ;
+    sec:operatesInRegion "North America (U.S. and Canada), Asia Pacific, Europe, Latin America" ;
+    sec:providesService "E-commerce fraud and charge back protection services in North America",
+        "Human resources business process automation and outsourcing services for employers",
+        "Information solutions for businesses, governments and consumers" ;
+    sec:servesCustomerSegment "Financial institutions, corporations, government agencies and individuals" .
+
+inst:0000033185_Mission a sec:Mission ;
+    rdfs:label "EQUIFAX INC — Mission" ;
+    sec:hasStrategicPriority "Leverage Equifax Cloud capabilities to accelerate innovation, new products and growth",
+        "Leverage and expand differentiated portfolio of data assets" ;
+    sec:hasVision "To be a trusted global leader in data, analytics and technology creating innovative solutions" .
+
+inst:0000033185_WorkforceComposition a sec:WorkforceComposition ;
+    rdfs:label "EQUIFAX INC — WorkforceComposition" ;
+    sec:hasEmployeeCount "Approximately 14,700 employees in 22 countries as of December 31, 2024" ;
+    sec:hasWorkforceLocation "~3,100 Workforce Solutions; ~2,500 USIS; ~4,500 International; ~4,600 corporate CoE" .
+
+inst:filing_0000033185_25_000025 a sec:Filing ;
+    rdfs:label "Filing 0000033185-25-000025" ;
+    sec:hasAccessionNumber "0000033185-25-000025" ;
+    sec:hasFilingDate "2025-02-20"^^xsd:date .
+
+inst:industry_Global_data_analytics_and_technology a sec:Industry ;
+    rdfs:label "Global data, analytics and technology" .
+
+inst:jurisdiction_GA a sec:Jurisdiction ;
+    rdfs:label "GA" .
+
