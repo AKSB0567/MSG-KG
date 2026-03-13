@@ -527,9 +527,47 @@ with col_filters:
     st.markdown("---")
 
     all_sorted = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
-    company = st.selectbox("Company", all_sorted,
-                           format_func=lambda c: f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
+
+    # Company dropdown
+    company = st.selectbox("Select Company", ["-- None --"] + all_sorted,
+                           format_func=lambda c: c if c == "-- None --" else f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
                            label_visibility="collapsed")
+
+    st.markdown("---")
+
+    # Mission Quality filter
+    MQ_FILTER_OPTIONS = {
+        "All": None,
+        "M1 — Direct": 1,
+        "M2 — Implied": 2,
+        "M3 — Inferred": 3,
+        "M4 — Vague": 4,
+        "M0 — Not Found": 0,
+    }
+    mq_filter = st.selectbox("Filter by Mission Quality", list(MQ_FILTER_OPTIONS.keys()))
+    mq_val = MQ_FILTER_OPTIONS[mq_filter]
+
+    if mq_val is not None:
+        filtered = [c for c in all_sorted
+                    if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("mission_quality", 0) == mq_val]
+        st.caption(f"{len(filtered)} companies")
+        for c in filtered:
+            st.markdown(f"- {COMPANIES[c]['name']}")
+
+        # If a company from the filtered list is clicked, use it
+        if filtered:
+            company = st.selectbox("Select from filtered", filtered,
+                                   format_func=lambda c: COMPANIES[c]["name"],
+                                   label_visibility="collapsed")
+
+    # Handle "-- None --" selection
+    if company == "-- None --":
+        if mq_val is not None and filtered:
+            company = filtered[0]
+        else:
+            company = all_sorted[0]
+
+    st.markdown("---")
 
     meta = COMPANIES[company]
     st.caption(f"Sector: {meta['sector']}")
