@@ -27,8 +27,8 @@ _kg_cache.pkl
 _diag.py
 _*.txt
 
-# Large SEC 10-K text files (too big for GitHub, 572MB)
-MSGKG/data/data/
+# Large SEC 10-K text files — tracked via Git LFS for HF Spaces
+# MSGKG/data/data/
 # MSGKG/data/output/ — TTL KGs are small (617KB), keep committed
 
 # Claude project files
