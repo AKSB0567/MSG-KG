@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: ADVANCED MICRO DEVICES INC
+# CIK: 0000002488
+
+inst:Company_ADVANCED_MICRO_DEVICES_INC a msg:Company ;
+    rdfs:label "ADVANCED MICRO DEVICES INC" ;
+    msg:cik "0000002488" ;
+    msg:sector "3674 - Semiconductors & Related Devices" ;
+    msg:hasMission inst:Mission_ADVANCED_MICRO_DEVICES_INC .
+
+inst:Mission_ADVANCED_MICRO_DEVICES_INC a msg:MissionStatement ;
+    msg:missionText "Build great products that accelerate next-generation computing experiences." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000002488-25-000012.txt" .

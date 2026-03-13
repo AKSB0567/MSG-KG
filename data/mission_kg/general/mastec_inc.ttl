@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: MASTEC INC
+# CIK: 0000015615
+
+inst:Company_MASTEC_INC a msg:Company ;
+    rdfs:label "MASTEC INC" ;
+    msg:cik "0000015615" ;
+    msg:sector "1623 - Water, Sewer, Pipeline, Comm and Power Line Construction" ;
+    msg:hasMission inst:Mission_MASTEC_INC .
+
+inst:Mission_MASTEC_INC a msg:MissionStatement ;
+    msg:missionText "Achieve customer expectations safely, profitably and in an environmentally responsible manner." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000015615-25-000021.txt" .

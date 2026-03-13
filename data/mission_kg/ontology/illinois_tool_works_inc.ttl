@@ -1,0 +1,72 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: ILLINOIS TOOL WORKS INC
+# CIK: 0000049826
+# Stakeholders: Employees, Shareholders, Government
+# Values: Inclusion
+# Objectives: 0 found
+# Domains: Manufacturing
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_ILLINOIS_TOOL_WORKS_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "ILLINOIS TOOL WORKS INC" ;
+    msg:cik "0000049826" ;
+    msg:sector "3560 - General Industrial Machinery & Equipment" ;
+    msg:hasMission inst:Mission_ILLINOIS_TOOL_WORKS_INC .
+
+# ── Mission Statement ──
+inst:Mission_ILLINOIS_TOOL_WORKS_INC a msg:MissionStatement ;
+    msg:missionText "The Company is a global manufacturer of a diversified range of industrial products and equipment with 86 divisions in 51 countries." ;
+    msg:extractedFrom "cleaned_10-K_0000049826-25-000007.txt" ;
+    msg:servesStakeholder inst:ILLINOIS_TOOL_WORKS_INC_Stakeholder_Employees ;
+    msg:servesStakeholder inst:ILLINOIS_TOOL_WORKS_INC_Stakeholder_Shareholders ;
+    msg:servesStakeholder inst:ILLINOIS_TOOL_WORKS_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:ILLINOIS_TOOL_WORKS_INC_Value_Inclusion ;
+    msg:operatesInDomain inst:ILLINOIS_TOOL_WORKS_INC_Domain_Manufacturing ;
+    msg:leveragesCapability inst:ILLINOIS_TOOL_WORKS_INC_Capability_0 ;
+    msg:leveragesCapability inst:ILLINOIS_TOOL_WORKS_INC_Capability_1  .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Stakeholder_Shareholders a msg:Stakeholder ;
+    rdfs:label "Shareholders" .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Value_Inclusion a msg:CorporateValue ;
+    rdfs:label "Inclusion" .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Domain_Manufacturing a msg:BusinessDomain ;
+    rdfs:label "Manufacturing" .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Food Equipment" .
+
+inst:ILLINOIS_TOOL_WORKS_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Plastic and metal components, fasteners and assemblies for automotive applications" .

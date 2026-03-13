@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: 1ST SOURCE CORP
+# CIK: 0000034782
+# Stakeholders: Customers, Government
+# Values: Service
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_1ST_SOURCE_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "1ST SOURCE CORP" ;
+    msg:cik "0000034782" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_1ST_SOURCE_CORP .
+
+# ── Mission Statement ──
+inst:Mission_1ST_SOURCE_CORP a msg:MissionStatement ;
+    msg:missionText "Help clients achieve security, build wealth, and realize their dreams." ;
+    msg:extractedFrom "cleaned_10-K_0000034782-25-000025.txt" ;
+    msg:servesStakeholder inst:1ST_SOURCE_CORP_Stakeholder_Customers ;
+    msg:servesStakeholder inst:1ST_SOURCE_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:1ST_SOURCE_CORP_Value_Service ;
+    msg:operatesInDomain inst:1ST_SOURCE_CORP_Domain_Financial_Services ;
+    msg:leveragesCapability inst:1ST_SOURCE_CORP_Capability_0 ;
+    msg:leveragesCapability inst:1ST_SOURCE_CORP_Capability_1 ;
+    msg:leveragesCapability inst:1ST_SOURCE_CORP_Capability_2 ;
+    msg:leveragesCapability inst:1ST_SOURCE_CORP_Capability_3  .
+
+inst:1ST_SOURCE_CORP_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:1ST_SOURCE_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:1ST_SOURCE_CORP_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:1ST_SOURCE_CORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:1ST_SOURCE_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Specialty Finance Group with 18 locations nationwide" .
+
+inst:1ST_SOURCE_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Renewable energy financing for commercial solar projects across contiguous US" .
+
+inst:1ST_SOURCE_CORP_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Forbes Americas Best Banks" .
+
+inst:1ST_SOURCE_CORP_Capability_3 a msg:BusinessCapability ;
+    rdfs:label "Forbes Best-In-State Bank for 3rd consecutive year (2024)" .

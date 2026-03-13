@@ -22,3 +22,14 @@ dist/
 *.webp
 *.png
 *.jpg
+# KG cache (auto-generated, do not commit)
+_kg_cache.pkl
+_diag.py
+_*.txt
+
+# Large SEC 10-K text files (too big for GitHub)
+MSGKG/data/data/
+MSGKG/data/output/
+
+# Claude project files
+MSGKG/.claude/

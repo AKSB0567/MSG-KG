@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: LOUISIANA-PACIFIC CORP
+# CIK: 0000060519
+
+inst:Company_LOUISIANA_PACIFIC_CORP a msg:Company ;
+    rdfs:label "LOUISIANA-PACIFIC CORP" ;
+    msg:cik "0000060519" ;
+    msg:sector "2400 - Lumber & Wood Products" ;
+    msg:hasMission inst:Mission_LOUISIANA_PACIFIC_CORP .
+
+inst:Mission_LOUISIANA_PACIFIC_CORP a msg:MissionStatement ;
+    msg:missionText "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.83^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000060519-25-000005.txt" .

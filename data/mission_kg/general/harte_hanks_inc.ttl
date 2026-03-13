@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: HARTE HANKS INC
+# CIK: 0000045919
+
+inst:Company_HARTE_HANKS_INC a msg:Company ;
+    rdfs:label "HARTE HANKS INC" ;
+    msg:cik "0000045919" ;
+    msg:sector "7331 - Direct Mail Advertising Services" ;
+    msg:hasMission inst:Mission_HARTE_HANKS_INC .
+
+inst:Mission_HARTE_HANKS_INC a msg:MissionStatement ;
+    msg:missionText "Our mission is to partner with clients to provide them with robust customer-experience, or CX strategy, data-driven analytics, and actionable insights combined with seamless program execution to better understand, attract, and engage their customers. Our services include strat." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 1^^xsd:integer ;
+    msg:missionConfidence 1.0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000045919-25-000008.txt" .

@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: American Airlines Group Inc.
+# CIK: 0000006201
+# Stakeholders: Customers, Employees, Society, Partners, Government
+# Values: Growth
+# Objectives: 1 found
+# Domains: Transportation
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_American_Airlines_Group_Inc a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "American Airlines Group Inc." ;
+    msg:cik "0000006201" ;
+    msg:sector "4512 - Air Transportation, Scheduled" ;
+    msg:hasMission inst:Mission_American_Airlines_Group_Inc .
+
+# ── Mission Statement ──
+inst:Mission_American_Airlines_Group_Inc a msg:MissionStatement ;
+    msg:missionText "We are committed to engaging with our stakeholders to seek to advance these initiatives and have de." ;
+    msg:extractedFrom "cleaned_10-K_0000006201-25-000010.txt" ;
+    msg:servesStakeholder inst:American_Airlines_Group_Inc_Stakeholder_Customers ;
+    msg:servesStakeholder inst:American_Airlines_Group_Inc_Stakeholder_Employees ;
+    msg:servesStakeholder inst:American_Airlines_Group_Inc_Stakeholder_Society ;
+    msg:servesStakeholder inst:American_Airlines_Group_Inc_Stakeholder_Partners ;
+    msg:servesStakeholder inst:American_Airlines_Group_Inc_Stakeholder_Government ;
+    msg:embodiesValue inst:American_Airlines_Group_Inc_Value_Growth ;
+    msg:pursuesObjective inst:American_Airlines_Group_Inc_Objective_0 ;
+    msg:operatesInDomain inst:American_Airlines_Group_Inc_Domain_Transportation  .
+
+inst:American_Airlines_Group_Inc_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:American_Airlines_Group_Inc_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:American_Airlines_Group_Inc_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:American_Airlines_Group_Inc_Stakeholder_Partners a msg:Stakeholder ;
+    rdfs:label "Partners" .
+
+inst:American_Airlines_Group_Inc_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:American_Airlines_Group_Inc_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:American_Airlines_Group_Inc_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "advance these initiatives and have de" .
+
+inst:American_Airlines_Group_Inc_Domain_Transportation a msg:BusinessDomain ;
+    rdfs:label "Transportation" .

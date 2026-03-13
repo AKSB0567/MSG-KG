@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: FLOWSERVE CORP
+# CIK: 0000030625
+
+inst:Company_FLOWSERVE_CORP a msg:Company ;
+    rdfs:label "FLOWSERVE CORP" ;
+    msg:cik "0000030625" ;
+    msg:sector "3561 - Pumps & Pumping Equipment" ;
+    msg:hasMission inst:Mission_FLOWSERVE_CORP .
+
+inst:Mission_FLOWSERVE_CORP a msg:MissionStatement ;
+    msg:missionText "FLOWSERVE CORP — Mission; 3D Strategy: Diversification, Decarbonization, and Digitization." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000030625-25-000039.txt" .

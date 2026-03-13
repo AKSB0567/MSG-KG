@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: FIFTH THIRD BANCORP
+# CIK: 0000035527
+
+inst:Company_FIFTH_THIRD_BANCORP a msg:Company ;
+    rdfs:label "FIFTH THIRD BANCORP" ;
+    msg:cik "0000035527" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_FIFTH_THIRD_BANCORP .
+
+inst:Mission_FIFTH_THIRD_BANCORP a msg:MissionStatement ;
+    msg:missionText "The Bancorp is a diversified financial services company headquartered in Cincinnati, Ohio and is the indirect holding company of Fifth Third Bank, National Association (the “Bank”)." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.52^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000035527-25-000079.txt" .

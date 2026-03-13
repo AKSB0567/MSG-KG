@@ -2,1294 +2,1332 @@ import streamlit as st
 
 # ── Page Config ──────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="MSG-KG v2.0 — KG-RAG Portfolio Intelligence",
+    page_title="MSG-KG — Mission Statement Intelligence",
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
 
-# MSG-KG v2.0 — KG-RAG Portfolio Intelligence Interface
-# Streamlit application with 6 tabs: Overview, Ask KG-RAG, Comparison,
-# Evidence Explorer, Mission→HCM Analysis, KG View.
-#
-# v2.0 Changes:
-# - New companies (AMD, ALX, LNG) with KG-derived data
-# - Removed Good/Bad classification → score-based analysis only
-# - Added Mission→HCM Analysis tab
-# - Uses rdflib-based TTL KG loading via rag_engine
-# - Switched from FinBERT to all-MiniLM-L6-v2 embeddings
-
-import os, re, json, pathlib, sys
+import os, re, json, pathlib
 import pandas as pd
-import networkx as nx
-from dotenv import load_dotenv
 
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # ── Paths ────────────────────────────────────────────────────────────────
 BASE_DIR   = pathlib.Path(__file__).parent
 CHUNKS_DIR = BASE_DIR / "data" / "chunks"
 ITEM1_DIR  = BASE_DIR / "data" / "item1"
-KG_DIR     = BASE_DIR / "MSGKG"
+KG_DIR         = BASE_DIR / "MSGKG"
+MISSION_KG_DIR = BASE_DIR / "data" / "mission_kg"
 
-# ── Custom CSS Loader ────────────────────────────────────────────────────
-def load_css(file_name):
-    """Injects custom CSS from a local file into the Streamlit app."""
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
+# ── Custom CSS ───────────────────────────────────────────────────────────
 css_path = BASE_DIR / "assets" / "custom.css"
 if css_path.exists():
-    load_css(str(css_path))
+    with open(css_path) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
-# ── Company Metadata ────────────────────────────────────────────────────
-# Score-based only — no Good/Bad classification
+# ── Load Registry ────────────────────────────────────────────────────────
+REGISTRY_PATH = BASE_DIR / "companies_registry.json"
+_REGISTRY_DATA = {}
+
+if REGISTRY_PATH.exists():
+    with open(REGISTRY_PATH, encoding="utf-8") as f:
+        _REGISTRY_DATA = json.load(f)
+
 COMPANIES = {
-    "AMD": {
-        "name": "Advanced Micro Devices, Inc.",
-        "sector": "Semiconductors",
-        "fiscal_year": "FY2024",
-        "cik": "0000002488",
-        "filing_id": "0000002488-25-000012",
-        "data_file": "012.txt",
-        "ttl_file": "AMD.ttl",
-        "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000002488&type=10-K",
-        "mission": "To build great products that accelerate next-generation computing experiences through high-performance and adaptive computing technology.",
-    },
-    "ALX": {
-        "name": "Alexander & Baldwin, Inc.",
-        "sector": "Real Estate / Diversified",
-        "fiscal_year": "FY2024",
-        "cik": "0000003499",
-        "filing_id": "0000003499-25-000004",
-        "data_file": "004.txt",
-        "ttl_file": "ALX.ttl",
-        "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000003499&type=10-K",
-        "mission": "To be Hawaii's premier commercial real estate company, enriching the lives of our team members, the communities we serve, and our shareholders.",
-    },
-    "LNG": {
-        "name": "Cheniere Energy, Inc.",
-        "sector": "Energy / LNG",
-        "fiscal_year": "FY2024",
-        "cik": "0000003570",
-        "filing_id": "0000003570-25-000033",
-        "data_file": "033.txt",
-        "ttl_file": "LNG.ttl",
-        "sec_link": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000003570&type=10-K",
-        "mission": "To be the world's leading full-service LNG provider, delivering clean, reliable, and affordable energy to the global market.",
-    },
+    cik: {
+        "name": info["name"],
+        "sector": info.get("sector", "Unknown"),
+        "fiscal_year": info.get("fiscal_year", "FY2024"),
+        "cik": cik,
+        "filing_id": info.get("filing_id", ""),
+        "filing_date": info.get("filing_date", ""),
+        "sec_link": info.get("sec_link", ""),
+    }
+    for cik, info in _REGISTRY_DATA.items()
 }
 
-# ── Alignment scoring dimensions ─────────────────────────────────────────
-# Each dimension scores on 0–3 scale:
-#   0 = Not present, 1 = Weak, 2 = Moderate, 3 = Strong
-ALIGNMENT_DIMENSIONS = [
-    "Mission Clarity",
-    "Vision → Strategy Linkage",
-    "Strategy → Operations Grounding",
-    "Operations → Financial Linkage",
-    "HCM Disclosure Depth",
-    "Risk Awareness & Mitigation",
-    "Initiative Specificity",
-    "Capability Articulation",
+
+# ═══════════════════════════════════════════════════════════════════════════
+# MISSION STATEMENT EVALUATION ENGINE
+# ═══════════════════════════════════════════════════════════════════════════
+
+# Buzzword dictionary — generic terms that weaken mission statements
+BUZZWORDS = {
+    "world-class", "leading", "innovative", "best-in-class", "synergy",
+    "cutting-edge", "next-generation", "state-of-the-art", "premier",
+    "excellence", "superior", "dynamic", "robust", "leverage",
+    "paradigm", "holistic", "disruptive", "transformative", "empower",
+    "solutions", "optimize", "scalable", "seamless", "world-leading",
+    "unparalleled", "pioneering", "groundbreaking",
+}
+
+# Stakeholder keywords
+STAKEHOLDER_MAP = {
+    "Customers": ["customer", "client", "consumer", "user", "buyer", "patron",
+                  "member", "guest", "passenger", "policyholder", "patient"],
+    "Employees": ["employee", "colleague", "team member", "workforce", "staff",
+                  "people", "talent", "worker", "associate"],
+    "Shareholders": ["shareholder", "investor", "stockholder", "return",
+                     "value creation", "dividend"],
+    "Society": ["community", "communities", "society", "world", "planet",
+                "environment", "sustainability", "social", "public"],
+}
+
+# Innovation / Differentiation signals
+INNOVATION_KEYWORDS = [
+    "innovation", "innovate", "technology", "research", "development",
+    "ai", "artificial intelligence", "machine learning", "digital",
+    "patent", "proprietary", "differentiat", "unique", "first-mover",
+    "breakthrough", "advanced", "pioneer",
+]
+
+# Actionability keywords (concrete, measurable)
+ACTION_KEYWORDS = [
+    "deliver", "provide", "build", "create", "develop", "achieve",
+    "reduce", "increase", "grow", "improve", "measure", "ensure",
+    "produce", "manufacture", "serve", "operate", "generate",
+    "transform", "enable", "accelerate", "protect", "help",
 ]
 
 
-def _compute_alignment_scores(ticker: str, overview: dict) -> dict:
-    """Compute alignment scores from KG-derived company overview data."""
-    scores = {}
-    
-    # Mission Clarity: based on whether mission is present and descriptive
-    mission = overview.get("mission", "")
-    scores["Mission Clarity"] = 3 if len(str(mission)) > 20 else (1 if mission else 0)
-    
-    # Vision → Strategy Linkage: based on number of objectives
-    n_obj = len(overview.get("objectives", []))
-    scores["Vision → Strategy Linkage"] = min(3, n_obj)
-    
-    # Strategy → Operations Grounding: capabilities + initiatives
-    n_cap = len(overview.get("capabilities", []))
-    n_init = len(overview.get("initiatives", []))
-    scores["Strategy → Operations Grounding"] = min(3, n_cap + n_init)
-    
-    # Operations → Financial Linkage: financial metrics
-    n_fin = len(overview.get("financial_metrics", []))
-    scores["Operations → Financial Linkage"] = 3 if n_fin >= 50 else (2 if n_fin >= 10 else (1 if n_fin > 0 else 0))
-    
-    # HCM Disclosure Depth: HCM-related nodes
-    n_hcm = len(overview.get("hcm_metrics", []))
-    scores["HCM Disclosure Depth"] = 3 if n_hcm >= 3 else (2 if n_hcm >= 1 else 1)
-    
-    # Risk Awareness & Mitigation: risk themes
-    n_risk = len(overview.get("risks", []))
-    scores["Risk Awareness & Mitigation"] = 3 if n_risk >= 10 else (2 if n_risk >= 3 else (1 if n_risk > 0 else 0))
-    
-    # Initiative Specificity
-    scores["Initiative Specificity"] = 3 if n_init >= 5 else (2 if n_init >= 2 else (1 if n_init > 0 else 0))
-    
-    # Capability Articulation
-    scores["Capability Articulation"] = 3 if n_cap >= 3 else (2 if n_cap >= 1 else 1)
-    
-    return scores
+EVAL_DIMENSIONS = [
+    "Clarity of Purpose", "Stakeholder Focus", "Value Proposition",
+    "Actionability", "Innovation Signal", "Semantic Completeness",
+    "Internal Consistency", "Writing Quality",
+]
 
 
-# ── Custom CSS ───────────────────────────────────────────────────────────
-st.markdown("""
-<style>
-    /* Main header */
-    .main-header {
-        background: linear-gradient(135deg, #1e3a5f 0%, #2c5f8a 50%, #3a7ab5 100%);
-        color: white;
-        padding: 1.2rem 2rem;
-        border-radius: 10px;
-        margin-bottom: 1.5rem;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
-    }
-    .main-header h1 {
-        margin: 0;
-        font-size: 1.8rem;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-    }
+def evaluate_mission(mission: str, overview: dict) -> dict:
+    """
+    Evaluate a mission statement across multiple quality dimensions.
+    Returns dict of {dimension: {score, rating, detail}}.
+    Scale: 0–4.  Ratings: Outstanding (4), Strong (3), Adequate (2), Weak (1), Missing (0)
+    """
+    if not mission or len(mission.strip()) < 5:
+        return {dim: {"score": 0, "rating": "Missing", "detail": "No mission statement found."}
+                for dim in EVAL_DIMENSIONS}
 
-    /* Pipeline bar */
-    .pipeline-bar {
-        background: linear-gradient(90deg, #e8f0fe, #d2e3fc);
-        border: 1px solid #c0d7f0;
-        border-radius: 8px;
-        padding: 0.8rem 1.2rem;
-        margin-bottom: 1.2rem;
-        font-family: monospace;
-    }
-    .pipeline-bar .pipeline-title {
-        font-weight: 700;
-        font-size: 1rem;
-        color: #1a3a5c;
-    }
-    .pipeline-bar .pipeline-steps {
-        color: #2962a8;
-        font-size: 0.9rem;
-        font-weight: 600;
-    }
+    m_lower = mission.lower()
+    m_words = m_lower.split()
+    word_count = len(m_words)
+    results = {}
 
-    /* Result cards */
-    .result-card {
-        background: #f8f9fa;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        padding: 1.2rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-    .result-card h3 {
-        margin-top: 0;
-        color: #1a3a5c;
-        font-size: 1.1rem;
-        border-bottom: 2px solid #2962a8;
-        padding-bottom: 0.4rem;
-    }
+    # ── 1. Clarity of Purpose ─────────────────────────────────────────
+    vague_phrases = ["strive to be", "aim to", "seek to", "committed to being",
+                     "dedicated to", "aspire to"]
+    vague_count = sum(1 for p in vague_phrases if p in m_lower)
+    has_specific_nouns = bool(re.search(
+        r'\b(product|service|solution|energy|insurance|banking|real estate|'
+        r'semiconductor|computing|healthcare|food|technology|transport|'
+        r'aircraft|manufacturing|retail|finance)\b', m_lower))
 
-    /* Evidence span */
-    .evidence-item {
-        background: #ffffff;
-        border-left: 3px solid #2962a8;
-        padding: 0.5rem 0.8rem;
-        margin: 0.3rem 0;
-        font-size: 0.85rem;
-        border-radius: 0 4px 4px 0;
-    }
+    if has_specific_nouns and vague_count == 0 and 8 <= word_count <= 35:
+        clarity_score, clarity_rating = 4, "Outstanding"
+        clarity_detail = "Clear, specific, and concise purpose statement."
+    elif has_specific_nouns and vague_count <= 1:
+        clarity_score, clarity_rating = 3, "Strong"
+        clarity_detail = "Good specificity with minor vagueness."
+    elif has_specific_nouns or vague_count <= 1:
+        clarity_score, clarity_rating = 2, "Adequate"
+        clarity_detail = "Some specificity but could be more focused."
+    elif word_count < 5:
+        clarity_score, clarity_rating = 0, "Missing"
+        clarity_detail = "Too short to convey meaningful purpose."
+    else:
+        clarity_score, clarity_rating = 1, "Weak"
+        clarity_detail = f"Generic language with {vague_count} vague phrases."
+    results["Clarity of Purpose"] = {
+        "score": clarity_score, "rating": clarity_rating, "detail": clarity_detail}
 
-    /* KG path */
-    .kg-path {
-        font-family: 'Consolas', 'Courier New', monospace;
-        background: #f0f4f8;
-        padding: 0.5rem 0.8rem;
-        margin: 0.3rem 0;
-        border-radius: 4px;
-        font-size: 0.88rem;
-        border-left: 3px solid #4a9eff;
-    }
-    .kg-path-bold {
-        font-weight: 700;
-        color: #1a3a5c;
-    }
+    # ── 2. Stakeholder Focus ──────────────────────────────────────────
+    stakeholders_found = []
+    for group, keywords in STAKEHOLDER_MAP.items():
+        if any(kw in m_lower for kw in keywords):
+            stakeholders_found.append(group)
 
-    /* Interactive button styles */
-    .stButton>button {
-        border-radius: 6px;
-        background-color: #2962a8;
-        color: white;
-        border: none;
-        padding: 0.4rem 1.2rem;
-        transition: all 0.2s;
+    n_stake = len(stakeholders_found)
+    if n_stake >= 3:
+        s_score, s_rating = 4, "Outstanding"
+        s_detail = f"Addresses {n_stake} stakeholder groups: {', '.join(stakeholders_found)}."
+    elif n_stake == 2:
+        s_score, s_rating = 3, "Strong"
+        s_detail = f"Addresses {', '.join(stakeholders_found)}."
+    elif n_stake == 1:
+        s_score, s_rating = 2, "Adequate"
+        s_detail = f"Focuses on {stakeholders_found[0]} only."
+    else:
+        s_score, s_rating = 1, "Weak"
+        s_detail = "No clear stakeholder identified."
+    results["Stakeholder Focus"] = {
+        "score": s_score, "rating": s_rating, "detail": s_detail}
+
+    # ── 3. Value Proposition ──────────────────────────────────────────
+    value_patterns = [
+        r'\b(provid|deliver|offer|creat|build|enabl|generat|produc)\w*\b',
+        r'\b(quality|affordable|reliable|secure|safe|clean|efficient)\b',
+        r'\b(value|benefit|impact|outcome|result|experience)\b',
+    ]
+    value_hits = sum(1 for pat in value_patterns if re.search(pat, m_lower))
+
+    if value_hits >= 3:
+        v_score, v_rating = 4, "Outstanding"
+        v_detail = "Strong value proposition with clear delivery mechanism."
+    elif value_hits == 2:
+        v_score, v_rating = 3, "Strong"
+        v_detail = "Good value articulation."
+    elif value_hits == 1:
+        v_score, v_rating = 2, "Adequate"
+        v_detail = "Some value signal but could be stronger."
+    else:
+        v_score, v_rating = 1, "Weak"
+        v_detail = "No clear value proposition articulated."
+    results["Value Proposition"] = {
+        "score": v_score, "rating": v_rating, "detail": v_detail}
+
+    # ── 4. Actionability ──────────────────────────────────────────────
+    action_hits = sum(1 for kw in ACTION_KEYWORDS if kw in m_lower)
+
+    if action_hits >= 3:
+        a_score, a_rating = 4, "Outstanding"
+        a_detail = f"Highly actionable with {action_hits} concrete verbs."
+    elif action_hits == 2:
+        a_score, a_rating = 3, "Strong"
+        a_detail = "Good actionability."
+    elif action_hits == 1:
+        a_score, a_rating = 2, "Adequate"
+        a_detail = "Somewhat actionable."
+    else:
+        a_score, a_rating = 1, "Weak"
+        a_detail = "Abstract — no concrete action verbs."
+    results["Actionability"] = {
+        "score": a_score, "rating": a_rating, "detail": a_detail}
+
+    # ── 5. Innovation Signal ──────────────────────────────────────────
+    innov_hits = sum(1 for kw in INNOVATION_KEYWORDS if kw in m_lower)
+
+    if innov_hits >= 3:
+        i_score, i_rating = 4, "Outstanding"
+        i_detail = "Strong innovation and differentiation signals."
+    elif innov_hits == 2:
+        i_score, i_rating = 3, "Strong"
+        i_detail = "Good innovation emphasis."
+    elif innov_hits == 1:
+        i_score, i_rating = 2, "Adequate"
+        i_detail = "Some innovation signal."
+    else:
+        i_score, i_rating = 1, "Weak"
+        i_detail = "No innovation or differentiation language."
+    results["Innovation Signal"] = {
+        "score": i_score, "rating": i_rating, "detail": i_detail}
+
+    # ── 6. Semantic Completeness ──────────────────────────────────────
+    # Check for presence of key semantic components in the mission
+    addressed = [g for g, kws in STAKEHOLDER_MAP.items()
+                 if any(kw in m_lower for kw in kws)]
+    components = {
+        "Purpose (Why)": bool(re.search(r'\b(purpose|mission|goal|aim|vision)\b', m_lower)),
+        "Activity (What)": bool(re.search(r'\b(provide|deliver|build|create|develop|produce|serve|help|enable)\b', m_lower)),
+        "Audience (Who)": len(addressed) > 0,
+        "Differentiator (How)": bool(re.search(r'\b(innovat|unique|leading|best|premier|advanced|superior|quality)\b', m_lower)),
+        "Domain (Where)": bool(re.search(r'\b(global|world|nation|region|industr|market|sector)\b', m_lower)),
     }
-    .stButton>button:hover {
-        background-color: #1a3a5c;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        color: white;
-    }
+    n_present = sum(components.values())
+    missing_names = [k for k, v in components.items() if not v]
 
-    /* Metric Card */
-    .metric-card {
-        background: linear-gradient(145deg, #ffffff, #f0f2f5);
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        border: 1px solid #e1e4e8;
-        text-align: center;
-        transition: transform 0.2s;
-    }
-    .metric-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    }
-    .metric-value {
-        font-size: 2.2rem;
-        font-weight: 800;
-        color: #1e3a5f;
-        margin-bottom: 0.2rem;
-    }
-    .metric-label {
-        font-size: 0.85rem;
-        color: #6c757d;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
+    if n_present >= 5:
+        sc_score, sc_rating = 4, "Outstanding"
+        sc_detail = "All semantic components present."
+    elif n_present >= 4:
+        sc_score, sc_rating = 3, "Strong"
+        sc_detail = f"Missing: {', '.join(missing_names)}."
+    elif n_present >= 3:
+        sc_score, sc_rating = 2, "Adequate"
+        sc_detail = f"Missing: {', '.join(missing_names)}."
+    elif n_present >= 1:
+        sc_score, sc_rating = 1, "Weak"
+        sc_detail = f"Missing: {', '.join(missing_names)}."
+    else:
+        sc_score, sc_rating = 0, "Missing"
+        sc_detail = "No recognizable semantic components."
+    results["Semantic Completeness"] = {
+        "score": sc_score, "rating": sc_rating, "detail": sc_detail}
 
-    /* Panel header */
-    .panel-header {
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: #1e3a5f;
-        padding: 0.6rem 1rem;
-        background: linear-gradient(90deg, #e8f0fe, #f8fafc);
-        border-radius: 6px;
-        border-left: 4px solid #2962a8;
-        margin: 1rem 0;
-    }
+    # ── 7. Internal Consistency ───────────────────────────────────────
+    conflicting_pairs = [
+        ("low cost", "premium"), ("affordable", "luxury"),
+        ("global", "local"), ("focused", "diversified"),
+        ("conservative", "aggressive"), ("stable", "disruptive"),
+    ]
+    conflicts = [(a, b) for a, b in conflicting_pairs
+                 if a in m_lower and b in m_lower]
 
-    /* Sector badge */
-    .sector-badge {
-        display: inline-block;
-        background: linear-gradient(135deg, #2962a8, #1a3a5c);
-        color: white;
-        padding: 4px 14px;
-        border-radius: 14px;
-        font-size: 0.82rem;
-        font-weight: 600;
-    }
+    objectives = overview.get("objectives", [])
+    capabilities = overview.get("capabilities", [])
 
-    /* Score bar */
-    .score-bar-container {
-        background: #e9ecef;
-        border-radius: 10px;
-        height: 12px;
-        margin: 4px 0;
-        overflow: hidden;
-    }
-    .score-bar-fill {
-        height: 100%;
-        border-radius: 10px;
-        transition: width 0.3s ease;
-    }
+    # Also check buzzword contamination as mild inconsistency
+    buzzwords_found = [w for w in BUZZWORDS if w in m_lower]
 
-    /* Tab styling fix */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 0.5rem;
-    }
-    .stTabs [data-baseweb="tab"] {
-        padding: 0.5rem 1.2rem;
-        font-weight: 600;
-    }
+    if not conflicts and not buzzwords_found and (objectives or capabilities):
+        c_score, c_rating = 4, "Outstanding"
+        c_detail = "No contradictions; clean, consistent messaging."
+    elif not conflicts and len(buzzwords_found) <= 1:
+        c_score, c_rating = 3, "Strong"
+        c_detail = "No contradictions detected."
+    elif not conflicts:
+        c_score, c_rating = 2, "Adequate"
+        c_detail = f"Consistent but uses buzzwords: {', '.join(buzzwords_found[:3])}."
+    elif len(conflicts) == 1:
+        c_score, c_rating = 1, "Weak"
+        c_detail = f"Potential tension: '{conflicts[0][0]}' vs '{conflicts[0][1]}'."
+    else:
+        c_score, c_rating = 1, "Weak"
+        c_detail = f"{len(conflicts)} conflicting signals detected."
+    results["Internal Consistency"] = {
+        "score": c_score, "rating": c_rating, "detail": c_detail}
 
-    /* Comparison table */
-    .compare-table th {
-        background: #2962a8;
-        color: white;
-        padding: 0.6rem;
-    }
-    .compare-table td {
-        padding: 0.6rem;
-        border-bottom: 1px solid #eee;
-    }
-</style>
-""", unsafe_allow_html=True)
+    # ── 8. Writing Quality ────────────────────────────────────────────
+    # Assess conciseness, structure, and absence of buzzwords/filler
+    n_buzz = len(buzzwords_found)
+    is_concise = 8 <= word_count <= 30
+    has_active_voice = bool(re.search(r'\b(we |our )\b', m_lower))
+    ends_with_period = mission.strip().endswith(".")
 
+    quality_points = 0
+    if n_buzz == 0:
+        quality_points += 1
+    if is_concise:
+        quality_points += 1
+    if has_active_voice or ends_with_period:
+        quality_points += 1
+    if action_hits >= 1:
+        quality_points += 1
 
-# ── Display text cleanup utilities ───────────────────────────────────────
+    wq_map = {4: (4, "Outstanding"), 3: (3, "Strong"),
+              2: (2, "Adequate"), 1: (1, "Weak"), 0: (0, "Missing")}
+    w_score, w_rating = wq_map[quality_points]
+    details = []
+    if n_buzz > 0:
+        details.append(f"{n_buzz} buzzwords")
+    if not is_concise:
+        details.append(f"{'too long' if word_count > 30 else 'too short'} ({word_count} words)")
+    if not details:
+        details.append("concise, clean prose")
+    results["Writing Quality"] = {
+        "score": w_score, "rating": w_rating, "detail": "; ".join(details).capitalize() + "."}
 
-def clean_kg_node_name(name: str) -> str:
-    """Convert KG node names like AMD_AdaptiveComputingLeadership to readable text."""
-    if not name:
-        return ""
-    # Remove company prefix (e.g., AMD_, LNG_, ALX_)
-    for prefix in ["AMD_", "ALX_", "LNG_", "UNM_", "AAL_", "WRB_"]:
-        if name.startswith(prefix):
-            name = name[len(prefix):]
-            break
-    # Split camelCase and underscores
-    name = re.sub(r'([a-z])([A-Z])', r'\1 \2', name)
-    name = name.replace('_', ' ').replace('-', ' ')
-    return name.strip().title()
-
-
-def clean_display_text(text: str) -> str:
-    """Clean KG-extracted text for display."""
-    if not text or not text.strip():
-        return ""
-    t = " ".join(text.split())
-    t = t.lstrip("•·-– ")
-    t = re.sub(r'^\|?\s*\d{4}\s+Form\s+10-K\s*\|?\s*\d*\s*', '', t).strip()
-    if t and t[0].islower():
-        t = t[0].upper() + t[1:]
-    if t and t[-1] not in '.!?:"\'':
-        t = t.rstrip(',;') + '.'
-    return t
-
-
-def format_risk_name(raw_name: str) -> str:
-    """Format risk theme names for display."""
-    return clean_kg_node_name(raw_name)
-
-
-def format_capability(name: str) -> str:
-    """Capitalize capability names for display."""
-    return clean_kg_node_name(name)
+    return results
 
 
-# ── Helper: safe import of rag_engine ────────────────────────────────────
+def overall_rating(eval_results: dict) -> tuple:
+    """Compute overall rating from evaluation results. Returns (score, label, color)."""
+    scores = [v["score"] for v in eval_results.values() if v["score"] > 0]
+    if not scores:
+        return 0, "Missing", "#999999"
+    avg = sum(scores) / len(scores)
+    if avg >= 3.5:
+        return avg, "Outstanding", "#1B5E20"
+    elif avg >= 2.5:
+        return avg, "Strong", "#2E7D32"
+    elif avg >= 1.5:
+        return avg, "Adequate", "#F57F17"
+    elif avg >= 0.5:
+        return avg, "Weak", "#E65100"
+    else:
+        return avg, "Missing", "#B71C1C"
+
+
+RATING_COLORS = {
+    "Outstanding": "#1B5E20",
+    "Strong": "#2E7D32",
+    "Adequate": "#F57F17",
+    "Weak": "#E65100",
+    "Missing": "#B71C1C",
+}
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# EVIDENCE EXTRACTION — find mission source in 10-K text
+# ═══════════════════════════════════════════════════════════════════════════
+
+def _find_company_10k_file(company_cik: str) -> pathlib.Path | None:
+    """Find the cleaned 10-K text file for a company by matching CIK in filename."""
+    sec_text_dir = KG_DIR / "data" / "data"
+    if not sec_text_dir.exists():
+        return None
+    # Filenames: cleaned_10-K_0000002488-25-000012.txt — CIK is first part of accession
+    cik_stripped = company_cik.lstrip("0")
+    for txt_file in sec_text_dir.glob("cleaned_10-K_*.txt"):
+        # Extract CIK from filename: cleaned_10-K_XXXXXXXXXX-YY-ZZZZZZ.txt
+        accession = txt_file.stem.replace("cleaned_10-K_", "")
+        file_cik = accession.split("-")[0].lstrip("0")
+        if file_cik == cik_stripped:
+            return txt_file
+    return None
+
+
+def find_mission_evidence(company_cik: str, mission: str) -> list[dict]:
+    """Find text passages from the company's own 10-K filing that support the mission."""
+    if not mission or len(mission) < 10:
+        return []
+
+    evidence = []
+    mission_lower = mission.lower()
+    mission_words = re.findall(r'\b[a-z]{3,}\b', mission_lower)
+    key_phrases = set(mission_words) - {
+        "the", "and", "for", "that", "with", "from", "are", "our",
+        "has", "have", "been", "will", "their", "this", "not", "but",
+    }
+
+    # Find this company's 10-K text file by CIK
+    txt_file = _find_company_10k_file(company_cik)
+    if txt_file:
+        raw = txt_file.read_text(encoding="utf-8", errors="ignore")
+        # Split into paragraphs
+        paragraphs = re.split(r'\n\s*\n', raw)
+        for i, para in enumerate(paragraphs):
+            para_clean = para.strip()
+            if len(para_clean) < 50 or len(para_clean) > 3000:
+                continue
+            para_lower = para_clean.lower()
+            hits = sum(1 for kw in key_phrases if kw in para_lower)
+            if hits >= 3:
+                evidence.append({
+                    "chunk_id": f"10K_para_{i}",
+                    "section": "10-K Filing (Item 1)",
+                    "page": i // 5 + 1,
+                    "text": para_clean[:1000],
+                    "relevance": hits / max(len(key_phrases), 1),
+                    "hits": hits,
+                })
+
+    # Deduplicate and sort by relevance
+    seen = set()
+    unique = []
+    for ev in evidence:
+        sig = ev["text"][:100]
+        if sig not in seen:
+            seen.add(sig)
+            unique.append(ev)
+    unique.sort(key=lambda x: x["relevance"], reverse=True)
+    return unique[:10]
+
+
+def highlight_mission_in_text(text: str, mission: str) -> str:
+    """Highlight mission-related keywords in text using yellow background."""
+    if not mission:
+        return text
+    keywords = set(re.findall(r'\b[a-z]{4,}\b', mission.lower()))
+    keywords -= {"that", "this", "with", "from", "have", "been", "will",
+                 "their", "they", "them", "than", "into", "through",
+                 "about", "which", "would", "could", "also", "more"}
+
+    result = text
+    for kw in keywords:
+        pattern = re.compile(r'(\b' + re.escape(kw) + r'\w*\b)', re.IGNORECASE)
+        result = pattern.sub(
+            r'<mark style="background-color: #FFEB3B; padding: 1px 3px; border-radius: 2px;">\1</mark>',
+            result)
+    return result
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# HELPER FUNCTIONS
+# ═══════════════════════════════════════════════════════════════════════════
+
 @st.cache_resource
 def load_rag_engine():
-    """Import and initialize RAG engine on first call."""
     try:
         import rag_engine
         return rag_engine
-    except ImportError as e:
-        st.warning(f"RAG engine not available: {e}")
+    except Exception:
         return None
 
-
-def load_chunks_df(ticker: str) -> pd.DataFrame:
-    """Load chunks for a company as a DataFrame."""
-    chunk_path = CHUNKS_DIR / f"{ticker}_chunks.json"
-    if chunk_path.exists():
-        with open(chunk_path, encoding="utf-8") as f:
-            chunks = json.load(f)
-        return pd.DataFrame(chunks)
-    return pd.DataFrame()
-
-
 @st.cache_resource
-def load_kg_graph() -> nx.DiGraph:
-    """Load KG from rag_engine (TTL-based) or fallback to CSV."""
+def load_kg_graph():
+    import networkx as nx
     rag = load_rag_engine()
     if rag:
         try:
             return rag.load_kg()
         except Exception:
             pass
-    # Fallback to CSV
-    G = nx.DiGraph()
-    nodes_path = KG_DIR / "nodes.csv"
-    edges_path = KG_DIR / "edges.csv"
-    if nodes_path.exists():
-        df = pd.read_csv(nodes_path, encoding="utf-8")
-        for _, row in df.iterrows():
-            attrs = {k: v for k, v in row.items()
-                     if k != ":ID" and pd.notna(v) and str(v).strip()}
-            G.add_node(row[":ID"], **attrs)
-    if edges_path.exists():
-        df = pd.read_csv(edges_path, encoding="utf-8")
-        for _, row in df.iterrows():
-            G.add_edge(row[":START_ID"], row[":END_ID"], relation=row[":TYPE"])
-    return G
+    return nx.DiGraph()
+
+def clean_display_text(text: str) -> str:
+    t = re.sub(r'\b\d{10}-\d{2}-\d{6}\b', '', str(text))
+    t = re.sub(r'(?:inst|sec|msg|msgkg|rdf|rdfs|owl|xsd):', '', t)
+    t = re.sub(r'_', ' ', t)
+    t = re.sub(r'\s+', ' ', t).strip()
+    return t[:200] if t else text[:200]
+
+def format_risk_name(text: str) -> str:
+    t = clean_display_text(text)
+    t = re.sub(r'^Risk(?:Theme)?\s*', '', t)
+    return t.strip().title() if t else "Risk"
+
+def format_capability(text: str) -> str:
+    return clean_display_text(text).title()
+
+def get_overview(cik: str) -> dict:
+    if _REGISTRY_DATA and cik in _REGISTRY_DATA:
+        return _REGISTRY_DATA[cik].get("overview", {})
+    return {}
 
 
-@st.cache_data
-def get_company_overview_cached(ticker: str) -> dict:
-    """Get company overview from rag_engine, cached."""
-    rag = load_rag_engine()
-    if rag:
-        try:
-            return rag.get_company_overview(ticker)
-        except Exception:
-            pass
-    return {"ticker": ticker, "name": ticker, "mission": "",
-            "objectives": [], "capabilities": [], "initiatives": [],
-            "risks": [], "hcm_metrics": [], "financial_metrics": [],
-            "kg_stats": {"nodes": 0, "edges": 0}}
+# ═══════════════════════════════════════════════════════════════════════════
+# HEADER
+# ═══════════════════════════════════════════════════════════════════════════
+
+st.markdown("""
+<div style="background: linear-gradient(135deg, #8B0000 0%, #CD1515 50%, #B22222 100%);
+     color: white; padding: 1.2rem 2rem; border-radius: 10px; margin-bottom: 1rem;
+     box-shadow: 0 4px 15px rgba(139,0,0,0.3);">
+    <h1 style="margin:0; font-size:1.8rem; font-weight:700; color:white;">
+        MSG-KG — Mission Statement Intelligence</h1>
+    <p style="margin:0.3rem 0 0 0; font-size:0.95rem; opacity:0.9; color:#FFD700;">
+        Evidence-based evaluation of corporate mission statements from SEC 10-K filings across 91 S&P companies</p>
+</div>
+""", unsafe_allow_html=True)
 
 
-# ── Header ───────────────────────────────────────────────────────────────
-def render_header():
-    """Renders the global dashboard header."""
-    st.markdown("""
-    <div style="background-color:#CD1515; padding:15px 20px; border-bottom:2px solid #AA8F00; margin-bottom:20px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 2px 5px rgba(0,0,0,0.15);">
-        <div style="display:flex; align-items:center;">
-             <div style="font-size:26px; font-weight:700; color:#FFFFFF; margin-right:15px; letter-spacing:-0.5px;">
-                 MSG-KG
-             </div>
-             <div style="border-left:1px solid #FFFFFF50; padding-left:15px; font-size:16px; font-weight:500; color:#FFFFFFee;">
-                 Portfolio Intelligence System
-             </div>
-        </div>
-        <div style="text-align:right;">
-             <div style="font-size:12px; font-weight:600; color:#FFFFFFcc; letter-spacing:0.5px; text-transform:uppercase;">
-                 Enterprise Edition v2.0
-             </div>
-             <div style="font-size:11px; color:#FFFFFFaa; margin-top:2px;">
-                 Secure Connection <span style="color:#FFF;">●</span>
-             </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
+if not COMPANIES:
+    st.warning("No companies loaded. Run `python build_registry.py` first.")
+    st.stop()
 
 
-# ── Common Header ────────────────────────────────────────────────────────
-render_header()
+# ═══════════════════════════════════════════════════════════════════════════
+# SIDEBAR / FILTERS
+# ═══════════════════════════════════════════════════════════════════════════
 
-# ── MAIN LAYOUT CONSTRUCTION ────────────────────────────────────────────
 col_filters, col_content = st.columns([1, 4])
 
-# ── Left Column: Contextual Filters ─────────────────────────────────────
 with col_filters:
-    st.markdown("### 🔍 Filters")
+    st.markdown("### Company")
     st.markdown("---")
 
-    # Sector filter (replaces old Good/Bad filter)
-    st.caption("SECTOR FILTER")
-    sectors = sorted(set(m["sector"] for m in COMPANIES.values()))
-    selected_sectors = st.multiselect("Sectors", ["All"] + sectors,
-                                       default=["All"], label_visibility="collapsed")
-
-    if "All" in selected_sectors or not selected_sectors:
-        available_tickers = list(COMPANIES.keys())
+    sectors = sorted(set(COMPANIES[c]["sector"] for c in COMPANIES))
+    sel_sector = st.selectbox("Sector", ["All Sectors"] + sectors,
+                              label_visibility="collapsed")
+    if sel_sector == "All Sectors":
+        available = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
     else:
-        available_tickers = [t for t, m in COMPANIES.items()
-                             if m["sector"] in selected_sectors]
+        available = sorted(
+            [c for c in COMPANIES if COMPANIES[c]["sector"] == sel_sector],
+            key=lambda c: COMPANIES[c]["name"])
 
-    # Company
-    st.caption("SELECT COMPANY")
-    company = st.selectbox("Company", available_tickers,
-                           format_func=lambda t: f"{t} — {COMPANIES[t]['name']}",
+    company = st.selectbox("Company", available,
+                           format_func=lambda c: COMPANIES[c]["name"],
                            label_visibility="collapsed")
 
-    fiscal_year = COMPANIES[company]["fiscal_year"]
-    sector = COMPANIES[company]["sector"]
-    st.info(f"📅 {fiscal_year}  ·  🏭 {sector}")
+    meta = COMPANIES[company]
+    filing_date = meta.get("filing_date", "")
+    st.info(f"📅 {meta['fiscal_year']}  ·  🏭 {meta['sector'][:30]}")
+    if filing_date:
+        st.caption(f"Filed: {filing_date}")
 
     st.markdown("---")
-
-    # Evidence Sources
-    st.caption("DATA SOURCES")
-    evidence_sources = st.multiselect("Sources", ["10-K", "Earnings", "News"],
-                                      default=["10-K"], label_visibility="collapsed")
-
-    st.markdown("---")
-
-    # Model Params
-    with st.expander("⚙️ RAG Model Config", expanded=False):
-        top_k_vector = st.slider("chunks (Vec)", 1, 50, 10)
-        rerank_val = st.toggle("Rerank", value=True)
-        rerank = "ON" if rerank_val else "OFF"
-        st.markdown("---")
-        top_k_graph = st.slider("nodes (KG)", 1, 50, 10)
-        explain_val = st.toggle("Explain", value=True)
-        explain_mode = "ON" if explain_val else "OFF"
+    st.caption(f"{len(COMPANIES)} companies loaded")
 
 
-# ── Right Column: Main Content (Tabs) ────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════
+# TABS
+# ═══════════════════════════════════════════════════════════════════════════
+
 with col_content:
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "📊 Overview",
-        "🤖 Ask KG-RAG",
-        "⚖️ Competitive Landscape",
-        "🔍 Evidence Explorer",
-        "👥 Mission → HCM Analysis",
-        "🕸️ KG View",
+    tab1, tab2, tab3, tab4 = st.tabs([
+        "📜 Mission Statement",
+        "🔍 Evidence-Based Reasoning",
+        "📊 Portfolio Comparison",
+        "🕸️ Knowledge Graph",
     ])
 
 
-# ═══════════════════════════════════════════════════════════════════════
-# TAB 1: Overview
-# ═══════════════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════════════
+# TAB 1: MISSION STATEMENT
+# ═══════════════════════════════════════════════════════════════════════════
 with tab1:
-    meta = COMPANIES[company]
-    st.markdown(f"### Company Overview: **{company}** — {meta['name']}")
+    overview = get_overview(company)
+    mission = overview.get("mission", "")
+    company_name = COMPANIES[company]["name"]
 
-    st.info(
-        "📖 **About this tab:** This overview is generated from the company's SEC 10-K filing "
-        "(Item 1 — Business) combined with knowledge graph (KG) data extracted using our ontology. "
-        f"Data sources: `kg1.ttl` (shared ontology) + `{meta.get('ttl_file', 'N/A')}` (company-specific KG) "
-        f"· CIK: `{meta.get('cik', 'N/A')}` · Filing: `{meta.get('filing_id', 'N/A')}` "
-        "· All metrics below are **automatically derived** from the Knowledge Graph — not manually curated."
-    )
+    st.markdown(f"### Mission Statement — {company_name}")
 
-    overview = get_company_overview_cached(company)
-    n_risks = len(overview.get("risks", []))
-    n_fin = len(overview.get("financial_metrics", []))
-    n_init = len(overview.get("initiatives", []))
-    n_obj = len(overview.get("objectives", []))
-    n_cap = len(overview.get("capabilities", []))
-    n_hcm = len(overview.get("hcm_metrics", []))
+    # Mission display with overall badge and source
+    eval_results = evaluate_mission(mission, overview)
+    avg_score, overall_label, overall_color = overall_rating(eval_results)
+    mission_source = overview.get("mission_source", "kg")
+    source_label = "Knowledge Graph (Ontology-extracted)" if mission_source == "kg" else "10-K Filing (Text-extracted)"
 
-    # ── Top Metrics Row ──
-    m1, m2, m3, m4, m5, m6 = st.columns(6)
-    with m1:
-        st.metric("🏢 Ticker", company)
-    with m2:
-        st.metric("📅 Fiscal Year", meta["fiscal_year"])
-    with m3:
-        st.metric("🔗 KG Nodes", overview["kg_stats"]["nodes"])
-    with m4:
-        st.metric("➡️ KG Edges", overview["kg_stats"]["edges"])
-    with m5:
-        st.metric("⚠️ Risk Themes", n_risks)
-    with m6:
-        st.metric("💰 Financial Metrics", n_fin)
-
-    st.markdown("---")
-
-    # ── Data Source & Filing Panel ──
-    with st.expander("📦 Data Sources & Filing Details", expanded=True):
-        ds1, ds2 = st.columns(2)
-        with ds1:
-            st.markdown(f"""
-            **SEC Filing Information**
-            | Field | Value |
-            |-------|-------|
-            | **CIK** | `{meta.get('cik', 'N/A')}` |
-            | **Filing ID** | `{meta.get('filing_id', 'N/A')}` |
-            | **Data File** | `cleaned_10-K_{meta.get('filing_id', 'N/A')}.txt` |
-            | **SEC EDGAR** | [View on SEC]({meta.get('sec_link', '#')}) |
-            """)
-        with ds2:
-            st.markdown(f"""
-            **Knowledge Graph Sources**
-            | Source | Description |
-            |--------|-------------|
-            | `kg1.ttl` | Shared ontology instances (Mission, Strategy, Capability) |
-            | `{meta.get('ttl_file', 'N/A')}` | Company-specific KG (Risks, Financials, Initiatives) |
-            | `schema_1.owl` | Ontology schema definition |
-
-            **RAG Pipeline**: MiniLM-L6-v2 → FAISS → Cross-Encoder Reranker → Mixtral-8x7B
-            """)
-        # Show chunk info
-        chunk_path = CHUNKS_DIR / f"{company}_chunks.json"
-        item1_path = ITEM1_DIR / f"{company}_item1.txt"
-        if chunk_path.exists():
-            with open(chunk_path, encoding="utf-8") as f:
-                chunks_data = json.load(f)
-            total_words = sum(c.get("end_word", 0) - c.get("start_word", 0) for c in chunks_data)
-            sections = set(c.get("section", "Unknown") for c in chunks_data)
-            st.success(f"📄 **{len(chunks_data)}** chunks · ~**{total_words:,}** words · "
-                      f"**{len(sections)}** sections: {', '.join(sorted(sections))}")
-        elif item1_path.exists():
-            text = item1_path.read_text(encoding="utf-8")
-            st.success(f"📄 Item 1 text loaded: **{len(text):,}** characters")
-
-    st.markdown("---")
-
-    # ── Main Content: Mission + Objectives + Capabilities ──
-    col_l, col_r = st.columns(2)
-
-    with col_l:
-        # ── Mission Card ──
-        curated_mission = meta.get("mission", "")
-        kg_mission = overview.get("mission", "")
-        display_mission = curated_mission if curated_mission else clean_kg_node_name(kg_mission)
-        sector_text = meta.get("sector", "")
-
+    if mission:
         st.markdown(f"""
-        <div class="result-card" style="border-top:4px solid #2962a8;">
-            <h4 style="margin-top:0;color:#1a3a5c;">🎯 Mission Statement</h4>
-            <div style="background:linear-gradient(135deg,#f0f4f8,#e8eef5);padding:1rem 1.2rem;
-                        border-radius:8px;margin:0.5rem 0;font-size:1.05rem;line-height:1.6;
-                        border-left:4px solid #2962a8;">
-                <em>"{display_mission}"</em>
+        <div style="background: #F0F7FF; border: 1px solid #B3D4FC; border-left: 5px solid #1565C0;
+             padding: 1.2rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1rem 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <strong style="font-size:1.05rem; color:#333;">Corporate Mission Statement</strong>
+                <span style="background:{overall_color}; color:white; padding:4px 14px;
+                      border-radius:14px; font-weight:600; font-size:0.85rem;">{overall_label}</span>
             </div>
-            <div style="margin-top:0.6rem;">
-                <span class="sector-badge">🏭 {sector_text}</span>
-                <span style="margin-left:10px;font-size:0.82rem;color:#666;">CIK: {meta.get('cik','N/A')}</span>
+            <blockquote style="border-left:3px solid #90CAF9; padding:0.5rem 1rem; margin:0.8rem 0;
+                 font-size:1.05rem; line-height:1.6; color:#1A237E; font-style:italic;">
+                "{mission}"
+            </blockquote>
+            <div style="font-size:0.78rem; color:#888; margin-top:4px;">
+                📌 Source: {source_label}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    else:
+        st.warning("No mission statement found for this company.")
+
+    # Quick Evaluation Summary
+    st.markdown("### Quick Evaluation Summary")
+
+    # Score cards row
+    cols = st.columns(4)
+    dims = list(eval_results.keys())
+    for i, dim in enumerate(dims):
+        ev = eval_results[dim]
+        color = RATING_COLORS.get(ev["rating"], "#999")
+        with cols[i % 4]:
+            st.markdown(f"""
+            <div style="background:white; border:1px solid #E0E0E0; border-radius:8px;
+                 padding:12px; margin-bottom:10px; border-top:4px solid {color};
+                 min-height:120px;">
+                <div style="font-size:0.8rem; color:#666; text-transform:uppercase;
+                     letter-spacing:0.5px;">{dim}</div>
+                <div style="font-size:1.5rem; font-weight:700; color:{color};
+                     margin:4px 0;">{ev['score']}/4</div>
+                <div style="font-size:0.75rem; color:{color}; font-weight:600;">
+                    {ev['rating']}</div>
+                <div style="font-size:0.75rem; color:#666; margin-top:4px;">
+                    {ev['detail']}</div>
             </div>
-        </div>""", unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
-        # ── Strategic Objectives ──
-        st.markdown('<div class="result-card">', unsafe_allow_html=True)
-        st.markdown(f"#### 📋 Strategic Objectives ({n_obj})")
-        if overview["objectives"]:
-            for obj in overview["objectives"]:
-                cleaned = clean_kg_node_name(obj)
-                if cleaned:
-                    st.markdown(f"- {cleaned}")
-        else:
-            st.caption("No objectives extracted from KG.")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with col_r:
-        # ── Capabilities ──
-        st.markdown('<div class="result-card">', unsafe_allow_html=True)
-        st.markdown(f"#### 🛠️ Capabilities ({n_cap})")
-        if overview["capabilities"]:
-            for cap in overview["capabilities"]:
-                st.markdown(f"- {format_capability(cap)}")
-        else:
-            st.caption("No capabilities extracted from KG.")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-        # ── HCM Metrics ──
-        st.markdown('<div class="result-card">', unsafe_allow_html=True)
-        st.markdown(f"#### 👥 Human Capital Metrics ({n_hcm})")
-        if overview["hcm_metrics"]:
-            for hcm in overview["hcm_metrics"]:
-                st.markdown(f"- {clean_kg_node_name(hcm)}")
-        else:
-            st.caption("No HCM metrics found in KG.")
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # ── Risk Themes (full-width with columns) ──
+    # Source file and extraction metadata
     st.markdown("---")
-    st.markdown(f'<div class="panel-header">⚠️ Risk Themes ({n_risks} identified)</div>', unsafe_allow_html=True)
-    risks = overview.get("risks", [])
-    if risks:
-        risk_cols = st.columns(3)
-        for i, risk in enumerate(risks):
-            with risk_cols[i % 3]:
-                st.markdown(f"- {format_risk_name(risk)}")
-    else:
-        st.caption("No risk themes extracted from KG.")
-
-    # ── Initiatives (full-width) ──
-    initiatives = overview.get("initiatives", [])
-    if initiatives:
-        st.markdown("---")
-        st.markdown(f'<div class="panel-header">🚀 Initiatives ({n_init})</div>', unsafe_allow_html=True)
-        init_cols = st.columns(2)
-        for i, init in enumerate(initiatives):
-            cleaned = clean_kg_node_name(init)
-            if cleaned:
-                with init_cols[i % 2]:
-                    st.markdown(f"- {cleaned}")
-
-    # ── Financial Metrics Summary ──
-    fin_metrics = overview.get("financial_metrics", [])
-    if fin_metrics:
-        st.markdown("---")
-        with st.expander(f"💰 Financial Metrics ({n_fin} from KG)", expanded=False):
-            fin_cols = st.columns(3)
-            for i, fm in enumerate(fin_metrics):
-                with fin_cols[i % 3]:
-                    st.markdown(f"- {clean_kg_node_name(fm)}")
-
-
-# ═══════════════════════════════════════════════════════════════════════
-# TAB 2: Ask KG-RAG
-# ═══════════════════════════════════════════════════════════════════════
-with tab2:
-    st.info(
-        "📖 **About this tab:** Ask natural-language questions about any company's 10-K filing. "
-        "The system uses a **hybrid Graph-RAG pipeline**: "
-        "(1) **Vector Retrieval** — MiniLM-L6-v2 embeddings + FAISS index search over 10-K chunks, "
-        "(2) **Graph Retrieval** — entity linking + KG subgraph extraction from the TTL knowledge graph, "
-        "(3) **Cross-Encoder Reranker** — reranks combined results by relevance, "
-        "(4) **LLM Reasoning** — Mixtral-8x7B (HuggingFace Inference API) generates the final answer "
-        "grounded in both textual evidence and KG structure."
-    )
-
-    # Pipeline visualization
-    pipeline_steps = "Vector Retrieval → Graph Retrieval → Reranker → KG-RAG Reasoner"
-    st.markdown(f"""
-    <div class="pipeline-bar">
-        <span class="pipeline-title">Retrieval Pipeline</span><br>
-        <span class="pipeline-steps">{pipeline_steps}</span>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.markdown("### Ask KG-RAG (Q/A)")
-
-    question = st.text_input(
-        "Enter your question:",
-        value="What is the mission and what strategies support it?",
-        key="qa_question",
-    )
-
-    if st.button("🔍 Ask", key="qa_ask", type="primary"):
-        rag = load_rag_engine()
-
-        if rag:
-            config = {
-                "top_k_vector": top_k_vector,
-                "top_k_graph": top_k_graph,
-                "rerank": rerank == "ON",
-                "explain": explain_mode == "ON",
-            }
-
-            # Real-time progress timer
-            import time as _time
-            progress_placeholder = st.empty()
-            status_placeholder = st.empty()
-            t_start = _time.time()
-
-            pipeline_stages = [
-                ("🔎 Vector Retrieval (MiniLM-L6-v2 embedding + FAISS search)...", 0.15),
-                ("🕸️ Graph Retrieval (KG subgraph extraction)...", 0.30),
-                ("📊 Reranking (Cross-encoder scoring)...", 0.50),
-                ("🤖 KG-RAG Reasoning (Mixtral-8x7B generation)...", 0.75),
-            ]
-
-            progress_bar = progress_placeholder.progress(0, text="Initializing pipeline...")
-            for stage_text, stage_pct in pipeline_stages:
-                elapsed = _time.time() - t_start
-                progress_bar.progress(stage_pct, text=f"{stage_text}  ⏱️ {elapsed:.1f}s")
-                if stage_pct < 0.50:
-                    _time.sleep(0.3)
-
-            # Actually run the pipeline
-            result = rag.ask(question, company, config)
-            elapsed_total = _time.time() - t_start
-            progress_bar.progress(1.0, text=f"✅ Complete — {elapsed_total:.1f}s total")
-            status_placeholder.success(f"Pipeline finished in **{elapsed_total:.1f} seconds** · "
-                                       f"{len(result.evidence_spans)} evidence spans · "
-                                       f"{len(result.kg_paths)} KG paths")
-
-            # Model Answer + Evidence Spans
-            col_answer, col_evidence = st.columns([3, 2])
-
-            with col_answer:
-                st.markdown("""<div class="result-card"><h3>Model Answer</h3>""",
-                           unsafe_allow_html=True)
-                st.markdown(result.answer)
-                st.markdown("</div>", unsafe_allow_html=True)
-
-            with col_evidence:
-                st.markdown("""<div class="result-card"><h3>Retrieved Evidence Spans</h3>""",
-                           unsafe_allow_html=True)
-                for span in result.evidence_spans:
-                    span_text_clean = clean_display_text(span.text) if span.text else ""
-                    st.markdown(
-                        f'<div class="evidence-item">'
-                        f'<strong>{span.doc_type}</strong> | {span.section} | '
-                        f'Page {span.page} | Conf {span.confidence}'
-                        f'<br><span style="font-size:0.82rem;color:#444;">{span_text_clean[:200]}</span>'
-                        f'</div>',
-                        unsafe_allow_html=True,
-                    )
-                if not result.evidence_spans:
-                    st.caption("No evidence spans retrieved.")
-                st.markdown("</div>", unsafe_allow_html=True)
-
-            # KG Path Traces
-            if explain_mode == "ON" and result.kg_paths:
-                st.markdown("""<div class="result-card">
-                    <h3>KG Path Traces</h3>
-                    <p style="color:#666; font-size:0.85rem;">Paths used in reasoning (Explain mode)</p>
-                """, unsafe_allow_html=True)
-                for i, kp in enumerate(result.kg_paths[:8]):
-                    weight = "kg-path-bold" if i == 0 else ""
-                    st.markdown(
-                        f'<div class="kg-path {weight}">{kp.path}</div>',
-                        unsafe_allow_html=True,
-                    )
-                st.markdown("</div>", unsafe_allow_html=True)
-
-        else:
-            st.error("RAG engine not loaded. Install dependencies and ensure data files exist.")
-
-    else:
-        # Placeholder
-        col_answer, col_evidence = st.columns([3, 2])
-        with col_answer:
-            st.markdown("""<div class="result-card"><h3>Model Answer</h3>""",
-                       unsafe_allow_html=True)
-            st.caption("Enter a question and click 'Ask' to get started.")
-            st.markdown("</div>", unsafe_allow_html=True)
-        with col_evidence:
-            st.markdown("""<div class="result-card"><h3>Retrieved Evidence Spans</h3>""",
-                       unsafe_allow_html=True)
-            st.caption("Evidence will appear here after asking a question.")
-            st.markdown("</div>", unsafe_allow_html=True)
-
-
-# ═══════════════════════════════════════════════════════════════════════
-# TAB 3: Comparison — Competitive Landscape Dashboard
-# ═══════════════════════════════════════════════════════════════════════
-with tab3:
-    st.info(
-        "📖 **About this tab:** Compares companies across 8 alignment dimensions using scores "
-        "**automatically derived** from KG node counts. Each dimension is scored 0–3 based on the "
-        "richness of KG data: **Mission Clarity** (mission node presence), **Vision→Strategy Linkage** "
-        "(number of strategic objectives), **Strategy→Operations Grounding** (capabilities + initiatives), "
-        "**Operations→Financial Linkage** (financial metrics count), **HCM Disclosure Depth** (HCM nodes), "
-        "**Risk Awareness** (risk themes), **Initiative Specificity** (initiative count), and "
-        "**Capability Articulation** (capability nodes). Higher scores indicate deeper disclosure quality."
-    )
-
-    # ── 1. Portfolio Heatmap Section ──────────────────────────────────
-    st.markdown('<div class="panel-header">1. Portfolio Alignment Heatmap</div>', unsafe_allow_html=True)
-    st.caption("Score intensity (0-3): **0**=Missing · **1**=Weak · **2**=Moderate · **3**=Strong")
-
-    # Compute scores for all companies
-    all_scores = {}
-    for t in COMPANIES:
-        ov = get_company_overview_cached(t)
-        all_scores[t] = _compute_alignment_scores(t, ov)
-
-    # Heatmap Controls
-    h_col1, h_col2, h_col3 = st.columns([1.2, 1.5, 0.8])
-    with h_col1:
-        hm_sort = st.selectbox("Sort Heatmap by:", ["Total Score (High → Low)", "Total Score (Low → High)", "Ticker (A-Z)"])
-    with h_col2:
-        hm_dims = st.multiselect("Select Dimensions:", ALIGNMENT_DIMENSIONS, default=ALIGNMENT_DIMENSIONS)
-    with h_col3:
-        st.write("")
-        fit_width = st.checkbox("Fit to Width", value=True)
-
-    if not hm_dims:
-        st.warning("Please select at least one dimension.")
-        st.stop()
-
-    # Build Heatmap Data
-    heat_rows = []
-    for t in sorted(COMPANIES.keys()):
-        meta_t = COMPANIES[t]
-        scores = all_scores.get(t, {})
-        row = {"Ticker": t, "Sector": meta_t.get("sector", "")}
-        row["Total"] = sum(scores.get(d, 0) for d in hm_dims)
-        for dim in hm_dims:
-            row[dim] = scores.get(dim, 0)
-        heat_rows.append(row)
-
-    if heat_rows:
-        df_heat = pd.DataFrame(heat_rows)
-        if "High → Low" in hm_sort:
-            df_heat = df_heat.sort_values("Total", ascending=False)
-        elif "Low → High" in hm_sort:
-            df_heat = df_heat.sort_values("Total", ascending=True)
-        else:
-            df_heat = df_heat.sort_values("Ticker", ascending=True)
-
-        df_display = df_heat.set_index("Ticker").drop(columns=["Sector", "Total"])
-
-        # Render Interactive Heatmap using Plotly
-        import plotly.graph_objects as go
-
-        hover_text = []
-        for index, row in df_display.iterrows():
-            hover_text.append([f"Ticker: {index}<br>Dimension: {col}<br>Score: {val}" for col, val in row.items()])
-
-        cell_height = 50
-        cell_width = 130
-        n_rows = len(df_display)
-        n_cols = len(df_display.columns)
-        fig_height = max(350, n_rows * cell_height + 120)
-        fig_width = n_cols * cell_width + 150
-
-        fig = go.Figure(data=go.Heatmap(
-            z=df_display.values,
-            x=df_display.columns,
-            y=df_display.index,
-            text=df_display.values,
-            texttemplate="%{text}",
-            colorscale='Viridis',
-            zmin=0, zmax=3,
-            hoverinfo='text',
-            hovertext=hover_text,
-            xgap=2, ygap=2
-        ))
-
-        fig.update_layout(
-            title_text=None,
-            height=fig_height,
-            xaxis=dict(side="bottom", tickangle=-45, tickmode='linear'),
-            yaxis=dict(autorange="reversed", tickmode='linear'),
-            margin=dict(l=10, r=10, t=10, b=10),
-        )
-
-        if fit_width:
-            st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': True})
-        else:
-            fig.update_layout(width=fig_width)
-            st.plotly_chart(fig, use_container_width=False, config={'displayModeBar': True})
-
-        # Total score summary
-        st.markdown("#### 📊 Total Alignment Scores")
-        score_cols = st.columns(len(COMPANIES))
-        for i, (t, scores) in enumerate(sorted(all_scores.items(),
-                                                key=lambda x: sum(x[1].values()),
-                                                reverse=True)):
-            total = sum(scores.values())
-            max_possible = len(ALIGNMENT_DIMENSIONS) * 3
-            pct = round(total / max_possible * 100) if max_possible else 0
-            color = "#27ae60" if pct >= 70 else ("#f39c12" if pct >= 40 else "#e74c3c")
-            with score_cols[i]:
-                st.markdown(f"""
-                <div class="metric-card">
-                    <div class="metric-value" style="color:{color};">{pct}%</div>
-                    <div class="metric-label">{t}</div>
-                    <div style="font-size:0.75rem;color:#888;margin-top:4px;">{total}/{max_possible}</div>
-                </div>
-                """, unsafe_allow_html=True)
-    else:
-        st.info("No companies match the selected filter.")
-
-    st.markdown("---")
-
-    # ── 2. Head-to-Head Comparison ────────────────────────────────────
-    st.markdown('<div class="panel-header">2. Head-to-Head Comparison</div>', unsafe_allow_html=True)
-    st.caption("Select two companies to compare their Alignment Checklist and Evidence Chain.")
-
-    compare_tickers = sorted(COMPANIES.keys())
-    col_c1, col_c2 = st.columns(2)
-    with col_c1:
-        company1 = st.selectbox("Company 1", compare_tickers, index=0, key="cmp1",
-                                format_func=lambda t: f"{t} — {COMPANIES[t]['name']}")
-    with col_c2:
-        default_idx = min(1, len(compare_tickers) - 1)
-        company2 = st.selectbox("Company 2", compare_tickers, index=default_idx, key="cmp2",
-                                format_func=lambda t: f"{t} — {COMPANIES[t]['name']}")
-
-    meta1 = COMPANIES[company1]
-    meta2 = COMPANIES[company2]
-    scores1 = all_scores.get(company1, {})
-    scores2 = all_scores.get(company2, {})
-
-    # Header cards (score-based colors)
-    hdr1, hdr2 = st.columns(2)
-    total1 = sum(scores1.values())
-    total2 = sum(scores2.values())
-    max_score = len(ALIGNMENT_DIMENSIONS) * 3
-    pct1 = round(total1 / max_score * 100) if max_score else 0
-    pct2 = round(total2 / max_score * 100) if max_score else 0
-    color1 = "#27ae60" if pct1 >= 70 else ("#f39c12" if pct1 >= 40 else "#e74c3c")
-    color2 = "#27ae60" if pct2 >= 70 else ("#f39c12" if pct2 >= 40 else "#e74c3c")
-
-    with hdr1:
-        st.markdown(f"""<div class="result-card" style="border-top:4px solid {color1};">
-            <h3 style="border:none;padding:0;">{company1} — {meta1['name']}</h3>
-            <span class="sector-badge">🏭 {meta1.get('sector','')}</span>
-            <p style="margin-top:0.6rem;font-size:0.88rem;color:#555;">
-                📅 {meta1['fiscal_year']} &nbsp;|&nbsp;
-                🎯 <em>{meta1.get('mission','')[:100]}</em>
-            </p>
-        </div>""", unsafe_allow_html=True)
-    with hdr2:
-        st.markdown(f"""<div class="result-card" style="border-top:4px solid {color2};">
-            <h3 style="border:none;padding:0;">{company2} — {meta2['name']}</h3>
-            <span class="sector-badge">🏭 {meta2.get('sector','')}</span>
-            <p style="margin-top:0.6rem;font-size:0.88rem;color:#555;">
-                📅 {meta2['fiscal_year']} &nbsp;|&nbsp;
-                🎯 <em>{meta2.get('mission','')[:100]}</em>
-            </p>
-        </div>""", unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    # ── Overall Alignment Score ──
-    ov1, ov2, ov3 = st.columns([2, 1, 2])
-    with ov1:
-        st.metric(f"🏆 {company1} Alignment", f"{pct1}%", f"{total1}/{max_score}")
-    with ov2:
-        winner = company1 if total1 > total2 else (company2 if total2 > total1 else "Tie")
-        winner_color = "#27ae60" if winner != "Tie" else "#888"
-        st.markdown(f"""<div style="text-align:center;padding-top:0.5rem;">
-            <span style="font-size:1.8rem;">⚔️</span><br>
-            <span style="color:{winner_color};font-weight:700;font-size:1rem;">{winner} wins</span>
-        </div>""", unsafe_allow_html=True)
-    with ov3:
-        st.metric(f"🏆 {company2} Alignment", f"{pct2}%", f"{total2}/{max_score}")
-
-    st.markdown("---")
-
-    # ── Dimension-by-dimension scorecard ──
-    st.markdown("#### 📋 Alignment Scorecard — Dimension Checklist")
-    st.caption("Each dimension scored 0–3: 0 = Not present · 1 = Weak · 2 = Moderate · 3 = Strong")
-
-    score_icons = {0: "⬜", 1: "🟡", 2: "🟠", 3: "🟢"}
-    table_data = []
-    for dim in ALIGNMENT_DIMENSIONS:
-        s1 = scores1.get(dim, 0)
-        s2 = scores2.get(dim, 0)
-        if s1 > s2:
-            winner_icon = f"← {company1}"
-        elif s2 > s1:
-            winner_icon = f"{company2} →"
-        else:
-            winner_icon = "="
-        table_data.append({
-            "Dimension": dim,
-            f"{company1}": f"{score_icons[s1]} {s1}/3",
-            f"{company2}": f"{score_icons[s2]} {s2}/3",
-            "Better": winner_icon,
-        })
-
-    df_scores = pd.DataFrame(table_data)
-    st.dataframe(df_scores, use_container_width=True, hide_index=True,
-                 column_config={
-                     "Dimension": st.column_config.TextColumn("📊 Dimension", width=250),
-                     f"{company1}": st.column_config.TextColumn(f"🏢 {company1}", width=120),
-                     f"{company2}": st.column_config.TextColumn(f"🏢 {company2}", width=120),
-                     "Better": st.column_config.TextColumn("🏆 Winner", width=120),
-                 })
-
-    st.markdown("---")
-
-    # ── Evidence chain comparison ──
-    ov1 = get_company_overview_cached(company1)
-    ov2 = get_company_overview_cached(company2)
-
-    ep1, ep2 = st.columns(2)
-
-    def render_evidence_path(col, ticker, ov_data, meta_data):
-        with col:
-            total_s = sum(all_scores.get(ticker, {}).values())
-            pct_s = round(total_s / max_score * 100) if max_score else 0
-            ev_color = "#27ae60" if pct_s >= 70 else ("#f39c12" if pct_s >= 40 else "#e74c3c")
-            st.markdown(f"**{ticker}** — {meta_data['name']}")
-
-            steps = [
-                ("🎯 Mission/Vision", meta_data.get("mission", "")[:120]),
-                ("📋 Strategic Goals", " · ".join(clean_kg_node_name(o) for o in ov_data.get("objectives", [])[:3]) or "—"),
-                ("🛠️ Capabilities", " · ".join(format_capability(c) for c in ov_data.get("capabilities", [])[:4]) or "—"),
-                ("🚀 Initiatives", " · ".join(clean_kg_node_name(i) for i in ov_data.get("initiatives", [])[:3]) or "—"),
-                ("⚠️ Risk Mitigation", " · ".join(format_risk_name(r) for r in ov_data.get("risks", [])[:3]) or "—"),
-            ]
-
-            for label, val in steps:
-                st.markdown(f"""
-                <div class="evidence-item" style="border-left-color:{ev_color};">
-                    <strong>{label}</strong><br>
-                    <span style="color:#555;">{val}</span>
-                </div>
-                """, unsafe_allow_html=True)
-
-    render_evidence_path(ep1, company1, ov1, meta1)
-    render_evidence_path(ep2, company2, ov2, meta2)
-
-
-# ═══════════════════════════════════════════════════════════════════════
-# TAB 4: Evidence Explorer
-# ═══════════════════════════════════════════════════════════════════════
-with tab4:
-    st.markdown(f"### Evidence Explorer — {company}")
-
-    st.info(
-        "📖 **About this tab:** Browse the raw text chunks extracted from each company's SEC 10-K filing. "
-        "Chunks are created using **section-aware sentence-level recursive chunking** — the 10-K text is first "
-        "split by section headers (Business, Products, Competition, etc.), then into semantically coherent "
-        "paragraphs of ~500 words each. These chunks serve as the retrieval corpus for the RAG pipeline. "
-        "Use the keyword and section filters to explore specific topics."
-    )
-
-    df_chunks = load_chunks_df(company)
-
-    if not df_chunks.empty:
-        # Filters
-        col_f1, col_f2 = st.columns(2)
-        with col_f1:
-            keyword = st.text_input("🔎 Filter by keyword:", key="ev_keyword")
-        with col_f2:
-            if "section" in df_chunks.columns:
-                sections = sorted(df_chunks["section"].dropna().unique())
-                selected_sections = st.multiselect("📑 Filter by section:", sections,
-                                                    default=sections, key="ev_sections")
-            else:
-                selected_sections = None
-
-        # Apply filters
-        filtered = df_chunks.copy()
-        if keyword:
-            filtered = filtered[filtered["text"].str.contains(keyword, case=False, na=False)]
-        if selected_sections is not None and "section" in filtered.columns:
-            filtered = filtered[filtered["section"].isin(selected_sections)]
-
-        st.markdown(f"**Showing {len(filtered)} of {len(df_chunks)} chunks**")
-
-        for _, row in filtered.iterrows():
-            section_label = row.get("section", "")
-            chunk_id = row.get("chunk_id", "")
-            with st.expander(f"📄 {chunk_id} — Section: {section_label}"):
-                st.markdown(row["text"])
-                meta_parts = []
-                if "start_word" in row and "end_word" in row:
-                    meta_parts.append(f"Words {row['start_word']}–{row['end_word']}")
-                if section_label:
-                    meta_parts.append(f"Section: {section_label}")
-                st.caption(" | ".join(meta_parts))
-    else:
-        st.warning(f"No chunks found for {company}. Run `python chunk_10k.py` first.")
-
-
-# ═══════════════════════════════════════════════════════════════════════
-# TAB 5: Mission → HCM Analysis
-# ═══════════════════════════════════════════════════════════════════════
-with tab5:
-    st.markdown("### 👥 Mission → Human Capital Management Analysis")
-
-    st.info(
-        "📖 **About this tab:** Analyzes the connection between each company's **mission statement** and their "
-        "**Human Capital Management (HCM)** disclosures as reported in the SEC 10-K filing. "
-        "HCM metrics include workforce demographics, diversity & inclusion programs, compensation, "
-        "training, safety, and employee engagement data. Companies with a strong mission→HCM linkage "
-        "demonstrate that their stated purpose translates into concrete workforce practices. "
-        "The **HCM Score** (0–3) is derived from the number of HCM-related nodes in the Knowledge Graph."
-    )
-
-    st.markdown("---")
-
-    for ticker in sorted(COMPANIES.keys()):
-        meta_t = COMPANIES[ticker]
-        ov_t = get_company_overview_cached(ticker)
-        scores_t = _compute_alignment_scores(ticker, ov_t)
-
-        # HCM score color
-        hcm_score = scores_t.get("HCM Disclosure Depth", 0)
-        hcm_color = "#27ae60" if hcm_score >= 2 else ("#f39c12" if hcm_score >= 1 else "#e74c3c")
-
+    st.markdown("### Source Evidence from 10-K Filing")
+
+    txt_file = _find_company_10k_file(company)
+    mission_tier = overview.get("mission_tier", 0)
+    mission_conf = overview.get("mission_confidence", 0)
+    mission_evidence_text = overview.get("mission_evidence", "")
+    tier_labels = {1: "Tier 1 — Explicit", 2: "Tier 2 — Implied", 3: "Tier 3 — Inferred", 0: "N/A"}
+    tier_colors = {1: "#2E7D32", 2: "#E65100", 3: "#F57F17", 0: "#999"}
+
+    if txt_file:
+        t_label = tier_labels.get(mission_tier, "N/A")
+        t_color = tier_colors.get(mission_tier, "#999")
         st.markdown(f"""
-        <div class="result-card" style="border-left:4px solid {hcm_color};">
-            <h4 style="margin-top:0;color:#1a3a5c;">
-                {ticker} — {meta_t['name']}
-                <span class="sector-badge" style="float:right;">HCM Score: {hcm_score}/3</span>
-            </h4>
+        <div style="background:#F5F5F5; border:1px solid #DDD; border-radius:8px;
+             padding:10px 14px; margin-bottom:12px; display:flex; gap:20px; align-items:center;
+             flex-wrap:wrap;">
+            <span style="font-size:0.82rem; color:#555;">
+                <strong>Source:</strong> {txt_file.name}</span>
+            <span style="background:{t_color}; color:white; padding:2px 10px;
+                  border-radius:10px; font-size:0.78rem; font-weight:600;">{t_label}</span>
+            <span style="font-size:0.82rem; color:#555;">
+                <strong>Confidence:</strong> {mission_conf:.0%}</span>
         </div>
         """, unsafe_allow_html=True)
 
-        col_mission, col_hcm = st.columns(2)
+    # ── Find mission text in 10-K regardless of source ──
+    # For KG-sourced missions, we still search the 10-K for supporting evidence
+    _10k_context = ""
+    _10k_mission_found = False
+    if txt_file and mission:
+        try:
+            _raw = txt_file.read_text(encoding="utf-8", errors="ignore")
+            # Strip SEC SGML header
+            _hdr = _raw.find("</SEC-HEADER>")
+            if _hdr > 0:
+                _raw = _raw[_hdr + len("</SEC-HEADER>"):]
+            _raw_norm = re.sub(r'\s+', ' ', _raw)
 
-        with col_mission:
-            st.markdown("**🎯 Mission Statement**")
-            st.info(meta_t.get("mission", "Not specified"))
+            # Try to find mission text (or keywords from it) in the document
+            _mission_words = [w for w in re.findall(r'\b[a-z]{4,}\b', mission.lower())
+                              if w not in {"that", "this", "with", "from", "have", "been",
+                                           "will", "their", "they", "them", "also", "more",
+                                           "would", "could", "about", "which", "into", "through"}]
 
-            st.markdown("**📋 Strategic Objectives**")
-            objectives = ov_t.get("objectives", [])
-            if objectives:
-                for obj in objectives:
-                    st.markdown(f"  - {clean_kg_node_name(obj)}")
+            # Strategy 1: Find exact mission phrase
+            _clean_m = re.sub(r'\s+', ' ', mission[:60]).strip()
+            _idx = _raw_norm.lower().find(_clean_m[:40].lower())
+
+            if _idx >= 0:
+                _10k_mission_found = True
+                _start = max(0, _idx - 300)
+                _end = min(len(_raw_norm), _idx + len(mission) + 300)
+                _10k_context = _raw_norm[_start:_end]
             else:
-                st.caption("No objectives found.")
+                # Strategy 2: Find best matching window using keyword density
+                _best_score = 0
+                _best_pos = 0
+                _step = 200
+                for _i in range(0, min(len(_raw_norm), 500000), _step):
+                    _window = _raw_norm[_i:_i + 600].lower()
+                    _hits = sum(1 for w in _mission_words if w in _window)
+                    if _hits > _best_score:
+                        _best_score = _hits
+                        _best_pos = _i
+                if _best_score >= 2:
+                    _10k_mission_found = True
+                    _10k_context = _raw_norm[max(0, _best_pos - 100):_best_pos + 800]
+        except Exception:
+            pass
 
-        with col_hcm:
-            st.markdown("**👥 HCM Metrics & Initiatives**")
-            hcm_metrics = ov_t.get("hcm_metrics", [])
-            initiatives = ov_t.get("initiatives", [])
+    # Show the mission evidence chunk with highlighting
+    if mission and (_10k_context or mission_evidence_text):
+        evidence_text = _10k_context if _10k_context else mission_evidence_text
+        highlighted_ev = highlight_mission_in_text(evidence_text[:1000], mission)
+        match_label = "Exact match found" if _10k_mission_found else "Best keyword match"
+        st.markdown(f"""
+        <div style="background:#FFFDF0; border:1px solid #E0D8A8; border-left:5px solid #F9A825;
+             border-radius:0 8px 8px 0; padding:14px; margin-bottom:12px;">
+            <div style="font-size:0.78rem; color:#888; margin-bottom:8px;">
+                <strong>Mission Evidence from 10-K</strong>
+                <span style="margin-left:10px; background:#FFF9C4; padding:2px 8px;
+                      border-radius:8px; font-size:0.72rem;">{match_label}</span></div>
+            <div style="font-size:0.92rem; line-height:1.7;">{highlighted_ev}</div>
+        </div>
+        """, unsafe_allow_html=True)
+    elif mission:
+        st.info("Could not locate mission evidence in the 10-K text file.")
 
-            # Filter HCM-related initiatives
-            hcm_initiatives = [i for i in initiatives
-                              if any(kw in i.lower() for kw in
-                                     ["talent", "workforce", "employee", "diversity",
-                                      "inclusion", "belonging", "training", "human",
-                                      "compensation", "benefit", "safety", "engagement",
-                                      "retention", "apprentice", "intern", "culture",
-                                      "health", "wellness"])]
+    # Additional supporting evidence from filing
+    st.markdown("##### Additional Supporting Passages")
 
-            if hcm_metrics:
-                st.markdown("*KG HCM Metrics:*")
-                for m in hcm_metrics:
-                    st.markdown(f"  - 📊 {clean_kg_node_name(m)}")
+    evidence = find_mission_evidence(company, mission)
+    if evidence:
+        for i, ev in enumerate(evidence[:5]):
+            highlighted = highlight_mission_in_text(ev["text"][:600], mission)
+            relevance_pct = int(ev["relevance"] * 100)
+            st.markdown(f"""
+            <div style="background:#FAFAFA; border:1px solid #E0E0E0; border-radius:8px;
+                 padding:12px; margin-bottom:8px;">
+                <div style="font-size:0.75rem; color:#888; margin-bottom:6px;">
+                    {ev['section']} | Relevance: {relevance_pct}% | {ev['chunk_id']}</div>
+                <div style="font-size:0.88rem; line-height:1.6;">{highlighted}</div>
+            </div>
+            """, unsafe_allow_html=True)
+    else:
+        st.caption("No additional supporting passages found in the filing.")
 
-            if hcm_initiatives:
-                st.markdown("*HCM-Related Initiatives:*")
-                for init in hcm_initiatives:
-                    st.markdown(f"  - 🚀 {clean_kg_node_name(init)}")
-            elif not hcm_metrics:
-                st.caption("No HCM disclosures found in KG.")
+    # Raw source text expander
+    if txt_file and mission:
+        with st.expander("View Raw 10-K Source Text (around mission)"):
+            if _10k_context:
+                highlighted_raw = highlight_mission_in_text(_10k_context[:2000], mission)
+                st.markdown(f'<div style="font-size:0.85rem; line-height:1.7; '
+                            f'background:#FFFFF0; padding:12px; border-radius:6px;">'
+                            f'{highlighted_raw}</div>',
+                            unsafe_allow_html=True)
+            else:
+                st.caption("Could not locate the mission passage in the source file.")
 
-            # Show graph neighbors related to HCM
-            G = load_kg_graph()
-            hcm_kg_items = []
-            for node in G.nodes():
-                node_str = str(node)
-                if ticker in node_str and G.nodes[node].get(":LABEL", "") in ("HumanCapitalMetric",):
-                    text = G.nodes[node].get("text", "") or G.nodes[node].get("name", "") or node_str
-                    hcm_kg_items.append(clean_kg_node_name(text))
 
-            if hcm_kg_items:
-                st.markdown("*Additional KG HCM Data:*")
-                for item in hcm_kg_items[:5]:
-                    st.markdown(f"  - 📈 {item}")
+# ═══════════════════════════════════════════════════════════════════════════
+# TAB 2: EVIDENCE-BASED REASONING
+# ═══════════════════════════════════════════════════════════════════════════
+with tab2:
+    overview = get_overview(company)
+    mission = overview.get("mission", "")
+    company_name = COMPANIES[company]["name"]
 
+    st.markdown(f"### Evidence-Based Reasoning — {company_name}")
+    st.caption("Detailed evaluation of each mission statement dimension with supporting evidence.")
+
+    eval_results = evaluate_mission(mission, overview)
+
+    if mission:
+        st.markdown(f'> *"{mission}"*')
         st.markdown("---")
 
-    # HCM Comparison Summary
-    st.markdown("#### 📊 HCM Disclosure Depth — Cross-Company Comparison")
-    hcm_data = []
-    for ticker in sorted(COMPANIES.keys()):
-        ov_t = get_company_overview_cached(ticker)
-        scores_t = _compute_alignment_scores(ticker, ov_t)
-        hcm_data.append({
-            "Company": f"{ticker} — {COMPANIES[ticker]['name']}",
-            "HCM Score": scores_t.get("HCM Disclosure Depth", 0),
-            "HCM Metrics": len(ov_t.get("hcm_metrics", [])),
-            "Total Initiatives": len(ov_t.get("initiatives", [])),
-            "KG Nodes": ov_t["kg_stats"]["nodes"],
-        })
-    df_hcm = pd.DataFrame(hcm_data)
-    st.dataframe(df_hcm, use_container_width=True, hide_index=True)
+    for dim, ev in eval_results.items():
+        color = RATING_COLORS.get(ev["rating"], "#999")
+        st.markdown(f"""
+        <div style="background:white; border:1px solid #E0E0E0; border-radius:8px;
+             padding:16px; margin-bottom:12px; border-left:5px solid {color};">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <span style="font-size:1rem; font-weight:600; color:#333;">{dim}</span>
+                </div>
+                <div style="background:{color}; color:white; padding:3px 12px;
+                     border-radius:12px; font-weight:600; font-size:0.85rem;">
+                    {ev['rating']} ({ev['score']}/4)
+                </div>
+            </div>
+            <div style="font-size:0.9rem; color:#555; margin-top:8px;">
+                {ev['detail']}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Pattern analysis
+    st.markdown("---")
+    st.markdown("### Pattern Analysis")
+
+    if mission:
+        m_lower = mission.lower()
+
+        # Buzzwords found
+        found_buzz = [w for w in BUZZWORDS if w in m_lower]
+        if found_buzz:
+            st.markdown("**Buzzwords detected:**")
+            for bw in found_buzz:
+                st.markdown(f"- `{bw}` — consider replacing with a more specific term")
+        else:
+            st.success("No generic buzzwords detected.")
+
+        # Stakeholders addressed
+        addressed = []
+        for group, keywords in STAKEHOLDER_MAP.items():
+            if any(kw in m_lower for kw in keywords):
+                addressed.append(group)
+        missing_stakeholders = [g for g in STAKEHOLDER_MAP if g not in addressed]
+
+        col_a, col_b = st.columns(2)
+        with col_a:
+            st.markdown("**Stakeholders addressed:**")
+            if addressed:
+                for s in addressed:
+                    st.markdown(f"- {s}")
+            else:
+                st.caption("None explicitly mentioned.")
+        with col_b:
+            st.markdown("**Missing stakeholder groups:**")
+            if missing_stakeholders:
+                for s in missing_stakeholders:
+                    st.markdown(f"- {s}")
+            else:
+                st.caption("All major groups addressed.")
+
+        # Semantic completeness
+        st.markdown("---")
+        st.markdown("### Missing Semantic Components")
+        components = {
+            "Purpose (Why)": bool(re.search(r'\b(purpose|mission|goal|aim|vision)\b', m_lower)),
+            "Activity (What)": bool(re.search(r'\b(provide|deliver|build|create|develop|produce|serve|help|enable)\b', m_lower)),
+            "Audience (Who)": len(addressed) > 0,
+            "Differentiator (How)": bool(re.search(r'\b(innovat|unique|leading|best|premier|advanced|superior|quality)\b', m_lower)),
+            "Domain (Where)": bool(re.search(r'\b(global|world|nation|region|industr|market|sector)\b', m_lower)),
+        }
+        missing = [k for k, v in components.items() if not v]
+        present = [k for k, v in components.items() if v]
+
+        col_p, col_m = st.columns(2)
+        with col_p:
+            for c in present:
+                st.markdown(f"- :white_check_mark: {c}")
+        with col_m:
+            for c in missing:
+                st.markdown(f"- :x: {c}")
+    else:
+        st.warning("No mission statement to analyze.")
 
 
-# ═══════════════════════════════════════════════════════════════════════
-# TAB 6: KG View — Enhanced Interactive Viewer
-# ═══════════════════════════════════════════════════════════════════════
-with tab6:
-    st.info(
-        "📖 **About this tab:** Interactive visualization of the company's **Knowledge Graph (KG)**. "
-        "The KG is constructed from two sources: `kg1.ttl` (shared ontology with high-level Mission, "
-        "Strategy, and Capability nodes) and the company-specific TTL file (detailed Risk Themes, "
-        "Financial Metrics, and Initiatives extracted from the 10-K). Schema defined in `schema_1.owl`. "
-        "Node types are color-coded — hover over nodes for details, hover edges for full RDF triplets. "
-        "Use the navigation buttons and scroll to zoom. The graph shows a 2-hop subgraph from the company node."
-    )
+# ═══════════════════════════════════════════════════════════════════════════
+# TAB 3: PORTFOLIO COMPARISON
+# ═══════════════════════════════════════════════════════════════════════════
+with tab3:
+    st.markdown("### Portfolio Mission Statement Comparison")
+    st.caption("Heatmap evaluation of mission statements across all companies in the portfolio.")
 
-    try:
-        import kg_viewer
-        kg_viewer.render_kg_viewer(company, load_kg_graph, clean_display_text,
-                                   format_risk_name, format_capability)
-    except ImportError:
-        # Fallback KG view
-        st.markdown(f"### 🕸️ Knowledge Graph — {company}")
-        G = load_kg_graph()
+    # Compute evaluations for all companies
+    all_evals = {}
+    for cik in COMPANIES:
+        ov = get_overview(cik)
+        m = ov.get("mission", "")
+        ev = evaluate_mission(m, ov)
+        avg, label, _ = overall_rating(ev)
+        all_evals[cik] = {
+            "name": COMPANIES[cik]["name"],
+            "mission": m[:100] + ("..." if len(m) > 100 else ""),
+            "overall": avg,
+            "overall_label": label,
+            **{dim: v["score"] for dim, v in ev.items()},
+        }
 
-        # Show KG stats
-        st.metric("Total Nodes", G.number_of_nodes())
-        st.metric("Total Edges", G.number_of_edges())
+    df = pd.DataFrame(all_evals.values())
+    if df.empty:
+        st.warning("No data available.")
+    else:
+        # Sort options
+        sort_by = st.selectbox("Sort by", ["Overall Score", "Company Name",
+                                           "Clarity of Purpose", "Stakeholder Focus",
+                                           "Value Proposition", "Actionability"],
+                               label_visibility="visible")
+        sort_col = "overall" if sort_by == "Overall Score" else (
+            "name" if sort_by == "Company Name" else sort_by)
+        ascending = sort_by == "Company Name"
+        df = df.sort_values(sort_col, ascending=ascending).reset_index(drop=True)
 
-        # Show node types
-        label_counts = {}
-        for n in G.nodes():
-            l = G.nodes[n].get(":LABEL", "unlabeled")
-            label_counts[l] = label_counts.get(l, 0) + 1
-        st.markdown("#### Node Types")
-        df_labels = pd.DataFrame(
-            [{"Type": k, "Count": v} for k, v in
-             sorted(label_counts.items(), key=lambda x: -x[1])[:15]]
+        # Heatmap
+        st.markdown("#### Heatmap: Mission Statement Quality")
+
+        dims = EVAL_DIMENSIONS
+
+        try:
+            import plotly.graph_objects as go
+
+            heatmap_data = df[dims].values
+            company_labels = [n[:30] for n in df["name"]]
+
+            fig = go.Figure(data=go.Heatmap(
+                z=heatmap_data,
+                x=dims,
+                y=company_labels,
+                colorscale=[
+                    [0.0, "#B71C1C"],   # Missing (red)
+                    [0.2, "#E65100"],    # Weak (orange)
+                    [0.4, "#F57F17"],    # Adequate (yellow)
+                    [0.6, "#F57F17"],
+                    [0.8, "#2E7D32"],    # Strong (green)
+                    [1.0, "#1B5E20"],    # Outstanding (dark green)
+                ],
+                zmin=0, zmax=4,
+                text=heatmap_data,
+                texttemplate="%{text:.0f}",
+                textfont={"size": 10},
+                hovertemplate="<b>%{y}</b><br>%{x}: %{z}/4<extra></extra>",
+            ))
+
+            fig.update_layout(
+                height=max(400, len(df) * 28 + 100),
+                margin=dict(l=200, r=30, t=40, b=80),
+                xaxis=dict(side="top", tickangle=-35, tickfont=dict(size=11)),
+                yaxis=dict(autorange="reversed", tickfont=dict(size=10)),
+                font=dict(family="Segoe UI, sans-serif"),
+            )
+            st.plotly_chart(fig, use_container_width=True)
+        except ImportError:
+            st.warning("Plotly not available. Showing table instead.")
+
+        # Summary statistics
+        st.markdown("#### Portfolio Distribution")
+        rating_counts = df["overall_label"].value_counts()
+        col1, col2, col3, col4, col5 = st.columns(5)
+        for col, label in zip(
+            [col1, col2, col3, col4, col5],
+            ["Outstanding", "Strong", "Adequate", "Weak", "Missing"]
+        ):
+            cnt = rating_counts.get(label, 0)
+            color = RATING_COLORS.get(label, "#999")
+            with col:
+                st.markdown(f"""
+                <div style="text-align:center; padding:10px; background:white;
+                     border-radius:8px; border-top:4px solid {color};">
+                    <div style="font-size:2rem; font-weight:700; color:{color};">{cnt}</div>
+                    <div style="font-size:0.8rem; color:#666;">{label}</div>
+                </div>
+                """, unsafe_allow_html=True)
+
+        # Top and bottom performers
+        st.markdown("---")
+        col_top, col_bot = st.columns(2)
+        with col_top:
+            st.markdown("#### Strongest Mission Statements")
+            top5 = df.nlargest(5, "overall")
+            for _, row in top5.iterrows():
+                st.markdown(f"- **{row['name'][:35]}** — {row['overall']:.1f}/4 "
+                            f"({row['overall_label']})")
+        with col_bot:
+            st.markdown("#### Weakest Mission Statements")
+            bot5 = df.nsmallest(5, "overall")
+            for _, row in bot5.iterrows():
+                st.markdown(f"- **{row['name'][:35]}** — {row['overall']:.1f}/4 "
+                            f"({row['overall_label']})")
+
+        # Sector comparison
+        st.markdown("---")
+        st.markdown("#### Sector Comparison")
+
+        df_with_sector = df.copy()
+        df_with_sector["Sector"] = [COMPANIES[cik]["sector"].split(" - ")[-1][:25]
+                                     if cik in COMPANIES else "Unknown"
+                                     for cik in COMPANIES][:len(df)]
+
+        # Rebuild with CIK mapping
+        sector_data = []
+        for cik in COMPANIES:
+            ov = get_overview(cik)
+            m = ov.get("mission", "")
+            ev = evaluate_mission(m, ov)
+            avg, label, _ = overall_rating(ev)
+            sector_name = COMPANIES[cik]["sector"]
+            if " - " in sector_name:
+                sector_name = sector_name.split(" - ", 1)[1]
+            sector_data.append({"sector": sector_name[:30], "overall": avg})
+
+        df_sector = pd.DataFrame(sector_data)
+        sector_avg = df_sector.groupby("sector")["overall"].agg(["mean", "count"]).reset_index()
+        sector_avg.columns = ["Sector", "Avg Score", "Companies"]
+        sector_avg = sector_avg[sector_avg["Companies"] >= 2].sort_values("Avg Score", ascending=False)
+
+        if not sector_avg.empty:
+            st.dataframe(sector_avg.style.format({"Avg Score": "{:.2f}"}),
+                         use_container_width=True, hide_index=True)
+        else:
+            st.caption("Not enough companies per sector for comparison.")
+
+        # CSV export
+        st.markdown("---")
+        csv_data = df.to_csv(index=False).encode("utf-8")
+        st.download_button(
+            label="Download Evaluation Data (CSV)",
+            data=csv_data,
+            file_name="mission_evaluation_portfolio.csv",
+            mime="text/csv",
         )
-        st.dataframe(df_labels, use_container_width=True, hide_index=True)
 
-        # Show neighbors of selected company
-        rag = load_rag_engine()
-        if rag:
-            nodes = rag._find_company_nodes(G, company)
-            if nodes:
-                cn = nodes[0]
-                st.markdown(f"#### Neighbors of `{cn}`")
-                neighbor_data = []
-                for n in G.neighbors(cn):
-                    neighbor_data.append({
-                        "Node": str(n),
-                        "Type": G.nodes[n].get(":LABEL", "?"),
-                        "Relation": G[cn][n].get("relation", "?"),
-                    })
-                if neighbor_data:
-                    st.dataframe(pd.DataFrame(neighbor_data),
-                                use_container_width=True, hide_index=True)
+        # Head-to-head comparison
+        st.markdown("---")
+        st.markdown("#### Head-to-Head Comparison")
+        comp_col1, comp_col2 = st.columns(2)
+        with comp_col1:
+            comp1 = st.selectbox("Company A", available,
+                                 format_func=lambda c: COMPANIES[c]["name"],
+                                 key="comp1")
+        with comp_col2:
+            comp2 = st.selectbox("Company B", available,
+                                 format_func=lambda c: COMPANIES[c]["name"],
+                                 key="comp2", index=min(1, len(available)-1))
+
+        if comp1 != comp2:
+            ov1 = get_overview(comp1)
+            ov2 = get_overview(comp2)
+            ev1 = evaluate_mission(ov1.get("mission", ""), ov1)
+            ev2 = evaluate_mission(ov2.get("mission", ""), ov2)
+
+            comparison_rows = []
+            for dim in dims:
+                s1 = ev1[dim]["score"]
+                s2 = ev2[dim]["score"]
+                winner = "=" if s1 == s2 else (COMPANIES[comp1]["name"][:20] if s1 > s2
+                                               else COMPANIES[comp2]["name"][:20])
+                comparison_rows.append({
+                    "Dimension": dim,
+                    COMPANIES[comp1]["name"][:20]: f"{s1}/4 ({ev1[dim]['rating']})",
+                    COMPANIES[comp2]["name"][:20]: f"{s2}/4 ({ev2[dim]['rating']})",
+                    "Winner": winner,
+                })
+            st.dataframe(pd.DataFrame(comparison_rows),
+                         use_container_width=True, hide_index=True)
+
+
+# ═══════════════════════════════════════════════════════════════════════════
+# TAB 4: KNOWLEDGE GRAPH (Multi-Schema Mission KG)
+# ═══════════════════════════════════════════════════════════════════════════
+with tab4:
+    import networkx as nx
+    import unicodedata as _ud
+
+    company_name = COMPANIES[company]["name"]
+    st.markdown(f"### Knowledge Graph — {company_name}")
+
+    # KG Schema selector
+    kg_mode = st.selectbox("KG Schema", [
+        "Existing KG (Full)",
+        "Mission KG: LLM-Driven (General Schema)",
+        "Mission KG: Ontology-Driven (FIBO Schema)",
+    ], key="kg_mode")
+
+    def _slug(name):
+        s = _ud.normalize('NFKD', name).encode('ascii', 'ignore').decode()
+        s = re.sub(r'[^\w\s-]', '', s).strip().lower()
+        return re.sub(r'[-\s]+', '_', s)[:50]
+
+    def _parse_mission_ttl(ttl_path):
+        """Parse a mission KG TTL file into a NetworkX DiGraph."""
+        G_m = nx.DiGraph()
+        if not ttl_path.exists():
+            return G_m
+        content = ttl_path.read_text(encoding="utf-8", errors="ignore")
+
+        # Extract instances and their types/properties
+        # Parse subject blocks: inst:Name a Type ; prop value .
+        current_subject = None
+        current_type = None
+
+        for line in content.split("\n"):
+            line = line.strip()
+            if not line or line.startswith("#") or line.startswith("@prefix"):
+                continue
+
+            # New subject
+            m = re.match(r'(inst:\S+)\s+a\s+(\S+)', line)
+            if m:
+                current_subject = m.group(1).replace("inst:", "")
+                current_type = m.group(2).replace("msg:", "").replace("fibo-be:", "")
+                G_m.add_node(current_subject, **{":LABEL": current_type})
+                continue
+
+            if current_subject and line.startswith("msg:"):
+                # Property line
+                prop_m = re.match(r'msg:(\S+)\s+(?:inst:(\S+)|"([^"]*)")', line)
+                if prop_m:
+                    prop = prop_m.group(1)
+                    target = prop_m.group(2)
+                    literal = prop_m.group(3)
+
+                    if target:
+                        # Object property — create edge
+                        G_m.add_node(target, **{":LABEL": target.split("_")[-1] if "_" in target else "Node"})
+                        G_m.add_edge(current_subject, target, relation=prop)
+                    elif literal:
+                        # Data property — add to node
+                        G_m.nodes[current_subject][prop] = literal
+
+            # rdfs:label
+            label_m = re.match(r'rdfs:label\s+"([^"]*)"', line)
+            if label_m and current_subject:
+                G_m.nodes[current_subject]["label"] = label_m.group(1)
+
+        return G_m
+
+    # ── Node color maps per schema ──
+    existing_colors = {
+        "Company": "#e74c3c", "Mission": "#2ecc71", "Vision": "#27ae60",
+        "StrategicObjective": "#27ae60", "Strategy": "#27ae60",
+        "BusinessOperations": "#ff9800", "Filing": "#607d8b",
+    }
+    general_colors = {
+        "Company": "#e74c3c", "MissionStatement": "#2ecc71",
+    }
+    ontology_colors = {
+        "Company": "#e74c3c", "LegalEntity": "#e74c3c",
+        "MissionStatement": "#2ecc71",
+        "Stakeholder": "#2196F3", "CorporateObjective": "#FF9800",
+        "CorporateValue": "#9C27B0", "BusinessCapability": "#009688",
+        "BusinessDomain": "#795548",
+    }
+
+    if kg_mode == "Existing KG (Full)":
+        st.caption("Mission-focused subgraph from the original SEC ontology KG.")
+        G = load_kg_graph()
+        node_colors = existing_colors
+
+        # Find company nodes
+        cik_stripped = company.lstrip("0")
+        candidates = [
+            f"company_{company}", f"Company_{company}", f"Company:{company}",
+            company.upper(), company.lower(), company,
+            f"company_{company.lstrip('0')}",
+        ]
+        if company in _REGISTRY_DATA:
+            name = _REGISTRY_DATA[company].get("name", "")
+            if name:
+                candidates.extend([
+                    f"Company_{name}", f"Company:{name}",
+                    name.upper(), name,
+                    f"Company_{name.upper()}", f"Company:{name.upper()}",
+                ])
+
+        company_nodes = [c for c in candidates if c in G]
+        for node in G.nodes():
+            node_str = str(node)
+            if company in node_str and G.nodes[node].get(":LABEL") == "Company":
+                if node_str not in company_nodes:
+                    company_nodes.append(node_str)
+
+        if not company_nodes:
+            st.warning(f"No KG data found for {company_name} in existing KG.")
+            subgraph = nx.DiGraph()
+        else:
+            mission_labels = {"Mission", "Vision", "StrategicObjective", "Strategy"}
+            sub_nodes = set(company_nodes)
+
+            for cn in company_nodes:
+                for nb in G.neighbors(cn):
+                    nb_label = G.nodes[nb].get(":LABEL", "")
+                    relation = G[cn][nb].get("relation", "")
+                    if (nb_label in mission_labels or
+                        "mission" in relation.lower() or
+                        "Mission" in str(nb)):
+                        sub_nodes.add(nb)
+                        for n2 in G.neighbors(nb):
+                            if n2 not in company_nodes:
+                                sub_nodes.add(n2)
+
+            if len(sub_nodes) <= len(company_nodes):
+                for cn in company_nodes:
+                    for nb in G.neighbors(cn):
+                        sub_nodes.add(nb)
+
+            subgraph = G.subgraph(sub_nodes)
+
+    elif kg_mode == "Mission KG: LLM-Driven (General Schema)":
+        st.caption("Simple Company-Mission graph. The mission is selected via semantic scoring (simulated LLM).")
+        ttl_path = MISSION_KG_DIR / "general" / f"{_slug(company_name)}.ttl"
+        G = _parse_mission_ttl(ttl_path)
+        subgraph = G
+        node_colors = general_colors
+
+    else:  # Ontology-Driven
+        st.caption("FIBO-aligned decomposition: mission broken into Stakeholders, Values, Objectives, Capabilities, Domains.")
+        ttl_path = MISSION_KG_DIR / "ontology" / f"{_slug(company_name)}.ttl"
+        G = _parse_mission_ttl(ttl_path)
+        subgraph = G
+        node_colors = ontology_colors
+
+    # ── Render graph ──
+    if subgraph.number_of_nodes() == 0:
+        st.warning("No graph data available for this company/schema combination.")
+    else:
+        try:
+            from pyvis.network import Network
+            import tempfile
+
+            net = Network(height="600px", width="100%", bgcolor="#fafbfd",
+                          font_color="#333333", directed=True)
+            net.toggle_physics(True)
+            net.set_options("""{
+                "nodes": {
+                    "shape": "dot",
+                    "font": {"size": 13, "face": "Segoe UI, sans-serif",
+                             "strokeWidth": 3, "strokeColor": "#ffffff"},
+                    "borderWidth": 2, "shadow": true
+                },
+                "edges": {
+                    "arrows": {"to": {"enabled": true, "scaleFactor": 0.9}},
+                    "font": {"size": 10, "align": "middle"},
+                    "smooth": {"type": "curvedCW", "roundness": 0.15},
+                    "width": 2
+                },
+                "physics": {
+                    "barnesHut": {"gravitationalConstant": -3000,
+                                  "springLength": 200, "springConstant": 0.04}
+                },
+                "interaction": {"hover": true, "tooltipDelay": 100,
+                                "navigationButtons": true}
+            }""")
+
+            for node in subgraph.nodes():
+                nd = G.nodes[node]
+                label_type = nd.get(":LABEL", "Unknown")
+                text = (nd.get("label", "") or nd.get("text", "") or
+                        nd.get("name", "") or nd.get("hasMission", "") or
+                        nd.get("missionText", "") or str(node))
+                display = clean_display_text(text)
+                if len(display) > 50:
+                    display = display[:47] + "..."
+
+                color = node_colors.get(label_type, "#95a5a6")
+                size = 35 if label_type in ("Company", "LegalEntity") else (
+                    28 if label_type == "MissionStatement" else 22)
+
+                tooltip_text = nd.get("missionText", "") or nd.get("label", "") or text
+                tooltip = f"[{label_type}]\n{clean_display_text(tooltip_text)[:300]}"
+                net.add_node(node, label=display, color=color, size=size,
+                             shape="dot", title=tooltip)
+
+            for u, v, data in subgraph.edges(data=True):
+                rel = data.get("relation", "")
+                edge_color = "#e74c3c" if "mission" in rel.lower() else (
+                    "#2196F3" if "stakeholder" in rel.lower() else (
+                    "#9C27B0" if "value" in rel.lower() else (
+                    "#FF9800" if "objective" in rel.lower() else "#888")))
+                net.add_edge(u, v, label=rel, title=rel,
+                             color={"color": edge_color})
+
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".html",
+                                             mode="w", encoding="utf-8") as f:
+                net.save_graph(f.name)
+                with open(f.name, "r", encoding="utf-8") as fr:
+                    graph_html = fr.read()
+
+            # Legend
+            type_counts = {}
+            for node in subgraph.nodes():
+                lt = G.nodes[node].get(":LABEL", "Other")
+                type_counts[lt] = type_counts.get(lt, 0) + 1
+
+            legend_items = ""
+            for lbl, cnt in sorted(type_counts.items()):
+                clr = node_colors.get(lbl, "#95a5a6")
+                legend_items += (
+                    f'<div style="display:flex;align-items:center;gap:6px;margin:2px 0;">'
+                    f'<span style="display:inline-block;width:12px;height:12px;'
+                    f'border-radius:50%;background:{clr};"></span>'
+                    f'<span style="font-size:12px;color:#333;">{lbl} ({cnt})</span></div>')
+
+            schema_label = kg_mode.split(":")[0].strip() if ":" in kg_mode else kg_mode
+            overlay = f"""
+            <div style="position:absolute;top:12px;right:12px;z-index:999;
+                 background:rgba(255,255,255,0.92);border:1px solid #ddd;
+                 border-radius:8px;padding:10px 14px;">
+                <h4 style="margin:0 0 6px 0;font-size:13px;color:#1a3a5c;">{schema_label}</h4>
+                {legend_items}
+                <div style="margin-top:6px;padding-top:6px;border-top:1px solid #eee;
+                     font-size:11px;color:#888;">
+                    Nodes: {subgraph.number_of_nodes()} | Edges: {subgraph.number_of_edges()}
+                </div>
+            </div>"""
+            graph_html = graph_html.replace("</body>", overlay + "</body>")
+
+            st.components.v1.html(graph_html, height=650, scrolling=False)
+
+        except ImportError:
+            st.warning("pyvis not installed. Showing text view.")
+            for u, v, data in subgraph.edges(data=True):
+                u_label = G.nodes[u].get(":LABEL", "")
+                v_label = G.nodes[v].get(":LABEL", "")
+                rel = data.get("relation", "")
+                st.markdown(f"- **[{u_label}]** {clean_display_text(str(u))[:30]} "
+                            f"-> `{rel}` -> **[{v_label}]** {clean_display_text(str(v))[:30]}")
+
+    # ── Mission details below graph ──
+    st.markdown("---")
+    overview_kg = get_overview(company)
+    mission_kg = overview_kg.get("mission", "")
+
+    if mission_kg:
+        tier_kg = overview_kg.get("mission_tier", 0)
+        source_kg = overview_kg.get("mission_source", "unknown")
+        st.markdown(f"""
+        <div style="background:#E8F5E9; border:1px solid #C8E6C9; border-radius:8px;
+             padding:14px; margin-bottom:12px;">
+            <strong>Mission Statement:</strong> <em>"{mission_kg}"</em><br>
+            <span style="font-size:0.8rem; color:#555;">
+                Source: {source_kg.upper()} | Tier: {tier_kg} |
+                Schema: {kg_mode.split("(")[-1].replace(")", "").strip() if "(" in kg_mode else "Full KG"}</span>
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Show decomposition details for ontology schema
+    if "Ontology" in kg_mode and subgraph.number_of_nodes() > 0:
+        st.markdown("#### FIBO-Aligned Decomposition")
+        decomp = {"Stakeholders": [], "Values": [], "Objectives": [],
+                  "Capabilities": [], "Domains": []}
+        for node in subgraph.nodes():
+            nd = G.nodes[node]
+            lt = nd.get(":LABEL", "")
+            label = nd.get("label", clean_display_text(str(node)))
+            if lt == "Stakeholder":
+                decomp["Stakeholders"].append(label)
+            elif lt == "CorporateValue":
+                decomp["Values"].append(label)
+            elif lt == "CorporateObjective":
+                decomp["Objectives"].append(label)
+            elif lt == "BusinessCapability":
+                decomp["Capabilities"].append(label)
+            elif lt == "BusinessDomain":
+                decomp["Domains"].append(label)
+
+        cols_d = st.columns(5)
+        for i, (cat, items) in enumerate(decomp.items()):
+            with cols_d[i]:
+                st.markdown(f"**{cat}** ({len(items)})")
+                for item in items:
+                    st.markdown(f"- {item}")
+                if not items:
+                    st.caption("None found")
 
 
 # ── Footer ───────────────────────────────────────────────────────────────
 st.markdown("---")
-st.markdown(
-    '<div style="text-align:center;color:#888;font-size:0.8rem;">'
-    'MSG-KG v2.0 | KG-RAG Portfolio Intelligence Interface | '
-    'SEC 10-K Item 1 Analysis | MiniLM-L6-v2 + Knowledge Graph</div>',
-    unsafe_allow_html=True,
-)
+st.caption("MSG-KG v3.0 — Mission Statement Intelligence | "
+           "Data: SEC 10-K Filings | PhD Finance Research")

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: EQUIFAX INC
+# CIK: 0000033185
+
+inst:Company_EQUIFAX_INC a msg:Company ;
+    rdfs:label "EQUIFAX INC" ;
+    msg:cik "0000033185" ;
+    msg:sector "7320 - Services-Consumer Credit Reporting, Collection Agencies" ;
+    msg:hasMission inst:Mission_EQUIFAX_INC .
+
+inst:Mission_EQUIFAX_INC a msg:MissionStatement ;
+    msg:missionText "EQUIFAX INC — Mission; To be a trusted global leader in data, analytics and technology creating innovative solutions; Leverage and expand differentiated portfolio of data assets; Leverage Equifax Cloud capabilities to accelerate innovation, new products and growth." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000033185-25-000025.txt" .

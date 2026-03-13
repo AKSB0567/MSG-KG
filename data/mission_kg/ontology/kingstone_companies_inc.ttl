@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: KINGSTONE COMPANIES, INC.
+# CIK: 0000033992
+# Stakeholders: Shareholders, Government
+# Values: Growth
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_KINGSTONE_COMPANIES_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "KINGSTONE COMPANIES, INC." ;
+    msg:cik "0000033992" ;
+    msg:sector "6331 - Fire, Marine & Casualty Insurance" ;
+    msg:hasMission inst:Mission_KINGSTONE_COMPANIES_INC .
+
+# ── Mission Statement ──
+inst:Mission_KINGSTONE_COMPANIES_INC a msg:MissionStatement ;
+    msg:missionText "Be the preferred multi-line P&C insurer for selected producers in geographic markets; Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base; KINGSTONE COMPANIES, INC. — Mission." ;
+    msg:extractedFrom "cleaned_10-K_0000033992-25-000007.txt" ;
+    msg:servesStakeholder inst:KINGSTONE_COMPANIES_INC_Stakeholder_Shareholders ;
+    msg:servesStakeholder inst:KINGSTONE_COMPANIES_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:KINGSTONE_COMPANIES_INC_Value_Growth ;
+    msg:operatesInDomain inst:KINGSTONE_COMPANIES_INC_Domain_Financial_Services ;
+    msg:leveragesCapability inst:KINGSTONE_COMPANIES_INC_Capability_0 ;
+    msg:leveragesCapability inst:KINGSTONE_COMPANIES_INC_Capability_1  .
+
+inst:KINGSTONE_COMPANIES_INC_Stakeholder_Shareholders a msg:Stakeholder ;
+    rdfs:label "Shareholders" .
+
+inst:KINGSTONE_COMPANIES_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:KINGSTONE_COMPANIES_INC_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:KINGSTONE_COMPANIES_INC_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:KINGSTONE_COMPANIES_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Personal lines: homeowners, dwelling fire, cooperative/condominium, renters, personal umbrella" .
+
+inst:KINGSTONE_COMPANIES_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "12th largest writer of homeowners insurance in New York in 2024" .

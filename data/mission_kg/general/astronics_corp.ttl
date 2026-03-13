@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: ASTRONICS CORP
+# CIK: 0000008063
+
+inst:Company_ASTRONICS_CORP a msg:Company ;
+    rdfs:label "ASTRONICS CORP" ;
+    msg:cik "0000008063" ;
+    msg:sector "3728 - Aircraft Part & Auxiliary Equipment, NEC" ;
+    msg:hasMission inst:Mission_ASTRONICS_CORP .
+
+inst:Mission_ASTRONICS_CORP a msg:MissionStatement ;
+    msg:missionText "Increase value by developing technologies internally or through acquisition for targeted markets; ASTRONICS CORP — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000008063-25-000017.txt" .

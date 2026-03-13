@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: BRISTOL MYERS SQUIBB CO
+# CIK: 0000014272
+
+inst:Company_BRISTOL_MYERS_SQUIBB_CO a msg:Company ;
+    rdfs:label "BRISTOL MYERS SQUIBB CO" ;
+    msg:cik "0000014272" ;
+    msg:sector "2834 - Pharmaceutical Preparations" ;
+    msg:hasMission inst:Mission_BRISTOL_MYERS_SQUIBB_CO .
+
+inst:Mission_BRISTOL_MYERS_SQUIBB_CO a msg:MissionStatement ;
+    msg:missionText "Expand in neuroscience and oncology through acquisitions to strengthen core therapeutic areas; BRISTOL MYERS SQUIBB CO — Mission; Oncology, hematology, immunology, cardiovascular and neuroscience therapeutic areas." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000014272-25-000039.txt" .

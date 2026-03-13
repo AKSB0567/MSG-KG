@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: KINGSTONE COMPANIES, INC.
+# CIK: 0000033992
+
+inst:Company_KINGSTONE_COMPANIES_INC a msg:Company ;
+    rdfs:label "KINGSTONE COMPANIES, INC." ;
+    msg:cik "0000033992" ;
+    msg:sector "6331 - Fire, Marine & Casualty Insurance" ;
+    msg:hasMission inst:Mission_KINGSTONE_COMPANIES_INC .
+
+inst:Mission_KINGSTONE_COMPANIES_INC a msg:MissionStatement ;
+    msg:missionText "Be the preferred multi-line P&C insurer for selected producers in geographic markets; Grow profitably while managing risk through prudent use of reinsurance to strengthen capital base; KINGSTONE COMPANIES, INC. — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000033992-25-000007.txt" .

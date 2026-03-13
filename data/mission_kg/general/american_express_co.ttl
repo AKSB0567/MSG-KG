@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: AMERICAN EXPRESS CO
+# CIK: 0000004962
+
+inst:Company_AMERICAN_EXPRESS_CO a msg:Company ;
+    rdfs:label "AMERICAN EXPRESS CO" ;
+    msg:cik "0000004962" ;
+    msg:sector "6199 - Finance Services" ;
+    msg:hasMission inst:Mission_AMERICAN_EXPRESS_CO .
+
+inst:Mission_AMERICAN_EXPRESS_CO a msg:MissionStatement ;
+    msg:missionText "We aim to provide the world’s best customer experience every day and our reputation for world-class service has been recognized by numerous a." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.79^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000004962-25-000016.txt" .

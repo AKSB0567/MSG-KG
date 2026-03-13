@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: Lumen Technologies, Inc.
+# CIK: 0000018926
+# Stakeholders: Society, Government
+# Values: Service
+# Objectives: 0 found
+# Domains: Technology, Media & Communications
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_Lumen_Technologies_Inc a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "Lumen Technologies, Inc." ;
+    msg:cik "0000018926" ;
+    msg:sector "4813 - Telephone Communications (No Radio Telephone)" ;
+    msg:hasMission inst:Mission_Lumen_Technologies_Inc .
+
+# ── Mission Statement ──
+inst:Mission_Lumen_Technologies_Inc a msg:MissionStatement ;
+    msg:missionText "Unleashing the world's digital potential through integrated products and services." ;
+    msg:extractedFrom "cleaned_10-K_0000018926-25-000010.txt" ;
+    msg:servesStakeholder inst:Lumen_Technologies_Inc_Stakeholder_Society ;
+    msg:servesStakeholder inst:Lumen_Technologies_Inc_Stakeholder_Government ;
+    msg:embodiesValue inst:Lumen_Technologies_Inc_Value_Service ;
+    msg:operatesInDomain inst:Lumen_Technologies_Inc_Domain_Technology ;
+    msg:operatesInDomain inst:Lumen_Technologies_Inc_Domain_Media_Communications ;
+    msg:leveragesCapability inst:Lumen_Technologies_Inc_Capability_0  .
+
+inst:Lumen_Technologies_Inc_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:Lumen_Technologies_Inc_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:Lumen_Technologies_Inc_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:Lumen_Technologies_Inc_Domain_Technology a msg:BusinessDomain ;
+    rdfs:label "Technology" .
+
+inst:Lumen_Technologies_Inc_Domain_Media_Communications a msg:BusinessDomain ;
+    rdfs:label "Media & Communications" .
+
+inst:Lumen_Technologies_Inc_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Edge, Network-as-a-Service and cybersecurity services" .

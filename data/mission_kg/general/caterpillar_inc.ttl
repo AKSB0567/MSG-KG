@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: CATERPILLAR INC
+# CIK: 0000018230
+
+inst:Company_CATERPILLAR_INC a msg:Company ;
+    rdfs:label "CATERPILLAR INC" ;
+    msg:cik "0000018230" ;
+    msg:sector "3531 - Construction Machinery & Equipment" ;
+    msg:hasMission inst:Mission_CATERPILLAR_INC .
+
+inst:Mission_CATERPILLAR_INC a msg:MissionStatement ;
+    msg:missionText "Help customers build a better, more sustainable world; Expanded Offerings, Operational Excellence, Services, and Sustainability; CATERPILLAR INC — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000018230-25-000008.txt" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: DOVER Corp
+# CIK: 0000029905
+
+inst:Company_DOVER_Corp a msg:Company ;
+    rdfs:label "DOVER Corp" ;
+    msg:cik "0000029905" ;
+    msg:sector "3530 - Construction, Mining & Materials Handling Machinery & Equipment" ;
+    msg:hasMission inst:Mission_DOVER_Corp .
+
+inst:Mission_DOVER_Corp a msg:MissionStatement ;
+    msg:missionText "Sustained profitable growth, operational excellence, superior free cash flow generation; Zero-harm workplace with priority on health and safety compliance and risk mitigation; DOVER Corp — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000029905-25-000006.txt" .

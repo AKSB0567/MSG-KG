@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: ENVIRI Corp
+# CIK: 0000045876
+
+inst:Company_ENVIRI_Corp a msg:Company ;
+    rdfs:label "ENVIRI Corp" ;
+    msg:cik "0000045876" ;
+    msg:sector "8900 - Services, NEC" ;
+    msg:hasMission inst:Mission_ENVIRI_Corp .
+
+inst:Mission_ENVIRI_Corp a msg:MissionStatement ;
+    msg:missionText "Viewing every customer need through a sustainability lens; helping customers build better businesses; ENVIRI Corp — Mission; To continue building a leading, global environmental solutions company." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000045876-25-000018.txt" .

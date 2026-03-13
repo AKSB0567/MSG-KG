@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Cheniere Energy, Inc.
+# CIK: 0000003570
+
+inst:Company_Cheniere_Energy_Inc a msg:Company ;
+    rdfs:label "Cheniere Energy, Inc." ;
+    msg:cik "0000003570" ;
+    msg:sector "4922 - Natural Gas Distribution" ;
+    msg:hasMission inst:Mission_Cheniere_Energy_Inc .
+
+inst:Mission_Cheniere_Energy_Inc a msg:MissionStatement ;
+    msg:missionText "Our vision is to provide clean, secure and affordable energy to." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 1^^xsd:integer ;
+    msg:missionConfidence 0.92^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000003570-25-000033.txt" .

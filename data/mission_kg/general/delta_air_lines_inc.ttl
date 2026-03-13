@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: DELTA AIR LINES, INC.
+# CIK: 0000027904
+
+inst:Company_DELTA_AIR_LINES_INC a msg:Company ;
+    rdfs:label "DELTA AIR LINES, INC." ;
+    msg:cik "0000027904" ;
+    msg:sector "4512 - Air Transportation, Scheduled" ;
+    msg:hasMission inst:Mission_DELTA_AIR_LINES_INC .
+
+inst:Mission_DELTA_AIR_LINES_INC a msg:MissionStatement ;
+    msg:missionText "DELTA AIR LINES, INC. — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000027904-25-000004.txt" .

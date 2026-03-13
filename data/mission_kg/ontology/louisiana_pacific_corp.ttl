@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: LOUISIANA-PACIFIC CORP
+# CIK: 0000060519
+# Stakeholders: Employees, Society, Government
+# Values: Sustainability
+# Objectives: 0 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_LOUISIANA_PACIFIC_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "LOUISIANA-PACIFIC CORP" ;
+    msg:cik "0000060519" ;
+    msg:sector "2400 - Lumber & Wood Products" ;
+    msg:hasMission inst:Mission_LOUISIANA_PACIFIC_CORP .
+
+# ── Mission Statement ──
+inst:Mission_LOUISIANA_PACIFIC_CORP a msg:MissionStatement ;
+    msg:missionText "We are committed to complying with all applicable environmental laws and regulations and intend to continue devoting significant management attention to such." ;
+    msg:extractedFrom "cleaned_10-K_0000060519-25-000005.txt" ;
+    msg:servesStakeholder inst:LOUISIANA_PACIFIC_CORP_Stakeholder_Employees ;
+    msg:servesStakeholder inst:LOUISIANA_PACIFIC_CORP_Stakeholder_Society ;
+    msg:servesStakeholder inst:LOUISIANA_PACIFIC_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:LOUISIANA_PACIFIC_CORP_Value_Sustainability ;
+    msg:leveragesCapability inst:LOUISIANA_PACIFIC_CORP_Capability_0 ;
+    msg:leveragesCapability inst:LOUISIANA_PACIFIC_CORP_Capability_1  .
+
+inst:LOUISIANA_PACIFIC_CORP_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:LOUISIANA_PACIFIC_CORP_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:LOUISIANA_PACIFIC_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:LOUISIANA_PACIFIC_CORP_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:LOUISIANA_PACIFIC_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Siding ($1,558 million net sales, 53% of 2024 revenue)" .
+
+inst:LOUISIANA_PACIFIC_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Leading producer of OSB and siding products in South America" .

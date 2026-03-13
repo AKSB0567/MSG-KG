@@ -1,0 +1,64 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: FIFTH THIRD BANCORP
+# CIK: 0000035527
+# Stakeholders: Customers, Government
+# Values: Inclusion, Service
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_FIFTH_THIRD_BANCORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "FIFTH THIRD BANCORP" ;
+    msg:cik "0000035527" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_FIFTH_THIRD_BANCORP .
+
+# ── Mission Statement ──
+inst:Mission_FIFTH_THIRD_BANCORP a msg:MissionStatement ;
+    msg:missionText "The Bancorp is a diversified financial services company headquartered in Cincinnati, Ohio and is the indirect holding company of Fifth Third Bank, National Association (the “Bank”)." ;
+    msg:extractedFrom "cleaned_10-K_0000035527-25-000079.txt" ;
+    msg:servesStakeholder inst:FIFTH_THIRD_BANCORP_Stakeholder_Customers ;
+    msg:servesStakeholder inst:FIFTH_THIRD_BANCORP_Stakeholder_Government ;
+    msg:embodiesValue inst:FIFTH_THIRD_BANCORP_Value_Inclusion ;
+    msg:embodiesValue inst:FIFTH_THIRD_BANCORP_Value_Service ;
+    msg:operatesInDomain inst:FIFTH_THIRD_BANCORP_Domain_Financial_Services  .
+
+inst:FIFTH_THIRD_BANCORP_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:FIFTH_THIRD_BANCORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:FIFTH_THIRD_BANCORP_Value_Inclusion a msg:CorporateValue ;
+    rdfs:label "Inclusion" .
+
+inst:FIFTH_THIRD_BANCORP_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:FIFTH_THIRD_BANCORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .

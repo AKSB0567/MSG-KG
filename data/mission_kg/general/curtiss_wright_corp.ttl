@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: CURTISS WRIGHT CORP
+# CIK: 0000026324
+
+inst:Company_CURTISS_WRIGHT_CORP a msg:Company ;
+    rdfs:label "CURTISS WRIGHT CORP" ;
+    msg:cik "0000026324" ;
+    msg:sector "3590 - Misc Industrial & Commercial Machinery & Equipment" ;
+    msg:hasMission inst:Mission_CURTISS_WRIGHT_CORP .
+
+inst:Mission_CURTISS_WRIGHT_CORP a msg:MissionStatement ;
+    msg:missionText "CURTISS WRIGHT CORP — Mission; Disciplined capital allocation: acquisitions, share repurchases and dividends; Operational Growth Platform for margin expansion and steady R&D investment for innovation; Pivot to Growth strategy: maximize revenue, operating income, and free cash flow growth." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000026324-25-000015.txt" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: CULLEN/FROST BANKERS, INC.
+# CIK: 0000039263
+
+inst:Company_CULLEN_FROST_BANKERS_INC a msg:Company ;
+    rdfs:label "CULLEN/FROST BANKERS, INC." ;
+    msg:cik "0000039263" ;
+    msg:sector "6021 - National Commercial Banks" ;
+    msg:hasMission inst:Mission_CULLEN_FROST_BANKERS_INC .
+
+inst:Mission_CULLEN_FROST_BANKERS_INC a msg:MissionStatement ;
+    msg:missionText "CULLEN/FROST BANKERS, INC. — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000039263-25-000017.txt" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Howmet Aerospace Inc.
+# CIK: 0000004281
+
+inst:Company_Howmet_Aerospace_Inc a msg:Company ;
+    rdfs:label "Howmet Aerospace Inc." ;
+    msg:cik "0000004281" ;
+    msg:sector "3350 - Rolling & Drawing of Nonferrous Metals" ;
+    msg:hasMission inst:Mission_Howmet_Aerospace_Inc .
+
+inst:Mission_Howmet_Aerospace_Inc a msg:MissionStatement ;
+    msg:missionText "We seek to identify high performers and support their development into potential future leaders, focusing on providing opportunities to all individuals." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.73^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000004281-25-000011.txt" .

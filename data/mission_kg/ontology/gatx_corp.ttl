@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: GATX CORP
+# CIK: 0000040211
+# Stakeholders: Employees, Society
+# Values: Sustainability, Growth
+# Objectives: 0 found
+# Domains: Transportation
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_GATX_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "GATX CORP" ;
+    msg:cik "0000040211" ;
+    msg:sector "4700 - Transportation Services" ;
+    msg:hasMission inst:Mission_GATX_CORP .
+
+# ── Mission Statement ──
+inst:Mission_GATX_CORP a msg:MissionStatement ;
+    msg:missionText "SUSTAINABILITY We are committed to growing our business in a sustainable and socially." ;
+    msg:extractedFrom "cleaned_10-K_0000040211-25-000024.txt" ;
+    msg:servesStakeholder inst:GATX_CORP_Stakeholder_Employees ;
+    msg:servesStakeholder inst:GATX_CORP_Stakeholder_Society ;
+    msg:embodiesValue inst:GATX_CORP_Value_Sustainability ;
+    msg:embodiesValue inst:GATX_CORP_Value_Growth ;
+    msg:operatesInDomain inst:GATX_CORP_Domain_Transportation ;
+    msg:leveragesCapability inst:GATX_CORP_Capability_0  .
+
+inst:GATX_CORP_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:GATX_CORP_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:GATX_CORP_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:GATX_CORP_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:GATX_CORP_Domain_Transportation a msg:BusinessDomain ;
+    rdfs:label "Transportation" .
+
+inst:GATX_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Rail North America" .

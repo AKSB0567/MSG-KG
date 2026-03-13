@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Archer-Daniels-Midland Co
+# CIK: 0000007084
+
+inst:Company_Archer_Daniels_Midland_Co a msg:Company ;
+    rdfs:label "Archer-Daniels-Midland Co" ;
+    msg:cik "0000007084" ;
+    msg:sector "2070 - Fats & Oils" ;
+    msg:hasMission inst:Mission_Archer_Daniels_Midland_Co .
+
+inst:Mission_Archer_Daniels_Midland_Co a msg:MissionStatement ;
+    msg:missionText "Essential global agricultural supply chain manager and processor providing food security." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000007084-25-000011.txt" .

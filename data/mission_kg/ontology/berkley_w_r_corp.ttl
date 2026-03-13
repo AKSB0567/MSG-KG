@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: BERKLEY W R CORP
+# CIK: 0000011544
+# Stakeholders: Customers, Employees
+# Values: Service
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_BERKLEY_W_R_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "BERKLEY W R CORP" ;
+    msg:cik "0000011544" ;
+    msg:sector "6331 - Fire, Marine & Casualty Insurance" ;
+    msg:hasMission inst:Mission_BERKLEY_W_R_CORP .
+
+# ── Mission Statement ──
+inst:Mission_BERKLEY_W_R_CORP a msg:MissionStatement ;
+    msg:missionText "Reinsurance & Monoline Excess We provide other insurance companies and self-insureds with assistance in managing their net risk through reinsurance on either a portfolio basis, through treaty reinsurance, or on an individual basis, through." ;
+    msg:extractedFrom "cleaned_10-K_0000011544-25-000005.txt" ;
+    msg:servesStakeholder inst:BERKLEY_W_R_CORP_Stakeholder_Customers ;
+    msg:servesStakeholder inst:BERKLEY_W_R_CORP_Stakeholder_Employees ;
+    msg:embodiesValue inst:BERKLEY_W_R_CORP_Value_Service ;
+    msg:operatesInDomain inst:BERKLEY_W_R_CORP_Domain_Financial_Services ;
+    msg:leveragesCapability inst:BERKLEY_W_R_CORP_Capability_0 ;
+    msg:leveragesCapability inst:BERKLEY_W_R_CORP_Capability_1  .
+
+inst:BERKLEY_W_R_CORP_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:BERKLEY_W_R_CORP_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:BERKLEY_W_R_CORP_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:BERKLEY_W_R_CORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:BERKLEY_W_R_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Insurance - commercial insurance including E&S, admitted and specialty personal lines" .
+
+inst:BERKLEY_W_R_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Moody's A1 rating for Berkley Insurance Co, Berkley Regional, Admiral Insurance Co" .

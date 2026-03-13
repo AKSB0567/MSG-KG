@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: DELUXE CORP
+# CIK: 0000027996
+# Stakeholders: Shareholders, Society, Government
+# Values: Growth
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_DELUXE_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "DELUXE CORP" ;
+    msg:cik "0000027996" ;
+    msg:sector "2780 - Blankbooks, Looseleaf Binders & Bookbinding & Related Work" ;
+    msg:hasMission inst:Mission_DELUXE_CORP .
+
+# ── Mission Statement ──
+inst:Mission_DELUXE_CORP a msg:MissionStatement ;
+    msg:missionText "Operational efficiency and cost management; Disciplined capital allocation aligned with growth objectives; DELUXE CORP — Mission; Cross-selling through One Deluxe go-to-market model." ;
+    msg:extractedFrom "cleaned_10-K_0000027996-25-000051.txt" ;
+    msg:servesStakeholder inst:DELUXE_CORP_Stakeholder_Shareholders ;
+    msg:servesStakeholder inst:DELUXE_CORP_Stakeholder_Society ;
+    msg:servesStakeholder inst:DELUXE_CORP_Stakeholder_Government ;
+    msg:embodiesValue inst:DELUXE_CORP_Value_Growth ;
+    msg:operatesInDomain inst:DELUXE_CORP_Domain_Financial_Services ;
+    msg:leveragesCapability inst:DELUXE_CORP_Capability_0 ;
+    msg:leveragesCapability inst:DELUXE_CORP_Capability_1 ;
+    msg:leveragesCapability inst:DELUXE_CORP_Capability_2  .
+
+inst:DELUXE_CORP_Stakeholder_Shareholders a msg:Stakeholder ;
+    rdfs:label "Shareholders" .
+
+inst:DELUXE_CORP_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:DELUXE_CORP_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:DELUXE_CORP_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:DELUXE_CORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:DELUXE_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Print (56.8% of 2024 revenue)" .
+
+inst:DELUXE_CORP_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Treasury management including remittance, lockbox processing, and remote deposit capture" .
+
+inst:DELUXE_CORP_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Printed business and personal checks (33.1% of revenue)" .

@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: Churchill Downs Inc
+# CIK: 0000020212
+
+inst:Company_Churchill_Downs_Inc a msg:Company ;
+    rdfs:label "Churchill Downs Inc" ;
+    msg:cik "0000020212" ;
+    msg:sector "7948 - Services-Racing, Including Track Operation" ;
+    msg:hasMission inst:Mission_Churchill_Downs_Inc .
+
+inst:Mission_Churchill_Downs_Inc a msg:MissionStatement ;
+    msg:missionText "Attracting, developing, and retaining top talent through leadership-led culture of growth; Churchill Downs Inc — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000020212-25-000051.txt" .

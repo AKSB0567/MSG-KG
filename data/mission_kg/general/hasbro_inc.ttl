@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: HASBRO, INC.
+# CIK: 0000046080
+
+inst:Company_HASBRO_INC a msg:Company ;
+    rdfs:label "HASBRO, INC." ;
+    msg:cik "0000046080" ;
+    msg:sector "3944 - Games, Toys & Children's Vehicles" ;
+    msg:hasMission inst:Mission_HASBRO_INC .
+
+inst:Mission_HASBRO_INC a msg:MissionStatement ;
+    msg:missionText "Create joy and community through the magic of play." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000046080-25-000027.txt" .

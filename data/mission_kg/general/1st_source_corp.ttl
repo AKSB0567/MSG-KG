@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: 1ST SOURCE CORP
+# CIK: 0000034782
+
+inst:Company_1ST_SOURCE_CORP a msg:Company ;
+    rdfs:label "1ST SOURCE CORP" ;
+    msg:cik "0000034782" ;
+    msg:sector "6022 - State Commercial Banks" ;
+    msg:hasMission inst:Mission_1ST_SOURCE_CORP .
+
+inst:Mission_1ST_SOURCE_CORP a msg:MissionStatement ;
+    msg:missionText "Help clients achieve security, build wealth, and realize their dreams." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000034782-25-000025.txt" .

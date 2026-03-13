@@ -1,0 +1,72 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: AFLAC INC
+# CIK: 0000004977
+# Stakeholders: Customers, Employees, Government
+# Values: Safety
+# Objectives: 1 found
+# Domains: Financial Services, Healthcare
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_AFLAC_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "AFLAC INC" ;
+    msg:cik "0000004977" ;
+    msg:sector "6321 - Accident & Health Insurance" ;
+    msg:hasMission inst:Mission_AFLAC_INC .
+
+# ── Mission Statement ──
+inst:Mission_AFLAC_INC a msg:MissionStatement ;
+    msg:missionText "The Company’s principal business is supplemental health and life insurance products with the goal to provide customers the best value in supplemental insurance products in Japan and the U." ;
+    msg:extractedFrom "cleaned_10-K_0000004977-25-000047.txt" ;
+    msg:servesStakeholder inst:AFLAC_INC_Stakeholder_Customers ;
+    msg:servesStakeholder inst:AFLAC_INC_Stakeholder_Employees ;
+    msg:servesStakeholder inst:AFLAC_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:AFLAC_INC_Value_Safety ;
+    msg:pursuesObjective inst:AFLAC_INC_Objective_0 ;
+    msg:operatesInDomain inst:AFLAC_INC_Domain_Financial_Services ;
+    msg:operatesInDomain inst:AFLAC_INC_Domain_Healthcare  .
+
+inst:AFLAC_INC_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:AFLAC_INC_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:AFLAC_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:AFLAC_INC_Value_Safety a msg:CorporateValue ;
+    rdfs:label "Safety" .
+
+inst:AFLAC_INC_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "provide customers the best value in supplemental insurance products in Japan and the U" .
+
+inst:AFLAC_INC_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:AFLAC_INC_Domain_Healthcare a msg:BusinessDomain ;
+    rdfs:label "Healthcare" .

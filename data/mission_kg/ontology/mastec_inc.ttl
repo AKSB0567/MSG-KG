@@ -1,0 +1,84 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: MASTEC INC
+# CIK: 0000015615
+# Stakeholders: Customers, Society, Government
+# Values: Sustainability, Safety
+# Objectives: 0 found
+# Domains: Energy
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_MASTEC_INC a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "MASTEC INC" ;
+    msg:cik "0000015615" ;
+    msg:sector "1623 - Water, Sewer, Pipeline, Comm and Power Line Construction" ;
+    msg:hasMission inst:Mission_MASTEC_INC .
+
+# ── Mission Statement ──
+inst:Mission_MASTEC_INC a msg:MissionStatement ;
+    msg:missionText "Achieve customer expectations safely, profitably and in an environmentally responsible manner." ;
+    msg:extractedFrom "cleaned_10-K_0000015615-25-000021.txt" ;
+    msg:servesStakeholder inst:MASTEC_INC_Stakeholder_Customers ;
+    msg:servesStakeholder inst:MASTEC_INC_Stakeholder_Society ;
+    msg:servesStakeholder inst:MASTEC_INC_Stakeholder_Government ;
+    msg:embodiesValue inst:MASTEC_INC_Value_Sustainability ;
+    msg:embodiesValue inst:MASTEC_INC_Value_Safety ;
+    msg:operatesInDomain inst:MASTEC_INC_Domain_Energy ;
+    msg:leveragesCapability inst:MASTEC_INC_Capability_0 ;
+    msg:leveragesCapability inst:MASTEC_INC_Capability_1 ;
+    msg:leveragesCapability inst:MASTEC_INC_Capability_2 ;
+    msg:leveragesCapability inst:MASTEC_INC_Capability_3  .
+
+inst:MASTEC_INC_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:MASTEC_INC_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:MASTEC_INC_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:MASTEC_INC_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:MASTEC_INC_Value_Safety a msg:CorporateValue ;
+    rdfs:label "Safety" .
+
+inst:MASTEC_INC_Domain_Energy a msg:BusinessDomain ;
+    rdfs:label "Energy" .
+
+inst:MASTEC_INC_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Communications" .
+
+inst:MASTEC_INC_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "Construction of clean energy and renewable power generation: wind, solar, biomass, battery storage" .
+
+inst:MASTEC_INC_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "Leading infrastructure construction company" .
+
+inst:MASTEC_INC_Capability_3 a msg:BusinessCapability ;
+    rdfs:label "ranked among top 5 in ENR Top 400 Contractors" .

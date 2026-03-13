@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: BRUNSWICK CORP
+# CIK: 0000014930
+
+inst:Company_BRUNSWICK_CORP a msg:Company ;
+    rdfs:label "BRUNSWICK CORP" ;
+    msg:cik "0000014930" ;
+    msg:sector "3510 - Engines & Turbines" ;
+    msg:hasMission inst:Mission_BRUNSWICK_CORP .
+
+inst:Mission_BRUNSWICK_CORP a msg:MissionStatement ;
+    msg:missionText "Lead industry in ACES strategies and be acknowledged marine sustainability leader; BRUNSWICK CORP — Mission; Expand boating participation through innovative products and shared-access experiences." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000014930-25-000025.txt" .

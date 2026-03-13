@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: DELUXE CORP
+# CIK: 0000027996
+
+inst:Company_DELUXE_CORP a msg:Company ;
+    rdfs:label "DELUXE CORP" ;
+    msg:cik "0000027996" ;
+    msg:sector "2780 - Blankbooks, Looseleaf Binders & Bookbinding & Related Work" ;
+    msg:hasMission inst:Mission_DELUXE_CORP .
+
+inst:Mission_DELUXE_CORP a msg:MissionStatement ;
+    msg:missionText "Operational efficiency and cost management; Disciplined capital allocation aligned with growth objectives; DELUXE CORP — Mission; Cross-selling through One Deluxe go-to-market model." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000027996-25-000051.txt" .

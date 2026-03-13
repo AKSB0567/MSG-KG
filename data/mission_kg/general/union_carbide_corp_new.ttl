@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: UNION CARBIDE CORP /NEW/
+# CIK: 0000100790
+
+inst:Company_UNION_CARBIDE_CORP_NEW a msg:Company ;
+    rdfs:label "UNION CARBIDE CORP /NEW/" ;
+    msg:cik "0000100790" ;
+    msg:sector "2860 - Industrial Organic Chemicals" ;
+    msg:hasMission inst:Mission_UNION_CARBIDE_CORP_NEW .
+
+inst:Mission_UNION_CARBIDE_CORP_NEW a msg:MissionStatement ;
+    msg:missionText "" ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "N/A" .

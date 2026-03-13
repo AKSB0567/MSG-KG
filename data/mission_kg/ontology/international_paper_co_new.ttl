@@ -1,0 +1,60 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: INTERNATIONAL PAPER CO /NEW/
+# CIK: 0000051434
+# Stakeholders: Customers, Employees
+# Values: Growth
+# Objectives: 1 found
+# Domains: Unknown
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_INTERNATIONAL_PAPER_CO_NEW a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "INTERNATIONAL PAPER CO /NEW/" ;
+    msg:cik "0000051434" ;
+    msg:sector "2621 - Paper Mills" ;
+    msg:hasMission inst:Mission_INTERNATIONAL_PAPER_CO_NEW .
+
+# ── Mission Statement ──
+inst:Mission_INTERNATIONAL_PAPER_CO_NEW a msg:MissionStatement ;
+    msg:missionText "Results of the survey will be analyzed in 2025 with the goal of learning, growing and aspiring to achieve our Vision 2030 goal to create a 100% injury-free workplace for our t." ;
+    msg:extractedFrom "cleaned_10-K_0000051434-25-000013.txt" ;
+    msg:servesStakeholder inst:INTERNATIONAL_PAPER_CO_NEW_Stakeholder_Customers ;
+    msg:servesStakeholder inst:INTERNATIONAL_PAPER_CO_NEW_Stakeholder_Employees ;
+    msg:embodiesValue inst:INTERNATIONAL_PAPER_CO_NEW_Value_Growth ;
+    msg:pursuesObjective inst:INTERNATIONAL_PAPER_CO_NEW_Objective_0  .
+
+inst:INTERNATIONAL_PAPER_CO_NEW_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:INTERNATIONAL_PAPER_CO_NEW_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:INTERNATIONAL_PAPER_CO_NEW_Value_Growth a msg:CorporateValue ;
+    rdfs:label "Growth" .
+
+inst:INTERNATIONAL_PAPER_CO_NEW_Objective_0 a msg:CorporateObjective ;
+    rdfs:label "achieve our Vision 2030 goal to create a 100% injury-free workplace for our t" .

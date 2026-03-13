@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: COLGATE PALMOLIVE CO
+# CIK: 0000021665
+
+inst:Company_COLGATE_PALMOLIVE_CO a msg:Company ;
+    rdfs:label "COLGATE PALMOLIVE CO" ;
+    msg:cik "0000021665" ;
+    msg:sector "2844 - Perfumes, Cosmetics & Other Toilet Preparations" ;
+    msg:hasMission inst:Mission_COLGATE_PALMOLIVE_CO .
+
+inst:Mission_COLGATE_PALMOLIVE_CO a msg:MissionStatement ;
+    msg:missionText "COLGATE PALMOLIVE CO — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000021665-25-000008.txt" .

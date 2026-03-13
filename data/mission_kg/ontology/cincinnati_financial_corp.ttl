@@ -1,0 +1,76 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: CINCINNATI FINANCIAL CORP
+# CIK: 0000020286
+# Stakeholders: Customers, Employees, Society, Partners
+# Values: Sustainability, Inclusion
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_CINCINNATI_FINANCIAL_CORP a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "CINCINNATI FINANCIAL CORP" ;
+    msg:cik "0000020286" ;
+    msg:sector "6331 - Fire, Marine & Casualty Insurance" ;
+    msg:hasMission inst:Mission_CINCINNATI_FINANCIAL_CORP .
+
+# ── Mission Statement ──
+inst:Mission_CINCINNATI_FINANCIAL_CORP a msg:MissionStatement ;
+    msg:missionText "We are committed to providing equal opportunity for all associates, encouraging a work environment free from unlawful discrimination and harassment." ;
+    msg:extractedFrom "cleaned_10-K_0000020286-25-000009.txt" ;
+    msg:servesStakeholder inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Customers ;
+    msg:servesStakeholder inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Employees ;
+    msg:servesStakeholder inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Society ;
+    msg:servesStakeholder inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Partners ;
+    msg:embodiesValue inst:CINCINNATI_FINANCIAL_CORP_Value_Sustainability ;
+    msg:embodiesValue inst:CINCINNATI_FINANCIAL_CORP_Value_Inclusion ;
+    msg:operatesInDomain inst:CINCINNATI_FINANCIAL_CORP_Domain_Financial_Services ;
+    msg:leveragesCapability inst:CINCINNATI_FINANCIAL_CORP_Capability_0  .
+
+inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Society a msg:Stakeholder ;
+    rdfs:label "Society" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Stakeholder_Partners a msg:Stakeholder ;
+    rdfs:label "Partners" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Value_Sustainability a msg:CorporateValue ;
+    rdfs:label "Sustainability" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Value_Inclusion a msg:CorporateValue ;
+    rdfs:label "Inclusion" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:CINCINNATI_FINANCIAL_CORP_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Broad range of business, homeowner and auto policies" .

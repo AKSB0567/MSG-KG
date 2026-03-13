@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: GENUINE PARTS CO
+# CIK: 0000040987
+
+inst:Company_GENUINE_PARTS_CO a msg:Company ;
+    rdfs:label "GENUINE PARTS CO" ;
+    msg:cik "0000040987" ;
+    msg:sector "5013 - Wholesale Motor Vehicle Supplies & New Parts" ;
+    msg:hasMission inst:Mission_GENUINE_PARTS_CO .
+
+inst:Mission_GENUINE_PARTS_CO a msg:MissionStatement ;
+    msg:missionText "Employer of choice, supplier of choice, valued customer, responsible corporate citizen, investment of choice." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000040987-25-000026.txt" .

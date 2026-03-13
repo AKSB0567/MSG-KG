@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: HERSHEY CO
+# CIK: 0000047111
+
+inst:Company_HERSHEY_CO a msg:Company ;
+    rdfs:label "HERSHEY CO" ;
+    msg:cik "0000047111" ;
+    msg:sector "2060 - Sugar & Confectionery Products" ;
+    msg:hasMission inst:Mission_HERSHEY_CO .
+
+inst:Mission_HERSHEY_CO a msg:MissionStatement ;
+    msg:missionText "HERSHEY CO — Mission; Our Shared Goodness Promise sustainability strategy guiding community and environmental interactions." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000047111-25-000014.txt" .

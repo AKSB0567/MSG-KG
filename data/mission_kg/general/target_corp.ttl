@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: TARGET CORP
+# CIK: 0000027419
+
+inst:Company_TARGET_CORP a msg:Company ;
+    rdfs:label "TARGET CORP" ;
+    msg:cik "0000027419" ;
+    msg:sector "5331 - Retail-Variety Stores" ;
+    msg:hasMission inst:Mission_TARGET_CORP .
+
+inst:Mission_TARGET_CORP a msg:MissionStatement ;
+    msg:missionText "TARGET CORP — Mission; Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000027419-25-000018.txt" .

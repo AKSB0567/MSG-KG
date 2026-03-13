@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: AFLAC INC
+# CIK: 0000004977
+
+inst:Company_AFLAC_INC a msg:Company ;
+    rdfs:label "AFLAC INC" ;
+    msg:cik "0000004977" ;
+    msg:sector "6321 - Accident & Health Insurance" ;
+    msg:hasMission inst:Mission_AFLAC_INC .
+
+inst:Mission_AFLAC_INC a msg:MissionStatement ;
+    msg:missionText "The Company’s principal business is supplemental health and life insurance products with the goal to provide customers the best value in supplemental insurance products in Japan and the U." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.42^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000004977-25-000047.txt" .

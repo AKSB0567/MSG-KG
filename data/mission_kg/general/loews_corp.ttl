@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: LOEWS CORP
+# CIK: 0000060086
+
+inst:Company_LOEWS_CORP a msg:Company ;
+    rdfs:label "LOEWS CORP" ;
+    msg:cik "0000060086" ;
+    msg:sector "6331 - Fire, Marine & Casualty Insurance" ;
+    msg:hasMission inst:Mission_LOEWS_CORP .
+
+inst:Mission_LOEWS_CORP a msg:MissionStatement ;
+    msg:missionText "We also own approximately 53% of Altium Packaging LLC, an unconsolidated subsidiary, which is engaged in the manufacture of rigid plastic packaging solutions." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 3^^xsd:integer ;
+    msg:missionConfidence 0.43^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000060086-25-000036.txt" .

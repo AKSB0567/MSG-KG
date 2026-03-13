@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: MARCUS CORP
+# CIK: 0000062234
+
+inst:Company_MARCUS_CORP a msg:Company ;
+    rdfs:label "MARCUS CORP" ;
+    msg:cik "0000062234" ;
+    msg:sector "7830 - Services-Motion Picture Theaters" ;
+    msg:hasMission inst:Mission_MARCUS_CORP .
+
+inst:Mission_MARCUS_CORP a msg:MissionStatement ;
+    msg:missionText "Developing a committed team dedicated to service; fostering diverse and inclusive culture; MARCUS CORP — Mission." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000062234-25-000006.txt" .

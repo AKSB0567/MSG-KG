@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: DIEBOLD NIXDORF, Inc
+# CIK: 0000028823
+
+inst:Company_DIEBOLD_NIXDORF_Inc a msg:Company ;
+    rdfs:label "DIEBOLD NIXDORF, Inc" ;
+    msg:cik "0000028823" ;
+    msg:sector "3578 - Calculating & Accounting Machines (No Electronic Computers)" ;
+    msg:hasMission inst:Mission_DIEBOLD_NIXDORF_Inc .
+
+inst:Mission_DIEBOLD_NIXDORF_Inc a msg:MissionStatement ;
+    msg:missionText "DIEBOLD NIXDORF, Inc — Mission; Margin Expansion through continuous improvement and lean journey; Profitable Revenue Growth through new customers and increased wallet share; Free Cash Flow Conversion improvement." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000028823-25-000022.txt" .

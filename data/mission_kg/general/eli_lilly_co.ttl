@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: ELI LILLY & Co
+# CIK: 0000059478
+
+inst:Company_ELI_LILLY_Co a msg:Company ;
+    rdfs:label "ELI LILLY & Co" ;
+    msg:cik "0000059478" ;
+    msg:sector "2834 - Pharmaceutical Preparations" ;
+    msg:hasMission inst:Mission_ELI_LILLY_Co .
+
+inst:Mission_ELI_LILLY_Co a msg:MissionStatement ;
+    msg:missionText "Our purpose is to unite caring with discovery to create." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 1^^xsd:integer ;
+    msg:missionConfidence 0.98^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000059478-25-000067.txt" .

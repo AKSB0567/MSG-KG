@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: GATX CORP
+# CIK: 0000040211
+
+inst:Company_GATX_CORP a msg:Company ;
+    rdfs:label "GATX CORP" ;
+    msg:cik "0000040211" ;
+    msg:sector "4700 - Transportation Services" ;
+    msg:hasMission inst:Mission_GATX_CORP .
+
+inst:Mission_GATX_CORP a msg:MissionStatement ;
+    msg:missionText "SUSTAINABILITY We are committed to growing our business in a sustainable and socially." ;
+    msg:missionSource "10k" ;
+    msg:missionTier 2^^xsd:integer ;
+    msg:missionConfidence 0.83^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000040211-25-000024.txt" .

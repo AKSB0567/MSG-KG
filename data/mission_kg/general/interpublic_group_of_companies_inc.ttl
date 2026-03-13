@@ -1,0 +1,21 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── General Schema: LLM-Driven Mission Extraction ──
+# Company: INTERPUBLIC GROUP OF COMPANIES, INC.
+# CIK: 0000051644
+
+inst:Company_INTERPUBLIC_GROUP_OF_COMPANIES_INC a msg:Company ;
+    rdfs:label "INTERPUBLIC GROUP OF COMPANIES, INC." ;
+    msg:cik "0000051644" ;
+    msg:sector "7311 - Services-Advertising Agencies" ;
+    msg:hasMission inst:Mission_INTERPUBLIC_GROUP_OF_COMPANIES_INC .
+
+inst:Mission_INTERPUBLIC_GROUP_OF_COMPANIES_INC a msg:MissionStatement ;
+    msg:missionText "INTERPUBLIC GROUP OF COMPANIES, INC. — Mission; Digital commerce, retail media, AI, audience resolution, production." ;
+    msg:missionSource "kg" ;
+    msg:missionTier 0^^xsd:integer ;
+    msg:missionConfidence 0^^xsd:float ;
+    msg:extractedFrom "cleaned_10-K_0000051644-25-000024.txt" .

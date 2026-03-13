@@ -1,0 +1,68 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: GENUINE PARTS CO
+# CIK: 0000040987
+# Stakeholders: Customers, Employees, Shareholders, Partners
+# Values: None identified
+# Objectives: 0 found
+# Domains: Financial Services
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_GENUINE_PARTS_CO a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "GENUINE PARTS CO" ;
+    msg:cik "0000040987" ;
+    msg:sector "5013 - Wholesale Motor Vehicle Supplies & New Parts" ;
+    msg:hasMission inst:Mission_GENUINE_PARTS_CO .
+
+# ── Mission Statement ──
+inst:Mission_GENUINE_PARTS_CO a msg:MissionStatement ;
+    msg:missionText "Employer of choice, supplier of choice, valued customer, responsible corporate citizen, investment of choice." ;
+    msg:extractedFrom "cleaned_10-K_0000040987-25-000026.txt" ;
+    msg:servesStakeholder inst:GENUINE_PARTS_CO_Stakeholder_Customers ;
+    msg:servesStakeholder inst:GENUINE_PARTS_CO_Stakeholder_Employees ;
+    msg:servesStakeholder inst:GENUINE_PARTS_CO_Stakeholder_Shareholders ;
+    msg:servesStakeholder inst:GENUINE_PARTS_CO_Stakeholder_Partners ;
+    msg:operatesInDomain inst:GENUINE_PARTS_CO_Domain_Financial_Services ;
+    msg:leveragesCapability inst:GENUINE_PARTS_CO_Capability_0  .
+
+inst:GENUINE_PARTS_CO_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:GENUINE_PARTS_CO_Stakeholder_Employees a msg:Stakeholder ;
+    rdfs:label "Employees" .
+
+inst:GENUINE_PARTS_CO_Stakeholder_Shareholders a msg:Stakeholder ;
+    rdfs:label "Shareholders" .
+
+inst:GENUINE_PARTS_CO_Stakeholder_Partners a msg:Stakeholder ;
+    rdfs:label "Partners" .
+
+inst:GENUINE_PARTS_CO_Domain_Financial_Services a msg:BusinessDomain ;
+    rdfs:label "Financial Services" .
+
+inst:GENUINE_PARTS_CO_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Industrial Parts Group" .

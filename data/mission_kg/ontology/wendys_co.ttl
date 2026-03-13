@@ -1,0 +1,72 @@
+@prefix msg: <http://msgkg.io/ontology#> .
+@prefix fibo-fnd: <https://spec.edmcouncil.org/fibo/ontology/FND/> .
+@prefix fibo-be: <https://spec.edmcouncil.org/fibo/ontology/BE/> .
+@prefix inst: <http://msgkg.io/instances#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ── Ontology Schema: FIBO-Aligned Mission Decomposition ──
+# Company: Wendy's Co
+# CIK: 0000030697
+# Stakeholders: Customers, Government
+# Values: Service
+# Objectives: 0 found
+# Domains: Consumer Goods
+
+# ── Class Definitions ──
+msg:MissionStatement a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Mission Statement" .
+msg:Stakeholder a owl:Class ;
+    rdfs:subClassOf fibo-be:LegalEntity ;
+    rdfs:label "Stakeholder" .
+msg:CorporateObjective a owl:Class ;
+    rdfs:subClassOf fibo-fnd:BusinessObjective ;
+    rdfs:label "Corporate Objective" .
+msg:CorporateValue a owl:Class ;
+    rdfs:label "Corporate Value" .
+msg:BusinessCapability a owl:Class ;
+    rdfs:label "Business Capability" .
+msg:BusinessDomain a owl:Class ;
+    rdfs:label "Business Domain" .
+
+# ── Company ──
+inst:Company_Wendy_s_Co a msg:Company, fibo-be:LegalEntity ;
+    rdfs:label "Wendy's Co" ;
+    msg:cik "0000030697" ;
+    msg:sector "5810 - Retail-Eating & Drinking Places" ;
+    msg:hasMission inst:Mission_Wendy_s_Co .
+
+# ── Mission Statement ──
+inst:Mission_Wendy_s_Co a msg:MissionStatement ;
+    msg:missionText "Fresh Famous Food...Made Right...For You - delivered every time, every restaurant, every customer." ;
+    msg:extractedFrom "cleaned_10-K_0000030697-25-000003.txt" ;
+    msg:servesStakeholder inst:Wendy_s_Co_Stakeholder_Customers ;
+    msg:servesStakeholder inst:Wendy_s_Co_Stakeholder_Government ;
+    msg:embodiesValue inst:Wendy_s_Co_Value_Service ;
+    msg:operatesInDomain inst:Wendy_s_Co_Domain_Consumer_Goods ;
+    msg:leveragesCapability inst:Wendy_s_Co_Capability_0 ;
+    msg:leveragesCapability inst:Wendy_s_Co_Capability_1 ;
+    msg:leveragesCapability inst:Wendy_s_Co_Capability_2  .
+
+inst:Wendy_s_Co_Stakeholder_Customers a msg:Stakeholder ;
+    rdfs:label "Customers" .
+
+inst:Wendy_s_Co_Stakeholder_Government a msg:Stakeholder ;
+    rdfs:label "Government" .
+
+inst:Wendy_s_Co_Value_Service a msg:CorporateValue ;
+    rdfs:label "Service" .
+
+inst:Wendy_s_Co_Domain_Consumer_Goods a msg:BusinessDomain ;
+    rdfs:label "Consumer Goods" .
+
+inst:Wendy_s_Co_Capability_0 a msg:BusinessCapability ;
+    rdfs:label "Global Real Estate & Development (owned/leased sites, TimWen JV, Franchise Flips)" .
+
+inst:Wendy_s_Co_Capability_1 a msg:BusinessCapability ;
+    rdfs:label "2nd largest QSR in hamburger segment in US by traffic/dollar share" .
+
+inst:Wendy_s_Co_Capability_2 a msg:BusinessCapability ;
+    rdfs:label "3rd largest globally" .
