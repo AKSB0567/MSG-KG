@@ -455,7 +455,7 @@ RATING_COLORS = {
 # EVIDENCE EXTRACTION — find mission source in 10-K text
 # ═══════════════════════════════════════════════════════════════════════════
 
-def _find_company_10k_file(company_cik: str) -> pathlib.Path | None:
+def _find_company_10k_file(company_cik: str):
     """Find the cleaned 10-K text file for a company by matching CIK in filename."""
     sec_text_dir = KG_DIR / "data" / "data"
     if not sec_text_dir.exists():
@@ -471,7 +471,7 @@ def _find_company_10k_file(company_cik: str) -> pathlib.Path | None:
     return None
 
 
-def find_mission_evidence(company_cik: str, mission: str) -> list[dict]:
+def find_mission_evidence(company_cik: str, mission: str):
     """Find text passages from the company's own 10-K filing that support the mission."""
     if not mission or len(mission) < 10:
         return []
