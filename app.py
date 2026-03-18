@@ -700,58 +700,39 @@ with col_filters:
     if "validation_approach" not in st.session_state:
         st.session_state.validation_approach = "Pkg 1: Text Matching"
 
-    # ── Search Company ──
-    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Search Company</p>', unsafe_allow_html=True)
-    _search_query = st.text_input("search_company", placeholder="Type company name...", label_visibility="collapsed")
+    # ── Helper to get Pkg 1 overview fields ──
+    def _pkg1_ov(cik):
+        return _REGISTRY_DATA.get(cik, {}).get("overview", {})
 
-    # ── Company dropdown ──
-    _search_list = all_sorted
-    if _search_query.strip():
-        _sq = _search_query.strip().lower()
-        _search_list = [c for c in all_sorted if _sq in COMPANIES[c]["name"].lower()]
+    # ── Mission Quality Filter ──
+    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Mission Quality</p>', unsafe_allow_html=True)
+    _MQ_OPTIONS = ["All", "Strong (M1) — Directly stated", "Adequate (M2) — Requires inference",
+                   "Weak (M3) — Derived / vague", "No Mission (M0) — Not found"]
+    _mq_filter = st.selectbox("mq_filter", _MQ_OPTIONS, label_visibility="collapsed")
+    _MQ_MAP = {"Strong (M1)": [1], "Adequate (M2)": [2], "Weak (M3)": [3, 4], "No Mission (M0)": [0]}
+    _mq_vals = _MQ_MAP.get(_mq_filter.split(" — ")[0]) if _mq_filter != "All" else None
+
+    # ── Build company list (filter applied) ──
+    if _mq_vals:
+        _company_list = [c for c in all_sorted
+                         if _pkg1_ov(c).get("mission_quality", _pkg1_ov(c).get("llm_quality", 0)) in _mq_vals]
+        st.markdown(f'<p style="font-size:0.75rem; color:#666; margin:2px 0;">{len(_company_list)} companies</p>', unsafe_allow_html=True)
+    else:
+        _company_list = all_sorted
+
+    # ── Company dropdown (type to filter — click dropdown and start typing) ──
     st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Select Company</p>', unsafe_allow_html=True)
-    if _search_list:
-        _search_idx = {c: i for i, c in enumerate(_search_list)}
-        company = st.selectbox("company_main", _search_list,
-                               format_func=lambda c: f"{_search_idx.get(c,0)+1} - {COMPANIES[c]['name']}",
+    if _company_list:
+        company = st.selectbox("company_main", _company_list,
+                               format_func=lambda c: COMPANIES[c]["name"],
                                label_visibility="collapsed")
     else:
-        st.caption("No companies match your search.")
+        st.caption("No companies match filter.")
         company = all_sorted[0]
-
-    # ── Dynamic filter based on pipeline ──
-    _is_text_matching = st.session_state.validation_approach == "Pkg 1: Text Matching"
-
-    if _is_text_matching:
-        # ── Helper to get Pkg 1 overview fields ──
-        def _pkg1_ov(cik):
-            return _REGISTRY_DATA.get(cik, {}).get("overview", {})
-
-        # ── Mission Quality (Strong / Adequate / Weak / No Mission) ──
-        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Mission Quality</p>', unsafe_allow_html=True)
-        _MQ_OPTIONS = ["All", "Strong (M1) — Directly stated", "Adequate (M2) — Requires inference",
-                       "Weak (M3) — Derived / vague", "No Mission (M0) — Not found"]
-        _mq_filter = st.selectbox("mq_filter", _MQ_OPTIONS, label_visibility="collapsed")
-        _MQ_MAP = {"Strong (M1)": [1], "Adequate (M2)": [2], "Weak (M3)": [3, 4], "No Mission (M0)": [0]}
-        _mq_vals = _MQ_MAP.get(_mq_filter.split(" — ")[0]) if _mq_filter != "All" else None
-
-        # ── Apply Pkg 1 filter ──
-        if _mq_vals:
-            filtered = [c for c in _search_list
-                        if _pkg1_ov(c).get("mission_quality", _pkg1_ov(c).get("llm_quality", 0)) in _mq_vals]
-        else:
-            filtered = None
-
-    # Show filtered company list
-    if filtered is not None:
-        st.markdown(f'<p style="font-size:0.75rem; color:#666; margin:2px 0;">{len(filtered)} companies</p>', unsafe_allow_html=True)
-        if filtered:
-            company = st.selectbox("filtered_company", filtered,
-                                   format_func=lambda c: COMPANIES[c]["name"],
-                                   label_visibility="collapsed")
 
     # ── Company details card ──
     meta = COMPANIES[company]
+    _is_text_matching = True  # Pkg 1 only
     _ov_sidebar = _REGISTRY_DATA.get(company, {}).get("overview", {})
 
     # Quick validation badge for sidebar
@@ -1624,26 +1605,18 @@ with tab3:
         # Head-to-head comparison
         st.markdown("---")
         st.markdown("#### Head-to-Head Comparison")
+        st.caption("Click a dropdown and start typing to search by company name.")
         all_ciks = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
-
-        _h2h_search_col1, _h2h_search_col2 = st.columns(2)
-        with _h2h_search_col1:
-            _h2h_q1 = st.text_input("Search Company A", placeholder="Type to search...", key="h2h_search1", label_visibility="collapsed")
-        with _h2h_search_col2:
-            _h2h_q2 = st.text_input("Search Company B", placeholder="Type to search...", key="h2h_search2", label_visibility="collapsed")
-
-        _h2h_list1 = [c for c in all_ciks if _h2h_q1.strip().lower() in COMPANIES[c]["name"].lower()] if _h2h_q1.strip() else all_ciks
-        _h2h_list2 = [c for c in all_ciks if _h2h_q2.strip().lower() in COMPANIES[c]["name"].lower()] if _h2h_q2.strip() else all_ciks
 
         comp_col1, comp_col2 = st.columns(2)
         with comp_col1:
-            comp1 = st.selectbox("Company A", _h2h_list1,
+            comp1 = st.selectbox("Company A", all_ciks,
                                  format_func=lambda c: COMPANIES[c]["name"],
-                                 key="comp1") if _h2h_list1 else None
+                                 key="comp1")
         with comp_col2:
-            comp2 = st.selectbox("Company B", _h2h_list2,
+            comp2 = st.selectbox("Company B", all_ciks,
                                  format_func=lambda c: COMPANIES[c]["name"],
-                                 key="comp2", index=min(1, len(_h2h_list2)-1)) if _h2h_list2 else None
+                                 key="comp2", index=min(1, len(all_ciks)-1))
 
         if comp1 and comp2 and comp1 != comp2:
             ov1 = get_overview(comp1)
