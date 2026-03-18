@@ -711,8 +711,9 @@ with col_filters:
         _search_list = [c for c in all_sorted if _sq in COMPANIES[c]["name"].lower()]
     st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Select Company</p>', unsafe_allow_html=True)
     if _search_list:
+        _search_idx = {c: i for i, c in enumerate(_search_list)}
         company = st.selectbox("company_main", _search_list,
-                               format_func=lambda c: f"{_search_list.index(c)+1} - {COMPANIES[c]['name']}",
+                               format_func=lambda c: f"{_search_idx.get(c,0)+1} - {COMPANIES[c]['name']}",
                                label_visibility="collapsed")
     else:
         st.caption("No companies match your search.")
@@ -1468,21 +1469,26 @@ with tab3:
     _is_llm_mode_t3 = False  # Pkg 1 only
     st.caption("Heatmap evaluation across all companies — **Pkg 1: Text Matching**")
 
-    # Compute evaluations for all companies using active pipeline's missions
-    all_evals = {}
-    for cik in COMPANIES:
-        ov = get_overview(cik)
-        m, _ml_t3, _ = get_active_mission(cik, _is_llm_mode_t3)
-        ev = evaluate_mission(m, ov)
-        avg, label, _ = overall_rating(ev)
-        all_evals[cik] = {
-            "name": COMPANIES[cik]["name"],
-            "mission": m[:100] + ("..." if len(m) > 100 else ""),
-            "overall": avg,
-            "overall_label": label,
-            "source_type": _ml_t3,
-            **{dim: v["score"] for dim, v in ev.items()},
-        }
+    # Compute evaluations for all companies (cached to avoid recomputing on every interaction)
+    @st.cache_data(show_spinner=False)
+    def _compute_portfolio_evals(_reg_hash):
+        evals = {}
+        for cik in COMPANIES:
+            ov = get_overview(cik)
+            m, _ml, _ = get_active_mission(cik, False)
+            ev = evaluate_mission(m, ov)
+            avg, label, _ = overall_rating(ev)
+            evals[cik] = {
+                "name": COMPANIES[cik]["name"],
+                "mission": m[:100] + ("..." if len(m) > 100 else ""),
+                "overall": avg,
+                "overall_label": label,
+                "source_type": _ml,
+                **{dim: v["score"] for dim, v in ev.items()},
+            }
+        return evals
+
+    all_evals = _compute_portfolio_evals(len(_REGISTRY_DATA))
 
     df = pd.DataFrame(all_evals.values())
     if df.empty:
@@ -1586,22 +1592,13 @@ with tab3:
         st.markdown("---")
         st.markdown("#### Sector Comparison")
 
-        df_with_sector = df.copy()
-        df_with_sector["Sector"] = [COMPANIES[cik]["sector"].split(" - ")[-1][:25]
-                                     if cik in COMPANIES else "Unknown"
-                                     for cik in COMPANIES][:len(df)]
-
-        # Rebuild with CIK mapping
+        # Reuse already-computed all_evals for sector comparison
         sector_data = []
-        for cik in COMPANIES:
-            ov = get_overview(cik)
-            m, _, _ = get_active_mission(cik, _is_llm_mode_t3)
-            ev = evaluate_mission(m, ov)
-            avg, label, _ = overall_rating(ev)
+        for cik, ev_data in all_evals.items():
             sector_name = COMPANIES[cik]["sector"]
             if " - " in sector_name:
                 sector_name = sector_name.split(" - ", 1)[1]
-            sector_data.append({"sector": sector_name[:30], "overall": avg})
+            sector_data.append({"sector": sector_name[:30], "overall": ev_data["overall"]})
 
         df_sector = pd.DataFrame(sector_data)
         sector_avg = df_sector.groupby("sector")["overall"].agg(["mean", "count"]).reset_index()
@@ -1627,19 +1624,28 @@ with tab3:
         # Head-to-head comparison
         st.markdown("---")
         st.markdown("#### Head-to-Head Comparison")
+        all_ciks = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
+
+        _h2h_search_col1, _h2h_search_col2 = st.columns(2)
+        with _h2h_search_col1:
+            _h2h_q1 = st.text_input("Search Company A", placeholder="Type to search...", key="h2h_search1", label_visibility="collapsed")
+        with _h2h_search_col2:
+            _h2h_q2 = st.text_input("Search Company B", placeholder="Type to search...", key="h2h_search2", label_visibility="collapsed")
+
+        _h2h_list1 = [c for c in all_ciks if _h2h_q1.strip().lower() in COMPANIES[c]["name"].lower()] if _h2h_q1.strip() else all_ciks
+        _h2h_list2 = [c for c in all_ciks if _h2h_q2.strip().lower() in COMPANIES[c]["name"].lower()] if _h2h_q2.strip() else all_ciks
+
         comp_col1, comp_col2 = st.columns(2)
         with comp_col1:
-            all_ciks = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
-            comp1 = st.selectbox("Company A", all_ciks,
+            comp1 = st.selectbox("Company A", _h2h_list1,
                                  format_func=lambda c: COMPANIES[c]["name"],
-                                 key="comp1")
+                                 key="comp1") if _h2h_list1 else None
         with comp_col2:
-            all_ciks = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
-            comp2 = st.selectbox("Company B", all_ciks,
+            comp2 = st.selectbox("Company B", _h2h_list2,
                                  format_func=lambda c: COMPANIES[c]["name"],
-                                 key="comp2", index=min(1, len(all_ciks)-1))
+                                 key="comp2", index=min(1, len(_h2h_list2)-1)) if _h2h_list2 else None
 
-        if comp1 != comp2:
+        if comp1 and comp2 and comp1 != comp2:
             ov1 = get_overview(comp1)
             ov2 = get_overview(comp2)
             _m1_h2h, _, _ = get_active_mission(comp1, _is_llm_mode_t3)
