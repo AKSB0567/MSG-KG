@@ -696,66 +696,49 @@ col_filters, col_content = st.columns([1, 4])
 with col_filters:
     all_sorted = sorted(COMPANIES.keys(), key=lambda c: COMPANIES[c]["name"])
 
-    # ── Pipeline Toggle ──
-    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:0 0 4px 0;">Pipeline</p>', unsafe_allow_html=True)
+    # ── Pipeline (Pkg 1 only) ──
     if "validation_approach" not in st.session_state:
         st.session_state.validation_approach = "Pkg 1: Text Matching"
-    st.radio("val_approach_radio", ["Pkg 1: Text Matching", "Pkg 2: LLM Pipeline"],
-             key="validation_approach", horizontal=True, label_visibility="collapsed")
+
+    # ── Search Company ──
+    st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Search Company</p>', unsafe_allow_html=True)
+    _search_query = st.text_input("search_company", placeholder="Type company name...", label_visibility="collapsed")
 
     # ── Company dropdown ──
+    _search_list = all_sorted
+    if _search_query.strip():
+        _sq = _search_query.strip().lower()
+        _search_list = [c for c in all_sorted if _sq in COMPANIES[c]["name"].lower()]
     st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Select Company</p>', unsafe_allow_html=True)
-    company = st.selectbox("company_main", all_sorted,
-                           format_func=lambda c: f"{all_sorted.index(c)+1} - {COMPANIES[c]['name']}",
-                           label_visibility="collapsed")
+    if _search_list:
+        company = st.selectbox("company_main", _search_list,
+                               format_func=lambda c: f"{_search_list.index(c)+1} - {COMPANIES[c]['name']}",
+                               label_visibility="collapsed")
+    else:
+        st.caption("No companies match your search.")
+        company = all_sorted[0]
 
     # ── Dynamic filter based on pipeline ──
     _is_text_matching = st.session_state.validation_approach == "Pkg 1: Text Matching"
 
     if _is_text_matching:
-        # Text Matching: filter by verification status
-        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Verification Status</p>', unsafe_allow_html=True)
-        _VS_OPTIONS = [
-            "All",
-            "VERIFIED_M1 — Exact + mission language",
-            "VERIFIED_M2 — Match + commitment language",
-            "TEXT_MATCH_NO_CONTEXT — Found, no keywords",
-            "KEYWORD_WITH_CONTEXT — Keywords + context",
-            "KEYWORD_ONLY — Keyword density only",
-            "NO_MATCH — Not found in source",
-            "NO_MISSION — No mission extracted",
-        ]
-        _vs_filter = st.selectbox("vs_filter", _VS_OPTIONS, label_visibility="collapsed")
-        _vs_val = _vs_filter.split(" — ")[0] if _vs_filter != "All" else None
+        # ── Helper to get Pkg 1 overview fields ──
+        def _pkg1_ov(cik):
+            return _REGISTRY_DATA.get(cik, {}).get("overview", {})
 
-        if _vs_val:
-            filtered = [c for c in all_sorted
-                        if _REGISTRY_DATA.get(c, {}).get("overview", {}).get("verification_status") == _vs_val]
+        # ── Mission Quality (Strong / Adequate / Weak / No Mission) ──
+        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Mission Quality</p>', unsafe_allow_html=True)
+        _MQ_OPTIONS = ["All", "Strong (M1) — Directly stated", "Adequate (M2) — Requires inference",
+                       "Weak (M3) — Derived / vague", "No Mission (M0) — Not found"]
+        _mq_filter = st.selectbox("mq_filter", _MQ_OPTIONS, label_visibility="collapsed")
+        _MQ_MAP = {"Strong (M1)": [1], "Adequate (M2)": [2], "Weak (M3)": [3, 4], "No Mission (M0)": [0]}
+        _mq_vals = _MQ_MAP.get(_mq_filter.split(" — ")[0]) if _mq_filter != "All" else None
+
+        # ── Apply Pkg 1 filter ──
+        if _mq_vals:
+            filtered = [c for c in _search_list
+                        if _pkg1_ov(c).get("mission_quality", _pkg1_ov(c).get("llm_quality", 0)) in _mq_vals]
         else:
-            filtered = None
-    else:
-        # Pkg 2: filter by llm_extraction.validation verdict and type
-        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">LLM Verdict</p>', unsafe_allow_html=True)
-        _LLM_V_OPTIONS = ["All", "YES — True mission", "PARTIAL — Mixed content", "NO — Not a mission"]
-        _llm_v_filter = st.selectbox("llm_v_filter", _LLM_V_OPTIONS, label_visibility="collapsed")
-        _llm_v_val = _llm_v_filter.split(" — ")[0] if _llm_v_filter != "All" else None
-
-        st.markdown('<p style="font-size:0.85rem; font-weight:700; color:#1565C0; margin:8px 0 4px 0;">Content Type</p>', unsafe_allow_html=True)
-        _LLM_T_OPTIONS = ["All", "MISSION", "STRATEGY", "MIXED", "OPERATIONS", "HR", "VISION", "FINANCIAL", "REGULATORY"]
-        _llm_t_filter = st.selectbox("llm_t_filter", _LLM_T_OPTIONS, label_visibility="collapsed")
-        _llm_t_val = _llm_t_filter if _llm_t_filter != "All" else None
-
-        def _get_pkg2_validation(cik):
-            return _REGISTRY_DATA.get(cik, {}).get("overview", {}).get("llm_extraction", {}).get("validation", {}) or {}
-
-        filtered = all_sorted
-        if _llm_v_val:
-            filtered = [c for c in filtered
-                        if _get_pkg2_validation(c).get("is_mission") == _llm_v_val]
-        if _llm_t_val:
-            filtered = [c for c in filtered
-                        if _get_pkg2_validation(c).get("actual_type") == _llm_t_val]
-        if not _llm_v_val and not _llm_t_val:
             filtered = None
 
     # Show filtered company list
@@ -1482,9 +1465,8 @@ with tab2:
 # ═══════════════════════════════════════════════════════════════════════════
 with tab3:
     st.markdown("### Portfolio Mission Statement Comparison")
-    _is_llm_mode_t3 = st.session_state.validation_approach != "Pkg 1: Text Matching"
-    _approach_label_t3 = "Pkg 2: LLM Pipeline" if _is_llm_mode_t3 else "Pkg 1: Text Matching"
-    st.caption(f"Heatmap evaluation across all companies. Active: **{_approach_label_t3}**")
+    _is_llm_mode_t3 = False  # Pkg 1 only
+    st.caption("Heatmap evaluation across all companies — **Pkg 1: Text Matching**")
 
     # Compute evaluations for all companies using active pipeline's missions
     all_evals = {}
@@ -1680,559 +1662,150 @@ with tab3:
             st.dataframe(pd.DataFrame(comparison_rows),
                          use_container_width=True, hide_index=True)
 
-        # ═════════════════════════════════════════════════════════════════
-        # MISSION SIMILARITY ANALYSIS (Embedding-based)
-        # ═════════════════════════════════════════════════════════════════
-        st.markdown("---")
-        st.markdown("#### Mission Similarity Analysis")
-        st.caption("Semantic similarity between mission statements using MiniLM-L6-v2 embeddings + cosine similarity.")
-
-        try:
-            _emb_names, _emb_missions, _emb_vecs, _emb_sectors, _emb_ciks = (
-                compute_mission_embeddings(
-                    COMPANIES, _REGISTRY_DATA, _is_llm_mode_t3
-                )
-            )
-            _sim_matrix = compute_similarity_matrix(_emb_vecs)
-            n_emb = len(_emb_names)
-
-            if n_emb >= 5:
-                # ── Top similar pairs ──
-                sim_pairs = []
-                for i in range(n_emb):
-                    for j in range(i + 1, n_emb):
-                        sim_pairs.append((i, j, _sim_matrix[i, j]))
-                sim_pairs.sort(key=lambda x: -x[2])
-
-                st.markdown("##### Most Similar Mission Pairs")
-                _sim_rows = []
-                for i, j, s in sim_pairs[:10]:
-                    _sim_rows.append({
-                        "Company A": _emb_names[i][:30],
-                        "Company B": _emb_names[j][:30],
-                        "Similarity": f"{s:.3f}",
-                        "Sector A": _emb_sectors[i],
-                        "Sector B": _emb_sectors[j],
-                        "Same Sector": "Yes" if _emb_sectors[i] == _emb_sectors[j] else "No",
-                    })
-                st.dataframe(pd.DataFrame(_sim_rows), use_container_width=True, hide_index=True)
-
-                # ── Most unique missions ──
-                st.markdown("##### Most Unique Missions (lowest avg similarity)")
-                avg_sim = []
-                for i in range(n_emb):
-                    others = [_sim_matrix[i, j] for j in range(n_emb) if j != i]
-                    avg_sim.append(np.mean(others))
-                unique_idx = np.argsort(avg_sim)[:8]
-                _uniq_rows = []
-                for idx in unique_idx:
-                    _uniq_rows.append({
-                        "Company": _emb_names[idx][:35],
-                        "Sector": _emb_sectors[idx],
-                        "Avg Similarity": f"{avg_sim[idx]:.3f}",
-                        "Mission": _emb_missions[idx][:100] + "...",
-                    })
-                st.dataframe(pd.DataFrame(_uniq_rows), use_container_width=True, hide_index=True)
-
-                # ── Similarity Heatmap ──
-                with st.expander("View Full Similarity Heatmap"):
-                    import plotly.graph_objects as go
-                    short_names = [n[:20] for n in _emb_names]
-                    fig_sim = go.Figure(data=go.Heatmap(
-                        z=_sim_matrix.tolist(),
-                        x=short_names, y=short_names,
-                        colorscale="RdYlGn", zmin=0, zmax=1,
-                        hovertemplate="<b>%{y}</b> vs <b>%{x}</b><br>Similarity: %{z:.3f}<extra></extra>",
-                    ))
-                    fig_sim.update_layout(
-                        height=max(500, n_emb * 12 + 100),
-                        margin=dict(l=150, r=30, t=40, b=150),
-                        xaxis=dict(tickangle=-45, tickfont=dict(size=8)),
-                        yaxis=dict(tickfont=dict(size=8), autorange="reversed"),
-                    )
-                    st.plotly_chart(fig_sim, use_container_width=True)
-
-                # ── t-SNE Scatter Plot (colored by sector) ──
-                st.markdown("##### Mission Landscape (t-SNE)")
-                st.caption("2D projection of mission embeddings. Companies close together have semantically similar missions.")
-                try:
-                    from sklearn.manifold import TSNE
-                    perp = min(30, max(5, n_emb // 3))
-                    tsne = TSNE(n_components=2, perplexity=perp, random_state=42,
-                                learning_rate="auto", init="pca")
-                    coords = tsne.fit_transform(_emb_vecs)
-
-                    import plotly.express as px
-                    _tsne_df = pd.DataFrame({
-                        "x": coords[:, 0], "y": coords[:, 1],
-                        "Company": _emb_names,
-                        "Sector": _emb_sectors,
-                        "Mission": [m[:80] + "..." for m in _emb_missions],
-                    })
-                    fig_tsne = px.scatter(
-                        _tsne_df, x="x", y="y", color="Sector",
-                        hover_name="Company", hover_data=["Mission"],
-                        title="Mission Statement Semantic Space",
-                    )
-                    fig_tsne.update_layout(
-                        height=550, showlegend=True,
-                        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False, title=""),
-                        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False, title=""),
-                        legend=dict(font=dict(size=9), itemsizing="constant"),
-                    )
-                    fig_tsne.update_traces(marker=dict(size=9, line=dict(width=0.5, color="white")))
-                    st.plotly_chart(fig_tsne, use_container_width=True)
-                except Exception as e_tsne:
-                    st.caption(f"t-SNE not available: {e_tsne}")
-
-                # ── Cluster Analysis ──
-                st.markdown("##### Mission Clusters (Hierarchical)")
-                try:
-                    from sklearn.cluster import AgglomerativeClustering
-                    n_clusters = min(8, max(3, n_emb // 10))
-                    clust = AgglomerativeClustering(
-                        n_clusters=n_clusters, metric="cosine", linkage="average"
-                    )
-                    labels = clust.fit_predict(_emb_vecs)
-
-                    cluster_data = []
-                    for cl in range(n_clusters):
-                        members = [_emb_names[i][:25] for i in range(n_emb) if labels[i] == cl]
-                        sectors_in = list(set(_emb_sectors[i] for i in range(n_emb) if labels[i] == cl))
-                        # Get representative mission (closest to cluster centroid)
-                        cl_indices = [i for i in range(n_emb) if labels[i] == cl]
-                        cl_vecs = _emb_vecs[cl_indices]
-                        centroid = cl_vecs.mean(axis=0)
-                        centroid /= np.linalg.norm(centroid)
-                        dists = np.dot(cl_vecs, centroid)
-                        rep_idx = cl_indices[np.argmax(dists)]
-                        cluster_data.append({
-                            "Cluster": cl + 1,
-                            "Size": len(members),
-                            "Companies": ", ".join(members[:5]) + ("..." if len(members) > 5 else ""),
-                            "Sectors": ", ".join(sectors_in[:3]) + ("..." if len(sectors_in) > 3 else ""),
-                            "Representative": _emb_missions[rep_idx][:80] + "...",
-                        })
-                    st.dataframe(pd.DataFrame(cluster_data), use_container_width=True, hide_index=True)
-                except Exception as e_cl:
-                    st.caption(f"Clustering not available: {e_cl}")
-
-            else:
-                st.info("Need at least 5 companies with missions for similarity analysis.")
-
-        except Exception as e_emb:
-            st.warning(f"Embedding analysis unavailable: {e_emb}")
+        # (Mission Similarity Analysis & Sector Theme Analysis hidden for now)
 
         # ═════════════════════════════════════════════════════════════════
-        # SECTOR THEME ANALYSIS (TF-IDF)
+        # PACKAGE 1 — MISSION QUALITY OVERVIEW PLOTS
         # ═════════════════════════════════════════════════════════════════
         st.markdown("---")
-        st.markdown("#### Sector Mission Theme Analysis")
-        st.caption("TF-IDF analysis of mission keywords by sector. Shows what makes each sector's missions distinctive.")
-
-        try:
-            _emb_names2, _emb_missions2, _emb_vecs2, _emb_sectors2, _emb_ciks2 = (
-                compute_mission_embeddings(
-                    COMPANIES, _REGISTRY_DATA, _is_llm_mode_t3
-                )
-            )
-
-            sector_terms, sec_names, cross_sim, tfidf_mx = compute_tfidf_by_sector(
-                _emb_missions2, _emb_sectors2
-            )
-
-            if sector_terms:
-                # ── Top terms per sector ──
-                st.markdown("##### Distinctive Terms per Sector")
-                _term_rows = []
-                for sec in sorted(sector_terms.keys()):
-                    terms = sector_terms[sec]
-                    if terms:
-                        kws = ", ".join(f"**{t}** ({s:.2f})" for t, s in terms[:5])
-                        _term_rows.append({"Sector": sec, "Top Keywords (TF-IDF)": kws})
-                if _term_rows:
-                    for row in _term_rows:
-                        st.markdown(
-                            f'<div style="background:white;border:1px solid #E0E0E0;border-radius:6px;'
-                            f'padding:8px 12px;margin-bottom:6px;">'
-                            f'<strong style="color:#1565C0;">{row["Sector"]}</strong><br>'
-                            f'<span style="font-size:0.85rem;color:#555;">{row["Top Keywords (TF-IDF)"]}</span>'
-                            f'</div>',
-                            unsafe_allow_html=True)
-
-                # ── Cross-sector similarity ──
-                if len(sec_names) >= 3:
-                    st.markdown("##### Cross-Sector Mission Similarity")
-                    st.caption("Sectors using similar language in their missions. High similarity = cookie-cutter missions.")
-                    import plotly.graph_objects as go
-                    fig_xsec = go.Figure(data=go.Heatmap(
-                        z=cross_sim.tolist(),
-                        x=sec_names, y=sec_names,
-                        colorscale="Blues", zmin=0, zmax=1,
-                        hovertemplate="<b>%{y}</b> vs <b>%{x}</b><br>Theme Similarity: %{z:.3f}<extra></extra>",
-                    ))
-                    fig_xsec.update_layout(
-                        height=max(350, len(sec_names) * 30 + 100),
-                        margin=dict(l=180, r=30, t=40, b=150),
-                        xaxis=dict(tickangle=-45, tickfont=dict(size=9)),
-                        yaxis=dict(tickfont=dict(size=9), autorange="reversed"),
-                    )
-                    st.plotly_chart(fig_xsec, use_container_width=True)
-
-                # ── Within-sector differentiation ──
-                st.markdown("##### Mission Differentiation Score")
-                st.caption("How unique is each company's mission WITHIN its sector? Lower = more cookie-cutter.")
-                _diff_rows = []
-                for i, cik in enumerate(_emb_ciks2):
-                    sec = _emb_sectors2[i]
-                    same_sec = [j for j in range(len(_emb_ciks2))
-                                if _emb_sectors2[j] == sec and j != i]
-                    if same_sec:
-                        sim_matrix2 = compute_similarity_matrix(_emb_vecs2)
-                        avg_intra = np.mean([sim_matrix2[i, j] for j in same_sec])
-                        differentiation = round(1.0 - avg_intra, 3)
-                    else:
-                        differentiation = 1.0  # Only company in sector = fully unique
-                    _diff_rows.append({
-                        "Company": _emb_names2[i][:30],
-                        "Sector": sec,
-                        "Differentiation": differentiation,
-                        "Same-Sector Peers": len(same_sec),
-                    })
-                _diff_df = pd.DataFrame(_diff_rows).sort_values("Differentiation", ascending=True)
-
-                # Show most and least differentiated
-                col_least, col_most = st.columns(2)
-                with col_least:
-                    st.markdown("**Most Similar to Peers** (cookie-cutter)")
-                    _bottom = _diff_df[_diff_df["Same-Sector Peers"] > 0].head(8)
-                    st.dataframe(_bottom[["Company", "Sector", "Differentiation"]],
-                                 use_container_width=True, hide_index=True)
-                with col_most:
-                    st.markdown("**Most Unique in Sector**")
-                    _top = _diff_df[_diff_df["Same-Sector Peers"] > 0].tail(8).iloc[::-1]
-                    st.dataframe(_top[["Company", "Sector", "Differentiation"]],
-                                 use_container_width=True, hide_index=True)
-
-        except Exception as e_tfidf:
-            st.warning(f"Sector theme analysis unavailable: {e_tfidf}")
-
-        # ═════════════════════════════════════════════════════════════════
-        # PACKAGE 1 vs PACKAGE 2 COMPARISON ANALYSIS
-        # ═════════════════════════════════════════════════════════════════
-        st.markdown("---")
-        st.markdown("#### Package 1 vs Package 2 Comparison")
-        st.caption("How do the two extraction pipelines agree across all 91 companies?")
+        st.markdown("#### Package 1 — Mission Quality Overview")
 
         try:
             import plotly.graph_objects as go
-            import plotly.express as px
 
-            # ── Gather comparison data ──
-            _cmp_rows = []
+            # Gather Pkg 1 data for all companies
+            _p1_rows = []
             for _cik in COMPANIES:
                 _ov = get_overview(_cik)
-                _tm_mission = _ov.get("mission_before_improvement", _ov.get("mission", ""))
-                _llm_ext = _ov.get("llm_extraction", {})
-                _llm_ext_mission = _llm_ext.get("mission", "")
-
-                # Text matching verification
-                _vs = _ov.get("verification_status", "NO_DATA")
-                _vm = _ov.get("verification_match", "none")
-                _tm_quality = _ov.get("mission_quality_prev", _ov.get("mission_quality", 0))
-                _tm_tier = _ov.get("mission_tier", 0)
-
-                # LLM validation verdict (from llm_validate_missions.py)
-                _llm_verdict = _ov.get("llm_is_mission", "")
-                _llm_type = _ov.get("llm_actual_type", "")
+                _llm_verdict = _ov.get("llm_is_mission", "N/A") or "N/A"
+                _llm_type = _ov.get("llm_actual_type", "N/A") or "N/A"
                 _llm_quality = _ov.get("llm_quality", 0)
                 _llm_conf = _ov.get("llm_confidence", 0)
-
-                # LLM extraction (from llm_extract_missions.py)
-                _llm_ext_verdict = _llm_ext.get("is_mission", "")
-                _llm_ext_type = _llm_ext.get("actual_type", "")
-                _llm_ext_quality = _llm_ext.get("quality", 0)
-                _llm_ext_conf = _llm_ext.get("confidence", 0)
-                _llm_ext_src = _llm_ext.get("source_type", "")
-
-                # Word overlap between text-matching and LLM extraction
-                _overlap = 0.0
-                if _tm_mission and _llm_ext_mission:
-                    _tw = set(re.findall(r'\b\w{4,}\b', _tm_mission.lower()))
-                    _lw = set(re.findall(r'\b\w{4,}\b', _llm_ext_mission.lower()))
-                    if _tw and _lw:
-                        _overlap = len(_tw & _lw) / max(len(_tw | _lw), 1)
-
-                _cmp_rows.append({
+                _mission_source = _ov.get("mission_source", "N/A") or "N/A"
+                _mission_quality = _ov.get("mission_quality", 0)
+                _sector = COMPANIES[_cik]["sector"]
+                _sector_short = _sector.split(" - ")[-1][:25] if " - " in _sector else _sector[:25]
+                _p1_rows.append({
                     "name": COMPANIES[_cik]["name"],
-                    "sector": COMPANIES[_cik]["sector"].split(" - ")[-1][:25] if " - " in COMPANIES[_cik]["sector"] else COMPANIES[_cik]["sector"][:25],
-                    "tm_status": _vs,
-                    "tm_match": _vm,
-                    "tm_quality": _tm_quality,
-                    "tm_tier": _tm_tier,
-                    "tm_mission": _tm_mission[:80] if _tm_mission else "",
-                    "llm_verdict": _llm_verdict if _llm_verdict else "N/A",
-                    "llm_type": _llm_type if _llm_type else "N/A",
+                    "sector": _sector_short,
+                    "verdict": _llm_verdict,
+                    "content_type": _llm_type,
                     "llm_quality": _llm_quality,
-                    "llm_conf": _llm_conf,
-                    "llm_ext_verdict": _llm_ext_verdict if _llm_ext_verdict else "N/A",
-                    "llm_ext_type": _llm_ext_type if _llm_ext_type else "N/A",
-                    "llm_ext_quality": _llm_ext_quality,
-                    "llm_ext_conf": _llm_ext_conf,
-                    "llm_ext_src": _llm_ext_src if _llm_ext_src else "N/A",
-                    "word_overlap": round(_overlap, 3),
+                    "mission_quality": _mission_quality,
+                    "confidence": _llm_conf,
+                    "source": _mission_source,
                 })
 
-            _cmp_df = pd.DataFrame(_cmp_rows)
+            _p1_df = pd.DataFrame(_p1_rows)
 
-            if not _cmp_df.empty:
-                # ── 1. LLM Verdict Distribution (Pie + Bar) ──
-                st.markdown("##### Pkg 1 LLM Validation Verdict Distribution")
-                _vc1, _vc2 = st.columns(2)
+            if not _p1_df.empty:
+                _pc1, _pc2 = st.columns(2)
 
-                with _vc1:
-                    _verd_counts = _cmp_df["llm_verdict"].value_counts()
+                # ── LLM Verdict Pie ──
+                with _pc1:
+                    _verd_counts = _p1_df["verdict"].value_counts()
                     _verd_colors = {"YES": "#2E7D32", "PARTIAL": "#F57F17", "NO": "#B71C1C", "N/A": "#9E9E9E"}
-                    if len(_verd_counts) > 0:
-                        fig_pie = go.Figure(data=[go.Pie(
-                            labels=_verd_counts.index.tolist(),
-                            values=_verd_counts.values.tolist(),
-                            marker=dict(colors=[_verd_colors.get(v, "#999") for v in _verd_counts.index]),
-                            hole=0.4,
-                            textinfo="label+value+percent",
-                            textfont=dict(size=12),
-                        )])
-                        fig_pie.update_layout(
-                            title=dict(text="LLM Verdict", font=dict(size=13)),
-                            height=320, margin=dict(l=20, r=20, t=40, b=20),
-                            showlegend=False,
-                        )
-                        st.plotly_chart(fig_pie, use_container_width=True)
-
-                with _vc2:
-                    _type_counts = _cmp_df[_cmp_df["llm_type"] != "N/A"]["llm_type"].value_counts()
-                    if len(_type_counts) > 0:
-                        _type_colors = {
-                            "MISSION": "#2E7D32", "VISION": "#1565C0", "STRATEGY": "#F57F17",
-                            "OPERATIONS": "#E65100", "HR": "#7B1FA2", "FINANCIAL": "#B71C1C",
-                            "MIXED": "#FF8F00", "REGULATORY": "#455A64",
-                        }
-                        fig_bar_type = go.Figure(data=[go.Bar(
-                            x=_type_counts.index.tolist(),
-                            y=_type_counts.values.tolist(),
-                            marker_color=[_type_colors.get(t, "#999") for t in _type_counts.index],
-                            text=_type_counts.values.tolist(),
-                            textposition="auto",
-                        )])
-                        fig_bar_type.update_layout(
-                            title=dict(text="LLM Content Type Classification", font=dict(size=13)),
-                            height=320, margin=dict(l=40, r=20, t=40, b=40),
-                            xaxis=dict(tickangle=-25, tickfont=dict(size=10)),
-                            yaxis=dict(title="Companies"),
-                        )
-                        st.plotly_chart(fig_bar_type, use_container_width=True)
-
-                # ── 2. Text Matching vs LLM Quality Agreement ──
-                st.markdown("##### Quality Rating: Pkg 1 vs Pkg 1 LLM Validation")
-
-                _qa1, _qa2 = st.columns(2)
-
-                with _qa1:
-                    # Grouped bar chart: M0-M4 counts for each approach
-                    _tm_q_counts = _cmp_df["tm_quality"].value_counts().sort_index()
-                    _llm_q_counts = _cmp_df["llm_quality"].value_counts().sort_index()
-                    _q_labels = ["M0", "M1", "M2", "M3", "M4"]
-                    _tm_vals = [int(_tm_q_counts.get(i, 0)) for i in range(5)]
-                    _llm_vals = [int(_llm_q_counts.get(i, 0)) for i in range(5)]
-
-                    fig_q = go.Figure()
-                    fig_q.add_trace(go.Bar(
-                        name="Pkg 1: Text Matching", x=_q_labels, y=_tm_vals,
-                        marker_color="#1565C0", text=_tm_vals, textposition="auto",
-                    ))
-                    fig_q.add_trace(go.Bar(
-                        name="Pkg 1: LLM Validation", x=_q_labels, y=_llm_vals,
-                        marker_color="#2E7D32", text=_llm_vals, textposition="auto",
-                    ))
-                    fig_q.update_layout(
-                        barmode="group", height=320,
-                        title=dict(text="Mission Quality (M0-M4)", font=dict(size=13)),
-                        margin=dict(l=40, r=20, t=40, b=40),
-                        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+                    fig_pie = go.Figure(data=[go.Pie(
+                        labels=_verd_counts.index.tolist(),
+                        values=_verd_counts.values.tolist(),
+                        marker=dict(colors=[_verd_colors.get(v, "#999") for v in _verd_counts.index]),
+                        hole=0.4, textinfo="label+value+percent", textfont=dict(size=12),
+                    )])
+                    fig_pie.update_layout(
+                        title=dict(text="LLM Validation Verdict", font=dict(size=13)),
+                        height=320, margin=dict(l=20, r=20, t=40, b=20), showlegend=False,
                     )
-                    st.plotly_chart(fig_q, use_container_width=True)
+                    st.plotly_chart(fig_pie, use_container_width=True)
 
-                with _qa2:
-                    # Agreement scatter / confusion matrix
-                    _agree_data = _cmp_df[(_cmp_df["llm_verdict"] != "N/A")].copy()
-                    if not _agree_data.empty:
-                        # Map TM status to simple categories
-                        def _tm_to_verdict(status):
-                            if status in ("VERIFIED_M1", "VERIFIED_M2"):
-                                return "YES"
-                            elif status in ("TEXT_MATCH_NO_CONTEXT", "KEYWORD_WITH_CONTEXT", "KEYWORD_ONLY"):
-                                return "PARTIAL"
-                            else:
-                                return "NO"
+                # ── Content Type Bar ──
+                with _pc2:
+                    _type_counts = _p1_df[_p1_df["content_type"] != "N/A"]["content_type"].value_counts()
+                    _type_colors = {
+                        "MISSION": "#2E7D32", "VISION": "#1565C0", "STRATEGY": "#F57F17",
+                        "OPERATIONS": "#E65100", "HR": "#7B1FA2", "FINANCIAL": "#B71C1C",
+                        "MIXED": "#FF8F00",
+                    }
+                    if len(_type_counts) > 0:
+                        fig_bar_t = go.Figure(data=[go.Bar(
+                            x=_type_counts.index.tolist(), y=_type_counts.values.tolist(),
+                            marker_color=[_type_colors.get(t, "#999") for t in _type_counts.index],
+                            text=_type_counts.values.tolist(), textposition="auto",
+                        )])
+                        fig_bar_t.update_layout(
+                            title=dict(text="Content Type Classification", font=dict(size=13)),
+                            height=320, margin=dict(l=40, r=20, t=40, b=40),
+                            xaxis=dict(tickangle=-25, tickfont=dict(size=10)), yaxis=dict(title="Companies"),
+                        )
+                        st.plotly_chart(fig_bar_t, use_container_width=True)
 
-                        _agree_data["tm_verdict"] = _agree_data["tm_status"].apply(_tm_to_verdict)
+                # ── Mission Quality Distribution (M0-M4) ──
+                st.markdown("##### Mission Quality Distribution (M0-M4)")
+                _q_counts = _p1_df["mission_quality"].value_counts().sort_index()
+                _q_labels = ["M0 — No Mission", "M1 — Strong", "M2 — Adequate", "M3 — Derived", "M4 — Vague"]
+                _q_colors = ["#B71C1C", "#2E7D32", "#F57F17", "#E65100", "#9E9E9E"]
+                _q_vals = [int(_q_counts.get(i, 0)) for i in range(5)]
 
-                        # Build confusion matrix
-                        _verdict_labels = ["YES", "PARTIAL", "NO"]
-                        _conf_mx = []
-                        for tm_v in _verdict_labels:
-                            row = []
-                            for llm_v in _verdict_labels:
-                                cnt = len(_agree_data[(_agree_data["tm_verdict"] == tm_v) & (_agree_data["llm_verdict"] == llm_v)])
-                                row.append(cnt)
-                            _conf_mx.append(row)
+                fig_mq = go.Figure(data=[go.Bar(
+                    x=_q_labels, y=_q_vals,
+                    marker_color=_q_colors,
+                    text=_q_vals, textposition="auto",
+                )])
+                fig_mq.update_layout(
+                    height=350, margin=dict(l=40, r=20, t=20, b=60),
+                    xaxis=dict(tickangle=-15, tickfont=dict(size=11)), yaxis=dict(title="Companies"),
+                )
+                st.plotly_chart(fig_mq, use_container_width=True)
 
-                        fig_conf = go.Figure(data=go.Heatmap(
-                            z=_conf_mx,
-                            x=[f"LLM: {v}" for v in _verdict_labels],
-                            y=[f"TM: {v}" for v in _verdict_labels],
-                            colorscale=[[0, "#FFFFFF"], [0.5, "#90CAF9"], [1.0, "#1565C0"]],
-                            text=_conf_mx, texttemplate="%{text}",
-                            textfont=dict(size=16, color="black"),
-                            hovertemplate="Text Matching: %{y}<br>LLM: %{x}<br>Count: %{z}<extra></extra>",
-                            showscale=False,
-                        ))
+                # ── Mission Source Distribution ──
+                _sc1, _sc2 = st.columns(2)
+                with _sc1:
+                    st.markdown("##### Mission Source")
+                    _src_counts = _p1_df["source"].value_counts()
+                    _src_colors = {"kg": "#1565C0", "10k": "#2E7D32", "text": "#F57F17", "inferred": "#9E9E9E", "N/A": "#BDBDBD"}
+                    if len(_src_counts) > 0:
+                        fig_src = go.Figure(data=[go.Pie(
+                            labels=_src_counts.index.tolist(), values=_src_counts.values.tolist(),
+                            marker=dict(colors=[_src_colors.get(s, "#999") for s in _src_counts.index]),
+                            hole=0.4, textinfo="label+value+percent",
+                        )])
+                        fig_src.update_layout(height=300, margin=dict(l=20, r=20, t=20, b=20), showlegend=False)
+                        st.plotly_chart(fig_src, use_container_width=True)
+
+                # ── LLM Confidence Distribution ──
+                with _sc2:
+                    st.markdown("##### LLM Confidence Distribution")
+                    _conf_vals = _p1_df[_p1_df["confidence"] > 0]["confidence"].tolist()
+                    if _conf_vals:
+                        fig_conf = go.Figure(data=[go.Histogram(
+                            x=_conf_vals, nbinsx=10, marker_color="#1565C0",
+                        )])
                         fig_conf.update_layout(
-                            title=dict(text="Agreement Matrix (TM vs LLM)", font=dict(size=13)),
-                            height=320, margin=dict(l=80, r=20, t=40, b=40),
-                            xaxis=dict(tickfont=dict(size=11)),
-                            yaxis=dict(tickfont=dict(size=11), autorange="reversed"),
+                            height=300, margin=dict(l=40, r=20, t=20, b=40),
+                            xaxis=dict(title="Confidence %", range=[0, 100]), yaxis=dict(title="Companies"),
                         )
                         st.plotly_chart(fig_conf, use_container_width=True)
 
-                # ── 3. Text Matching Verification Status Distribution ──
-                st.markdown("##### Pkg 1: Text Matching Verification Status")
-                _vs_counts = _cmp_df["tm_status"].value_counts()
-                _vs_colors = {
-                    "VERIFIED_M1": "#2E7D32", "VERIFIED_M2": "#F57F17",
-                    "TEXT_MATCH_NO_CONTEXT": "#FFD54F", "KEYWORD_WITH_CONTEXT": "#FF8F00",
-                    "KEYWORD_ONLY": "#FFD54F", "NO_MATCH": "#B71C1C",
-                    "NO_FILE": "#9E9E9E", "NO_MISSION": "#B71C1C", "NO_DATA": "#BDBDBD",
-                }
-                if len(_vs_counts) > 0:
-                    fig_vs = go.Figure(data=[go.Bar(
-                        x=_vs_counts.index.tolist(),
-                        y=_vs_counts.values.tolist(),
-                        marker_color=[_vs_colors.get(s, "#999") for s in _vs_counts.index],
-                        text=_vs_counts.values.tolist(),
-                        textposition="auto",
-                    )])
-                    fig_vs.update_layout(
-                        height=320, margin=dict(l=40, r=20, t=20, b=80),
-                        xaxis=dict(tickangle=-30, tickfont=dict(size=10)),
-                        yaxis=dict(title="Companies"),
-                    )
-                    st.plotly_chart(fig_vs, use_container_width=True)
+                # ── Per-company table ──
+                with st.expander("View Full Company Table", expanded=False):
+                    _tbl = _p1_df[["name", "verdict", "content_type", "mission_quality", "confidence", "source", "sector"]].rename(
+                        columns={"name": "Company", "verdict": "LLM Verdict", "content_type": "Type",
+                                 "mission_quality": "Quality", "confidence": "Conf%", "source": "Source", "sector": "Sector"})
 
-                # ── 4. LLM Extraction vs Text Matching: Word Overlap ──
-                _has_llm_ext = _cmp_df[_cmp_df["llm_ext_verdict"] != "N/A"]
-                if not _has_llm_ext.empty:
-                    st.markdown("##### Pkg 2 LLM Extraction vs Pkg 1 Text Matching")
-                    st.caption("Word overlap between missions extracted by Pkg 1 (text matching) vs Pkg 2 (full LLM extraction).")
+                    def _color_verdict(val):
+                        colors = {"YES": "background-color: #C8E6C9", "PARTIAL": "background-color: #FFF9C4",
+                                  "NO": "background-color: #FFCDD2", "N/A": "background-color: #F5F5F5"}
+                        return colors.get(val, "")
 
-                    _ov1, _ov2 = st.columns(2)
-
-                    with _ov1:
-                        # Overlap histogram
-                        _overlap_vals = _has_llm_ext["word_overlap"].tolist()
-                        fig_hist = go.Figure(data=[go.Histogram(
-                            x=_overlap_vals, nbinsx=20,
-                            marker_color="#1565C0",
-                            hovertemplate="Overlap: %{x:.2f}<br>Count: %{y}<extra></extra>",
-                        )])
-                        fig_hist.update_layout(
-                            title=dict(text="Word Overlap Distribution", font=dict(size=13)),
-                            height=320, margin=dict(l=40, r=20, t=40, b=40),
-                            xaxis=dict(title="Jaccard Word Overlap", range=[0, 1]),
-                            yaxis=dict(title="Companies"),
-                        )
-                        st.plotly_chart(fig_hist, use_container_width=True)
-
-                    with _ov2:
-                        # LLM extraction source type distribution
-                        _ext_src_counts = _has_llm_ext["llm_ext_src"].value_counts()
-                        _ext_src_colors = {
-                            "EXPLICIT": "#2E7D32", "IMPLIED": "#F57F17",
-                            "DERIVED": "#E65100", "NONE": "#B71C1C", "N/A": "#9E9E9E",
-                        }
-                        if len(_ext_src_counts) > 0:
-                            fig_src = go.Figure(data=[go.Pie(
-                                labels=_ext_src_counts.index.tolist(),
-                                values=_ext_src_counts.values.tolist(),
-                                marker=dict(colors=[_ext_src_colors.get(s, "#999") for s in _ext_src_counts.index]),
-                                hole=0.4,
-                                textinfo="label+value+percent",
-                            )])
-                            fig_src.update_layout(
-                                title=dict(text="LLM Extraction Source Type", font=dict(size=13)),
-                                height=320, margin=dict(l=20, r=20, t=40, b=20),
-                                showlegend=False,
-                            )
-                            st.plotly_chart(fig_src, use_container_width=True)
-
-                    # Agreement summary metrics
-                    _high_agree = len(_has_llm_ext[_has_llm_ext["word_overlap"] > 0.5])
-                    _low_agree = len(_has_llm_ext[_has_llm_ext["word_overlap"] < 0.2])
-                    _total_ext = len(_has_llm_ext)
-
-                    _m1, _m2, _m3, _m4 = st.columns(4)
-                    with _m1:
-                        st.metric("Total Compared", _total_ext)
-                    with _m2:
-                        st.metric("High Agreement (>50%)", _high_agree,
-                                  delta=f"{_high_agree/_total_ext*100:.0f}%" if _total_ext else "0%")
-                    with _m3:
-                        st.metric("Low Agreement (<20%)", _low_agree,
-                                  delta=f"{_low_agree/_total_ext*100:.0f}%" if _total_ext else "0%",
-                                  delta_color="inverse")
-                    with _m4:
-                        _avg_overlap = _has_llm_ext["word_overlap"].mean()
-                        st.metric("Avg Overlap", f"{_avg_overlap:.1%}")
-
-                # ── 5. Per-company comparison table ──
-                st.markdown("##### Per-Company Comparison")
-                _tbl_cols = ["name", "tm_status", "tm_quality", "llm_verdict", "llm_type", "llm_quality", "llm_conf"]
-                _tbl_rename = {
-                    "name": "Company", "tm_status": "Pkg1 Status", "tm_quality": "Pkg1 Quality",
-                    "llm_verdict": "Pkg1 LLM Verdict", "llm_type": "Pkg1 LLM Type",
-                    "llm_quality": "Pkg1 LLM Quality", "llm_conf": "Pkg1 LLM Conf%",
-                }
-                if not _has_llm_ext.empty:
-                    _tbl_cols += ["llm_ext_src", "llm_ext_quality", "word_overlap"]
-                    _tbl_rename.update({
-                        "llm_ext_src": "Pkg2 Source", "llm_ext_quality": "Pkg2 Quality",
-                        "word_overlap": "Pkg1/Pkg2 Overlap",
-                    })
-                _tbl = _cmp_df[[c for c in _tbl_cols if c in _cmp_df.columns]].rename(columns=_tbl_rename)
-
-                def _color_verdict(val):
-                    colors = {"YES": "background-color: #C8E6C9", "PARTIAL": "background-color: #FFF9C4",
-                              "NO": "background-color: #FFCDD2", "N/A": "background-color: #F5F5F5"}
-                    return colors.get(val, "")
-
-                with st.expander("View Full Comparison Table", expanded=False):
                     st.dataframe(
-                        _tbl.style.applymap(_color_verdict, subset=["Pkg1 LLM Verdict"] if "Pkg1 LLM Verdict" in _tbl.columns else []),
-                        use_container_width=True, hide_index=True,
-                    )
+                        _tbl.style.applymap(_color_verdict, subset=["LLM Verdict"]),
+                        use_container_width=True, hide_index=True)
 
-                # CSV export
-                _cmp_csv = _cmp_df.to_csv(index=False).encode("utf-8")
-                st.download_button(
-                    label="Download Comparison Data (CSV)",
-                    data=_cmp_csv,
-                    file_name="tm_vs_llm_comparison.csv",
-                    mime="text/csv",
-                    key="dl_cmp_csv",
-                )
+                _p1_csv = _p1_df.to_csv(index=False).encode("utf-8")
+                st.download_button(label="Download Pkg 1 Data (CSV)", data=_p1_csv,
+                                   file_name="pkg1_mission_quality.csv", mime="text/csv", key="dl_p1_csv")
 
-        except Exception as _cmp_err:
-            st.warning(f"Comparison analysis unavailable: {_cmp_err}")
+        except Exception as _p1_err:
+            st.warning(f"Pkg 1 analysis unavailable: {_p1_err}")
 
 
 # ═══════════════════════════════════════════════════════════════════════════
