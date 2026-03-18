@@ -1,0 +1,190 @@
+{
+  "Mission": {
+    "text": "(sec) reports and filings."
+  },
+  "StrategicObjective": [
+    {
+      "text": "The second is expanding the deep and collaborative partnerships we have established across the ecosystem to accelerate deployments of AMD based AI solutions at scale.",
+      "objective_type": "growth"
+    },
+    {
+      "text": "We drive innovation through high-performance and adaptive computing technology, software and product leadership.",
+      "objective_type": "innovation"
+    },
+    {
+      "text": "Government Regulations\nOur global operations are subject to various United States and foreign laws and regulations, including, but not limited to, those relating to export control, customs, intellectual property, data privacy and security, climate, environmental, health and safety requirements, cybersecurity, tax, employment, competition and anti-trust, anti-corruption, anti-bribery, conflict minerals, corporate governance, financial and other disclosures, and AI.",
+      "objective_type": "sustainability"
+    }
+  ],
+  "Capability": [
+    {
+      "name": "cloud"
+    },
+    {
+      "name": "artificial intelligence"
+    },
+    {
+      "name": "manufacturing"
+    },
+    {
+      "name": "research and development"
+    }
+  ],
+  "Initiative": [
+    {
+      "name": "Ryzen 9000 series processors featuring \u201cZen 5\u201d cores",
+      "status": "active"
+    },
+    {
+      "name": "AMD Ryzen AI PRO 300 series",
+      "status": "active"
+    },
+    {
+      "name": "SoC products and development service",
+      "status": "active"
+    }
+  ],
+  "RiskTheme": [
+    {
+      "name": "regulat",
+      "risk_category": "regulatory"
+    },
+    {
+      "name": "competi",
+      "risk_category": "competitive"
+    },
+    {
+      "name": "inventory",
+      "risk_category": "supply_chain"
+    },
+    {
+      "name": "cybersecurity",
+      "risk_category": "technology"
+    },
+    {
+      "name": "workforce",
+      "risk_category": "operational"
+    }
+  ],
+  "Company": {
+    "ticker": "AMD",
+    "cik": "2488"
+  },
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "The second is expanding the deep and collaborative"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "We drive innovation through high-performance and a"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Government Regulations\nOur global operations are s"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "cloud"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The second is expanding the deep and collaborative"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "artificial intelligence"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The second is expanding the deep and collaborative"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "manufacturing"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The second is expanding the deep and collaborative"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "research and development"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The second is expanding the deep and collaborative"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Ryzen 9000 series processors featuring \u201cZen 5\u201d cores"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "cloud"
+    ],
+    [
+      "Company",
+      "pursues",
+      "AMD Ryzen AI PRO 300 series"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "cloud"
+    ],
+    [
+      "Company",
+      "pursues",
+      "SoC products and development service"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "cloud"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "regulat"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "competi"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "inventory"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "cybersecurity"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "workforce"
+    ]
+  ]
+}

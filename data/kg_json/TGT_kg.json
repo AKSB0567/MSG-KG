@@ -1,0 +1,149 @@
+{
+  "Mission": {
+    "text": "(sec)."
+  },
+  "StrategicObjective": [
+    {
+      "text": "Our strategy aims to expand Target\u2019s relevancy in consumers\u2019 lives and drive traffic, sales\n,\nand market share growth.",
+      "objective_type": "growth"
+    },
+    {
+      "text": "\u2022\nTechnology \u2013 A connected ecosystem of data, insights, and technology, including artificial intelligence\n.",
+      "objective_type": "innovation"
+    },
+    {
+      "text": "\u2022\nSustainability \u2013 Resiliency in our business model.",
+      "objective_type": "sustainability"
+    }
+  ],
+  "Capability": [
+    {
+      "name": "supply chain"
+    },
+    {
+      "name": "cloud"
+    },
+    {
+      "name": "artificial intelligence"
+    }
+  ],
+  "Initiative": [
+    {
+      "name": "Target Circle Card program",
+      "status": "active"
+    }
+  ],
+  "RiskTheme": [
+    {
+      "name": "compliance",
+      "risk_category": "regulatory"
+    },
+    {
+      "name": "competi",
+      "risk_category": "competitive"
+    },
+    {
+      "name": "supply chain",
+      "risk_category": "supply_chain"
+    },
+    {
+      "name": "cybersecurity",
+      "risk_category": "technology"
+    },
+    {
+      "name": "workforce",
+      "risk_category": "operational"
+    }
+  ],
+  "Company": {
+    "ticker": "TGT",
+    "cik": "27419"
+  },
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Our strategy aims to expand Target\u2019s relevancy in "
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "\u2022\nTechnology \u2013 A connected ecosystem of data, insi"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "\u2022\nSustainability \u2013 Resiliency in our business mode"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "supply chain"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Our strategy aims to expand Target\u2019s relevancy in "
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "cloud"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Our strategy aims to expand Target\u2019s relevancy in "
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "artificial intelligence"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Our strategy aims to expand Target\u2019s relevancy in "
+    ],
+    [
+      "Company",
+      "pursues",
+      "Target Circle Card program"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "compliance"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "competi"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "cybersecurity"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "workforce"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "Mission": {
+    "text": "Business\n3\nInformation about our Executive Officers\n14\nItem 1A"
+  },
+  "StrategicObjective": [],
+  "Capability": [],
+  "Initiative": [],
+  "RiskTheme": [
+    {
+      "name": "legal",
+      "risk_category": "regulatory"
+    },
+    {
+      "name": "cybersecurity",
+      "risk_category": "technology"
+    }
+  ],
+  "Company": {
+    "ticker": "MSFT",
+    "cik": "789019"
+  },
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "legal"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "cybersecurity"
+    ]
+  ]
+}

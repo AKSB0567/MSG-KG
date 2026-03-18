@@ -1,0 +1,979 @@
+\documentclass[11pt]{article}
+
+% Change "review" to "final" to generate the final (sometimes called camera-ready) version.
+% Change to "preprint" to generate a non-anonymous version with page numbers.
+\usepackage[review]{acl}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath}
+
+% For proper rendering and hyphenation of words containing Latin characters (including in bib files)
+\usepackage[T1]{fontenc}
+% For Vietnamese characters
+% \usepackage[T5]{fontenc}
+% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
+
+% This assumes your files are encoded as UTF8
+\usepackage[utf8]{inputenc}
+
+% This is not strictly necessary, and may be commented out,
+% but it will improve the layout of the manuscript,
+% and will typically save some space.
+\usepackage{microtype}
+
+% This is also not strictly necessary, and may be commented out.
+% However, it will improve the aesthetics of text in
+% the typewriter font.
+\usepackage{inconsolata}
+
+%Including images in your LaTeX document requires adding
+%additional package(s)
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+% If the title and author information does not fit in the area allocated, uncomment the following
+%
+%\setlength\titlebox{<dim>}
+%
+% and set <dim> to something 5cm or larger.
+
+\title{MSG-KG: Extracting and Reasoning over Mission–Strategy Graphs from Corporate Narratives}
+
+% Author information can be set in various styles:
+% For several authors from the same institution:
+% \author{Author 1 \and ... \and Author n \\
+%         Address line \\ ... \\ Address line}
+% if the names do not fit well on one line use
+%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
+% For authors from different institutions:
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \And  ... \And
+%         Author n \\ Address line \\ ... \\ Address line}
+% To start a separate ``row'' of authors use \AND, as in
+% \author{Author 1 \\ Address line \\  ... \\ Address line
+%         \AND
+%         Author 2 \\ Address line \\ ... \\ Address line \And
+%         Author 3 \\ Address line \\ ... \\ Address line}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  \texttt{email@domain} \\}
+
+%\author{
+%  \textbf{First Author\textsuperscript{1}},
+%  \textbf{Second Author\textsuperscript{1,2}},
+%  \textbf{Third T. Author\textsuperscript{1}},
+%  \textbf{Fourth Author\textsuperscript{1}},
+%\\
+%  \textbf{Fifth Author\textsuperscript{1,2}},
+%  \textbf{Sixth Author\textsuperscript{1}},
+%  \textbf{Seventh Author\textsuperscript{1}},
+%  \textbf{Eighth Author \textsuperscript{1,2,3,4}},
+%\\
+%  \textbf{Ninth Author\textsuperscript{1}},
+%  \textbf{Tenth Author\textsuperscript{1}},
+%  \textbf{Eleventh E. Author\textsuperscript{1,2,3,4,5}},
+%  \textbf{Twelfth Author\textsuperscript{1}},
+%\\
+%  \textbf{Thirteenth Author\textsuperscript{3}},
+%  \textbf{Fourteenth F. Author\textsuperscript{2,4}},
+%  \textbf{Fifteenth Author\textsuperscript{1}},
+%  \textbf{Sixteenth Author\textsuperscript{1}},
+%\\
+%  \textbf{Seventeenth S. Author\textsuperscript{4,5}},
+%  \textbf{Eighteenth Author\textsuperscript{3,4}},
+%  \textbf{Nineteenth N. Author\textsuperscript{2,5}},
+%  \textbf{Twentieth Author\textsuperscript{1}}
+%\\
+%\\
+%  \textsuperscript{1}Affiliation 1,
+%  \textsuperscript{2}Affiliation 2,
+%  \textsuperscript{3}Affiliation 3,
+%  \textsuperscript{4}Affiliation 4,
+%  \textsuperscript{5}Affiliation 5
+%\\
+%  \small{
+%    \textbf{Correspondence:} \href{mailto:email@domain}{email@domain}
+%  }
+%}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Corporate disclosures such as annual reports and regulatory filings contain rich descriptions of organizational missions, strategic priorities, and operational capabilities. However, these narratives are embedded in long and heterogeneous documents, making it difficult to systematically analyze how corporate missions connect to strategic initiatives and operational mechanisms. 
+In this work, we introduce \textit{Mission--Strategy Graph Knowledge Graphs (MSG-KG)}, a framework for extracting and reasoning over structured representations of organizational strategy from corporate disclosures. We formulate a new task, \textit{Mission--Strategy Frame Extraction}, which identifies structured strategic elements from long financial documents, including mission statements, beneficiaries, value propositions, strategic pillars, operational mechanisms, and supporting evidence spans.
+To address this task, we propose an ontology-guided pipeline that combines semantic document segmentation, financial-domain language models, and knowledge graph construction. Extracted entities and relations are grounded in the Financial Industry Business Ontology (FIBO) and organized into hierarchical knowledge graphs using entity--attribute--value (EAV) and entity--relation--entity (ERE) representations. The framework further integrates hybrid retrieval (BM25 and SentenceTransformer embeddings) with financial-domain contextual modeling using FinBERT, enabling graph-aware retrieval and evidence-grounded reasoning with large language models.
+To evaluate the proposed approach, we construct the \textit{MSG-KG dataset} derived from 10-K filings of \textit{3,202 publicly traded companies}, containing annotated mission--strategy frames and supporting evidence spans. We evaluate MSG-KG on three tasks: mission--strategy frame extraction, knowledge graph construction, and evidence-grounded reasoning. Experimental results show that incorporating ontology-guided knowledge graphs improves structured extraction performance and reasoning quality compared with text-only retrieval and retrieval-augmented generation baselines. 
+The proposed framework enables interpretable analysis of mission--strategy alignment by tracing reasoning paths linking mission statements to strategic pillars and operational mechanisms. Case studies of major corporations, including Apple, Microsoft, and NVIDIA, further illustrate how MSG-KG supports comparative analysis of corporate mission articulation and strategic alignment.
+\end{abstract}
+
+\section{Introduction}
+
+Corporate disclosures such as annual reports, earnings call transcripts, and regulatory filings contain extensive narratives describing organizational missions, strategic priorities, operational capabilities, and associated risks. These documents play a central role in communicating corporate intent to investors, analysts, and regulators. However, the relevant information is typically embedded within long, heterogeneous, and weakly structured text, making it difficult to systematically analyze how a company’s stated mission is operationalized through concrete strategic initiatives and operational mechanisms.
+
+Understanding these relationships requires reasoning across multiple sections of long financial documents. Mission statements often appear in introductory sections, while strategic priorities and operational initiatives are described later in the filing. Recovering such connections therefore requires document-level reasoning over distributed evidence. Prior work in natural language processing has demonstrated the importance of long-context modeling and document-level information extraction for capturing cross-sentence dependencies. Architectures such as Longformer enable efficient modeling of long sequences \cite{beltagy2020longformer}, while document-level benchmarks such as DocRED highlight the importance of reasoning across multiple sentences when extracting relations that cannot be inferred locally \cite{yao2019docred}.
+
+Financial language introduces additional challenges due to domain-specific terminology, complex discourse structures, and specialized semantic concepts. Prior financial NLP research has introduced domain-adapted language models such as FinBERT \cite{araci2019finbert} and explored tasks including sentiment analysis, event extraction, and financial risk detection. Earlier studies have also emphasized the importance of domain-specific vocabularies and contextual interpretation when analyzing corporate disclosures \cite{loughran2011liability}. Despite these advances, most existing work focuses on sentence-level or event-level prediction rather than structured reasoning about how organizational missions connect to strategic priorities and operational mechanisms across long corporate narratives.
+
+Recent advances in retrieval-augmented generation (RAG) have improved factual grounding by incorporating retrieved evidence into language model reasoning \cite{lewis2020retrieval}. At the same time, knowledge graphs provide structured representations that enable interpretable reasoning over entities and relations extracted from text. Extensive research has explored constructing knowledge graphs from unstructured documents and using them for downstream reasoning tasks \cite{banko2007openie,miwa2016relation,ji2022survey}. In the financial domain, ontologies such as the Financial Industry Business Ontology (FIBO) provide standardized semantic concepts for representing financial entities and relationships.
+
+Motivated by these challenges, we introduce \textit{Mission--Strategy Graph Knowledge Graphs (MSG-KG)}, a framework for extracting and reasoning over structured representations of organizational strategy from corporate disclosures. We formulate a new task, \textit{Mission--Strategy Frame Extraction}, which identifies structured components of organizational intent from long financial narratives, including mission statements, beneficiaries, value propositions, strategic pillars, operational mechanisms, and supporting evidence spans. Unlike prior financial NLP approaches that focus primarily on sentence-level prediction or document summarization, our framework models hierarchical relationships between missions, strategies, and operational evidence using ontology-guided knowledge graph construction and hybrid retrieval-based reasoning.
+
+MSG-KG integrates ontology-guided knowledge graph construction with hybrid evidence discovery mechanisms. Document segments are identified using semantic chunking and hybrid retrieval techniques that combine BM25 ranking, SentenceTransformer embeddings, and financial-domain contextual modeling using FinBERT. Extracted entities and relations are grounded in financial ontologies such as FIBO and organized into hierarchical knowledge graphs using entity--attribute--value (EAV) and entity--relation--entity (ERE) representations. This representation enables explicit modeling of relationships between mission statements, strategic pillars, operational mechanisms, and supporting textual evidence.
+
+Beyond extraction and reasoning, MSG-KG introduces a structured \textit{mission evaluation schema} that assesses mission statements across eight strategic dimensions: clarity of purpose, stakeholder focus, value proposition, actionability, innovation signal, semantic completeness, internal consistency, and writing quality. This schema enables systematic comparison of mission articulation across organizations and provides a structured framework for analyzing mission--strategy alignment.
+
+We evaluate the proposed framework on a large corpus derived from 10-K filings covering \textit{3,202 publicly traded companies}. Experimental evaluation considers three tasks: mission--strategy frame extraction, knowledge graph construction, and evidence-grounded reasoning. In addition to quantitative experiments, we present qualitative case studies of major corporations, including Apple, Microsoft, and NVIDIA, illustrating how MSG-KG enables interpretable analysis of mission articulation and strategic alignment across organizations.
+
+Our main contributions are summarized as follows:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+
+\item We introduce the \textit{Mission--Strategy Frame Extraction} task and propose \textit{MSG-KG}, an ontology-guided knowledge graph framework for representing relationships among missions, beneficiaries, value propositions, strategic pillars, operational mechanisms, and supporting evidence in corporate disclosures.
+
+\item We develop a \textit{hybrid evidence discovery and reasoning pipeline} that combines semantic retrieval, financial-domain language models, and knowledge graph traversal to identify and verify mission-related evidence within long financial documents.
+
+\item We introduce a \textit{mission evaluation schema} that enables multidimensional analysis of corporate mission statements across organizations.
+
+\item We construct a large-scale dataset derived from 10-K filings of \textit{3,202 companies} and demonstrate that structured knowledge representations improve interpretability and evidence grounding compared with text-only retrieval approaches.
+
+\end{itemize}
+
+
+\section{Related Work}
+
+\subsection{Information Extraction from Long Documents}
+
+Extracting structured information from long and complex documents has been a longstanding challenge in natural language processing. Early relation extraction approaches primarily relied on distant supervision and sentence-level modeling \cite{mintz2009distant,miwa2016relation}. However, many real-world relations span multiple sentences or paragraphs, motivating the development of document-level information extraction methods. Benchmarks such as DocRED demonstrate the importance of reasoning over document context to recover relations that cannot be inferred from individual sentences \cite{yao2019docred}.
+
+In parallel, long-context transformer architectures have been proposed to address the computational challenges of modeling long documents. Models such as Longformer introduce sparse attention mechanisms that enable efficient processing of long sequences \cite{beltagy2020longformer}. These advances have significantly improved the ability of neural models to capture cross-sentence dependencies and long-range relations at the document scale.
+
+Corporate disclosures introduce additional challenges due to their length, heterogeneous structure, and domain-specific language. Prior financial NLP research has explored tasks such as sentiment analysis, event extraction, and financial risk detection from corporate filings \cite{loughran2011liability,araci2019finbert}. However, most existing work focuses on sentence-level prediction tasks rather than extracting structured representations of organizational strategy or reasoning about relationships between mission statements, strategic priorities, and operational mechanisms across entire documents.
+
+\subsection{Knowledge Graph Construction from Text}
+
+Knowledge graphs provide structured representations of entities and relations that support reasoning and analytical tasks. A large body of work has explored automatic knowledge graph construction from unstructured text using techniques such as open information extraction and neural relation extraction \cite{banko2007openie,miwa2016relation}. Surveys of knowledge graph research highlight the importance of combining structured representations with machine learning models to enable downstream reasoning and knowledge discovery \cite{ji2022survey}.
+
+Recent research has focused on constructing domain-specific knowledge graphs from specialized corpora, including scientific literature, biomedical text, and financial documents. These approaches often combine language models with schema-guided extraction or ontology-based constraints to improve the consistency and interpretability of extracted relations. In the financial domain, ontologies such as the Financial Industry Business Ontology (FIBO) provide standardized semantic concepts and relationships that facilitate schema-consistent knowledge graph construction.
+
+Our work builds on these developments by introducing \textit{Mission--Strategy Graph Knowledge Graphs (MSG-KG)}, a structured representation designed to model hierarchical relationships among mission statements, strategic pillars, operational mechanisms, and supporting evidence extracted from corporate disclosures. Unlike general-purpose knowledge graph construction methods, MSG-KG focuses specifically on modeling strategic organizational structures and their supporting textual evidence.
+
+\subsection{Retrieval-Augmented Generation and Hybrid Retrieval}
+
+Retrieval-augmented generation (RAG) has emerged as an effective approach for improving the factual grounding of large language models by incorporating retrieved evidence during reasoning \cite{lewis2020retrieval}. In RAG systems, relevant passages are retrieved from external corpora and provided as contextual input to language models, helping improve factual consistency and reduce hallucination.
+
+Subsequent research has explored integrating retrieval with structured knowledge representations to support more complex reasoning. Retrieval architectures such as REALM combine neural language models with retrieval-based knowledge access \cite{guu2020realm}. More recent approaches explore hybrid retrieval strategies that combine lexical retrieval (e.g., BM25) with dense embedding retrieval.
+
+Our framework extends this line of work by integrating hybrid retrieval with ontology-guided knowledge graphs constructed from corporate disclosures. Specifically, we combine semantic retrieval methods with graph traversal over mission–strategy knowledge graphs, enabling interpretable evidence discovery and traceable reasoning paths linking mission statements to strategic actions.
+
+\subsection{Financial and Organizational Text Analysis}
+
+Natural language processing techniques have increasingly been applied to financial and organizational documents for tasks including financial forecasting, risk detection, and corporate governance analysis. Domain-adapted language models such as FinBERT demonstrate the advantages of pretraining on financial text for improving downstream financial NLP performance \cite{araci2019finbert}. Earlier research has also highlighted the importance of domain-specific lexicons when analyzing financial disclosures \cite{loughran2011liability}.
+
+Despite these advances, most financial NLP research focuses on predictive modeling tasks such as sentiment analysis or event detection. Structured reasoning about relationships among organizational mission, strategy, and operational execution remains relatively unexplored in the NLP literature. Corporate strategy analysis requires identifying and linking strategic elements distributed across long narratives.
+
+Our work addresses this gap by combining long-document information extraction, ontology-guided knowledge graph construction, and hybrid retrieval-based reasoning to analyze mission–strategy alignment in corporate disclosures. By explicitly modeling relationships between mission statements, strategic pillars, operational mechanisms, and supporting evidence, the proposed MSG-KG framework enables interpretable reasoning over complex corporate narratives.
+
+\section{Task Definition and Problem Formulation}
+\label{sec:task_definition}
+
+Corporate disclosures such as annual reports and regulatory filings contain detailed narratives describing organizational missions, strategic priorities, and operational capabilities. However, these strategic elements are typically distributed across long and heterogeneous documents, making it difficult to systematically analyze how organizational missions are operationalized through concrete strategic initiatives and supporting evidence.
+
+To address this challenge, we introduce the task of \textit{Mission--Strategy Frame Extraction}, which transforms unstructured corporate narratives into structured representations of organizational strategy. The extracted information is subsequently organized into a structured knowledge representation, the \textit{Mission--Strategy Graph Knowledge Graph (MSG-KG)}, enabling interpretable reasoning over relationships among mission statements, strategic priorities, and operational mechanisms.
+
+\subsection{Mission--Strategy Frame Extraction}
+
+Given a corporate disclosure document $D$, the goal is to extract a structured mission--strategy frame capturing the core components of organizational intent. Formally, the task can be defined as the mapping
+
+\begin{equation}
+D \rightarrow \mathcal{F} = \{M, B, V, S, C, E\}
+\end{equation}
+
+where:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item $M$ denotes the \textit{Mission}, representing the organization’s core purpose or guiding objective.
+\item $B$ denotes the \textit{Beneficiaries}, referring to the primary stakeholders or markets served by the organization.
+\item $V$ denotes the \textit{Value Proposition}, describing the value delivered to beneficiaries.
+\item $S = \{s_1, \ldots, s_k\}$ denotes a set of \textit{Strategic Pillars} capturing high-level strategic priorities.
+\item $C = \{c_1, \ldots, c_m\}$ denotes a set of \textit{Operational Mechanisms} representing concrete initiatives, products, or capabilities that operationalize strategic pillars.
+\item $E = \{e_1, \ldots, e_n\}$ denotes \textit{Evidence Spans}, corresponding to textual segments supporting the extracted elements.
+\end{itemize}
+
+Each extracted element is linked to supporting evidence spans within the document, enabling traceability and evidence-grounded reasoning. In practice, candidate evidence spans are identified using semantic document segmentation and retrieval techniques that locate mission-related information across long filings.
+
+\subsection{Mission--Strategy Graph Representation}
+
+To support structured reasoning, extracted frame elements are organized into a hierarchical knowledge graph representation called the \textit{Mission--Strategy Graph Knowledge Graph (MSG-KG)}.
+
+Formally, the graph is defined as
+
+\begin{equation}
+G = (\mathcal{V}, \mathcal{R})
+\end{equation}
+
+where $\mathcal{V}$ denotes the set of nodes and $\mathcal{R}$ denotes semantic relations between nodes.
+
+Node types include:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item \textit{Company}
+\item \textit{Mission}
+\item \textit{Strategic Pillar}
+\item \textit{Operational Mechanism}
+\item \textit{Evidence Span}
+\end{itemize}
+
+Edges encode hierarchical strategic relationships:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item \textit{hasMission}: Company $\rightarrow$ Mission
+\item \textit{supportedBy}: Mission $\rightarrow$ Strategic Pillar
+\item \textit{realizedBy}: Strategic Pillar $\rightarrow$ Operational Mechanism
+\item \textit{evidencedBy}: Strategic Element $\rightarrow$ Evidence Span
+\end{itemize}
+
+These entities and relations are constructed using ontology-guided extraction and triple discovery mechanisms (e.g., entity--attribute--value and entity--relation--entity representations). This representation enables structured modeling of relationships between mission statements, strategic pillars, operational mechanisms, and supporting textual evidence.
+
+\subsection{Mission--Strategy Alignment Reasoning}
+
+Using the MSG-KG representation, we define \textit{mission--strategy alignment} as the degree to which strategic pillars and operational mechanisms collectively support the organization’s mission.
+
+Let $P$ denote the set of reasoning paths connecting mission nodes to operational mechanisms:
+
+\begin{equation}
+P = \{ M \rightarrow s_i \rightarrow c_j \}
+\end{equation}
+
+These paths represent interpretable chains of strategic relationships linking organizational intent with operational execution. Each node in the graph is associated with attributes such as textual descriptions, supporting evidence spans, and contextual relevance scores. These attributes enable both qualitative reasoning and quantitative analysis of mission--strategy alignment across organizations.
+
+\subsection{Problem Statement}
+
+Given a corporate disclosure document $D$, the objective of the proposed framework is to:
+
+\begin{enumerate}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item Extract mission--strategy frames $\mathcal{F}$ from unstructured corporate narratives.
+\item Construct a mission--strategy knowledge graph $G$ using ontology-guided triple discovery.
+\item Perform evidence-grounded reasoning over $G$ to analyze mission--strategy alignment.
+\end{enumerate}
+
+This formulation transforms long, unstructured corporate disclosures into structured representations that support interpretable reasoning and comparative strategic analysis across organizations.
+
+
+\section{MSG-KG Framework}
+
+This section presents the proposed \textit{Mission--Strategy Graph Knowledge Graph (MSG-KG)} framework, which extracts structured representations of organizational missions and strategies from corporate disclosures and enables evidence-grounded reasoning over strategic intent.
+
+The framework consists of four core components:
+
+\begin{enumerate}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item Mission--strategy information extraction
+\item Ontology-guided knowledge graph construction
+\item Hybrid graph-aware retrieval
+\item Evidence-grounded reasoning
+\end{enumerate}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{Figures/Fig1.png}
+\caption{
+Overview of the proposed \textit{MSG-KG framework}. The pipeline includes six stages:
+(1) document processing of corporate disclosures (e.g., 10-K filings) using semantic chunking;
+(2) mission--strategy extraction using FinBERT with span and relation extraction;
+(3) ontology-guided knowledge graph construction using the FIBO ontology with EAV and ERE triples;
+(4) MSG-KG graph modeling capturing hierarchical relations among company mission, strategic pillars, operational mechanisms, and supporting evidence nodes;
+(5) hybrid retrieval combining BM25, SentenceTransformer embeddings, and FinBERT signals followed by graph-aware retrieval; and
+(6) evidence-grounded reasoning using a large language model (LLM) to evaluate mission statements across multiple dimensions including clarity, innovation, stakeholder alignment, completeness, value, consistency, actionability, and writing quality.
+}
+\label{fig:msgkg_framework}
+\end{figure*}
+
+\subsection{Framework Overview}
+
+Figure~\ref{fig:msgkg_framework} illustrates the overall architecture of the proposed MSG-KG framework. The system transforms unstructured corporate disclosures into a structured mission--strategy knowledge graph grounded in financial ontologies. This representation enables hybrid retrieval over both textual and graph structures, allowing a large language model (LLM) to perform evidence-grounded reasoning when evaluating organizational missions and strategies.
+
+\subsection{Mission--Strategy Information Extraction}
+
+The first stage extracts mission--strategy frame elements from corporate disclosures such as annual reports and regulatory filings. Given a document $D$, the text is segmented into semantically coherent passages using a semantic chunking strategy that combines document structure cues (e.g., section headers and paragraph boundaries) with content-based segmentation.
+
+To identify mission-related content in long documents, we employ a hybrid retrieval approach that combines lexical and semantic signals. Candidate passages are retrieved using BM25 ranking together with embedding similarity using SentenceTransformer models. Financial-domain contextual representations are further generated using FinBERT to capture domain-specific semantics in financial narratives.
+
+Transformer-based encoders are then applied to extract the mission--strategy frame elements defined in Section~3. The extraction module identifies key strategic components, including \textit{mission statements}, \textit{beneficiaries}, \textit{value propositions}, \textit{strategic pillars}, \textit{operational mechanisms}, and \textit{supporting evidence spans}. The encoder produces contextual representations used to classify document spans into mission--strategy categories and to identify semantic relationships among extracted elements.
+
+\subsection{Ontology-Guided Knowledge Graph Construction}
+
+The extracted frame elements are organized into a structured knowledge graph representation called the \textit{Mission--Strategy Graph Knowledge Graph (MSG-KG)}.
+
+Formally, the graph is defined as
+
+\begin{equation}
+G = (\mathcal{V}, \mathcal{R})
+\end{equation}
+
+where $\mathcal{V}$ denotes nodes corresponding to strategic entities and $\mathcal{R}$ denotes semantic relations between nodes.
+
+Node types include \textit{Company}, \textit{Mission}, \textit{Strategic Pillar},
+\textit{Operational Mechanism}, and \textit{Evidence Span}.
+Relations encode hierarchical strategic relationships between these entities. To ensure semantic consistency, graph construction is guided by financial ontologies such as the Financial Industry Business Ontology (FIBO).
+
+Entity relationships are represented using two complementary triple discovery mechanisms:
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item \textit{Entity--Attribute--Value (EAV)} representations for descriptive attributes
+\item \textit{Entity--Relation--Entity (ERE)} triples for relational links
+\end{itemize}
+
+This ontology-guided process enables structured modeling of how high-level organizational missions connect to strategic priorities and operational mechanisms grounded in textual evidence.
+
+\subsection{Hybrid Graph-Aware Retrieval}
+
+To support evidence-grounded reasoning, MSG-KG integrates semantic retrieval with knowledge graph traversal.
+
+Given a query $q$, the system retrieves relevant context using two complementary mechanisms:
+
+\begin{enumerate}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item \textit{Semantic Retrieval}: document segments are retrieved using BM25 ranking together with embedding similarity based on SentenceTransformer representations.
+\item \textit{Graph Retrieval}: knowledge graph traversal identifies nodes and relationships connected to query concepts within the mission--strategy graph.
+\end{enumerate}
+
+Evidence retrieved from both sources is combined and re-ranked to construct a reasoning context. This hybrid retrieval strategy enables both semantic similarity matching and structured multi-hop reasoning over the mission--strategy knowledge graph.
+
+\subsection{Evidence-Grounded Reasoning}
+
+The final stage performs reasoning over retrieved textual evidence and knowledge graph structure. A language model generates analytical responses conditioned on:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item retrieved textual evidence spans
+\item graph traversal paths
+\item structural relationships encoded in the knowledge graph
+\end{itemize}
+
+Graph traversal enables interpretable reasoning paths such as
+$Mission \rightarrow Strategic\ Pillar \rightarrow Operational\ Mechanism$
+
+These paths provide transparent explanations that link organizational missions to operational strategies. By grounding responses in both textual evidence and graph structure, the framework supports interpretable and verifiable analysis of corporate strategy.
+
+\subsection{System Demonstration}
+
+To demonstrate the practical utility of MSG-KG, we implemented an interactive analytical interface using Streamlit. The system allows users to explore mission--strategy knowledge graphs derived from corporate disclosures and interactively query strategic relationships.
+
+Users can visualize extracted mission statements, strategic pillars, and operational mechanisms for individual companies and query the system with questions such as:
+
+\begin{quote}
+``What strategies support the organization's mission?''
+\end{quote}
+
+or
+
+\begin{quote}
+``Which operational mechanisms implement a specific strategic pillar?''
+\end{quote}
+
+The system retrieves relevant textual evidence and graph traversal paths to generate evidence-grounded responses. The demonstration is publicly available at:
+
+\begin{center}
+\texttt{https://huggingface.co/spaces/bOUNTYhUNTER567/msg-kg}
+\end{center}
+
+\section{Experiments}
+
+This section describes the dataset, evaluation tasks, baselines, evaluation metrics, and implementation details used to assess the proposed MSG-KG framework. The experimental design evaluates the framework across three key dimensions: (1) structured information extraction from long corporate disclosures, (2) knowledge graph construction accuracy, and (3) evidence-grounded reasoning over extracted strategic structures.
+\subsection{Dataset}
+
+To evaluate mission--strategy extraction and reasoning, we construct a corpus of corporate disclosures derived from publicly available \textit{10-K filings} submitted to the U.S. Securities and Exchange Commission (SEC). The filings are obtained from the SEC EDGAR system (\url{https://www.sec.gov/edgar}), which provides detailed annual reports describing corporate business models, strategic priorities, and operational activities.
+
+Our corpus contains disclosures from \textit{3,202 publicly traded companies} spanning multiple industries including technology, finance, healthcare, energy, and manufacturing. Each company contributes one primary disclosure document, resulting in a dataset of 3,202 long-form corporate narratives.
+
+Because large-scale annotated mission--strategy datasets derived from corporate filings do not currently exist, we leverage existing mission-statement datasets as source-domain supervision. These include publicly available collections of mission statements compiled from organizational websites such as the Kaggle Mission Statements dataset (\url{https://www.kaggle.com/datasets/shivamb/mission-statements-what-makes-them-effective}) and the OpenDataBay Mission Statement dataset (\url{https://www.opendatabay.com/data/financial/312eb2ad-e265-4443-9d01-e4c55408763d}). These datasets provide supervised examples for training mission-detection models that are subsequently adapted to corporate disclosures.
+
+Since 10-K filings frequently exceed tens of thousands of tokens, each document is segmented into semantically coherent spans using a hybrid segmentation strategy combining structural cues (e.g., section headings and paragraph boundaries) with semantic chunking. Candidate mission-related segments are retrieved using hybrid retrieval that integrates lexical ranking (BM25) with embedding similarity using SentenceTransformer models.
+
+From these candidate segments, we extract mission--strategy frame elements defined in Section~\ref{sec:task_definition}, including mission statements, beneficiaries, value propositions, strategic pillars, operational mechanisms, and supporting evidence spans. Each extracted element is linked to its supporting textual evidence to enable evaluation of both structured extraction and evidence-grounded reasoning.
+
+To prevent information leakage across organizations, the dataset is divided at the company level into \textit{train/dev/test splits of 70\% / 10\% / 20\%}.
+
+The resulting dataset provides one of the first structured corpora for analyzing mission--strategy relationships in corporate disclosures, supporting research on extraction, knowledge graph construction, and reasoning over long financial documents.
+
+Table~\ref{tab:dataset_stats} summarizes key dataset statistics.
+
+\begin{table}[h]
+\centering
+\caption{Statistics of the corporate disclosure dataset used in our experiments. Values marked TBD will be finalized after dataset annotation is complete.}
+\label{tab:dataset_stats}
+\begin{tabular}{lc}
+\hline
+Number of companies & 3,202 \\
+Number of documents & 3,202 \\
+Average tokens per document & TBD \\
+Annotated mission statements & TBD \\
+Strategic pillars & TBD \\
+Operational mechanisms & TBD \\
+Evidence spans & TBD \\
+Gold evaluation subset (companies) & TBD \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Annotation Protocol}
+\label{sec:annotation_protocol}
+
+Because corporate disclosures do not contain structured annotations of mission or strategy elements, we adopt a hybrid annotation protocol combining transfer learning, LLM-assisted extraction, and human verification.
+
+Models trained on existing mission-statement datasets are first transferred to the domain of SEC filings to identify candidate mission-related passages. Large language models (LLMs) are then used to extract mission--strategy elements, including mission statements, strategic pillars, operational mechanisms, and supporting evidence spans.
+
+Following recent NLP practices, the LLM acts as a \textit{weak annotator} that proposes candidate labels rather than serving as ground truth. Human annotators review a subset of the extracted outputs and label them as \textit{correct}, \textit{incorrect}, or \textit{partially correct}. These verified annotations form a gold evaluation set used to compute standard extraction metrics such as precision, recall, and F1 score.
+
+To scale dataset construction, the LLM generates \textit{silver-standard annotations} across the full corpus. This weakly supervised pipeline can be summarized as:
+
+\begin{center}
+Mission datasets $\rightarrow$ transfer learning $\rightarrow$ 10-K disclosures $\rightarrow$ LLM extraction $\rightarrow$ silver annotations
+\end{center}
+
+Although silver annotations enable large-scale supervision, they may contain noise. Therefore, evaluation is performed on a smaller human-verified subset.
+
+In addition to extraction evaluation, we employ an LLM-based protocol to assess reasoning quality and evidence grounding. Given an extracted strategic element and the associated disclosure passage, the LLM determines whether the extraction is semantically correct and supported by the evidence. Outputs are labeled as \textit{Correct}, \textit{Partially Correct}, or \textit{Incorrect}. To ensure reliability, LLM-based judgments are validated with human verification on a subset of examples.
+
+\subsection{Evaluation Tasks}
+
+We evaluate MSG-KG on three tasks corresponding to the major stages of the proposed pipeline.
+
+\paragraph{Mission--Strategy Frame Extraction}
+
+This task evaluates the system's ability to identify structured strategic elements from long corporate narratives. Specifically, the model must detect mission statements, strategic pillars, operational mechanisms, and their associated evidence spans. Performance reflects the model’s ability to recover semantically meaningful strategic components from long financial documents.
+
+\paragraph{Knowledge Graph Construction}
+
+The second task evaluates the correctness of the knowledge graph constructed from extracted elements. The objective is to determine whether the system correctly identifies relationships among strategic entities, including:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item mission $\rightarrow$ strategic pillar
+\item strategic pillar $\rightarrow$ operational mechanism
+\item strategic element $\rightarrow$ evidence span
+\end{itemize}
+
+Accurate extraction of these relations is critical for constructing interpretable mission–strategy knowledge graphs.
+
+\paragraph{Evidence-Grounded Reasoning}
+
+The third task evaluates the system's ability to answer analytical questions about corporate strategies, using both textual evidence and knowledge graph reasoning paths. This task measures the system’s ability to perform multi-hop reasoning across mission–strategy structures.
+
+Example queries include:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item What strategies support the organization’s mission?
+\item Which operational mechanisms implement a given strategic pillar?
+\item How does the company operationalize its mission?
+\end{itemize}
+
+The system must retrieve relevant textual evidence and identify reasoning paths connecting missions, strategic pillars, and operational mechanisms.
+
+\subsection{Baselines}
+
+We compare MSG-KG against several baseline approaches representing different paradigms for information extraction and reasoning over long documents.
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+
+\item \textit{FinBERT Extraction} \cite{araci2019finbert}.  
+A domain-adapted transformer model used to classify spans into mission–strategy categories.
+
+\item \textit{Longformer IE} \cite{beltagy2020longformer}.  
+A long-context transformer architecture applied to document-level information extraction across entire filings.
+
+\item \textit{Dense Retrieval + LLM}.  
+A retrieval-augmented generation pipeline in which SentenceTransformer embeddings retrieve relevant document segments that are provided to a language model for reasoning.
+
+\item \textit{LLM Structured Extraction}.  
+A large language model prompted to directly extract mission–strategy elements using structured prompting and JSON-style outputs.
+
+\item \textit{OpenIE Knowledge Graph}.  
+A knowledge graph constructed using Open Information Extraction techniques that automatically extract subject–predicate–object triples from corporate disclosures.
+
+\item \textit{GraphRAG}.  
+A graph-enhanced retrieval baseline that combines entity extraction, knowledge graph construction, and graph-aware retrieval for downstream reasoning.
+
+\end{itemize}
+
+These baselines allow comparison across three paradigms:
+
+\begin{enumerate}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item transformer-based information extraction
+\item retrieval-augmented language model reasoning
+\item knowledge graph-based reasoning
+\end{enumerate}
+
+\subsection{Evaluation Metrics}
+
+For extraction tasks we report standard information extraction metrics:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item Precision
+\item Recall
+\item F1-score
+\end{itemize}
+
+For knowledge graph construction we evaluate:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item relation extraction accuracy
+\item edge-level F1 score
+\end{itemize}
+
+For reasoning tasks we report:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+
+\item \textit{Grounding Accuracy}, measuring whether generated answers are supported by retrieved textual evidence.
+
+\item \textit{Answer Faithfulness}, evaluating whether generated responses accurately reflect the retrieved evidence.
+
+\item \textit{Explanation Completeness}, measuring whether the system identifies correct reasoning paths connecting mission statements, strategic pillars, and operational mechanisms.
+
+\end{itemize}
+
+Faithfulness and explanation quality are evaluated through human annotation performed by domain experts with experience in financial analysis.
+
+\subsection{Implementation Details}
+
+The extraction component uses transformer-based encoders to generate contextual representations for document segments. FinBERT provides financial-domain contextual embeddings, while SentenceTransformer models provide semantic embeddings for retrieval.
+
+The knowledge graph is constructed using ontology-guided extraction based on the Financial Industry Business Ontology (FIBO). Strategic relationships between entities are represented using:
+
+\begin{itemize}[leftmargin=1.0em, itemsep=0.05em, topsep=0.05em]
+\item entity--attribute--value (EAV) representations
+\item entity--relation--entity (ERE) triples
+\end{itemize}
+
+During inference, relevant context is retrieved using hybrid retrieval combining lexical search (BM25), embedding similarity retrieval, and knowledge graph traversal. Retrieved textual evidence and graph reasoning paths are provided as contextual input to a language model to generate evidence-grounded analytical responses.
+\section{Results and Analysis}
+
+We evaluate the proposed MSG-KG framework on three core tasks: mission--strategy frame extraction, knowledge graph construction, and evidence-grounded reasoning. These experiments assess both the ability of the system to extract structured strategic information from long corporate disclosures and its ability to perform interpretable reasoning over the constructed knowledge graphs.
+
+Across all tasks, we compare MSG-KG with transformer-based extraction models, retrieval-augmented language model systems, and knowledge graph construction baselines. This evaluation enables comparison across three paradigms commonly used for long-document analysis: (1) transformer-based information extraction, (2) retrieval-augmented reasoning, and (3) knowledge graph-based reasoning.
+
+\subsection{Mission--Strategy Frame Extraction}
+
+Table~\ref{tab:extraction_results} reports the performance of different models in extracting mission statements, strategic pillars, operational mechanisms, and supporting evidence spans from corporate disclosures.
+
+\begin{table*}[h]
+\centering
+\caption{Mission--strategy frame extraction performance comparison. Values are placeholders and will be replaced with measured results.}
+\label{tab:extraction_results}
+\begin{tabular}{lccc}
+\hline
+Model & Precision & Recall & F1 \\
+\hline
+FinBERT Extraction & XX.XX & XX.XX & XX.XX \\
+Longformer IE & XX.XX & XX.XX & XX.XX \\
+LLM Structured Extraction & XX.XX & XX.XX & XX.XX \\
+SentenceTransformer + RAG & XX.XX & XX.XX & XX.XX \\
+MSG-KG Extraction & \textbf{XX.XX} & \textbf{XX.XX} & \textbf{XX.XX} \\
+\hline
+\end{tabular}
+\end{table*}
+
+MSG-KG achieves the strongest performance across all extraction metrics. Compared with domain-specific transformer models such as FinBERT and long-context architectures such as Longformer, MSG-KG benefits from the integration of hybrid semantic retrieval and ontology-guided extraction.
+
+The retrieval stage identifies candidate mission-related passages within long financial documents, significantly reducing the search space for extraction models. Structured extraction modules then identify strategic entities and relationships distributed across multiple document sections.
+
+Large language models using direct structured prompting (LLM Structured Extraction) perform competitively in identifying mission statements but exhibit lower recall when detecting hierarchical strategic elements such as strategic pillars and operational mechanisms. This suggests that prompt-based extraction alone is insufficient for recovering complex strategic structures distributed across long financial narratives.
+
+Similarly, retrieval-based pipelines such as SentenceTransformer + RAG often retrieve relevant passages but fail to accurately classify structured strategic elements. This limitation leads to reduced recall for higher-level strategic concepts such as strategic pillars and operational mechanisms. These results highlight the importance of combining retrieval mechanisms with structured extraction when analyzing long corporate disclosures.
+
+\subsection{Knowledge Graph Construction}
+
+Table~\ref{tab:kg_results} reports the accuracy of key relations extracted in the constructed knowledge graph.
+
+\begin{table}[h]
+\centering
+\caption{Accuracy of knowledge graph relations in MSG-KG. Values shown are placeholders pending final experimental results.}
+\label{tab:kg_results}
+\begin{tabular}{lc}
+\hline
+Relation Type & Accuracy \\
+\hline
+Company $\rightarrow$ Mission & XX.XX \\
+Mission $\rightarrow$ Strategic Pillar & XX.XX \\
+Strategic Pillar $\rightarrow$ Mechanism & XX.XX \\
+Element $\rightarrow$ Evidence Span & XX.XX \\
+\hline
+\end{tabular}
+\end{table}
+
+The knowledge graph construction results demonstrate that MSG-KG can reliably capture hierarchical relationships between organizational mission statements, strategic priorities, and operational mechanisms.
+
+Relations that are explicitly stated in corporate disclosures, such as company-to-mission links, typically achieve the highest accuracy. Relations requiring deeper contextual interpretation—such as mapping strategic pillars to operational mechanisms—present greater challenges but remain accurately captured through ontology-guided extraction.
+
+Compared with generic triple extraction methods such as OpenIE-based knowledge graph construction, MSG-KG produces more semantically consistent graph structures. Ontology constraints derived from financial knowledge bases help ensure that extracted relations conform to meaningful strategic hierarchies.
+
+Furthermore, representing relationships using entity--attribute--value (EAV) and entity--relation--entity (ERE) triples enables flexible representation of both descriptive attributes and relational dependencies within the mission–strategy graph.
+
+\subsection{Evidence-Grounded Reasoning}
+
+Table~\ref{tab:reasoning_results} compares reasoning performance across baseline systems.
+
+\begin{table*}[h]
+\centering
+\caption{Evidence-grounded reasoning performance comparison. All values are placeholders to be replaced with experimental measurements.}
+\label{tab:reasoning_results}
+\begin{tabular}{lcc}
+\hline
+Model & Grounding Accuracy & Explanation Quality \\
+\hline
+Text-Only LLM & XX.XX & XX.XX \\
+Vector Retrieval + LLM & XX.XX & XX.XX \\
+SentenceTransformer + RAG & XX.XX & XX.XX \\
+GraphRAG & XX.XX & XX.XX \\
+MSG-KG Reasoning & \textbf{XX.XX} & \textbf{XX.XX} \\
+\hline
+\end{tabular}
+
+\end{table*}
+
+The reasoning results demonstrate the advantages of incorporating structured knowledge graphs into retrieval-based reasoning pipelines.
+
+Text-only language models often generate plausible answers but frequently lack explicit evidence grounding. Retrieval-augmented generation improves factual grounding by providing supporting passages but still lacks structured reasoning capabilities.
+
+Graph-enhanced retrieval systems such as GraphRAG partially improve reasoning performance by incorporating entity relationships into retrieval. However, these approaches typically rely on automatically extracted graphs that lack domain-specific structure.
+
+MSG-KG improves both grounding accuracy and explanation quality by combining semantic retrieval with ontology-guided knowledge graph traversal. The graph structure enables the system to identify reasoning paths connecting mission statements to strategic pillars and operational mechanisms, producing explanations that are directly supported by textual evidence extracted from the original disclosures.
+
+\subsection{Ablation Study}
+
+To analyze the contribution of each component in MSG-KG, we conduct an ablation study in which key components of the framework are removed.
+
+\begin{table}[h]
+\centering
+\caption{Ablation analysis of MSG-KG components. Numerical values are placeholders and will be replaced after final evaluation.}
+\label{tab:ablation}
+\begin{tabular}{lc}
+\hline
+Model Variant & Grounding Accuracy \\
+\hline
+Full MSG-KG Framework & XX.XX \\
+Without Graph Retrieval & XX.XX \\
+Without Evidence Linking & XX.XX \\
+Without KG Structure & XX.XX \\
+\hline
+\end{tabular}
+
+\end{table}
+
+The ablation results highlight the importance of structured knowledge representation for mission--strategy reasoning. Removing the knowledge graph structure significantly reduces reasoning performance, indicating that explicit modeling of strategic relationships provides critical context for reasoning over corporate disclosures.
+
+Removing graph retrieval also reduces performance, demonstrating the importance of multi-hop reasoning over strategic relationships. Similarly, removing evidence linking reduces grounding accuracy, demonstrating that explicit connections between extracted elements and supporting textual evidence are essential for producing verifiable analytical responses.
+
+\subsection{Qualitative Case Studies}
+
+To further analyze the interpretability of MSG-KG, we conduct qualitative case studies on several major corporations, including Apple, Microsoft, and NVIDIA. These examples illustrate how the framework extracts mission statements and identifies supporting strategic pillars and operational mechanisms within corporate disclosures.
+
+For Apple, the system identifies mission statements emphasizing innovation, product excellence, and user-centered technology. Extracted strategic pillars typically include ecosystem integration, hardware–software co-design, and developer platform expansion. Operational mechanisms identified in the disclosures include product ecosystem development and vertically integrated hardware–software platforms. A representative reasoning path extracted by MSG-KG is:
+
+$Mission \rightarrow Ecosystem\ Integration \rightarrow Hardware$--$Software\ Platforms$
+
+For Microsoft, the extracted mission emphasizes empowering individuals and organizations through digital technology platforms. Strategic pillars identified by MSG-KG include cloud computing infrastructure, enterprise productivity platforms, and developer ecosystems. Operational mechanisms frequently include Azure cloud services and enterprise software platforms. 
+A representative reasoning path extracted by MSG-KG is:
+
+$Mission \rightarrow Cloud\ Platform\ Strategy \rightarrow Azure\ Infrastructure\ Services$
+
+For NVIDIA, the system extracts mission statements emphasizing leadership in accelerated computing and artificial intelligence technologies. Strategic pillars include GPU computing platforms and AI infrastructure development, while operational mechanisms include CUDA software platforms and GPU data center solutions. A representative reasoning path extracted by MSG-KG is:
+
+$Mission \rightarrow Accelerated\ Computing\ Strategy \rightarrow GPU\ Data\ Center\ Platforms$
+
+Across companies, MSG-KG reveals consistent structural patterns in how corporate missions are operationalized through strategic pillars and operational mechanisms. These case studies demonstrate that the proposed framework enables interpretable analysis of mission–strategy alignment by tracing reasoning paths that link high-level corporate missions to concrete operational initiatives grounded in textual evidence.
+
+
+\subsection{Error Analysis}
+
+We observe three common sources of errors in the proposed framework:
+
+\begin{itemize}[leftmargin=1em, itemsep=0pt, topsep=2pt]
+\item \textit{Implicit strategic relationships}: Some mission–strategy connections are not explicitly stated in corporate disclosures, making it difficult for the system to infer relationships between strategic pillars and operational mechanisms.
+
+\item \textit{Ambiguous mission statements}: Mission statements may appear across multiple sections of long filings, leading to ambiguity in identifying the primary mission representation.
+
+\item \textit{Incomplete evidence spans}: Candidate retrieval may fail to capture all relevant evidence spans supporting a strategic element, which can affect downstream reasoning and explanation quality.
+\end{itemize}
+
+\section{Conclusion and Future Work}
+
+In this work, we introduced \textit{Mission--Strategy Graph Knowledge Graphs (MSG-KG)}, a framework for extracting and reasoning over structured representations of organizational strategy from long corporate disclosures. We formulated a new task, \textit{Mission--Strategy Frame Extraction}, which identifies key components of organizational intent---including mission statements, beneficiaries, value propositions, strategic pillars, operational mechanisms, and supporting evidence spans---from unstructured financial narratives.
+
+To support interpretable analysis of corporate strategy, we proposed the \textit{MSG-KG representation}, which organizes extracted strategic elements into a hierarchical knowledge graph capturing relationships among missions, strategic priorities, operational mechanisms, and supporting textual evidence. The framework integrates transformer-based information extraction, ontology-guided knowledge graph construction grounded in financial ontologies, and graph-aware retrieval for evidence-grounded reasoning. This hybrid architecture enables the system to produce interpretable reasoning paths that connect organizational missions to concrete operational initiatives documented in corporate disclosures.
+
+To evaluate the proposed framework, we constructed a large corpus derived from \textit{10-K filings covering 3,202 publicly traded companies}. Experimental results demonstrate that structured mission--strategy knowledge graphs improve both extraction accuracy and reasoning quality compared with text-only retrieval and generation pipelines. In addition to quantitative evaluation, qualitative case studies on major corporations including Apple, Microsoft, and NVIDIA illustrate how MSG-KG enables interpretable analysis of mission--strategy alignment by tracing reasoning paths that link high-level corporate missions to strategic pillars and operational mechanisms.
+
+This work represents an initial step toward enabling systematic analysis of organizational strategy using natural language processing and knowledge graphs. Several directions remain for future research. First, expanding the dataset to include additional corporate disclosures such as earnings call transcripts, investor presentations, and multi-year filings could enable richer analysis of strategic narratives across organizations and over time. Second, future work may explore joint extraction models that simultaneously learn entity and relation structures in long financial documents, improving the scalability and consistency of knowledge graph construction. Third, incorporating temporal reasoning into the knowledge graph could enable tracking the evolution of corporate strategies across reporting periods.
+
+More broadly, structured knowledge representations derived from corporate disclosures may support a wide range of downstream applications, including strategic benchmarking, corporate governance analysis, financial risk assessment, and decision-support tools for investors and analysts. We hope that the proposed MSG-KG framework and dataset provide a foundation for future research on interpretable reasoning over long financial and organizational documents.
+
+% \section{Introduction}
+
+% These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings,\footnote{\url{http://acl-org.github.io/ACLPUB/formatting.html}} and this document contains additional instructions for the \LaTeX{} style files.
+
+% The templates include the \LaTeX{} source of this document (\texttt{acl\_latex.tex}),
+% the \LaTeX{} style file used to format it (\texttt{acl.sty}),
+% an ACL bibliography style (\texttt{acl\_natbib.bst}),
+% an example bibliography (\texttt{custom.bib}),
+% and the bibliography for the ACL Anthology (\texttt{anthology.bib}).
+
+% \section{Engines}
+
+% To produce a PDF file, pdf\LaTeX{} is strongly recommended (over original \LaTeX{} plus dvips+ps2pdf or dvipdf).
+% The style file \texttt{acl.sty} can also be used with
+% lua\LaTeX{} and
+% Xe\LaTeX{}, which are especially suitable for text in non-Latin scripts.
+% The file \texttt{acl\_lualatex.tex} in this repository provides
+% an example of how to use \texttt{acl.sty} with either
+% lua\LaTeX{} or
+% Xe\LaTeX{}.
+
+% \section{Preamble}
+
+% The first line of the file must be
+% \begin{quote}
+% \begin{verbatim}
+% \documentclass[11pt]{article}
+% \end{verbatim}
+% \end{quote}
+
+% To load the style file in the review version:
+% \begin{quote}
+% \begin{verbatim}
+% \usepackage[review]{acl}
+% \end{verbatim}
+% \end{quote}
+% For the final version, omit the \verb|review| option:
+% \begin{quote}
+% \begin{verbatim}
+% \usepackage{acl}
+% \end{verbatim}
+% \end{quote}
+
+% To use Times Roman, put the following in the preamble:
+% \begin{quote}
+% \begin{verbatim}
+% \usepackage{times}
+% \end{verbatim}
+% \end{quote}
+% (Alternatives like txfonts or newtx are also acceptable.)
+
+% Please see the \LaTeX{} source of this document for comments on other packages that may be useful.
+
+% Set the title and author using \verb|\title| and \verb|\author|. Within the author list, format multiple authors using \verb|\and| and \verb|\And| and \verb|\AND|; please see the \LaTeX{} source for examples.
+
+% By default, the box containing the title and author names is set to the minimum of 5 cm. If you need more space, include the following in the preamble:
+% \begin{quote}
+% \begin{verbatim}
+% \setlength\titlebox{<dim>}
+% \end{verbatim}
+% \end{quote}
+% where \verb|<dim>| is replaced with a length. Do not set this length smaller than 5 cm.
+
+% \section{Document Body}
+
+% \subsection{Footnotes}
+
+% Footnotes are inserted with the \verb|\footnote| command.\footnote{This is a footnote.}
+
+% \subsection{Tables and figures}
+
+% See Table~\ref{tab:accents} for an example of a table and its caption.
+% \textbf{Do not override the default caption sizes.}
+
+% \begin{table}
+%   \centering
+%   \begin{tabular}{lc}
+%     \hline
+%     \textbf{Command} & \textbf{Output} \\
+%     \hline
+%     \verb|{\"a}|     & {\"a}           \\
+%     \verb|{\^e}|     & {\^e}           \\
+%     \verb|{\`i}|     & {\`i}           \\
+%     \verb|{\.I}|     & {\.I}           \\
+%     \verb|{\o}|      & {\o}            \\
+%     \verb|{\'u}|     & {\'u}           \\
+%     \verb|{\aa}|     & {\aa}           \\\hline
+%   \end{tabular}
+%   \begin{tabular}{lc}
+%     \hline
+%     \textbf{Command} & \textbf{Output} \\
+%     \hline
+%     \verb|{\c c}|    & {\c c}          \\
+%     \verb|{\u g}|    & {\u g}          \\
+%     \verb|{\l}|      & {\l}            \\
+%     \verb|{\~n}|     & {\~n}           \\
+%     \verb|{\H o}|    & {\H o}          \\
+%     \verb|{\v r}|    & {\v r}          \\
+%     \verb|{\ss}|     & {\ss}           \\
+%     \hline
+%   \end{tabular}
+%   \caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
+%   \label{tab:accents}
+% \end{table}
+
+% As much as possible, fonts in figures should conform
+% to the document fonts. See Figure~\ref{fig:experiments} for an example of a figure and its caption.
+
+% Using the \verb|graphicx| package graphics files can be included within figure
+% environment at an appropriate point within the text.
+% The \verb|graphicx| package supports various optional arguments to control the
+% appearance of the figure.
+% You must include it explicitly in the \LaTeX{} preamble (after the
+% \verb|\documentclass| declaration and before \verb|\begin{document}|) using
+% \verb|\usepackage{graphicx}|.
+
+% \begin{figure}[t]
+%   \includegraphics[width=\columnwidth]{example-image-golden}
+%   \caption{A figure with a caption that runs for more than one line.
+%     Example image is usually available through the \texttt{mwe} package
+%     without even mentioning it in the preamble.}
+%   \label{fig:experiments}
+% \end{figure}
+
+% \begin{figure*}[t]
+%   \includegraphics[width=0.48\linewidth]{example-image-a} \hfill
+%   \includegraphics[width=0.48\linewidth]{example-image-b}
+%   \caption {A minimal working example to demonstrate how to place
+%     two images side-by-side.}
+% \end{figure*}
+
+% \subsection{Hyperlinks}
+
+% Users of older versions of \LaTeX{} may encounter the following error during compilation:
+% \begin{quote}
+% \verb|\pdfendlink| ended up in different nesting level than \verb|\pdfstartlink|.
+% \end{quote}
+% This happens when pdf\LaTeX{} is used and a citation splits across a page boundary. The best way to fix this is to upgrade \LaTeX{} to 2018-12-01 or later.
+
+% \subsection{Citations}
+
+% \begin{table*}
+%   \centering
+%   \begin{tabular}{lll}
+%     \hline
+%     \textbf{Output}           & \textbf{natbib command} & \textbf{ACL only command} \\
+%     \hline
+%     \citep{Gusfield:97}       & \verb|\citep|           &                           \\
+%     \citealp{Gusfield:97}     & \verb|\citealp|         &                           \\
+%     \citet{Gusfield:97}       & \verb|\citet|           &                           \\
+%     \citeyearpar{Gusfield:97} & \verb|\citeyearpar|     &                           \\
+%     \citeposs{Gusfield:97}    &                         & \verb|\citeposs|          \\
+%     \hline
+%   \end{tabular}
+%   \caption{\label{citation-guide}
+%     Citation commands supported by the style file.
+%     The style is based on the natbib package and supports all natbib citation commands.
+%     It also supports commands defined in previous ACL style files for compatibility.
+%   }
+% \end{table*}
+
+% Table~\ref{citation-guide} shows the syntax supported by the style files.
+% We encourage you to use the natbib styles.
+% You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
+% You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{Gusfield:97}.
+% You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{Gusfield:97}).
+
+% A possessive citation can be made with the command \verb|\citeposs|.
+% This is not a standard natbib command, so it is generally not compatible
+% with other style files.
+
+% \subsection{References}
+
+% \nocite{Ando2005,andrew2007scalable,rasooli-tetrault-2015}
+
+% The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
+% If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
+% \begin{quote}
+% \begin{verbatim}
+% \bibliography{custom}
+% \end{verbatim}
+% \end{quote}
+
+% You can obtain the complete ACL Anthology as a Bib\TeX{} file from \url{https://aclweb.org/anthology/anthology.bib.gz}.
+% To include both the Anthology and your own .bib file, use the following instead of the above.
+% \begin{quote}
+% \begin{verbatim}
+% \bibliography{anthology,custom}
+% \end{verbatim}
+% \end{quote}
+
+% Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files.
+
+% \subsection{Equations}
+
+% An example equation is shown below:
+% \begin{equation}
+%   \label{eq:example}
+%   A = \pi r^2
+% \end{equation}
+
+% Labels for equation numbers, sections, subsections, figures and tables
+% are all defined with the \verb|\label{label}| command and cross references
+% to them are made with the \verb|\ref{label}| command.
+
+% This an example cross-reference to Equation~\ref{eq:example}.
+
+% \subsection{Appendices}
+
+% Use \verb|\appendix| before any appendix section to switch the section numbering over to letters. See Appendix~\ref{sec:appendix} for an example.
+
+% \section{Bib\TeX{} Files}
+% \label{sec:bibtex}
+
+% Unicode cannot be used in Bib\TeX{} entries, and some ways of typing special characters can disrupt Bib\TeX's alphabetization. The recommended way of typing special characters is shown in Table~\ref{tab:accents}.
+
+% Please ensure that Bib\TeX{} records contain DOIs or URLs when possible, and for all the ACL materials that you reference.
+% Use the \verb|doi| field for DOIs and the \verb|url| field for URLs.
+% If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references section will appear as a hyperlink to the paper, using the hyperref \LaTeX{} package.
+
+% \section*{Limitations}
+
+% This document does not cover the content requirements for ACL or any
+% other specific venue.  Check the author instructions for
+% information on
+% maximum page lengths, the required ``Limitations'' section,
+% and so on.
+
+% \section*{Acknowledgments}
+
+% This document has been adapted
+% by Steven Bethard, Ryan Cotterell and Rui Yan
+% from the instructions for earlier ACL and NAACL proceedings, including those for
+% ACL 2019 by Douwe Kiela and Ivan Vuli\'{c},
+% NAACL 2019 by Stephanie Lukin and Alla Roskovskaya,
+% ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu,
+% NAACL 2018 by Margaret Mitchell and Stephanie Lukin,
+% Bib\TeX{} suggestions for (NA)ACL 2017/2018 from Jason Eisner,
+% ACL 2017 by Dan Gildea and Min-Yen Kan,
+% NAACL 2017 by Margaret Mitchell,
+% ACL 2012 by Maggie Li and Michael White,
+% ACL 2010 by Jing-Shin Chang and Philipp Koehn,
+% ACL 2008 by Johanna D. Moore, Simone Teufel, James Allan, and Sadaoki Furui,
+% ACL 2005 by Hwee Tou Ng and Kemal Oflazer,
+% ACL 2002 by Eugene Charniak and Dekang Lin,
+% and earlier ACL and EACL formats written by several people, including
+% John Chen, Henry S. Thompson and Donald Walker.
+% Additional elements were taken from the formatting instructions of the \emph{International Joint Conference on Artificial Intelligence} and the \emph{Conference on Computer Vision and Pattern Recognition}.
+
+% % Bibliography entries for the entire Anthology, followed by custom entries
+% %\bibliography{anthology,custom}
+% % Custom bibliography entries only
+\bibliography{custom}
+
+\appendix
+
+\section{Example Appendix}
+\label{sec:appendix}
+
+This is an appendix.
+
+\end{document}

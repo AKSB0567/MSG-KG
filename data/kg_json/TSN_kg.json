@@ -1,0 +1,199 @@
+{
+  "Mission": {
+    "text": "compliance, these requirements are continually evolving."
+  },
+  "StrategicObjective": [
+    {
+      "text": "Tyson, it has grown under four generations of family leadership.",
+      "objective_type": "growth"
+    },
+    {
+      "text": "Some of the key factors influencing our business are customer demand for our products; the ability to maintain and grow relationships with customers and introduce new and innovative products to the marketplace; accessibility of international markets; market prices for our products; the cost and availability of live cattle and hogs, raw materials and feed ingredients; availability of team members to operate our production facilities; and operating efficiencies of our facilities.",
+      "objective_type": "innovation"
+    },
+    {
+      "text": "We take a comprehensive and holistic approach to managing natural resources and continuously work to increase operational efficiencies, reduce greenhouse gas emissions across the supply chain, and partner with stakeholders to create a more resilient food system.",
+      "objective_type": "cost_leadership"
+    },
+    {
+      "text": "ENVIRONMENTAL REGULATION AND FOOD SAFETY\nEnvironmental Regulation\nOur facilities for processing beef, pork, chicken, turkey and prepared foods, milling feed and housing live chickens and swine are subject to many international, federal, state and local environmental laws and regulations, including provisions relating to all environmental media - air, land and water, and generally provide for environmental protection.",
+      "objective_type": "sustainability"
+    }
+  ],
+  "Capability": [
+    {
+      "name": "supply chain"
+    },
+    {
+      "name": "logistics"
+    },
+    {
+      "name": "manufacturing"
+    },
+    {
+      "name": "research and development"
+    }
+  ],
+  "Initiative": [
+    {
+      "name": "Newly hired team members participate in orientation program",
+      "status": "active"
+    },
+    {
+      "name": "This program",
+      "status": "active"
+    },
+    {
+      "name": "We utilize our national distribution system and customer support service",
+      "status": "active"
+    }
+  ],
+  "RiskTheme": [
+    {
+      "name": "economic",
+      "risk_category": "macro"
+    },
+    {
+      "name": "regulat",
+      "risk_category": "regulatory"
+    },
+    {
+      "name": "competi",
+      "risk_category": "competitive"
+    },
+    {
+      "name": "supply chain",
+      "risk_category": "supply_chain"
+    },
+    {
+      "name": "cybersecurity",
+      "risk_category": "technology"
+    }
+  ],
+  "Company": {
+    "ticker": "TSN",
+    "cik": "100493"
+  },
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Tyson, it has grown under four generations of fami"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Some of the key factors influencing our business a"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "We take a comprehensive and holistic approach to m"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "ENVIRONMENTAL REGULATION AND FOOD SAFETY\nEnvironme"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "supply chain"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Tyson, it has grown under four generations of fami"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "logistics"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Tyson, it has grown under four generations of fami"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "manufacturing"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Tyson, it has grown under four generations of fami"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "research and development"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "Tyson, it has grown under four generations of fami"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Newly hired team members participate in orientation program"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "pursues",
+      "This program"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "pursues",
+      "We utilize our national distribution system and customer support service"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "economic"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "regulat"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "competi"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "cybersecurity"
+    ]
+  ]
+}
