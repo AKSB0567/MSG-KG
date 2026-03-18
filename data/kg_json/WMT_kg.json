@@ -1,0 +1,212 @@
+{
+  "Mission": {
+    "text": "(\"sec\") or may file with or furnish to the sec in the future, and prior or future public announcements and presentations that we or our management have made or may make, include or may include, or incorporate or may incorporate by reference, statements that may be deemed to be \"forward-looking statements\" within the meaning of section 21e of the securities exchange act of 1934, as amended (the \"exchange act\"), that are intended to enjoy the protection of the safe harbor for forward-looking state"
+  },
+  "StrategicObjective": [
+    {
+      "text": "In 2018, we expanded our eCommerce and digital presence through acquisitions with our majority stakes in Flipkart and PhonePe in India.",
+      "objective_type": "growth"
+    },
+    {
+      "text": "Through innovation, we strive to continuously improve a customer-centric experience that seamlessly integrates our eCommerce and retail stores in an omni-channel offering that saves time for our customers.",
+      "objective_type": "innovation"
+    },
+    {
+      "text": "Everyday low cost (\"EDLC\") is our commitment to control expenses so our cost savings can be passed along to our customers.",
+      "objective_type": "cost_leadership"
+    },
+    {
+      "text": "These forward-looking statements may relate to:\n\u2022\nmacroeconomic, geopolitical, and business conditions, trends and events around the world and in the markets in which we operate, including inflation or deflation, generally, and in certain product categories, the impact of supply chain challenges, tariffs and recessionary pressures;\n\u2022\nthe growth of our business or change in our competitive position in the future, or in or over particular periods, both generally, and with respect to particular mar",
+      "objective_type": "sustainability"
+    }
+  ],
+  "Capability": [
+    {
+      "name": "supply chain"
+    },
+    {
+      "name": "logistics"
+    },
+    {
+      "name": "digital platform"
+    },
+    {
+      "name": "artificial intelligence"
+    },
+    {
+      "name": "data analytics"
+    }
+  ],
+  "Initiative": [
+    {
+      "name": "Commerce initiative",
+      "status": "active"
+    },
+    {
+      "name": "Store service",
+      "status": "active"
+    },
+    {
+      "name": "Commerce websites and service",
+      "status": "active"
+    }
+  ],
+  "RiskTheme": [
+    {
+      "name": "inflation",
+      "risk_category": "macro"
+    },
+    {
+      "name": "regulat",
+      "risk_category": "regulatory"
+    },
+    {
+      "name": "competi",
+      "risk_category": "competitive"
+    },
+    {
+      "name": "supply chain",
+      "risk_category": "supply_chain"
+    },
+    {
+      "name": "cybersecurity",
+      "risk_category": "technology"
+    }
+  ],
+  "Company": {
+    "ticker": "WMT",
+    "cik": "104169"
+  },
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "In 2018, we expanded our eCommerce and digital pre"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Through innovation, we strive to continuously impr"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Everyday low cost (\"EDLC\") is our commitment to co"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "These forward-looking statements may relate to:\n\u2022\n"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "supply chain"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "In 2018, we expanded our eCommerce and digital pre"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "logistics"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "In 2018, we expanded our eCommerce and digital pre"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "digital platform"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "In 2018, we expanded our eCommerce and digital pre"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "artificial intelligence"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "In 2018, we expanded our eCommerce and digital pre"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "data analytics"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "In 2018, we expanded our eCommerce and digital pre"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Commerce initiative"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Store service"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Commerce websites and service"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "inflation"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "regulat"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "competi"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "supply chain"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "cybersecurity"
+    ]
+  ]
+}

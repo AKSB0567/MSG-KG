@@ -1,0 +1,186 @@
+{
+  "Mission": {
+    "text": "(the \u201csec\u201d)."
+  },
+  "StrategicObjective": [
+    {
+      "text": "The Company is focused on expanding its market opportunities related to smartphones, personal computers, tablets, wearables and accessories, and services.",
+      "objective_type": "growth"
+    },
+    {
+      "text": "| 2024 Form 10-K | 2\nThe Company\u2019s ability to compete successfully depends heavily on ensuring the continuing and timely introduction of innovative new products, services and technologies to the marketplace.",
+      "objective_type": "innovation"
+    },
+    {
+      "text": "Many of the Company\u2019s competitors seek to compete primarily through aggressive pricing and very low cost structures, and by imitating the Company\u2019s products and infringing on its intellectual property.",
+      "objective_type": "cost_leadership"
+    },
+    {
+      "text": "This includes press releases and other information about financial performance, information on environmental, social and governance matters, and details related to the Company\u2019s annual meeting of shareholders.",
+      "objective_type": "sustainability"
+    }
+  ],
+  "Capability": [
+    {
+      "name": "cloud"
+    },
+    {
+      "name": "manufacturing"
+    },
+    {
+      "name": "research and development"
+    }
+  ],
+  "Initiative": [
+    {
+      "name": "Apple authorized service network for repair and replacement service",
+      "status": "active"
+    },
+    {
+      "name": "Digital Content\nThe Company operates various platform",
+      "status": "active"
+    },
+    {
+      "name": "Payment Services\nThe Company offers payment service",
+      "status": "active"
+    }
+  ],
+  "RiskTheme": [
+    {
+      "name": "economic",
+      "risk_category": "macro"
+    },
+    {
+      "name": "government",
+      "risk_category": "regulatory"
+    },
+    {
+      "name": "competi",
+      "risk_category": "competitive"
+    },
+    {
+      "name": "inventory",
+      "risk_category": "supply_chain"
+    },
+    {
+      "name": "cybersecurity",
+      "risk_category": "technology"
+    }
+  ],
+  "Company": {
+    "ticker": "AAPL",
+    "cik": "320193"
+  },
+  "Edges": [
+    [
+      "Company",
+      "hasMission",
+      "Mission"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "The Company is focused on expanding its market opp"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "| 2024 Form 10-K | 2\nThe Company\u2019s ability to comp"
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "Many of the Company\u2019s competitors seek to compete "
+    ],
+    [
+      "Company",
+      "statesObjective",
+      "This includes press releases and other information"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "cloud"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The Company is focused on expanding its market opp"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "manufacturing"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The Company is focused on expanding its market opp"
+    ],
+    [
+      "Company",
+      "buildsCapability",
+      "research and development"
+    ],
+    [
+      "Capability",
+      "supportsObjective",
+      "The Company is focused on expanding its market opp"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Apple authorized service network for repair and replacement service"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "cloud"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Digital Content\nThe Company operates various platform"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "cloud"
+    ],
+    [
+      "Company",
+      "pursues",
+      "Payment Services\nThe Company offers payment service"
+    ],
+    [
+      "Initiative",
+      "initiativeEnables",
+      "cloud"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "economic"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "government"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "competi"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "inventory"
+    ],
+    [
+      "Company",
+      "exposedTo",
+      "cybersecurity"
+    ]
+  ]
+}

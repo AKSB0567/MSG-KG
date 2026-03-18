@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(python:*)",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(taskkill:*)",
+      "WebSearch",
+      "Bash(ls:*)",
+      "Bash(sleep:*)",
+      "Bash(python3:*)",
+      "Bash(ollama list:*)",
+      "Bash(./ollama/ollama.exe list:*)",
+      "Bash(tasklist:*)",
+      "Bash(for q:*)",
+      "Bash(do echo:*)",
+      "Read(//d/PhD/Finance/MSGKG/MSGKG/3202/data/**)",
+      "Bash(done)",
+      "Read(//d/PhD/Finance/MSGKG/MSGKG/3202/output/**)",
+      "Bash(find:*)",
+      "Bash(\"/c/Users/atmak/AppData/Local/Programs/Ollama/ollama.exe\" list:*)",
+      "Bash(D:/PhD/Finance/MSGKG/ollama/ollama.exe list:*)",
+      "Bash(python -c \":*)"
+    ]
+  }
+}

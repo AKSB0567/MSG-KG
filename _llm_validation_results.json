@@ -1,0 +1,1114 @@
+{
+  "0000034782": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "The statement is directly stated as part of the company's purpose in the context provided.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": []
+  },
+  "0000002488": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "Directly stated as mission in the filing",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": []
+  },
+  "0000004977": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 2,
+    "quality_reason": "The statement is presented as a goal, which aligns closely with the company's purpose and who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 85,
+    "issues": [
+      "labeled as a goal rather than a mission"
+    ]
+  },
+  "0000004904": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 4,
+    "quality_reason": "The statement focuses on operational aspects of safety rather than the overarching purpose of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 90,
+    "issues": [
+      "operational focus",
+      "not a clear declaration of why the company exists",
+      "truncated sentence"
+    ]
+  },
+  "0000004962": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The statement includes elements of the company's purpose but is mixed with operational and strategic content.",
+    "corrected_mission": "We aim to provide the world’s best customer experience every day.",
+    "confidence": 85,
+    "issues": [
+      "mixed with operational and strategic content",
+      "truncated sentence"
+    ]
+  },
+  "0000005272": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "The statement is directly labeled as part of the company's purpose and values, which aligns with the definition of a mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": []
+  },
+  "0000007789": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 4,
+    "quality_reason": "The text describes strategic goals and operational considerations rather than a clear mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "operational focus",
+      "financial goals",
+      "HR language",
+      "truncated sentence"
+    ]
+  },
+  "0000008063": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The statement focuses on how the company plans to grow rather than why it exists and who it serves.",
+    "corrected_mission": "Increase value by developing technologies and capabilities, either internally or through acquisition, and using those capabilities to provide innovative solutions to our targeted markets where our technology can be beneficial.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence"
+    ]
+  },
+  "0000040729": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "The mission statement is directly stated and clearly defines the purpose and who the company serves.",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": []
+  },
+  "0000006201": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic actions and commitments rather than the core purpose of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on stakeholder engagement and initiatives rather than core purpose"
+    ]
+  },
+  "0000007084": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "The statement clearly defines the company's purpose and who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": []
+  },
+  "0000008818": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The extracted text includes elements of strategy and operations mixed with mission-like language.",
+    "corrected_mission": "Innovate to develop and introduce new products and solutions that help customers solve complex problems in the industries we serve.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "mixes operational details",
+      "truncated sentence"
+    ]
+  },
+  "0000011544": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 0,
+    "quality_reason": "The text describes operational activities rather than the company's purpose or mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "describes operational activities",
+      "truncated sentence"
+    ]
+  },
+  "0000012208": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a strategic focus rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on market segments and margins"
+    ]
+  },
+  "0000012927": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The statement focuses on internal safety and employee environment, which is more aligned with HR policies rather than the company's overarching mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a clear statement of the company's purpose or who it serves"
+    ]
+  },
+  "0000014272": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic initiatives and acquisitions rather than the company's mission or purpose.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on growth and acquisitions rather than purpose"
+    ]
+  },
+  "0000014930": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The extracted text contains elements of the mission but is mixed with strategic goals.",
+    "corrected_mission": "Expand boating participation through innovative products and shared-access experiences.",
+    "confidence": 85,
+    "issues": [
+      "mixed with strategic goals",
+      "truncated sentence"
+    ]
+  },
+  "0000018230": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 2,
+    "quality_reason": "The statement includes elements of mission and strategy, requiring some inference.",
+    "corrected_mission": "Help customers build a better, more sustainable world",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "mixed with operational and strategic elements"
+    ]
+  },
+  "0000020286": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text focuses on HR policies and practices rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000024090": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The text describes strategic goals rather than a clear mission statement.",
+    "corrected_mission": "Pursuit of long-term profitable growth through new products, expanded distribution, and retention efforts.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on how to achieve goals rather than why the company exists"
+    ]
+  },
+  "0000021175": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The statement includes elements of the company's purpose and its operational approach, but it is not directly labeled as a mission.",
+    "corrected_mission": "To provide specialized commercial property and casualty insurance solutions, reflecting the specialist nature of the business.",
+    "confidence": 85,
+    "issues": [
+      "contains operational details",
+      "not directly labeled as mission in the document"
+    ]
+  },
+  "0000021344": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 2,
+    "quality_reason": "The provided text includes elements of the company's purpose and vision, requiring some inference.",
+    "corrected_mission": "We are guided by our purpose, which is to refresh the world and make a difference.",
+    "confidence": 85,
+    "issues": [
+      "contains vision and strategy elements",
+      "not a single cohesive mission statement"
+    ]
+  },
+  "0000021665": {
+    "is_mission": "NO",
+    "actual_type": "MIXED",
+    "mission_quality": 0,
+    "quality_reason": "The provided text does not contain a mission statement; it appears to be part of the document header.",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": [
+      "not a mission statement",
+      "part of document metadata",
+      "lacks purpose and beneficiary information"
+    ]
+  },
+  "0000028412": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The statement includes elements of mission and strategy, focusing on both the purpose and methods.",
+    "corrected_mission": "To build long-term shareholder value through a relationship banking strategy.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "HR language",
+      "mixed with operational goals"
+    ]
+  },
+  "0000022356": {
+    "is_mission": "NO",
+    "actual_type": "FINANCIAL",
+    "mission_quality": 0,
+    "quality_reason": "The extracted text provides a financial ranking and asset size, not a mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains financial metrics",
+      "not a declaration of purpose or who it serves"
+    ]
+  },
+  "0000039263": {
+    "is_mission": "NO",
+    "actual_type": "MIXED",
+    "mission_quality": 0,
+    "quality_reason": "The provided text is not a mission statement; it appears to be part of the document's metadata and table of contents.",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": [
+      "not a mission statement",
+      "contains metadata",
+      "truncated sentence"
+    ]
+  },
+  "0000026172": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text focuses on internal company culture and diversity, which is more aligned with HR policies rather than a mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "lacks external focus on customers or broader impact"
+    ]
+  },
+  "0000026324": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic initiatives and financial goals rather than the core purpose of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "financial goals",
+      "lacks clear purpose and beneficiary"
+    ]
+  },
+  "0000003570": {
+    "is_mission": "NO",
+    "actual_type": "VISION",
+    "mission_quality": 2,
+    "quality_reason": "The statement is labeled as a vision in the document and provides a broader aspirational goal rather than a specific mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "labeled as vision",
+      "aspirational rather than operational",
+      "does not specify who the company serves directly"
+    ]
+  },
+  "0000020212": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text focuses on talent acquisition, development, and retention, which is more aligned with HR strategies rather than a mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000027904": {
+    "is_mission": "NO",
+    "actual_type": "MIXED",
+    "mission_quality": 0,
+    "quality_reason": "The provided text is not a mission statement; it appears to be part of the document header.",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": [
+      "not a mission statement",
+      "part of document metadata"
+    ]
+  },
+  "0000027996": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic initiatives rather than the core purpose or mission of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on operational and financial goals",
+      "lacks clear statement of purpose or who the company serves"
+    ]
+  },
+  "0000028823": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic goals and operational priorities rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on internal processes and financial goals",
+      "lacks declaration of purpose or served stakeholders"
+    ]
+  },
+  "0000028917": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a strategy for expanding the use of private label cards, not the company's mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on operational details",
+      "truncated sentence"
+    ]
+  },
+  "0000034067": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The statement describes how the company plans to achieve its goals rather than why it exists or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on maximizing company value",
+      "lacks purpose and beneficiary"
+    ]
+  },
+  "0000029905": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The provided text includes elements of strategy and operations mixed with mission-like statements.",
+    "corrected_mission": "Dover is committed to delivering shareholder value creation through a combination of sustained profitable growth, operational excellence, superior free cash flow generation and productive capital re-deployment while adhering to a conservative financial policy.",
+    "confidence": 75,
+    "issues": [
+      "contains strategic metrics",
+      "includes operational focus",
+      "truncated sentence"
+    ]
+  },
+  "0000059478": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "Directly stated as the company's purpose in the 10-K filing",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": []
+  },
+  "0000045876": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "Derived from business description context, not directly labeled as mission",
+    "corrected_mission": "To help customers build better businesses by addressing environmental challenges through sustainable solutions.",
+    "confidence": 75,
+    "issues": [
+      "Contains strategic elements",
+      "Not directly labeled as mission in the text",
+      "Lacks a clear declaration of why the company exists"
+    ]
+  },
+  "0000033213": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 2,
+    "quality_reason": "The statement is presented in the context of the company's operational strategy, implying it as a guiding principle rather than directly labeled as a mission.",
+    "corrected_mission": "NONE",
+    "confidence": 85,
+    "issues": [
+      "Present in filing but labeled as commitment/goal/belief, requires inference"
+    ]
+  },
+  "0000033185": {
+    "is_mission": "PARTIAL",
+    "actual_type": "VISION",
+    "mission_quality": 2,
+    "quality_reason": "The extracted text aligns more closely with a vision statement, indicating a future state rather than the core purpose.",
+    "corrected_mission": "Our vision is to be a trusted global leader in data, analytics and technology that creates innovative solutions and insights for our customers.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence"
+    ]
+  },
+  "0000034088": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic initiatives rather than the fundamental purpose of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on operational and investment strategies",
+      "lacks clear declaration of purpose or beneficiaries"
+    ]
+  },
+  "0000035527": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 0,
+    "quality_reason": "The text describes the company's structure and operations, not its mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "describes company structure",
+      "focuses on operational details",
+      "lacks purpose or beneficiary"
+    ]
+  },
+  "0000036966": {
+    "is_mission": "NO",
+    "actual_type": "REGULATORY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes regulatory aspects of the business, not the company's mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "not a mission statement",
+      "describes regulatory environment",
+      "truncated sentence"
+    ]
+  },
+  "0000030625": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a strategic plan rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on growth areas rather than purpose"
+    ]
+  },
+  "0000037785": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The statement is part of a broader strategic plan and not directly labeled as a mission.",
+    "corrected_mission": "FMC is guided by our strategic plan which aims to transform our relationship with growers to become a trusted source for technical expertise and innovative solutions, to deliver superior growth and returns to our stakeholders, and to lead the crop protection industry in safety, talent, sustainability, and innovation.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "part of a larger strategic plan",
+      "not directly labeled as mission"
+    ]
+  },
+  "0000037808": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a compensation philosophy, which is an HR policy, not a mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000037996": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text focuses on internal HR policies and employee empowerment rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000038725": {
+    "is_mission": "PARTIAL",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 3,
+    "quality_reason": "The text describes what the company does (operations) rather than why it exists or who it serves.",
+    "corrected_mission": "Water Systems is a global leader in the production and marketing of water pumping systems, dedicated to providing innovative solutions for water management and distribution.",
+    "confidence": 85,
+    "issues": [
+      "focuses on operations rather than mission",
+      "lacks clear statement of purpose or beneficiaries"
+    ]
+  },
+  "0000039911": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The statement focuses on how the company operates rather than why it exists.",
+    "corrected_mission": "We are committed to pursuing technology and product innovation that support our sustainability efforts while also delivering great quality products to our customers.",
+    "confidence": 75,
+    "issues": [
+      "focuses on strategy and operations",
+      "truncated sentence"
+    ]
+  },
+  "0000040211": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 2,
+    "quality_reason": "The statement includes elements of the company's purpose and values but is not directly labeled as a mission.",
+    "corrected_mission": "We are committed to growing our business in a sustainable and socially responsible manner, and we demonstrate our commitment through our programs and initiatives.",
+    "confidence": 85,
+    "issues": [
+      "truncated sentence",
+      "mixes mission with operational commitments"
+    ]
+  },
+  "0000040533": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 4,
+    "quality_reason": "The statement focuses on how the company will achieve its goals (R&D investments, creating new aircraft) rather than why it exists or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 90,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on operational activities",
+      "lacks clear purpose or beneficiary"
+    ]
+  },
+  "0000040545": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 2,
+    "quality_reason": "The statement is part of a broader context that includes human capital management, indicating a mix of mission and operational focus.",
+    "corrected_mission": "to invent the future of flight, lift people up and bring them home safely",
+    "confidence": 85,
+    "issues": [
+      "mixed with HR language",
+      "part of a larger paragraph"
+    ]
+  },
+  "0000040987": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "The statement is directly labeled as the mission in the 10-K filing.",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": []
+  },
+  "0000042888": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 4,
+    "quality_reason": "The statement focuses on internal culture and employee treatment, which is more aligned with HR policies rather than a clear declaration of the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 85,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "lacks external focus"
+    ]
+  },
+  "0000045012": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The statement focuses on the development of technologies and their benefits, which aligns more with strategy than a clear mission.",
+    "corrected_mission": "We are committed to the continued development of innovative chemical and mechanical technologies that allow for more economical and environment-friendly development of the world’s oil and natural gas reserves, and that reduce noise while complying with Tier 4 lower emission legislation.",
+    "confidence": 75,
+    "issues": [
+      "truncated sentence",
+      "contains strategic elements"
+    ]
+  },
+  "0000045919": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "The statement directly declares the company's purpose and who it serves, as indicated in the 10-K filing.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": []
+  },
+  "0000046080": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "Directly stated as the company's mission in the filing.",
+    "corrected_mission": "NONE",
+    "confidence": 100,
+    "issues": []
+  },
+  "0000047111": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 2,
+    "quality_reason": "The provided text is part of a broader strategy and commitment to sustainability, derived from the company's founding beliefs.",
+    "corrected_mission": "He was a purpose-driven leader who believed we could use chocolate to Make More Moments of Goodness in the world for our consumers today and for many generations to come.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on sustainability rather than core mission"
+    ]
+  },
+  "0000048287": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The statement describes what the company does and its market position but lacks a clear declaration of why the company exists and who it serves.",
+    "corrected_mission": "HNI Corporation is dedicated to enhancing spaces through innovative commercial furnishings and hearth products, serving both business and home environments globally.",
+    "confidence": 75,
+    "issues": [
+      "lacks clear purpose",
+      "focuses on what rather than why",
+      "mixes operational and mission elements"
+    ]
+  },
+  "0000049071": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The statement describes an integrated care delivery model, which is more aligned with how the company operates rather than why it exists.",
+    "corrected_mission": "At the core of our strategy is our integrated care delivery model, which unites quality care, high member engagement, and sophisticated data analytics.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence"
+    ]
+  },
+  "0000049196": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The text includes elements of the company's vision and strategy, but not a clear mission statement.",
+    "corrected_mission": "To be the leading people-first, customer-centered bank in the country by building stronger and more profitable relationships through our OCR sales and service process.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "mixes vision and strategy with operational details"
+    ]
+  },
+  "0000004281": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text focuses on internal HR practices and employee development, not the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000049826": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 4,
+    "quality_reason": "The statement describes what the company does (operations) rather than why it exists or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 90,
+    "issues": [
+      "describes operational scope",
+      "lacks purpose or beneficiary"
+    ]
+  },
+  "0000039311": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a strategy for managing credit risk in the securities portfolio, not the company's mission or purpose.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on operational detail"
+    ]
+  },
+  "0000050863": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "The statement is part of a broader operational context and not directly labeled as a mission.",
+    "corrected_mission": "to deliver cutting-edge technology solutions to our customers",
+    "confidence": 85,
+    "issues": [
+      "embedded in operational context",
+      "not directly labeled as mission"
+    ]
+  },
+  "0000051143": {
+    "is_mission": "NO",
+    "actual_type": "MIXED",
+    "mission_quality": 0,
+    "quality_reason": "The extracted text is not a coherent statement and does not declare the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "truncated sentence",
+      "lacks clarity",
+      "not a complete thought"
+    ]
+  },
+  "0000051253": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 0,
+    "quality_reason": "The text describes operational processes rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "truncated sentence",
+      "describes operational activities",
+      "not a clear statement of purpose or values"
+    ]
+  },
+  "0000051434": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a specific strategy and goal related to workplace safety, not the overarching purpose or mission of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on operational aspect"
+    ]
+  },
+  "0000051644": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic areas of investment rather than the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence"
+    ]
+  },
+  "0000019617": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 0,
+    "quality_reason": "The text describes the company's legal structure, operations, and financial status, not its mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains operational details",
+      "financial metrics",
+      "legal information",
+      "truncated sentence"
+    ]
+  },
+  "0000055785": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes a strategic initiative rather than the company's mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on operational changes",
+      "truncated sentence"
+    ]
+  },
+  "0000033992": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The provided text includes elements of strategy and operational goals rather than a clear mission statement.",
+    "corrected_mission": "To be the preferred multi-line property and casualty insurance company for selected producers in the geographic markets in which we operate.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on how to achieve rather than why the company exists"
+    ]
+  },
+  "0000058492": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text focuses on internal HR practices and succession planning, not the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000059527": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 4,
+    "quality_reason": "The statement focuses on how the company manages risks, which is more aligned with strategy and operations rather than declaring the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 85,
+    "issues": [
+      "truncated sentence",
+      "focuses on operational strategy",
+      "lacks clear purpose or beneficiary"
+    ]
+  },
+  "0000059558": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 1,
+    "quality_reason": "Directly states the purpose and who it serves",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": []
+  },
+  "0000060086": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 0,
+    "quality_reason": "The text describes an operational detail about ownership and business activity, not the company's purpose or mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "describes ownership stake",
+      "details business activity",
+      "not a statement of purpose or mission"
+    ]
+  },
+  "0000060519": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 4,
+    "quality_reason": "The statement focuses on operational compliance and management attention rather than declaring the company's purpose or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "operational focus",
+      "lacks purpose and beneficiary",
+      "vague and generic"
+    ]
+  },
+  "0000060667": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The extracted text outlines specific strategic initiatives rather than a clear mission statement.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on operational and strategic goals"
+    ]
+  },
+  "0000018926": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MISSION",
+    "mission_quality": 3,
+    "quality_reason": "Derived from business description context, not directly labeled as mission.",
+    "corrected_mission": "We are unleashing the world's digital potential by providing a broad array of integrated products and services to our domestic and global Business customers and our domestic Mass Markets customers.",
+    "confidence": 85,
+    "issues": [
+      "Not directly labeled as mission in the document",
+      "Part of a larger business overview"
+    ]
+  },
+  "0000062234": {
+    "is_mission": "PARTIAL",
+    "actual_type": "HR",
+    "mission_quality": 2,
+    "quality_reason": "The text focuses on employee-related goals and values, which are part of the broader mission but not the full mission statement.",
+    "corrected_mission": "Our focus on ‘People Pleasing People’ is at the heart of how we care for our guests, customers and employees.",
+    "confidence": 85,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "lacks broader purpose and who it serves"
+    ]
+  },
+  "0000015615": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 2,
+    "quality_reason": "The statement is part of a broader section on sustainability and stakeholder benefits, requiring some inference.",
+    "corrected_mission": "We strive to be recognized as a company that achieves customer expectations safely, profitably and in a manner that is environmentally responsible, socially aware and rewarding for all our stakeholders.",
+    "confidence": 85,
+    "issues": [
+      "mixed with operational and strategic elements",
+      "part of a larger paragraph on sustainability"
+    ]
+  },
+  "0000024545": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes strategic goals and initiatives rather than the fundamental purpose of the company.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on growth and portfolio expansion",
+      "lacks a clear statement of purpose or who the company serves"
+    ]
+  },
+  "0000029989": {
+    "is_mission": "NO",
+    "actual_type": "STRATEGY",
+    "mission_quality": 0,
+    "quality_reason": "The text describes the company's approach to AI and its strategic considerations, not the fundamental purpose or reason for existence.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on technology and risk management",
+      "truncated sentence"
+    ]
+  },
+  "0000052827": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The provided text focuses on how the company manages its assets and strategies rather than declaring why it exists and who it serves.",
+    "corrected_mission": "Own high-quality timberlands managed with long-term sustainable yield strategy; Active portfolio management through selective acquisitions and dispositions.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "focuses on operational aspects"
+    ]
+  },
+  "0000031791": {
+    "is_mission": "PARTIAL",
+    "actual_type": "STRATEGY",
+    "mission_quality": 3,
+    "quality_reason": "The extracted text is more focused on how the company plans to achieve its goals rather than why it exists or who it serves.",
+    "corrected_mission": "Utilize our knowledge and expertise to address customers’ critical needs and drive scientific breakthroughs.",
+    "confidence": 85,
+    "issues": [
+      "contains strategic metrics",
+      "truncated sentence",
+      "focuses on methods rather than purpose"
+    ]
+  },
+  "0000018349": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 4,
+    "quality_reason": "The text describes what the company does rather than why it exists or who it serves.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "describes operations",
+      "truncated sentence",
+      "lacks purpose or beneficiary"
+    ]
+  },
+  "0000027419": {
+    "is_mission": "PARTIAL",
+    "actual_type": "MIXED",
+    "mission_quality": 3,
+    "quality_reason": "Derived from business description context, not directly stated as mission.",
+    "corrected_mission": "Delight with newness, style and value; strengthen owned brands and curate leading national brands; Everyday low pricing, promotions and Target Circle loyalty ecosystem for delivering value.",
+    "confidence": 75,
+    "issues": [
+      "contains strategic elements",
+      "not directly labeled as mission in the document"
+    ]
+  },
+  "0000100790": {
+    "is_mission": "PARTIAL",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 3,
+    "quality_reason": "The statement describes what the company does rather than why it exists or who it serves.",
+    "corrected_mission": "To serve as a global supplier of essential industrial chemicals and polymers, enabling innovation and sustainability across diverse industries.",
+    "confidence": 75,
+    "issues": [
+      "describes operations rather than purpose",
+      "lacks explicit statement of who the company serves"
+    ]
+  },
+  "0000036104": {
+    "is_mission": "NO",
+    "actual_type": "OPERATIONS",
+    "mission_quality": 0,
+    "quality_reason": "The text describes operational activities rather than the company's purpose or mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "truncated sentence",
+      "describes operational activities",
+      "lacks clear purpose or beneficiary"
+    ]
+  },
+  "0000005513": {
+    "is_mission": "NO",
+    "actual_type": "HR",
+    "mission_quality": 0,
+    "quality_reason": "The text describes an HR practice rather than the company's mission.",
+    "corrected_mission": "NONE",
+    "confidence": 95,
+    "issues": [
+      "HR language",
+      "truncated sentence",
+      "not a mission statement"
+    ]
+  },
+  "0000030697": {
+    "is_mission": "YES",
+    "actual_type": "MISSION",
+    "mission_quality": 2,
+    "quality_reason": "The statement is presented as a brand promise which aligns closely with the company's mission.",
+    "corrected_mission": "NONE",
+    "confidence": 90,
+    "issues": [
+      "labeled as brand promise rather than mission"
+    ]
+  }
+}
